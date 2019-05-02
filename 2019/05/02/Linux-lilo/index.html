@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux-lilo | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,系统设置,lilo">
+    <meta name="description" content="lilo 命令lilo 命令用于安装核心载入，开机管理程序。">
+<meta name="keywords" content="Linux,lilo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-lilo">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/Linux-lilo/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="lilo 命令lilo 命令用于安装核心载入，开机管理程序。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-01T06:31:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-lilo">
+<meta name="twitter:description" content="lilo 命令lilo 命令用于安装核心载入，开机管理程序。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux-lilo</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux-lilo</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-02T01:54:36.020Z" itemprop="datePublished" class="page-time">
+  2019-05-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统设置/">系统设置</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统设置/lilo/">lilo</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#lilo-命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">lilo 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux-lilo" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux-lilo</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-02 09:54:36" datetime="2019-05-02T01:54:36.020Z" itemprop="datePublished">2019-05-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统设置/">系统设置</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统设置/lilo/">lilo</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="lilo-命令"><a href="#lilo-命令" class="headerlink" title="lilo 命令"></a>lilo 命令</h1><p>lilo 命令用于安装核心载入，开机管理程序。<br><a id="more"></a><br>lilo(linux loader)是个Linux系统核心载入程序，同时具备管理开机的功能。单独执行lilo指令，它会读取/etc/目录下的lilo.conf配置文件，然后根据其内容安装lilo。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lilo [-clqtV][-b&lt;外围设备代号&gt;][-C&lt;配置文件&gt;][-d&lt;延迟时间&gt;][－D&lt;识别标签&gt;][-f&lt;几何参数文件&gt;][-i&lt;开机磁区文件&gt;][-I&lt;识别标签&gt;][-m&lt;映射文件&gt;][-P&lt;fix/ignore&gt;][-r&lt;根目录&gt;][-R&lt;执行指令&gt;...][-s&lt;备份文件&gt;][-S&lt;备份文件&gt;][-uU&lt;外围设备代号&gt;][-v...]</span><br></pre></td></tr></table></figure>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li>-b&lt;外围设备代号&gt; 　指定安装lilo之处的外围设备代号。</li>
+<li>-c 　使用紧致映射模式。</li>
+<li>-C&lt;配置文件&gt; 　指定lilo的配置文件。</li>
+<li>-d&lt;延迟时间&gt; 　设置开机延迟时间。</li>
+<li>-D&lt;识别标签&gt; 　指定开机后预设启动的操作系统，或系统核心识别标签。</li>
+<li>-f&lt;几何参数文件&gt; 　指定磁盘的几何参数配置文件。</li>
+<li>-i&lt;开机磁区文件&gt; 　指定欲使用的开机磁区文件，预设是/boot目录里的boot.b文件。</li>
+<li>-I&lt;识别标签&gt; 　显示系统核心存放之处。</li>
+<li>-l 　产生线形磁区地址。</li>
+<li>-m&lt;映射文件&gt; 　指定映射文件。</li>
+<li>-P&lt; fix/ignore &gt; 　决定要修复或忽略分区表的错误。</li>
+<li>-q 　列出映射的系统核心文件。</li>
+<li>-r&lt;根目录&gt; 　设置系统启动时欲挂入成为根目录的目录。</li>
+<li>-R&lt;执行指令&gt; 　设置下次启动系统时，首先执行的指令。</li>
+<li>-s&lt;备份文件&gt; 　指定备份文件。</li>
+<li>-S&lt;备份文件&gt; 　强制指定备份文件。</li>
+<li>-t 　不执行指令，仅列出实际执行会进行的动作。</li>
+<li>-u&lt;外围色设备代号&gt; 　删除lilo。</li>
+<li>-U&lt;外围设备代号&gt; 　此参数的效果和指定”-u”参数类似，当不检查时间戳记。</li>
+<li>-v 　显示指令执行过程。</li>
+<li>-V 　显示版本信息。</li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>安装lilo到第一台SCSI硬盘的第三个主要分区，采用3级模式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># lilo -b /dev/sda3 -v -v -v</span><br></pre></td></tr></table></figure></p>
+<p>指定安装lilo的配置文件和备份文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># lilo -C /etc/lilo.conf2 -s /boot/boot. Backup</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-03-01T06:31:33.000Z" itemprop="dateUpdated">2019-03-01 14:31:33</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/02/Linux-lilo/" target="_blank" rel="external">http://yoursite.com/2019/05/02/Linux-lilo/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lilo/">lilo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统设置/">系统设置</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-lilo/&title=《Linux-lilo》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-lilo/&title=《Linux-lilo》 — Yan's blog&source=lilo 命令lilo 命令用于安装核心载入，开机管理程序。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-lilo/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-lilo》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-lilo/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-lilo/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/02/Linux-liloconfig/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Linux-liloconfig</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/02/Linux-lha/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux-lha</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-lilo/&title=《Linux-lilo》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-lilo/&title=《Linux-lilo》 — Yan's blog&source=lilo 命令lilo 命令用于安装核心载入，开机管理程序。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-lilo/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-lilo》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-lilo/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-lilo/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aS47CQAwFwLn/pRlptojm2SYmI1WvEJCkOgur/fn5idfjbz1/c/7+eZ2v/djCxcUdc/MHJPSc+OrXV3fAxcXd556DV3Sj47XnIJgYcHFx78nN6b174uLi/kduzprQcXFx78OdpC557eJ8tw/nari4uANutWB6xecL67u4uLhF7qO48gNQfvQpPB0XF3eFey5o9sqg+QaaG8bFxV3kJolKkpZUGy2JBxcXd5Pba53miU2y+UKIxMXFXeEmbZJJYKqOWSTNG1xc3Ku588CUh7zkRbwZ4cLFxV3h5seL6qGk16qJXgouLu7F3N64Q7U4Mi+U4OLifoubHGvy/1cbKtFVuLi4i9x5gWOSMuHi4t6fm6dGeZibBD5cXNx9bj4wkZdReoMdhcIrLi7uxdxHvHp1iXzD0RNxcXEXufPKZLWx2mux4OLibnJ74azXFJmMdODi4u5wqwFlVO5sjX00xztwcXHH3Enw6rVJ8qPSmyoOLi7uxdz8OFI9HpUHsCYxFRcXd517Tpx6B6PkReDi4t6fW+3i5qAkFOLi4m5yJ+3VXhKVl0KauRouLu6AOx/GysNWjsPFxf0S9xfDJN1EaoQ1HQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

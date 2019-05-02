@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux-tcpdump | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,网络通讯,tcpdump">
+    <meta name="description" content="tcpdump 命令tcpdump 命令用于倾倒网络传输数据。执行tcpdump指令可列出经过指定网络界面的数据包文件头，在Linux操作系统中，你必须是系统管理员。">
+<meta name="keywords" content="Linux,tcpdump">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-tcpdump">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/Linux-tcpdump/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="tcpdump 命令tcpdump 命令用于倾倒网络传输数据。执行tcpdump指令可列出经过指定网络界面的数据包文件头，在Linux操作系统中，你必须是系统管理员。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-20T07:32:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-tcpdump">
+<meta name="twitter:description" content="tcpdump 命令tcpdump 命令用于倾倒网络传输数据。执行tcpdump指令可列出经过指定网络界面的数据包文件头，在Linux操作系统中，你必须是系统管理员。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux-tcpdump</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux-tcpdump</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-02T01:54:37.091Z" itemprop="datePublished" class="page-time">
+  2019-05-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/网络通讯/">网络通讯</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/网络通讯/tcpdump/">tcpdump</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#tcpdump-命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">tcpdump 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux-tcpdump" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux-tcpdump</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-02 09:54:37" datetime="2019-05-02T01:54:37.091Z" itemprop="datePublished">2019-05-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/网络通讯/">网络通讯</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/网络通讯/tcpdump/">tcpdump</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="tcpdump-命令"><a href="#tcpdump-命令" class="headerlink" title="tcpdump 命令"></a>tcpdump 命令</h1><p>tcpdump 命令用于倾倒网络传输数据。<br>执行tcpdump指令可列出经过指定网络界面的数据包文件头，在Linux操作系统中，你必须是系统管理员。<br><a id="more"></a></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump [-adeflnNOpqStvx][-c&lt;数据包数目&gt;][-dd][-ddd][-F&lt;表达文件&gt;][-i&lt;网络界面&gt;][-r&lt;数据包文件&gt;][-s&lt;数据包大小&gt;][-tt][-T&lt;数据包类型&gt;][-vv][-w&lt;数据包文件&gt;][输出数据栏位]</span><br></pre></td></tr></table></figure>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li>-a 尝试将网络和广播地址转换成名称。</li>
+<li>-c&lt;数据包数目&gt; 收到指定的数据包数目后，就停止进行倾倒操作。</li>
+<li>-d 把编译过的数据包编码转换成可阅读的格式，并倾倒到标准输出。</li>
+<li>-dd 把编译过的数据包编码转换成C语言的格式，并倾倒到标准输出。</li>
+<li>-ddd 把编译过的数据包编码转换成十进制数字的格式，并倾倒到标准输出。</li>
+<li>-e 在每列倾倒资料上显示连接层级的文件头。</li>
+<li>-f 用数字显示网际网络地址。</li>
+<li>-F&lt;表达文件&gt; 指定内含表达方式的文件。</li>
+<li>-i&lt;网络界面&gt; 使用指定的网络截面送出数据包。</li>
+<li>-l 使用标准输出列的缓冲区。</li>
+<li>-n 不把主机的网络地址转换成名字。</li>
+<li>-N 不列出域名。</li>
+<li>-O 不将数据包编码最佳化。</li>
+<li>-p 不让网络界面进入混杂模式。</li>
+<li>-q 快速输出，仅列出少数的传输协议信息。</li>
+<li>-r&lt;数据包文件&gt; 从指定的文件读取数据包数据。</li>
+<li>-s&lt;数据包大小&gt; 设置每个数据包的大小。</li>
+<li>-S 用绝对而非相对数值列出TCP关联数。</li>
+<li>-t 在每列倾倒资料上不显示时间戳记。</li>
+<li>-tt 在每列倾倒资料上显示未经格式化的时间戳记。</li>
+<li>-T&lt;数据包类型&gt; 强制将表达方式所指定的数据包转译成设置的数据包类型。</li>
+<li>-v 详细显示指令执行过程。</li>
+<li>-vv 更详细显示指令执行过程。</li>
+<li>-x 用十六进制字码列出数据包资料。</li>
+<li>-w&lt;数据包文件&gt; 把数据包数据写入指定的文件。</li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>显示TCP包信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># tcpdump</span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span><br><span class="line">listening on eth0, link-type EN10MB (Ethernet), capture size 96 bytes</span><br><span class="line">23:35:55.129998 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 148872068:148872168(100) ack 4184371747 win 2100</span><br><span class="line">23:35:55.182357 IP 192.168.0.1.2101 &gt; 192.168.0.3.ssh: . ack 100 win 64240</span><br><span class="line">23:35:55.182397 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 100:200(100) ack 1 win 2100</span><br><span class="line">23:35:55.131713 IP 192.168.0.3.32804 &gt; dns2.cs.hn.cn.domain: 50226+ PTR? 1.0.168.192.in-addr.arpa. (42)</span><br><span class="line">23:35:55.131896 PPPoE [ses 0x1cb0] IP 118.250.6.85.64215 &gt; dns2.cs.hn.cn.domain: 50226+ PTR? 1.0.168.192.in-addr.arpa. (42)</span><br><span class="line">23:35:55.154238 PPPoE [ses 0x1cb0] IP dns2.cs.hn.cn.domain &gt; 118.250.6.85.64215: 50226 NXDomain 0/0/0 (42)</span><br><span class="line">23:35:55.156298 IP dns2.cs.hn.cn.domain &gt; 192.168.0.3.32804: 50226 NXDomain 0/0/0 (42)</span><br><span class="line">23:35:55.159292 IP 192.168.0.3.32804 &gt; dns2.cs.hn.cn.domain: 30304+ PTR? 3.0.168.192.in-addr.arpa. (42)</span><br><span class="line">23:35:55.159449 PPPoE [ses 0x1cb0] IP 118.250.6.85.64215 &gt; dns2.cs.hn.cn.domain: 30304+ PTR? 3.0.168.192.in-addr.arpa. (42)</span><br><span class="line">23:35:55.179816 PPPoE [ses 0x1cb0] IP dns2.cs.hn.cn.domain &gt; 118.250.6.85.64215: 30304 NXDomain 0/0/0 (42)</span><br><span class="line">23:35:55.181279 IP dns2.cs.hn.cn.domain &gt; 192.168.0.3.32804: 30304 NXDomain 0/0/0 (42)</span><br><span class="line">23:35:55.181806 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 200:268(68) ack 1 win 2100</span><br><span class="line">23:35:55.182177 IP 192.168.0.1.2101 &gt; 192.168.0.3.ssh: . ack 268 win 64198</span><br><span class="line">23:35:55.182677 IP 192.168.0.3.32804 &gt; dns2.cs.hn.cn.domain: 43983+ PTR? 112.96.103.202.in-addr.arpa. (45)</span><br><span class="line">23:35:55.182807 PPPoE [ses 0x1cb0] IP 118.250.6.85.64215 &gt; dns2.cs.hn.cn.domain: 43983+ PTR? 112.96.103.202.in-addr.arpa. (45)</span><br><span class="line">23:35:55.183055 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 268:352(84) ack 1 win 2100</span><br><span class="line">23:35:55.201096 PPPoE [ses 0x1cb0] IP dns2.cs.hn.cn.domain &gt; 118.250.6.85.64215: 43983 1/0/0 (72)</span><br><span class="line">23:35:55.203087 IP dns2.cs.hn.cn.domain &gt; 192.168.0.3.32804: 43983 1/0/0 (72)</span><br><span class="line">23:35:55.204666 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 352:452(100) ack 1 win 2100</span><br><span class="line">23:35:55.204852 IP 192.168.0.1.2101 &gt; 192.168.0.3.ssh: . ack 452 win 64152</span><br><span class="line">23:35:55.205305 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 452:520(68) ack 1 win 2100</span><br><span class="line">23:35:55.205889 IP 192.168.0.3.32804 &gt; dns2.cs.hn.cn.domain: 9318+ PTR? 85.6.250.118.in-addr.arpa. (43)</span><br><span class="line">23:35:55.206071 PPPoE [ses 0x1cb0] IP 118.250.6.85.64215 &gt; dns2.cs.hn.cn.domain: 9318+ PTR? 85.6.250.118.in-addr.arpa. (43)</span><br><span class="line">23:35:55.215338 PPPoE [ses 0x1cb0] IP 115.238.1.45.3724 &gt; 118.250.6.85.64120: P 2392751922:2392751987(65) ack 2849759785 win 54</span><br><span class="line">23:35:55.216273 IP 115.238.1.45.3724 &gt; 192.168.0.65.2057: P 2392751922:2392751987(65) ack 2849759785 win 54</span><br><span class="line">23:35:55.329204 IP 192.168.0.1.2101 &gt; 192.168.0.3.ssh: . ack 520 win 64135</span><br><span class="line">23:35:55.458214 IP 192.168.0.65.2057 &gt; 115.238.1.45.3724: . ack 65 win 32590</span><br><span class="line">23:35:55.458221 PPPoE [ses 0x1cb0] IP 118.250.6.85.64120 &gt; 115.238.1.45.3724: . ack 65 win 32590</span><br><span class="line">23:35:55.708228 PPPoE [ses 0x1cb0] IP 115.238.1.45.3724 &gt; 118.250.6.85.64120: P 65:118(53) ack 1 win 54</span><br><span class="line">23:35:55.710213 IP 115.238.1.45.3724 &gt; 192.168.0.65.2057: P 65:118(53) ack 1 win 54</span><br><span class="line">23:35:55.865151 IP 192.168.0.65.2057 &gt; 115.238.1.45.3724: . ack 118 win 32768</span><br><span class="line">23:35:55.865157 PPPoE [ses 0x1cb0] IP 118.250.6.85.64120 &gt; 115.238.1.45.3724: . ack 118 win 32768</span><br><span class="line">23:35:56.242805 IP 192.168.0.65.2057 &gt; 115.238.1.45.3724: P 1:25(24) ack 118 win 32768</span><br><span class="line">23:35:56.242812 PPPoE [ses 0x1cb0] IP 118.250.6.85.64120 &gt; 115.238.1.45.3724: P 1:25(24) ack 118 win 32768</span><br><span class="line">23:35:56.276816 PPPoE [ses 0x1cb0] IP 115.238.1.45.3724 &gt; 118.250.6.85.64120: . ack 25 win 54</span><br><span class="line">23:35:56.278240 IP 115.238.1.45.3724 &gt; 192.168.0.65.2057: . ack 25 win 54</span><br><span class="line">23:35:56.349747 PPPoE [ses 0x1cb0] IP 115.238.1.45.3724 &gt; 118.250.6.85.64120: P 118:159(41) ack 25 win 54</span><br><span class="line">23:35:56.351780 IP 115.238.1.45.3724 &gt; 192.168.0.65.2057: P 118:159(41) ack 25 win 54</span><br><span class="line">23:35:56.400051 PPPoE [ses 0x1cb0] IP 119.147.18.44.8000 &gt; 118.250.6.85.4000: UDP, length 79</span><br><span class="line">23:35:56.475050 IP 192.168.0.65.2057 &gt; 115.238.1.45.3724: . ack 159 win 32762</span><br><span class="line">23:35:56.475063 PPPoE [ses 0x1cb0] IP 118.250.6.85.64120 &gt; 115.238.1.45.3724: . ack 159 win 32762</span><br><span class="line">23:35:56.508968 PPPoE [ses 0x1cb0] IP 115.238.1.45.3724 &gt; 118.250.6.85.64120: P 159:411(252) ack 25 win 54</span><br><span class="line">23:35:56.510182 IP 115.238.1.45.3724 &gt; 192.168.0.65.2057: P 159:411(252) ack 25 win 54</span><br><span class="line">23:35:56.592028 PPPoE [ses 0x1cb0] IP 117.136.2.43.38959 &gt; 118.250.6.85.63283: UDP, length 36</span><br><span class="line"></span><br><span class="line">44 packets captured</span><br><span class="line">76 packets received by filter</span><br><span class="line">0 packets dropped by kernel</span><br></pre></td></tr></table></figure></p>
+<p>显示指定数量包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># tcpdump -c 20</span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span><br><span class="line">listening on eth0, link-type EN10MB (Ethernet), capture size 96 bytes</span><br><span class="line">23:36:28.949538 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 148875984:148876020(36) ack 4184373187 win 2100</span><br><span class="line">23:36:28.994325 IP 192.168.0.1.2101 &gt; 192.168.0.3.ssh: . ack 36 win 64020</span><br><span class="line">23:36:28.994368 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 36:72(36) ack 1 win 2100</span><br><span class="line">23:36:28.950779 IP 192.168.0.3.32804 &gt; dns2.cs.hn.cn.domain: 18242+ PTR? 1.0.168.192.in-addr.arpa. (42)</span><br><span class="line">23:36:28.950948 PPPoE [ses 0x1cb0] IP 118.250.6.85.64215 &gt; dns2.cs.hn.cn.domain: 18242+ PTR? 1.0.168.192.in-addr.arpa. (42)</span><br><span class="line">23:36:28.960105 PPPoE [ses 0x1cb0] IP 222.82.119.41.13594 &gt; 118.250.6.85.63283: UDP, length 36</span><br><span class="line">23:36:28.962192 IP 222.82.119.41.13594 &gt; 192.168.0.65.13965: UDP, length 36</span><br><span class="line">23:36:28.963118 IP 192.168.0.65.13965 &gt; 222.82.119.41.13594: UDP, length 34</span><br><span class="line">23:36:28.963123 PPPoE [ses 0x1cb0] IP 118.250.6.85.63283 &gt; 222.82.119.41.13594: UDP, length 34</span><br><span class="line">23:36:28.970185 PPPoE [ses 0x1cb0] IP dns2.cs.hn.cn.domain &gt; 118.250.6.85.64215: 18242 NXDomain 0/0/0 (42)</span><br><span class="line">23:36:28.970413 IP dns2.cs.hn.cn.domain &gt; 192.168.0.3.32804: 18242 NXDomain 0/0/0 (42)</span><br><span class="line">23:36:28.972352 IP 192.168.0.3.32804 &gt; dns2.cs.hn.cn.domain: 17862+ PTR? 3.0.168.192.in-addr.arpa. (42)</span><br><span class="line">23:36:28.972474 PPPoE [ses 0x1cb0] IP 118.250.6.85.64215 &gt; dns2.cs.hn.cn.domain: 17862+ PTR? 3.0.168.192.in-addr.arpa. (42)</span><br><span class="line">23:36:28.982287 PPPoE [ses 0x1cb0] IP 121.12.131.163.13109 &gt; 118.250.6.85.63283: UDP, length 27</span><br><span class="line">23:36:28.984162 IP 121.12.131.163.13109 &gt; 192.168.0.65.13965: UDP, length 27</span><br><span class="line">23:36:28.985021 IP 192.168.0.65.13965 &gt; 121.12.131.163.13109: UDP, length 103</span><br><span class="line">23:36:28.985027 PPPoE [ses 0x1cb0] IP 118.250.6.85.63283 &gt; 121.12.131.163.13109: UDP, length 103</span><br><span class="line">23:36:28.991919 PPPoE [ses 0x1cb0] IP dns2.cs.hn.cn.domain &gt; 118.250.6.85.64215: 17862 NXDomain 0/0/0 (42)</span><br><span class="line">23:36:28.993142 IP dns2.cs.hn.cn.domain &gt; 192.168.0.3.32804: 17862 NXDomain 0/0/0 (42)</span><br><span class="line">23:36:28.993574 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: P 72:140(68) ack 1 win 2100</span><br><span class="line">20 packets captured</span><br><span class="line">206 packets received by filter</span><br><span class="line">129 packets dropped by kernel</span><br></pre></td></tr></table></figure></p>
+<p>精简显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># tcpdump -c 10 -q //精简模式显示 10个包</span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv for full protocol decode</span><br><span class="line">listening on eth0, link-type EN10MB (Ethernet), capture size 96 bytes</span><br><span class="line">23:43:05.792280 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: tcp 36</span><br><span class="line">23:43:05.842115 IP 192.168.0.1.2101 &gt; 192.168.0.3.ssh: tcp 0</span><br><span class="line">23:43:05.845074 IP 115.238.1.45.3724 &gt; 192.168.0.65.2057: tcp 0</span><br><span class="line">23:43:05.907155 IP 192.168.0.3.ssh &gt; 192.168.0.1.2101: tcp 36</span><br><span class="line">23:43:05.793880 IP 192.168.0.3.32804 &gt; dns2.cs.hn.cn.domain: UDP, length 42</span><br><span class="line">23:43:05.794076 PPPoE [ses 0x1cb0] IP 118.250.6.85.64219 &gt; dns2.cs.hn.cn.domain: UDP, length 42</span><br><span class="line">23:43:05.811127 PPPoE [ses 0x1cb0] IP dns2.cs.hn.cn.domain &gt; 118.250.6.85.64219: UDP, length 42</span><br><span class="line">23:43:05.814764 IP dns2.cs.hn.cn.domain &gt; 192.168.0.3.32804: UDP, length 42</span><br><span class="line">23:43:05.816404 IP 192.168.0.3.32804 &gt; dns2.cs.hn.cn.domain: UDP, length 42</span><br><span class="line">23:43:05.816545 PPPoE [ses 0x1cb0] IP 118.250.6.85.64219 &gt; dns2.cs.hn.cn.domain: UDP, length 42</span><br><span class="line">10 packets captured</span><br><span class="line">39 packets received by filter</span><br><span class="line">0 packets dropped by kernel</span><br></pre></td></tr></table></figure></p>
+<p>转换克阅读格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># tcpdump -d    </span><br><span class="line">(000) ret   #96</span><br></pre></td></tr></table></figure></p>
+<p>转换成十进制格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># tcpdump -ddd</span><br><span class="line">1</span><br><span class="line">6 0 0 96</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-02-20T07:32:22.000Z" itemprop="dateUpdated">2019-02-20 15:32:22</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/02/Linux-tcpdump/" target="_blank" rel="external">http://yoursite.com/2019/05/02/Linux-tcpdump/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tcpdump/">tcpdump</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络通讯/">网络通讯</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-tcpdump/&title=《Linux-tcpdump》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-tcpdump/&title=《Linux-tcpdump》 — Yan's blog&source=tcpdump 命令tcpdump 命令用于倾倒网络传输数据。执行tcpdump指令可列出经过指定网络界面的数据包文件头，在Linux操作系统中，你必须是..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-tcpdump/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-tcpdump》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-tcpdump/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-tcpdump/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/02/Linux-tee/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Linux-tee</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/02/Linux-tar/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux-tar</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-tcpdump/&title=《Linux-tcpdump》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-tcpdump/&title=《Linux-tcpdump》 — Yan's blog&source=tcpdump 命令tcpdump 命令用于倾倒网络传输数据。执行tcpdump指令可列出经过指定网络界面的数据包文件头，在Linux操作系统中，你必须是..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-tcpdump/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-tcpdump》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-tcpdump/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-tcpdump/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3ay27DMAxEUf//TztAVwWcWDNDtojFq5WB+KGjBUOJPA55nD/j9/V1XH+9vkF5z/XZtgEDBozHMpTXfZrW/a/6tJRFWbwTBgwYAxhKkL2/x42E94HY/i4MGDBgmEHZvW5YPhgwYMAwA2uW/MGAAQPGPSM7ROtKFiuBHgYMGBMYWWHgf67/vL4BAwaMr2ecTaNe/tTvefMUDBgwtma4aZ/eTpGlfUpzRriHhgEDxhYM/TP1sOvORFpKGDBgjGEox/FKAcA9zguDrPJhGDBgPJyhAOptFvVwvEg0YcCAMYChN0B03emyF8/CgAFjDCM71s/aKbIl+HgPDBgwxjPqR2Z18OKYDwYMGFsz6odl9aTQLTDY5UwYMGBswXCnqBQPlKdchtEWBgMGjI0YelnROKaPUsas5BD2o8GAAeNRjN6J6q1dbgoozQQGDBgDGPWyYlbmPLoGDBgwtmbomCwcu8+6iwIDBowJjGx7mW1H7UYKPWWEAQPGGIYbFsNmiNs3hAVOGDBgDGAYR/ARVS85hIduMGDA2JqRBeKshaJy6Ba2kcGAAePhjNMcGUnP3/Q3Sz4YMGBswXArg25K17tVbiiCwoAB47EMvWHCDZo6KQu4MGDAmMbIgqwev+tJ3gIGAwYMGGapwG2ncLeyi7YwGDBgDGZkR2/KVJr32TBgwNiUoWxi9a2pXlrQkz+jLQwGDBjbMbKg7IZRdwOsLErDfwsMGDC+nfEC9CRqmIQAA5sAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

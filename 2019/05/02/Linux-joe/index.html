@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux-joe | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,文档编辑,joe">
+    <meta name="description" content="joe 命令joe 命令用于编辑文本文件。joe是一个功能强大的全屏幕文本编辑程序。操作的复杂度要比pico高一点，但是功能较为齐全。joe一次可开启多个文件，每个文件各放在一个编辑区内，并可在文件之间执行剪切的动作。">
+<meta name="keywords" content="Linux,joe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-joe">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/Linux-joe/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="joe 命令joe 命令用于编辑文本文件。joe是一个功能强大的全屏幕文本编辑程序。操作的复杂度要比pico高一点，但是功能较为齐全。joe一次可开启多个文件，每个文件各放在一个编辑区内，并可在文件之间执行剪切的动作。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-10T15:23:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-joe">
+<meta name="twitter:description" content="joe 命令joe 命令用于编辑文本文件。joe是一个功能强大的全屏幕文本编辑程序。操作的复杂度要比pico高一点，但是功能较为齐全。joe一次可开启多个文件，每个文件各放在一个编辑区内，并可在文件之间执行剪切的动作。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux-joe</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux-joe</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-02T01:54:35.962Z" itemprop="datePublished" class="page-time">
+  2019-05-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/文档编辑/">文档编辑</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/文档编辑/joe/">joe</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#joe-命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">joe 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux-joe" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux-joe</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-02 09:54:35" datetime="2019-05-02T01:54:35.962Z" itemprop="datePublished">2019-05-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/文档编辑/">文档编辑</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/文档编辑/joe/">joe</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="joe-命令"><a href="#joe-命令" class="headerlink" title="joe 命令"></a>joe 命令</h1><p>joe 命令用于编辑文本文件。<br>joe是一个功能强大的全屏幕文本编辑程序。操作的复杂度要比pico高一点，但是功能较为齐全。joe一次可开启多个文件，每个文件各放在一个编辑区内，并可在文件之间执行剪切的动作。<br><a id="more"></a></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">joe [-asis][-beep][-csmode][-dopadding][-exask][-force][-help][-keepup][-lightoff][-arking][-mid][-nobackups][-nonotice][-nosta][-noxon][-orphan][-backpath&lt;目录&gt;][-columns&lt;栏位&gt;][-lines&lt;行数&gt;][-pg&lt;行数&gt;][-skiptop&lt;行数&gt;][-autoindent crlf linums overwrite rdonly wordwrap][+&lt;行数&gt;][-indentc&lt;缩排字符&gt;][-istep&lt;缩排字符数&gt;][-keymap&lt;按键配置文件&gt;][-lmargin&lt;栏数&gt;][-rmargin&lt;栏数&gt;][-tab&lt;栏数&gt;][要编辑的文件]&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>以下为程序参数</p>
+<ul>
+<li>-asis 字符码超过127的字符不做任何处理。</li>
+<li>-backpath&lt;目录&gt; 指定备份文件的目录。</li>
+<li>-beep 编辑时，若有错误即发出哗声。</li>
+<li>-columns&lt;栏位&gt; 设置栏数。</li>
+<li>-csmode 可执行连续查找模式。</li>
+<li>-dopadding 是程序跟tty间存在缓冲区。</li>
+<li>-exask 在程序中，执行”Ctrl+k+x”时，会先确认是否要保存文件。</li>
+<li>-force 强制在最后一行的结尾处加上换行符号。</li>
+<li>-help 执行程序时一并显示帮助。</li>
+<li>-keepup 在进入程序后，画面上方为状态列。</li>
+<li>-lightoff 选取的区块在执行完区块命令后，就会回复成原来的状态。</li>
+<li>-lines&lt;行数&gt; 设置行数。</li>
+<li>-marking 在选取区块时，反白区块会随着光标移动。</li>
+<li>-mid 当光标移出画面时，即自动卷页，使光标回到中央。</li>
+<li>-nobackups 不建立备份文件。</li>
+<li>-nonotice 程序执行时，不显示版权信息。</li>
+<li>-nosta 程序执行时，不显示状态列。</li>
+<li>-noxon 尝试取消”Ctrl+s”与”Ctrl+q”键的功能。</li>
+<li>-orphan 若同时开启一个以上的文件，则其他文件会置于独立的缓冲区，而不会另外开启编辑区。</li>
+<li>-pg&lt;行数&gt; 按”PageUp”或”PageDown”换页时，所要保留前一页的行数。</li>
+<li>-skiptop&lt;行数&gt; 不使用屏幕上方指定的行数。</li>
+</ul>
+<p>以下为文件参数</p>
+<ul>
+<li>+&lt;行数&gt; 指定开启文件时，光标所在的行数。</li>
+<li>-autoindent 自动缩排。</li>
+<li>-crlf 在换行时，使用CR-LF字符。</li>
+<li>-indentc&lt;缩排字符&gt; 执行缩排时，实际插入的字符。</li>
+<li>-istep&lt;缩排字符数&gt; 每次执行缩排时，所移动的缩排字符数。</li>
+<li>-keymap&lt;按键配置文件&gt; 使用不同的按键配置文件。</li>
+<li>-linums 在每行前面加上行号。</li>
+<li>-lmargin&lt;栏数&gt; 设置左侧边界。</li>
+<li>-overwrite 设置覆盖模式。</li>
+<li>-rmargin&lt;栏数&gt; 设置右侧边界。</li>
+<li>-tab&lt;栏数&gt; 设置tab的宽度。</li>
+<li>-rdonly 以只读的方式开启文件-wordwrap编辑时若超过右侧边界，则自动换行。</li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>利用joe命令编辑文本文件。例如利用joe编辑C语言源代码main.c，使用如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">joe main.c</span><br></pre></td></tr></table></figure></p>
+<p>与jed类似，joe编辑器中C语言的语法也以彩色的方式显示。效果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">I A main.c (c) Row 1 Col 1 12:28 Ctrl-K H for help  </span><br><span class="line">#上排从左至右分别为打开的文件名、光标所在行列数、现在时间、显示操作说明  </span><br><span class="line">/*-*- linux-c-*-*/ #编辑区  </span><br><span class="line">#include &lt;linux/mm.h&gt; </span><br><span class="line">#include &lt;linux/sysctl.h&gt; </span><br><span class="line">#include &lt;linux/nsproxy.h&gt; </span><br><span class="line">static struct list_head *  </span><br><span class="line">net_ctl_header_lookup(struct ctl_table_root *root, struct nsproxy *namespaces)  </span><br><span class="line">&#123;  </span><br><span class="line">return &amp;namespaces-&gt;net_ns-&gt;sysctl_table_headers;  </span><br><span class="line">&#125;  </span><br><span class="line">static struct ctl_table_root net_sysctl_root = &#123;  </span><br><span class="line">.lookup = net_ctl_header_lookup,  </span><br><span class="line">&#125;;  </span><br><span class="line">static int sysctl_net_init(struct net *net)  </span><br><span class="line">&#123;  </span><br><span class="line">INIT_LIST_HEAD(&amp;net-&gt;sysctl_table_headers);  </span><br><span class="line">return 0;  </span><br><span class="line">&#125;  </span><br><span class="line">** Joe&apos;s Own Editor v3.5 ** (utf-8) ** Copyright . 2006 ** #joe编辑区的版本及版权信息</span><br></pre></td></tr></table></figure></p>
+<p>joe编辑器有一些常用的组合键，例如可以通过Ctrl+K+H 寻求联机帮助，首先按Ctrl+K组合键，再输入字母H，即可调出帮助菜单，通过该帮助信息可以方便地获知如何对joe 编辑器进行操作。        </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-02-10T15:23:37.000Z" itemprop="dateUpdated">2019-02-10 23:23:37</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/02/Linux-joe/" target="_blank" rel="external">http://yoursite.com/2019/05/02/Linux-joe/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/joe/">joe</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文档编辑/">文档编辑</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-joe/&title=《Linux-joe》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-joe/&title=《Linux-joe》 — Yan's blog&source=joe 命令joe 命令用于编辑文本文件。joe是一个功能强大的全屏幕文本编辑程序。操作的复杂度要比pico高一点，但是功能较为齐全。joe一次可开启多个..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-joe/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-joe》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-joe/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-joe/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/02/Linux-join/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Linux-join</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/02/Linux-jed/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux-jed</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-joe/&title=《Linux-joe》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-joe/&title=《Linux-joe》 — Yan's blog&source=joe 命令joe 命令用于编辑文本文件。joe是一个功能强大的全屏幕文本编辑程序。操作的复杂度要比pico高一点，但是功能较为齐全。joe一次可开启多个..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-joe/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-joe》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-joe/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-joe/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABuklEQVR42u3aQW4DIRAEwP3/pzcPiMA9zMLaUnGKbAIlH0bNwHXF4w5GMvP/nGvHwMXFbXPXEKN1RivP10kMuLi457nz7edzRktXy1/yE+Di4n4nN4kmT62Ji4v7K9xk5qiozaMPLi7ut3GrESRhzaHbz2q4uLgNbt6l3Pf3lv4uLi7uEvcujnydats02h0XF/cIt9rm6F+XrrVXcHFxz3OrG1Q/ydup+YUuLi7uSW5esKqstaj04b9wcXE3cOeN0U7zNL9cyX8aXFzcM9y1oJMcY+Zlq39hg4uLu4/bKU/74tFwR1xc3IPcvLb1H1dVn1x8uPnBxcXdzK12U/InWWvlMjqr4eLibuDOcdXjUJ5DWmEIFxf3CDcpMXlbpP9EI7qOxcXF3cxNwkp1ZlIiq9euuLi4b3Hzy9G10LP2OS4u7rvcPO7MC9OWFIaLi3uEexfHU6Fn7c4UFxf3DLdaXDobVJ92tVoquLi4bW71SnXt27WGLC4u7rvcJI5UC1M1ALXORri4uK9y80JWPT5F4QkXF/dnudW4UyijuLi4B7n9pxJJAyWPTbi4uO9yO+3OfpF6ak1cXNyHuH+AfOwLWauisQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

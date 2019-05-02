@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux-traceroute | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,网络通讯,traceroute">
+    <meta name="description" content="traceroute 命令traceroute 命令用于显示数据包到主机间的路径。traceroute指令让你追踪到网络数据包的路由途径，预设数据包大小是40Bytes，用户可另行设置。">
+<meta name="keywords" content="Linux,traceroute">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-traceroute">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/Linux-traceroute/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="traceroute 命令traceroute 命令用于显示数据包到主机间的路径。traceroute指令让你追踪到网络数据包的路由途径，预设数据包大小是40Bytes，用户可另行设置。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-20T07:11:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-traceroute">
+<meta name="twitter:description" content="traceroute 命令traceroute 命令用于显示数据包到主机间的路径。traceroute指令让你追踪到网络数据包的路由途径，预设数据包大小是40Bytes，用户可另行设置。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux-traceroute</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux-traceroute</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-02T01:54:37.178Z" itemprop="datePublished" class="page-time">
+  2019-05-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/网络通讯/">网络通讯</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/网络通讯/traceroute/">traceroute</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#traceroute-命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">traceroute 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux-traceroute" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux-traceroute</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-02 09:54:37" datetime="2019-05-02T01:54:37.178Z" itemprop="datePublished">2019-05-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/网络通讯/">网络通讯</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/网络通讯/traceroute/">traceroute</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="traceroute-命令"><a href="#traceroute-命令" class="headerlink" title="traceroute 命令"></a>traceroute 命令</h1><p>traceroute 命令用于显示数据包到主机间的路径。<br>traceroute指令让你追踪到网络数据包的路由途径，预设数据包大小是40Bytes，用户可另行设置。<br><a id="more"></a></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute [-dFlnrvx][-f&lt;存活数值&gt;][-g&lt;网关&gt;...][-i&lt;网络界面&gt;][-m&lt;存活数值&gt;][-p&lt;通信端口&gt;][-s&lt;来源地址&gt;][-t&lt;服务类型&gt;][-w&lt;超时秒数&gt;][主机名称或IP地址][数据包大小]</span><br></pre></td></tr></table></figure>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li>-d 使用Socket层级的排错功能。</li>
+<li>-f&lt;存活数值&gt; 设置第一个检测数据包的存活数值TTL的大小。</li>
+<li>-F 设置勿离断位。</li>
+<li>-g&lt;网关&gt; 设置来源路由网关，最多可设置8个。</li>
+<li>-i&lt;网络界面&gt; 使用指定的网络界面送出数据包。</li>
+<li>-I 使用ICMP回应取代UDP资料信息。</li>
+<li>-m&lt;存活数值&gt; 设置检测数据包的最大存活数值TTL的大小。</li>
+<li>-n 直接使用IP地址而非主机名称。</li>
+<li>-p&lt;通信端口&gt; 设置UDP传输协议的通信端口。</li>
+<li>-r 忽略普通的Routing Table，直接将数据包送到远端主机上。</li>
+<li>-s&lt;来源地址&gt; 设置本地主机送出数据包的IP地址。</li>
+<li>-t&lt;服务类型&gt; 设置检测数据包的TOS数值。</li>
+<li>-v 详细显示指令的执行过程。</li>
+<li>-w&lt;超时秒数&gt; 设置等待远端主机回报的时间。</li>
+<li>-x 开启或关闭数据包的正确性检验。</li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>显示到达目的地的数据包路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># traceroute www.google.com</span><br><span class="line">traceroute: Warning: www.google.com has multiple addresses; using 66.249.89.99</span><br><span class="line">traceroute to www.l.google.com (66.249.89.99), 30 hops max, 38 byte packets</span><br><span class="line">1 192.168.0.1 (192.168.0.1) 0.653 ms 0.846 ms 0.200 ms</span><br><span class="line">2 118.250.4.1 (118.250.4.1) 36.610 ms 58.438 ms 55.146 ms</span><br><span class="line">3 222.247.28.177 (222.247.28.177) 54.809 ms 39.879 ms 19.186 ms</span><br><span class="line">4 61.187.255.253 (61.187.255.253) 18.033 ms 49.699 ms 72.147 ms</span><br><span class="line">5 61.137.2.177 (61.137.2.177) 32.912 ms 72.947 ms 41.809 ms</span><br><span class="line">6 202.97.46.5 (202.97.46.5) 60.436 ms 25.527 ms 40.023 ms</span><br><span class="line">7 202.97.35.69 (202.97.35.69) 40.049 ms 66.091 ms 44.358 ms</span><br><span class="line">8 202.97.35.110 (202.97.35.110) 42.140 ms 70.913 ms 41.144 ms</span><br><span class="line">9 202.97.35.14 (202.97.35.14) 116.929 ms 57.081 ms 60.336 ms</span><br><span class="line">10 202.97.60.34 (202.97.60.34) 54.871 ms 69.302 ms 64.353 ms</span><br><span class="line">11 * * *</span><br><span class="line">12 209.85.255.80 (209.85.255.80) 95.954 ms 79.844 ms 76.052 ms</span><br><span class="line">   MPLS Label=385825 CoS=5 TTL=1 S=0</span><br><span class="line">13 209.85.249.195 (209.85.249.195) 118.687 ms 120.905 ms 113.936 ms</span><br><span class="line">14 72.14.236.126 (72.14.236.126) 115.843 ms 137.109 ms 186.491 ms</span><br><span class="line">15 nrt04s01-in-f99.1e100.net (66.249.89.99) 168.024 ms 140.551 ms 161.127 ms</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-02-20T07:11:15.000Z" itemprop="dateUpdated">2019-02-20 15:11:15</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/02/Linux-traceroute/" target="_blank" rel="external">http://yoursite.com/2019/05/02/Linux-traceroute/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/traceroute/">traceroute</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络通讯/">网络通讯</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-traceroute/&title=《Linux-traceroute》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-traceroute/&title=《Linux-traceroute》 — Yan's blog&source=traceroute 命令traceroute 命令用于显示数据包到主机间的路径。traceroute指令让你追踪到网络数据包的路由途径，预设数据包大小是..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-traceroute/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-traceroute》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-traceroute/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-traceroute/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/02/Linux-tree/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Linux-tree</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/02/Linux-tr/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux-tr</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-traceroute/&title=《Linux-traceroute》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-traceroute/&title=《Linux-traceroute》 — Yan's blog&source=traceroute 命令traceroute 命令用于显示数据包到主机间的路径。traceroute指令让你追踪到网络数据包的路由途径，预设数据包大小是..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-traceroute/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-traceroute》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-traceroute/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-traceroute/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQY7jMAwEwPn/p7OXPQwwiN1NeWcRqXQKDMtS5SBQJL++4vH6Nn4++f78+v2fv69nPTwwMDA+lvG6HNcLXC88Y1/PersiBgbGAYxkE+/enx2sz34BAwMDI1k4CfiSb2JgYGA8xWgDuxaMgYGBMbvEXjPasO+/3cUxMDA+kJFn3X//9z+pb2BgYHwU41WOvKjZPpnt5+9cDAyMrRn5AdcWNWdB5Mp+MDAwzmS0x25+OLbF0ejPwsDAOICRp7GSwG493ZaXPDEwMPZmzBJhszay9Raxt3MxMDC2Zswuk7MEWdtUkc/FwMA4gdG2OzzVSJEczW3bBwYGxn6MdkKbRMuTZe26NxEuBgbG1oy8bNmWKpNEXntMY2BgnMNoL6v1Mg+VAW7aLDAwMI5hJJ+eLbZSeChqsBgYGAcw2naxWajXFhuiZgsMDIytGW24lhydUXvEMhsDA+McRhKKrTd+zcoM0d4wMDC2ZsxavtpwcGXrQwwGBsZ2jLqDbBTkrSTaoms2BgbGMYwiyVUeoPk7w5QfBgbGYYwWMCsPtEf8DRsDA2NTxqsceQNEcvXN03A3fyIGBsbWjPVWieSAbkue+fsYGBjnMPKrZpt0mxUVhuEjBgbGAYyV1oqVhokZEgMDAyMP454NLvNGDQwMDIz2MrmSLMsbO26OaQwMjAMYs9bSJIBLttuWIjAwME5jtFfH9VByvVFjqb6BgYHxSYw/9GssuklQpUIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux-time | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,系统设置,time">
+    <meta name="description" content="time 命令time 命令的用途，在于量测特定指令执行时所需消耗的时间及系统资源等资讯。">
+<meta name="keywords" content="Linux,time">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-time">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/Linux-time/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="time 命令time 命令的用途，在于量测特定指令执行时所需消耗的时间及系统资源等资讯。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-01T09:52:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-time">
+<meta name="twitter:description" content="time 命令time 命令的用途，在于量测特定指令执行时所需消耗的时间及系统资源等资讯。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux-time</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux-time</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-02T01:54:37.127Z" itemprop="datePublished" class="page-time">
+  2019-05-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统设置/">系统设置</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统设置/time/">time</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#time-命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">time 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux-time" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux-time</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-02 09:54:37" datetime="2019-05-02T01:54:37.127Z" itemprop="datePublished">2019-05-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统设置/">系统设置</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统设置/time/">time</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="time-命令"><a href="#time-命令" class="headerlink" title="time 命令"></a>time 命令</h1><p>time 命令的用途，在于量测特定指令执行时所需消耗的时间及系统资源等资讯。<br><a id="more"></a><br>例如 CPU 时间、记忆体、输入输出等等。需要特别注意的是，部分资讯在 Linux 上显示不出来。这是因为在 Linux 上部分资源的分配函式与 time 指令所预设的方式并不相同，以致于 time 指令无法取得这些资料。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time [options] COMMAND [arguments]</span><br></pre></td></tr></table></figure>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li>-o 或 –output=FILE：设定结果输出档。这个选项会将 time 的输出写入 所指定的档案中。如果档案已经存在，系统将覆写其内容。</li>
+<li>-a 或 –append：配合 -o 使用，会将结果写到档案的末端，而不会覆盖掉原来的内容。</li>
+<li>-f FORMAT 或 –format=FORMAT：以 FORMAT 字串设定显示方式。当这个选项没有被设定的时候，会用系统预设的格式。不过你可以用环境变数 time 来设定这个格式，如此一来就不必每次登入系统都要设定一次。</li>
+</ul>
+<p>time 指令可以显示的资源有四大项，分别是：    </p>
+<ul>
+<li>Time resources</li>
+<li>Memory resources</li>
+<li>IO resources</li>
+<li>Command info</li>
+</ul>
+<p>详细的内容如下：<br>1、Time Resources</p>
+<p>E 执行指令所花费的时间，格式是：[hour]:minute:second。请注意这个数字并不代表实际的 CPU 时间。</p>
+<p>e 执行指令所花费的时间，单位是秒。请注意这个数字并不代表实际的 CPU 时间。</p>
+<p>S 指令执行时在核心模式（kernel mode）所花费的时间，单位是秒。</p>
+<p>U 指令执行时在使用者模式（user mode）所花费的时间，单位是秒。</p>
+<p>P 执行指令时 CPU 的占用比例。其实这个数字就是核心模式加上使用者模式的 CPU 时间除以总时间。</p>
+<p>2、Memory Resources</p>
+<p>M 执行时所占用的实体记忆体的最大值。单位是 KB</p>
+<p>t 执行时所占用的实体记忆体的平均值，单位是 KB</p>
+<p>K 执行程序所占用的记忆体总量（stack+data+text）的平均大小，单位是 KB</p>
+<p>D 执行程序的自有资料区（unshared data area）的平均大小，单位是 KB</p>
+<p>p 执行程序的自有堆叠（unshared stack）的平均大小，单位是 KB</p>
+<p>X 执行程序间共享内容（shared text）的平均值，单位是 KB</p>
+<p>Z 系统记忆体页的大小，单位是 byte。对同一个系统来说这是个常数</p>
+<p>3、IO Resources</p>
+<p>F 此程序的主要记忆体页错误发生次数。所谓的主要记忆体页错误是指某一记忆体页已经置换到置换档（swap file)中，而且已经分配给其他程序。此时该页的内容必须从置换档里再读出来。</p>
+<p>R 此程序的次要记忆体页错误发生次数。所谓的次要记忆体页错误是指某一记忆体页虽然已经置换到置换档中，但尚未分配给其他程序。此时该页的内容并未被破坏，不必从置换档里读出来</p>
+<p>W 此程序被交换到置换档的次数</p>
+<p>c 此程序被强迫中断（像是分配到的 CPU 时间耗尽）的次数</p>
+<p>w 此程序自愿中断（像是在等待某一个 I/O 执行完毕，像是磁碟读取等等）的次数</p>
+<p>I 此程序所输入的档案数</p>
+<p>O 此程序所输出的档案数</p>
+<p>r 此程序所收到的 Socket Message</p>
+<p>s 此程序所送出的 Socket Message</p>
+<p>k 此程序所收到的信号 ( Signal )数量</p>
+<p>4、Command Info</p>
+<p>C 执行时的参数以及指令名称</p>
+<p>x 指令的结束代码 ( Exit Status )</p>
+<p>-p or –portability：这个选项会自动把显示格式设定成为：</p>
+<p>real %e user %Usys %S：这么做的目的是为了与 POSIX 规格相容。</p>
+<p>-v or –verbose：这个选项会把所有程序中用到的资源通通列出来，不但如一般英文语句，还有说明。对不想花时间去熟习格式设定或是刚刚开始接触这个指令的人相当有用。</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>利用下面的指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time -v ps -aux</span><br></pre></td></tr></table></figure></p>
+<p>我们可以获得执行 ps -aux 的结果和所花费的系统资源。如下面所列的资料：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND</span><br><span class="line">root 1 0.0 0.4 1096 472 ? S Apr19 0:04 init</span><br><span class="line">root 2 0.0 0.0 0 0 ? SW Apr19 0:00 [kflushd]</span><br><span class="line">root 3 0.0 0.0 0 0 ? SW Apr19 0:00 [kpiod]</span><br><span class="line">......</span><br><span class="line">root 24269 0.0 1.0 2692 996 pts/3 R 12:16 0:00 ps -aux</span><br><span class="line">Command being timed: &quot;ps -aux&quot;</span><br><span class="line">User time (seconds): 0.05</span><br><span class="line">System time (seconds): 0.06</span><br><span class="line">Percent of CPU this job got: 68%</span><br><span class="line">Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.16</span><br><span class="line">Average shared text size (kbytes): 0</span><br><span class="line">Average unshared data size (kbytes): 0</span><br><span class="line">Average stack size (kbytes): 0</span><br><span class="line">Average total size (kbytes): 0</span><br><span class="line">Maximum resident set size (kbytes): 0</span><br><span class="line">Average resident set size (kbytes): 0</span><br><span class="line">Major (requiring I/O) page faults: 238</span><br><span class="line">Minor (reclaiming a frame) page faults: 46</span><br><span class="line">Voluntary context switches: 0</span><br><span class="line">Involuntary context switches: 0</span><br><span class="line">Swaps: 0</span><br><span class="line">File system inputs: 0</span><br><span class="line">File system outputs: 0</span><br><span class="line">Socket messages sent: 0</span><br><span class="line">Socket messages received: 0</span><br><span class="line">Signals delivered: 0</span><br><span class="line">Page size (bytes): 4096</span><br><span class="line">Exit status: 0</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-03-01T09:52:14.000Z" itemprop="dateUpdated">2019-03-01 17:52:14</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/02/Linux-time/" target="_blank" rel="external">http://yoursite.com/2019/05/02/Linux-time/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/time/">time</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统设置/">系统设置</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-time/&title=《Linux-time》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-time/&title=《Linux-time》 — Yan's blog&source=time 命令time 命令的用途，在于量测特定指令执行时所需消耗的时间及系统资源等资讯。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-time/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-time》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-time/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-time/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/02/Linux-timeconfig/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Linux-timeconfig</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/02/Linux-tftp/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux-tftp</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-time/&title=《Linux-time》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-time/&title=《Linux-time》 — Yan's blog&source=time 命令time 命令的用途，在于量测特定指令执行时所需消耗的时间及系统资源等资讯。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-time/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-time》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-time/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-time/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3aMW7DMBAEwPz/0w6QKo2UXZ5IO8CwMiSbHLk4iHv8+orH62dcXf9993U7rn718MDFxR1z8wXmM1zNmcyAi4t7nntfvNqHSe4mfwcuLu7nc+8f46k5cXFx/xc33+pM6Li4uJ/DzbcuSaixthF6eK+Gi4s74LaB6Y7PG/NdXFzckvsqx3wzM1odFxf3CDeJO++vrzVOknjl8oFxcXE3cyclLClP7WGO+78AFxf3JLctNPuu/yHBxcU9wk2ORLTt1ckxi2J+XFzcbdy8OZqHI/n38w3SZYqDi4u7jbsWXz7QCo2bstE7Fy4u7qPcdslk6rXjGvXCuLi4G7htfNm+ANUvMcmvcHFxN3PbQpNEmUk8iouL+/ncefskD1WTu1HnBxcXdxt3LRhdizvr3s59QwUXF3cbd61ULcadZVCLi4v7Xm6eTLbbmPxuUchwcXGPcCdt1CQomYQmUb3ExcV9lNsWlLWClTxqEtDg4uKe5CbFKw89c/ri1gsXF/cgty1eyQLtC9DoYBYuLu6buG08OmnJXM6Mi4v7T7jta9CohYOLi3uQ2xaX9uDFJApZ3Kvh4uIOuE8Fpm100hY+XFzcI9xvKmf8M207dY0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

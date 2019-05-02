@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux-hdparm | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,磁盘维护,hdparm">
+    <meta name="description" content="hdparm 命令hdparm 命令用于显示与设定硬盘的参数。hdparm可检测、显示与设定IDE或SCSI硬盘的参数。">
+<meta name="keywords" content="Linux,hdparm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-hdparm">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/Linux-hdparm/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="hdparm 命令hdparm 命令用于显示与设定硬盘的参数。hdparm可检测、显示与设定IDE或SCSI硬盘的参数。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-19T12:28:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-hdparm">
+<meta name="twitter:description" content="hdparm 命令hdparm 命令用于显示与设定硬盘的参数。hdparm可检测、显示与设定IDE或SCSI硬盘的参数。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux-hdparm</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux-hdparm</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-02T01:54:35.898Z" itemprop="datePublished" class="page-time">
+  2019-05-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/磁盘维护/">磁盘维护</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/磁盘维护/hdparm/">hdparm</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#hdparm-命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">hdparm 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux-hdparm" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux-hdparm</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-02 09:54:35" datetime="2019-05-02T01:54:35.898Z" itemprop="datePublished">2019-05-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/磁盘维护/">磁盘维护</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/磁盘维护/hdparm/">hdparm</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="hdparm-命令"><a href="#hdparm-命令" class="headerlink" title="hdparm 命令"></a>hdparm 命令</h1><p>hdparm 命令用于显示与设定硬盘的参数。<br>hdparm可检测、显示与设定IDE或SCSI硬盘的参数。<br><a id="more"></a></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdparm [-CfghiIqtTvyYZ][-a &lt;快取分区&gt;][-A &lt;0或1&gt;][-c &lt;I/O模式&gt;][-d &lt;0或1&gt;][-k &lt;0或1&gt;][-K &lt;0或1&gt;][-m &lt;分区数&gt;][-n &lt;0或1&gt;][-p &lt;PIO模式&gt;][-P &lt;分区数&gt;][-r &lt;0或1&gt;][-S &lt;时间&gt;][-u &lt;0或1&gt;][-W &lt;0或1&gt;][-X &lt;传输模式&gt;][设备]</span><br></pre></td></tr></table></figure>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li>-a&lt;快取分区&gt; 设定读取文件时，预先存入块区的分区数，若不加上&lt;快取分区&gt;选项，则显示目前的设定。</li>
+<li>-A&lt;0或1&gt; 启动或关闭读取文件时的快取功能。</li>
+<li>-c&lt;I/O模式&gt; 设定IDE32位I/O模式。</li>
+<li>-C 检测IDE硬盘的电源管理模式。</li>
+<li>-d&lt;0或1&gt; 设定磁盘的DMA模式。</li>
+<li>-f 将内存缓冲区的数据写入硬盘，并清楚缓冲区。</li>
+<li>-g 显示硬盘的磁轨，磁头，磁区等参数。</li>
+<li>-h 显示帮助。</li>
+<li>-i 显示硬盘的硬件规格信息，这些信息是在开机时由硬盘本身所提供。</li>
+<li>-I 直接读取硬盘所提供的硬件规格信息。</li>
+<li>-k&lt;0或1&gt; 重设硬盘时，保留-dmu参数的设定。</li>
+<li>-K&lt;0或1&gt; 重设硬盘时，保留-APSWXZ参数的设定。</li>
+<li>-m&lt;磁区数&gt; 设定硬盘多重分区存取的分区数。</li>
+<li>-n&lt;0或1&gt; 忽略硬盘写入时所发生的错误。</li>
+<li>-p&lt;PIO模式&gt; 设定硬盘的PIO模式。</li>
+<li>-P&lt;磁区数&gt; 设定硬盘内部快取的分区数。</li>
+<li>-q 在执行后续的参数时，不在屏幕上显示任何信息。</li>
+<li>-r&lt;0或1&gt; 设定硬盘的读写模式。</li>
+<li>-S&lt;时间&gt; 设定硬盘进入省电模式前的等待时间。</li>
+<li>-t 评估硬盘的读取效率。</li>
+<li>-T 评估硬盘快取的读取效率。</li>
+<li>-u&lt;0或1&gt; 在硬盘存取时，允许其他中断要求同时执行。</li>
+<li>-v 显示硬盘的相关设定。</li>
+<li>-W&lt;0或1&gt; 设定硬盘的写入快取。</li>
+<li>-X&lt;传输模式&gt; 设定硬盘的传输模式。</li>
+<li>-y 使IDE硬盘进入省电模式。</li>
+<li>-Y 使IDE硬盘进入睡眠模式。</li>
+<li>-Z 关闭某些Seagate硬盘的自动省电功能。</li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>显示硬盘的相关设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># hdparm /dev/sda</span><br><span class="line"> /dev/sda:</span><br><span class="line"> IO_support = 0 (default 16-bit)</span><br><span class="line"> readonly = 0 (off)</span><br><span class="line"> readahead = 256 (on)</span><br><span class="line"> geometry = 19929［柱面数］/255［磁头数］/63［扇区数］, sectors = 320173056［总扇区数］, start = 0［起始扇区数］</span><br></pre></td></tr></table></figure></p>
+<p>显示硬盘的柱面\磁头\扇区数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># hdparm -g /dev/sda</span><br><span class="line"> /dev/sda:</span><br><span class="line"> geometry = 19929［柱面数］/255［磁头数］/63［扇区数］, sectors = 320173056［总扇区数］, start = 0［起始扇区数］</span><br></pre></td></tr></table></figure></p>
+<p>评估硬盘的读取效率<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hdparm -t /dev/sda</span><br><span class="line">/dev/sda:</span><br><span class="line">Timing buffered disk reads: 166 MB in 3.03 seconds = 54.85 MB/sec</span><br><span class="line">[root@linuxso.com ~]# hdparm -t /dev/sda</span><br><span class="line">/dev/sda:</span><br><span class="line">Timing buffered disk reads: 160 MB in 3.01 seconds = 53.11 MB/sec</span><br><span class="line">[root@linuxso.com ~]# hdparm -t /dev/sda</span><br><span class="line">/dev/sda:</span><br><span class="line">Timing buffered disk reads: 166 MB in 3.00 seconds = 55.31 MB/sec</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-02-19T12:28:39.000Z" itemprop="dateUpdated">2019-02-19 20:28:39</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/02/Linux-hdparm/" target="_blank" rel="external">http://yoursite.com/2019/05/02/Linux-hdparm/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdparm/">hdparm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/磁盘维护/">磁盘维护</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-hdparm/&title=《Linux-hdparm》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-hdparm/&title=《Linux-hdparm》 — Yan's blog&source=hdparm 命令hdparm 命令用于显示与设定硬盘的参数。hdparm可检测、显示与设定IDE或SCSI硬盘的参数。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-hdparm/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-hdparm》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-hdparm/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-hdparm/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/02/Linux-httpd/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Linux-httpd</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/02/Linux-halt/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux-halt</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-hdparm/&title=《Linux-hdparm》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-hdparm/&title=《Linux-hdparm》 — Yan's blog&source=hdparm 命令hdparm 命令用于显示与设定硬盘的参数。hdparm可检测、显示与设定IDE或SCSI硬盘的参数。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-hdparm/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-hdparm》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-hdparm/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-hdparm/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aS27DMAxFUe9/0+40QFrhPtIuIOpqFDiNreMBy4+uC6/7Y31f+by+/vu/vl1ff2zJkCFjW8a9XOQB5Dq/P/nVL0+UIUPGAQyyCQLgv1pvPX2uDBkyZKSf15smOZ4MGTJkPMvgCSW/IkOGDBm1IpZ3vfrJ4ou1uAwZMjZkpJv7z8+vzDdkyJCxFeMOFwms/UQw3pUMGTJGM3iA40PN9d2KBSrYjwwZMqYyyFZIQZsGR54UopclQ4aM0Yy0cCXJYtpuS4cKMUaGDBmbM2plZzp6TFv5fAAgQ4aMExjpKJG323irLk3+0EuRIUPGIAbfCk8QOwGUt/mu2huVIUPGhow0HtfCYi1Y1/4NyJAhYx5jvfU0QewUsWlgRSNMGTJkDGK8EUz5C+LjTFTEypAhYyijNpjsNOz42BK9YhkyZBzDIJt+L/njyOIkVoYMGdsy+HEKfrSLhOPac4MEUYYMGeMYtQKVBOL3Rg7F/FSGDBnbMnjBmTbxO4c50rJWhgwZJzB4WpYmarxw7dxZhgwZ5zDWYbF2OIMEWZ4yonmsDBkyhjJa7S1cJdcwcRErQ4aMQYw7XGlzrdNoC0prGTJkjGbwxdPEtDHHxwx8eCBDhox5jKeCbC3pfCx9lCFDxgEM3tB/43DGY7W4DBkyZGBerWFXK25lyJAho7Nd0ixLxwnBJFaGDBnjGLWjpbxl1hlwonvKkCFjNKNVOpYCdH+02ZpvyJAhYyfGD+PSVYPMxLyUAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

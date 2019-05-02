@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux-skill | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,系统管理,skill">
+    <meta name="description" content="skill 命令skill 命令送个讯号给正在执行的程序，预设的讯息为 TERM (中断)，较常使用的讯息为 HUP、INT、KILL、STOP、CONT 和 0。">
+<meta name="keywords" content="Linux,skill">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-skill">
+<meta property="og:url" content="http://yoursite.com/2019/05/02/Linux-skill/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="skill 命令skill 命令送个讯号给正在执行的程序，预设的讯息为 TERM (中断)，较常使用的讯息为 HUP、INT、KILL、STOP、CONT 和 0。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-27T12:31:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-skill">
+<meta name="twitter:description" content="skill 命令skill 命令送个讯号给正在执行的程序，预设的讯息为 TERM (中断)，较常使用的讯息为 HUP、INT、KILL、STOP、CONT 和 0。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux-skill</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux-skill</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-02T01:54:36.916Z" itemprop="datePublished" class="page-time">
+  2019-05-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统管理/">系统管理</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统管理/skill/">skill</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#skill-命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">skill 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一般参数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">一般参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux-skill" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux-skill</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-02 09:54:36" datetime="2019-05-02T01:54:36.916Z" itemprop="datePublished">2019-05-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统管理/">系统管理</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/系统管理/skill/">skill</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="skill-命令"><a href="#skill-命令" class="headerlink" title="skill 命令"></a>skill 命令</h1><p>skill 命令送个讯号给正在执行的程序，预设的讯息为 TERM (中断)，较常使用的讯息为 HUP、INT、KILL、STOP、CONT 和 0。<br><a id="more"></a><br>讯息有三种写法：分别为 -9、-SIGKILL、-KILL，可以使用 -l 或 -L 已列出可使用的讯息。<br>使用权限：所有使用者。<br>其他相关的命令：kill<br>       s     </p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skill [signal to send] [options] 选择程序的规则</span><br></pre></td></tr></table></figure>
+<h2 id="一般参数"><a href="#一般参数" class="headerlink" title="一般参数"></a>一般参数</h2><ul>
+<li>-f 快速模式/尚未完成</li>
+<li>-i 互动模式/ 每个动作将要被确认</li>
+<li>-v 详细输出/ 列出所选择程序的资讯</li>
+<li>-w 智能警告讯息/ 尚未完成</li>
+<li>-n 没有动作/ 显示程序代号</li>
+</ul>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>选择程序的规则可以是：终端机代号、使用者名称、程序代号、命令名称。      </p>
+<ul>
+<li>-t 终端机代号 ( tty 或 pty )</li>
+<li>-u 使用者名称</li>
+<li>-p 程序代号 ( pid )</li>
+<li>-c 命令名称可使用的讯号</li>
+</ul>
+<p>以下列出已知的讯号名称、讯号代号、功能。      </p>
+<table>
+<thead>
+<tr>
+<th>名称（代号）</th>
+<th>功能/描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALRM 14</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>HUP 1</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>INT 2</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>KILL 9</td>
+<td>离开/强迫关闭</td>
+</tr>
+<tr>
+<td>PIPE 13</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>POLL</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>PROF</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>TERM 15</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>USR1</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>USR2</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>VTALRM</td>
+<td>离开</td>
+</tr>
+<tr>
+<td>STKFLT</td>
+<td>离开/只适用于i386、m68k、arm 和 ppc 硬件</td>
+</tr>
+<tr>
+<td>UNUSED</td>
+<td>离开/只适用于i386、m68k、arm 和 ppc 硬件</td>
+</tr>
+<tr>
+<td>TSTP</td>
+<td>停止/产生与内容相关的行为</td>
+</tr>
+<tr>
+<td>TTIN</td>
+<td>停止/产生与内容相关的行为</td>
+</tr>
+<tr>
+<td>TTOU</td>
+<td>停止/产生与内容相关的行为</td>
+</tr>
+<tr>
+<td>STOP</td>
+<td>停止/强迫关闭</td>
+</tr>
+<tr>
+<td>CONT</td>
+<td>重新启动/如果在停止状态则重新启动，否则忽略</td>
+</tr>
+<tr>
+<td>PWR</td>
+<td>忽略/在某些系统中会离开</td>
+</tr>
+<tr>
+<td>WINCH</td>
+<td>忽略</td>
+</tr>
+<tr>
+<td>CHLD</td>
+<td>忽略</td>
+</tr>
+<tr>
+<td>ABRT 6</td>
+<td>核心</td>
+</tr>
+<tr>
+<td>FPE 8</td>
+<td>核心</td>
+</tr>
+<tr>
+<td>ILL 4</td>
+<td>核心</td>
+</tr>
+<tr>
+<td>QUIT 3</td>
+<td>核心</td>
+</tr>
+<tr>
+<td>SEGV 11</td>
+<td>核心</td>
+</tr>
+<tr>
+<td>TRAP 5</td>
+<td>核心</td>
+</tr>
+<tr>
+<td>SYS</td>
+<td>核心/或许尚未实作</td>
+</tr>
+<tr>
+<td>EMT</td>
+<td>核心/或许尚未实作</td>
+</tr>
+<tr>
+<td>BUS</td>
+<td>核心/核心失败</td>
+</tr>
+<tr>
+<td>XCPU</td>
+<td>核心/核心失败</td>
+</tr>
+<tr>
+<td>XFSZ</td>
+<td>核心/核心失败</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>停止所有在PTY装置上的程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skill -KILL -v pts/*</span><br></pre></td></tr></table></figure></p>
+<p>停止三个使用者user1、user2、user3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skill -STOP user1 user2 user3</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-02-27T12:31:43.000Z" itemprop="dateUpdated">2019-02-27 20:31:43</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/02/Linux-skill/" target="_blank" rel="external">http://yoursite.com/2019/05/02/Linux-skill/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/skill/">skill</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统管理/">系统管理</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-skill/&title=《Linux-skill》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-skill/&title=《Linux-skill》 — Yan's blog&source=skill 命令skill 命令送个讯号给正在执行的程序，预设的讯息为 TERM (中断)，较常使用的讯息为 HUP、INT、KILL、STOP、CONT..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-skill/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-skill》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-skill/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-skill/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/02/Linux-sleep/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Linux-sleep</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/02/Linux-shutdown/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux-shutdown</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/02/Linux-skill/&title=《Linux-skill》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/02/Linux-skill/&title=《Linux-skill》 — Yan's blog&source=skill 命令skill 命令送个讯号给正在执行的程序，预设的讯息为 TERM (中断)，较常使用的讯息为 HUP、INT、KILL、STOP、CONT..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/02/Linux-skill/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux-skill》 — Yan's blog&url=http://yoursite.com/2019/05/02/Linux-skill/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/02/Linux-skill/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3a22rDMBBF0fz/T7vQp0KJvM+MU6rR9pNx3ERLhWEuer3wdX1fP+9/P3n3KX/+7p3HLhkyZGzLuJbXeqF8cZ3fRVQZMmQcwCBBlgRQvlwevtdrkyFDhox1AH3qnm+fDBkyZKRf10kE1+/IkCFDxrPFJAfzZPGDtbgMGTI2ZNQGA39z//H5hgwZMv494ypdPNVLhwrF9ciQIWM0I23x12IdP7RRK2hlyJBxAqOfZfHCtZaAxlsvQ4aM0Qw+MOAt+zQcP9BWkyFDxjhGLb1L2/qdcEwSTRkyZExlkCXWxgO8PXezx+RvZciQMZqRLpEXnCS962zZzckRGTJkDGJ00sG0fOW1Z1yZypAhYzSDF4r9snb9nKeJN0WvDBkyRjN4f64zaFzz0tBc/J/IkCFjK0YaIteLI4sg38Cbei8e0WXIkLE5o1ZS8pDaOSIWzGBlyJBxDIOnd50jF2nbrnh+TYYMGSMY6cEsvkSeFKbFLarCZciQMZTBk8X+GIAf1Eg7/zJkyJjK4MUqHy6mDbjWNEOGDBnHMHjyxxeUbgTZGhkyZJzJqA0d+fv8sEWt8SdDhozZjCu80gSuk3QGey9DhozRjH5+xX+Mt9X4sbDWzFaGDBlbMdLDE2n52m+0oaJXhgwZBzDSZllnDFBL8m5gMmTIkNE4+NU/coFyWxkyZMhYFpzpp/2haWuOKkOGjG0ZtWOpPFzyMF0cDMiQIWM0oxOUO6GcDEc5UoYMGUMZX8AGslAdQPqyAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
