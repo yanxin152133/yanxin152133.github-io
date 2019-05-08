@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/05/02/%E6%8F%92%E4%BB%B6/</loc>
+    
+    <lastmod>2019-05-08T13:36:55.386Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2019-05-02T03:52:19.545Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>http://yoursite.com/2019/05/02/hexo-theme-indigo/</loc>
     
     <lastmod>2019-04-16T14:29:05.240Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/05/02/%E6%8F%92%E4%BB%B6/</loc>
-    
-    <lastmod>2019-04-13T14:10:34.601Z</lastmod>
     
   </url>
   
