@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-11T06:14:47.837Z</updated>
+  <updated>2019-05-22T10:43:10.346Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bugzilla</title>
+    <link href="http://yoursite.com/2019/05/22/buzilla/"/>
+    <id>http://yoursite.com/2019/05/22/buzilla/</id>
+    <published>2019-05-22T09:29:09.758Z</published>
+    <updated>2019-05-22T10:43:10.346Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="bugzilla"><a href="#bugzilla" class="headerlink" title="bugzilla"></a>bugzilla</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul><li>系统：Windows 7</li><li>MySql 5.5.62及以上</li><li>Bugzilla 4.2及以上</li><li>ActivePerl 5.24.3.2404及以上</li><li>XAMPP 7.1.29及以上</li></ul><a id="more"></a><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="MySql-5-5-62"><a href="#MySql-5-5-62" class="headerlink" title="MySql 5.5.62"></a>MySql 5.5.62</h3><p>下载地址：<a href="https://dev.mysql.com/downloads/mysql/5.5.html#downloads" target="_blank" rel="noopener">MySql 5.5.62</a></p><h3 id="Bugzilla-4-2"><a href="#Bugzilla-4-2" class="headerlink" title="Bugzilla 4.2"></a>Bugzilla 4.2</h3><p>下载地址：<a href="https://ftp.mozilla.org/pub/webtools/bugzilla-4.2.tar.gz" target="_blank" rel="noopener">Bugzilla 4.2</a></p><h3 id="ActivePerl-5-24-3-2404"><a href="#ActivePerl-5-24-3-2404" class="headerlink" title="ActivePerl 5.24.3.2404"></a>ActivePerl 5.24.3.2404</h3><p>下载地址：<a href="https://www.activestate.com/products/activeperl/downloads/" target="_blank" rel="noopener">ActivePerl 5.24.3.2404</a></p><h3 id="XAMPP-7-1-29"><a href="#XAMPP-7-1-29" class="headerlink" title="XAMPP 7.1.29"></a>XAMPP 7.1.29</h3><p>下载地址：<a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener">XAMPP 7.1.29</a></p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="XAMPP-7-1-29-1"><a href="#XAMPP-7-1-29-1" class="headerlink" title="XAMPP 7.1.29"></a>XAMPP 7.1.29</h3><p>参考：<a href="https://www.jianshu.com/p/07455416d68c" target="_blank" rel="noopener">https://www.jianshu.com/p/07455416d68c</a></p><h3 id="ActivePerl-5-24-3-2404-1"><a href="#ActivePerl-5-24-3-2404-1" class="headerlink" title="ActivePerl 5.24.3.2404"></a>ActivePerl 5.24.3.2404</h3><p>双击activeperl安装界面，一直点击next直至完成安装，activeperl的选项都是默认的选项，依照默认安装即可。</p><h4 id="验证perl是否安装成功"><a href="#验证perl是否安装成功" class="headerlink" title="验证perl是否安装成功"></a>验证perl是否安装成功</h4><p>cmd界面运行<strong>perl -v</strong>，出现版本号即为成功。如下图：    </p><p><img src="https://live.staticflickr.com/65535/40940491033_0b3dac7c9f_b.jpg" alt></p><h3 id="MySql-5-5-62-1"><a href="#MySql-5-5-62-1" class="headerlink" title="MySql 5.5.62"></a>MySql 5.5.62</h3><p>步骤大致如下图： </p><p><img src="https://live.staticflickr.com/65535/47117642934_fef9da14e6_z.jpg" alt><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47117642834_8c20beedbf_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47117642764_564ef76a68_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure></p><blockquote><p>路径设置为C:\MySql,因为Bugzilla默认的引导路径为这个。     </p></blockquote><p><img src="https://live.staticflickr.com/65535/47907048741_9349a4e15a_z.jpg" alt><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47117642614_347352b99d_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47117642474_2a54e37d2f_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47907048551_eec71b24f2_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47117642404_577dd1d32a_z.jpg>" alt title>                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47117642284_eb87f8f7eb_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47907048381_230a345191_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47117642164_c71ac592c3_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47907048241_10bd0de817_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure></p><h3 id="Bugzilla-4-2-1"><a href="#Bugzilla-4-2-1" class="headerlink" title="Bugzilla 4.2"></a>Bugzilla 4.2</h3><ol><li><p>解压Bugzilla 4.2文件，将解压后的内容复制到<strong>C:\xampp\htdocs\bugzilla</strong>文件夹下，若没有则先建一个文件夹。</p></li><li><p><strong>win+R</strong> 打开cmd窗口，同时进入到<strong>C:\xampp\htdocs\bugzilla</strong>目录下。</p></li><li><p>输入<strong>checksetup.pl</strong>命令。如下图：</p></li></ol><p><img src="https://live.staticflickr.com/65535/40940574983_098091655f_z.jpg" alt></p><ol start="4"><li>安装perl模块，使用<strong>perl install XXX</strong>进行安装未安装的perl模块。如下图所示：</li></ol><p><img src="https://live.staticflickr.com/65535/40940617093_0cc2a753d9_z.jpg" alt></p><ol start="5"><li>可能会有一些模块无法安装，可以直接忽略。再次运行<strong>checksetup.pl</strong>命令，可能会需要安装<strong>DDB-MySql</strong>这个模块，安装之后再次运行<strong>checksetup.pl</strong>命令，出现下图则未成功。</li></ol><p><img src="https://live.staticflickr.com/65535/47907130061_c0ef1708fa_z.jpg" alt></p><ol start="6"><li><p>编辑<strong>C:\xampp\htdocs\bugzilla</strong>下的<strong>localconfig</strong>文件。</p></li><li><p>打开localconfig文件，将其中的$db_port = 0;改为$db_port = 3306; $index_html = 0;改为$index_html = 1。</p></li><li><p>打开<strong>MySQL 5.5 Command Line Client</strong>。<br>下面在MySQL服务器中创建一个bugs数据库，和一个bugs用户，以及为该用户授予相应的权限，命令如下：<br>create database bugs;                   创建一个数据库bugs<br>create user bugs@localhost;              创建一个用户bugs<br>grant all on bugs.* to bugs@’localhost’;     为用户bugs授权<br>flush privileges;                         刷新用户权限</p></li><li><p>在命令行下再次运行checksetup.pl将会生成和数据库有关的数据表<br>生成数据表后会要求填入主机的地址服务器地址，<br>管理员名字和账号（该账号是一个email地址）以及管理员登陆的密码。（自由发挥）</p></li><li><p>将<strong>C:\xampp\htdocs\bugzilla</strong>下的后缀名为.cgi的文件中的 <strong>#!/usr/bin/perl</strong> 改为<strong>#!”C:\Perl64\bin\perl.exe”</strong>。</p></li></ol><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>打开XAMPP界面的Apache,在浏览器中输入<strong><a href="http://localhost/bugzilla" target="_blank" rel="noopener">http://localhost/bugzilla</a></strong>。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;bugzilla&quot;&gt;&lt;a href=&quot;#bugzilla&quot; class=&quot;headerlink&quot; title=&quot;bugzilla&quot;&gt;&lt;/a&gt;bugzilla&lt;/h1&gt;&lt;h2 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;系统：Windows 7&lt;/li&gt;
+&lt;li&gt;MySql 5.5.62及以上&lt;/li&gt;
+&lt;li&gt;Bugzilla 4.2及以上&lt;/li&gt;
+&lt;li&gt;ActivePerl 5.24.3.2404及以上&lt;/li&gt;
+&lt;li&gt;XAMPP 7.1.29及以上&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="软件缺陷" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/"/>
+    
+      <category term="bugzilla" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/bugzilla/"/>
+    
+    
+      <category term="软件缺陷" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/"/>
+    
+      <category term="bugzilla" scheme="http://yoursite.com/tags/bugzilla/"/>
+    
+  </entry>
   
   <entry>
     <title>LoadRunner</title>
@@ -529,36 +561,6 @@
       <category term="网络通讯" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/"/>
     
       <category term="ytalk" scheme="http://yoursite.com/tags/ytalk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux-write</title>
-    <link href="http://yoursite.com/2019/05/02/Linux-write/"/>
-    <id>http://yoursite.com/2019/05/02/Linux-write/</id>
-    <published>2019-05-02T13:37:50.627Z</published>
-    <updated>2019-02-20T07:21:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="write-命令"><a href="#write-命令" class="headerlink" title="write 命令"></a>write 命令</h1><p>write 命令用于传讯息给其他使用者。<br>使用权限：所有使用者。<br><a id="more"></a></p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">write user [ttyname]</span><br></pre></td></tr></table></figure><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul><li>user : 预备传讯息的使用者帐号</li><li>ttyname : 如果使用者同时有两个以上的 tty 连线，可以自行选择合适的 tty 传讯息</li></ul><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>传讯息给 Rollaend，此时 Rollaend 只有一个连线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">write Rollaend</span><br></pre></td></tr></table></figure></p><p>接下来就是将讯息打上去，结束请按 ctrl+c<br>传讯息给 Rollaend，Rollaend 的连线有 pts/2，pts/3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">write Rollaend pts/2</span><br></pre></td></tr></table></figure></p><p>接下来就是将讯息打上去，结束请按 ctrl+c<br>注意：若对方设定 mesg n，则此时讯席将无法传给对方。     </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;write-命令&quot;&gt;&lt;a href=&quot;#write-命令&quot; class=&quot;headerlink&quot; title=&quot;write 命令&quot;&gt;&lt;/a&gt;write 命令&lt;/h1&gt;&lt;p&gt;write 命令用于传讯息给其他使用者。&lt;br&gt;使用权限：所有使用者。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
-    
-      <category term="网络通讯" scheme="http://yoursite.com/categories/Linux/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/"/>
-    
-      <category term="write" scheme="http://yoursite.com/categories/Linux/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/write/"/>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="网络通讯" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E9%80%9A%E8%AE%AF/"/>
-    
-      <category term="write" scheme="http://yoursite.com/tags/write/"/>
     
   </entry>
   
