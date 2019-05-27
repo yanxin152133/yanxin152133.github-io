@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-18T04:02:37.139Z</updated>
+  <updated>2019-05-27T14:41:44.038Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建PHP环境（Windows）</title>
+    <link href="http://yoursite.com/2019/05/27/%E6%90%AD%E5%BB%BAphp%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/2019/05/27/搭建php环境/</id>
+    <published>2019-05-27T14:25:36.188Z</published>
+    <updated>2019-05-27T14:41:44.038Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搭建PHP环境（Windows）"><a href="#搭建PHP环境（Windows）" class="headerlink" title="搭建PHP环境（Windows）"></a>搭建PHP环境（Windows）</h1><h2 id="Apache-下载"><a href="#Apache-下载" class="headerlink" title="Apache 下载"></a>Apache 下载</h2><p>下载地址：<a href="https://archive.apache.org/dist/httpd/binaries/win32/" target="_blank" rel="noopener">Apache msi</a><br><a id="more"></a><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47942980403_d6cb5a4b44_b.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure></p><h2 id="Apache-安装"><a href="#Apache-安装" class="headerlink" title="Apache 安装"></a>Apache 安装</h2><ol><li>双击下载的文件。</li><li>相关配置。<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47943015906_fd90108b4a_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure></li><li>选择自定义安装模式<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47942997977_460a18ec9d_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure></li></ol><h2 id="Apache-目录结构说明"><a href="#Apache-目录结构说明" class="headerlink" title="Apache 目录结构说明"></a>Apache 目录结构说明</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/47942998182_e4d3bab27e_z.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;搭建PHP环境（Windows）&quot;&gt;&lt;a href=&quot;#搭建PHP环境（Windows）&quot; class=&quot;headerlink&quot; title=&quot;搭建PHP环境（Windows）&quot;&gt;&lt;/a&gt;搭建PHP环境（Windows）&lt;/h1&gt;&lt;h2 id=&quot;Apache-下载&quot;&gt;&lt;a href=&quot;#Apache-下载&quot; class=&quot;headerlink&quot; title=&quot;Apache 下载&quot;&gt;&lt;/a&gt;Apache 下载&lt;/h2&gt;&lt;p&gt;下载地址：&lt;a href=&quot;https://archive.apache.org/dist/httpd/binaries/win32/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Apache msi&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+      <category term="搭建PHP环境（Windows）" scheme="http://yoursite.com/categories/PHP/%E6%90%AD%E5%BB%BAPHP%E7%8E%AF%E5%A2%83%EF%BC%88Windows%EF%BC%89/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="搭建PHP环境（Windows）" scheme="http://yoursite.com/tags/%E6%90%AD%E5%BB%BAPHP%E7%8E%AF%E5%A2%83%EF%BC%88Windows%EF%BC%89/"/>
+    
+  </entry>
   
   <entry>
     <title>活动的生命周期</title>
@@ -512,30 +538,6 @@
     
     
       <category term="Hexo yilia 添加目录" scheme="http://yoursite.com/tags/Hexo-yilia-%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo yilia 添加Valine</title>
-    <link href="http://yoursite.com/2019/05/26/Hexo%20yilia%20%E6%B7%BB%E5%8A%A0Valine/"/>
-    <id>http://yoursite.com/2019/05/26/Hexo yilia 添加Valine/</id>
-    <published>2019-05-26T03:54:06.971Z</published>
-    <updated>2018-10-21T04:49:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p> 1.Valine 介绍<br> 2.注册LeanCloud<br> 3.配置<br> 4.参考文档</p><a id="more"></a><h2 id="Valine-介绍"><a href="#Valine-介绍" class="headerlink" title="Valine 介绍"></a>Valine 介绍</h2><blockquote><p>Valine- 一款快速、简洁且高效的无后端评论系统。  </p></blockquote><blockquote><p>Valine 诞生于2017年8月7日，是一款基于Leancloud的快速、简洁且高效的无后端评论系统。理论上支持但不限于静态博客，目前已有Hexo、Jekyll、Typecho、Hugo 等博客程序在使用Valine。  </p></blockquote><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><blockquote><p>快速<br>安全<br>Emoji 😉<br>无后端实现<br>MarkDown 全语法支持<br>轻量易用(~15kb gzipped)<br>文章阅读量统计 v1.2.0+</p></blockquote><h2 id="注册-LeanCloud"><a href="#注册-LeanCloud" class="headerlink" title="注册 LeanCloud"></a>注册 LeanCloud</h2><blockquote><p>注册 <a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">LeanCloud</a>  </p></blockquote><blockquote><p>注册完成后创建一个应用。然后打开设置-应用Key。如下图：  </p></blockquote><p><img src="https://farm2.staticflickr.com/1909/30501889127_29b161ac31_b.jpg" alt="key">  </p><blockquote><p>复制图中的 <strong>App ID</strong> <strong>App key</strong> <strong>Master Key</strong>  作为备用  </p></blockquote><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><blockquote><p><strong>_config.yml</strong>  </p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#6、Valine https://valine.js.org</span><br><span class="line">valine: </span><br><span class="line"> appid:  #Leancloud应用的appId</span><br><span class="line"> appkey:  #Leancloud应用的appKey</span><br><span class="line"> verify: false #验证码</span><br><span class="line"> notify: false #评论回复提醒</span><br><span class="line"> avatar: mm #评论列表头像样式：&apos;&apos;/mm/identicon/monsterid/wavatar/retro/hide</span><br><span class="line"> placeholder: Just go go #评论框占位符</span><br></pre></td></tr></table></figure><blockquote><p><strong>layout/_partial/article.ejs</strong>  </p></blockquote> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   &lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">    &lt;section id=&quot;comments&quot; style=&quot;margin:10px;padding:10px;background:#fff;&quot;&gt;</span><br><span class="line">      &lt;%- partial(&apos;post/valine&apos;, &#123;</span><br><span class="line">        key: post.slug,</span><br><span class="line">        title: post.title,</span><br><span class="line">        url: config.url+url_for(post.path)</span><br><span class="line">        &#125;) %&gt;</span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure><blockquote><p><strong>layout/_partial/post/valine.ejs</strong>  </p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;//unpkg.com/valine/dist/Valine.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var notify = &apos;&lt;%= theme.valine.notify %&gt;&apos; == true ? true : false;</span><br><span class="line">   var verify = &apos;&lt;%= theme.valine.verify %&gt;&apos; == true ? true : false;</span><br><span class="line">    window.onload = function() &#123;</span><br><span class="line">        new Valine(&#123;</span><br><span class="line">            el: &apos;.comment&apos;,</span><br><span class="line">            notify: notify,</span><br><span class="line">            verify: verify,</span><br><span class="line">            app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,</span><br><span class="line">            app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,</span><br><span class="line">            placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,</span><br><span class="line">            avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><blockquote><p>1 <a href="https://www.bluelzy.com/articles/use_valine_for_your_blog.html" target="_blank" rel="noopener">为你的Hexo加上评论系统-Valine</a><br>2 <a href="https://github.com/litten/hexo-theme-yilia/pull/646" target="_blank" rel="noopener">新增对Valine评论系统的支持</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h1&gt;&lt;p&gt; 1.Valine 介绍&lt;br&gt; 2.注册LeanCloud&lt;br&gt; 3.配置&lt;br&gt; 4.参考文档&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-      <category term="Valine评论" scheme="http://yoursite.com/categories/Hexo/Valine%E8%AF%84%E8%AE%BA/"/>
-    
-    
-      <category term="Hexo yilia Valine" scheme="http://yoursite.com/tags/Hexo-yilia-Valine/"/>
     
   </entry>
   
