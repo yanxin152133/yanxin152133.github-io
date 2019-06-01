@@ -33,7 +33,11 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/47943015906_fd90108b4a_z.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/47942997977_460a18ec9d_z.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/47942998182_e4d3bab27e_z.jpg">
-<meta property="og:updated_time" content="2019-05-27T14:41:44.038Z">
+<meta property="og:image" content="https://live.staticflickr.com/65535/47978909873_f73c0d5d20_z.jpg">
+<meta property="og:image" content="https://live.staticflickr.com/65535/47978911057_67194e20c5_z.jpg">
+<meta property="og:image" content="https://live.staticflickr.com/65535/47978910932_f74b7d1061_q.jpg">
+<meta property="og:image" content="https://live.staticflickr.com/65535/47978909603_fb643bb36b_q.jpg">
+<meta property="og:updated_time" content="2019-06-01T14:43:51.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建PHP环境（Windows）">
 <meta name="twitter:description" content="搭建PHP环境（Windows）Apache 下载下载地址：Apache msi">
@@ -172,7 +176,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搭建PHP环境（Windows）"><span class="post-toc-number">1.</span> <span class="post-toc-text">搭建PHP环境（Windows）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-下载"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Apache 下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-安装"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Apache 安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-目录结构说明"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Apache 目录结构说明</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搭建PHP环境（Windows）"><span class="post-toc-number">1.</span> <span class="post-toc-text">搭建PHP环境（Windows）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-下载"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Apache 下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-安装"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Apache 安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-目录结构说明"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Apache 目录结构说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-httpd-exe介绍"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Apache-httpd.exe介绍</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -229,6 +233,45 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<h2 id="Apache-httpd-exe介绍"><a href="#Apache-httpd-exe介绍" class="headerlink" title="Apache-httpd.exe介绍"></a>Apache-httpd.exe介绍</h2><p>Httpd.exe的详细应用      </p>
+<ol>
+<li><p>服务器进程：运行之后才能够使用。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://live.staticflickr.com/65535/47978909873_f73c0d5d20_z.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+<li><p>用来查看Apache具有哪些功能以及配置文件是否有错：httpd或者httpd.exe（文件所在目录）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://live.staticflickr.com/65535/47978911057_67194e20c5_z.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+<li><p>查看使用的模块：httpd -M</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://live.staticflickr.com/65535/47978910932_f74b7d1061_q.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+<li><p>验证配置文件是否有效：httpd -t</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://live.staticflickr.com/65535/47978909603_fb643bb36b_q.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+</ol>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -236,7 +279,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-05-27T14:41:44.038Z" itemprop="dateUpdated">2019-05-27 22:41:44</time>
+    最后更新时间：<time datetime="2019-06-01T14:43:51.378Z" itemprop="dateUpdated">2019-06-01 22:43:51</time>
 </span><br>
 
 
