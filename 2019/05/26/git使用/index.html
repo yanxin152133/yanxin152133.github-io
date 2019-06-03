@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Yan&#39;s blog">
 <meta property="og:description" content="提交文件到GitHub具体步骤如下：      登录GitHub，复制git仓库的地址 [github_repository_url]。      执行 git clone [github_repository_url],将GitHub 的仓库克隆到本地。       进入到克隆的仓库目录，若目录是很久之前克隆出来，需要使用 git pull 以更新到GitHub中的最新文件。      执行 g">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-19T09:46:25.180Z">
+<meta property="og:updated_time" content="2019-06-03T05:43:52.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git使用">
 <meta name="twitter:description" content="提交文件到GitHub具体步骤如下：      登录GitHub，复制git仓库的地址 [github_repository_url]。      执行 git clone [github_repository_url],将GitHub 的仓库克隆到本地。       进入到克隆的仓库目录，若目录是很久之前克隆出来，需要使用 git pull 以更新到GitHub中的最新文件。      执行 g">
@@ -167,7 +167,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#提交文件到GitHub"><span class="post-toc-number">1.</span> <span class="post-toc-text">提交文件到GitHub</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#撤销"><span class="post-toc-number">2.</span> <span class="post-toc-text">撤销</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#提交文件到GitHub"><span class="post-toc-number">1.</span> <span class="post-toc-text">提交文件到GitHub</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#重写历史"><span class="post-toc-number">2.</span> <span class="post-toc-text">重写历史</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分支"><span class="post-toc-number">3.</span> <span class="post-toc-text">分支</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合并分支"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">合并分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除分支"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">删除分支</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -197,11 +197,22 @@
 <li>登录GitHub，复制git仓库的地址 <strong>[github_repository_url]</strong>。     </li>
 <li>执行 <strong>git clone [github_repository_url]</strong>,将GitHub 的仓库克隆到本地。      </li>
 <li>进入到克隆的仓库目录，若目录是很久之前克隆出来，需要使用 <strong>git pull</strong> 以更新到GitHub中的最新文件。     </li>
-<li>执行 <strong>git add .</strong> 将改动添加到本地仓库中。      </li>
+<li>执行 <strong>git add .</strong> 将所有改动添加到本地仓库中。      </li>
 <li>执行 <strong>git commit -m “这次提交的内容的描述，自行填写”</strong> 将改动提交到本地仓库。     </li>
 <li>执行 <strong>git push origin master</strong> 将本地的改动提交到GitHub，<strong>master</strong> 为主分支。</li>
 </ol>
-<h1 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add Title</span><br><span class="line">git commit -m &quot;ceshi&quot;</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+<h1 id="重写历史"><a href="#重写历史" class="headerlink" title="重写历史"></a>重写历史</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add Title</span><br><span class="line">git commit -m &quot;ceshi&quot;</span><br><span class="line">git commit --amend   ##重写上次提交的信息</span><br></pre></td></tr></table></figure>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>首先，先创建<strong>dev</strong>,然后切换到<strong>dev</strong>分支：    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure>
+<p><strong>git checkout</strong> 命令加上<strong>-b</strong>参数表示创建并切换，相当于一下两条命令：      </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev</span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
+<p>然后用<strong>git branch</strong>命令查看当前分支：     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
+<p><strong>git branch</strong>命令会列出所有分支，当前分支前面会标一个*号。</p>
+<p>之后提交同上步。</p>
+<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
+<p><strong>git merge</strong>命令用于合并指定分支到当前分支</p>
+<h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -209,7 +220,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-19T09:46:25.180Z" itemprop="dateUpdated">2019-04-19 17:46:25</time>
+    最后更新时间：<time datetime="2019-06-03T05:43:52.083Z" itemprop="dateUpdated">2019-06-03 13:43:52</time>
 </span><br>
 
 
