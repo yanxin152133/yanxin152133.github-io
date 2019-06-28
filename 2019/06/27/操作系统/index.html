@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138130057_feaf5dfa2d_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138067208_2331e8f977_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138036656_e274780171_b.jpg">
-<meta property="og:updated_time" content="2019-06-28T04:18:56.163Z">
+<meta property="og:updated_time" content="2019-06-28T07:51:30.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
 <meta name="twitter:description" content="操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。">
@@ -177,7 +177,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信号量解决进程同步问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">信号量解决进程同步问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先来先服务算法"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">先来先服务算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#短作业优先算法"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">短作业优先算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源分配图的简化"><span class="post-toc-number">2.</span> <span class="post-toc-text">资源分配图的简化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源分配图"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">资源分配图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分页地址变换"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">分页地址变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分页存储逻辑地址转物理地址"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">分页存储逻辑地址转物理地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#十六进制逻辑地址转物理地址"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">十六进制逻辑地址转物理地址</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信号量解决进程同步问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">信号量解决进程同步问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先来先服务算法"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">先来先服务算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#短作业优先算法"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">短作业优先算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源分配图的简化"><span class="post-toc-number">2.</span> <span class="post-toc-text">资源分配图的简化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源分配图"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">资源分配图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分页地址变换"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">分页地址变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分页存储逻辑地址转物理地址"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">分页存储逻辑地址转物理地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#十六进制逻辑地址转物理地址"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">十六进制逻辑地址转物理地址</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#页面置换算法"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">页面置换算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最佳置换算法（OPT）"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">最佳置换算法（OPT）</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -511,11 +511,171 @@
 <h3 id="十六进制逻辑地址转物理地址"><a href="#十六进制逻辑地址转物理地址" class="headerlink" title="十六进制逻辑地址转物理地址"></a>十六进制逻辑地址转物理地址</h3><p>一分页存储管理系统中逻辑地址长度为16位，页面大小为4KB字节，现有一逻辑地址为2F6AH，且第0、1、2页依次存放在物理块5、10、11中。求逻辑地址2F6AH对应的物理地址      </p>
 <p>解：    </p>
 <ul>
-<li>第一步：将逻辑地址2F6AH转换为二进制为：0010 1110 0110 1010     </li>
+<li>第一步：将逻辑地址2F6AH转换为二进制为：0010 1111 0110 1010     </li>
 <li>第二步：由于页面大小为4KB字节，（4KB=2的12次方）。所以逻辑地址的后12位为“页内地址”(也叫做页内偏移量)      </li>
 <li>第三步：由于逻辑地址的后12位为页内地址，所以剩下的前4位为页号：即0010为页号      </li>
 <li>第四步：根据页表可知，0010(十进制为2)对于的页框号为11(二进制为1011)<br>所以最终的物理地址为：1011 1111 0110 1010<br>即BF6AH</li>
 </ul>
+<h2 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h2><blockquote>
+<p>定义：选择换出页面的算法<br>评价依据：页面更换频率（缺页率）。 <strong>缺页率=缺页次数/页面总访问次数</strong></p>
+</blockquote>
+<h3 id="最佳置换算法（OPT）"><a href="#最佳置换算法（OPT）" class="headerlink" title="最佳置换算法（OPT）"></a>最佳置换算法（OPT）</h3><p>最佳置换算法所选择淘汰的页面是<strong>最长（未来）时间内不再被访问的页面</strong>。</p>
+<p>例如：<br>系统为某进程分配3个物理块，进程访问页面的顺序是0，7，6，5，7，4，7，3，5，4，7，4，5，6，5，7，6，0，7，6。</p>
+<table>
+<thead>
+<tr>
+<th>访问页面</th>
+<th>0</th>
+<th>7</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物理块</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>7</td>
+<td>7</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>接下来下一个进入的数字是5，然后需要淘汰最久不被访问的页面。</p>
+<p><strong>首先，需要看0，7，6的哪个是最久不被访问的页面。<br>0在第18次再次访问。<br>7在第5次再次被访问。<br>6在第14次再次被访问。</strong><br>因此需要淘汰<strong>0</strong>。</p>
+<p>按照如上的规律，可以得到以下的结果。     </p>
+<table>
+<thead>
+<tr>
+<th>访问页面</th>
+<th>0</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>7</th>
+<th>4</th>
+<th>7</th>
+<th>3</th>
+<th>5</th>
+<th>4</th>
+<th>7</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>5</th>
+<th>7</th>
+<th>6</th>
+<th>0</th>
+<th>7</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物理块</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>缺页率：9/20*100%=36%     </p>
 
         </div>
 
@@ -524,7 +684,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-28T04:18:56.163Z" itemprop="dateUpdated">2019-06-28 12:18:56</time>
+    最后更新时间：<time datetime="2019-06-28T07:51:30.424Z" itemprop="dateUpdated">2019-06-28 15:51:30</time>
 </span><br>
 
 
