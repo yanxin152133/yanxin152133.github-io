@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138130057_feaf5dfa2d_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138067208_2331e8f977_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138036656_e274780171_b.jpg">
-<meta property="og:updated_time" content="2019-06-28T08:01:00.332Z">
+<meta property="og:updated_time" content="2019-06-28T08:07:51.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
 <meta name="twitter:description" content="操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。">
@@ -651,7 +651,7 @@
 <td>6</td>
 </tr>
 <tr>
-<td>缺页</td>
+<td>缺页中断</td>
 <td>x</td>
 <td>x</td>
 <td>x</td>
@@ -676,6 +676,8 @@
 </tbody>
 </table>
 <p>缺页率：9/20*100%=36%     </p>
+<p><strong>缺页中断：在请求分页系统中，可以通过查询页表中的状态位来确定所要访问的页面是否存在于内存中。每当所要访问的页面不在内存时，会产生一次缺页中断，此时操作系统会根据页表中的外存地址在外存中找到所缺的一页，将其调入内存。</strong></p>
+<p><strong>通俗的讲也就是每次往物理块中添加数据就会产生一次缺页中断。</strong></p>
 <h2 id="先进先出页面置换算法（FIFO）"><a href="#先进先出页面置换算法（FIFO）" class="headerlink" title="先进先出页面置换算法（FIFO）"></a>先进先出页面置换算法（FIFO）</h2><p>先进先出页面置换算法淘汰的页面是<strong>淘汰最先进入内存的页面</strong></p>
 <table>
 <thead>
@@ -734,7 +736,7 @@
 <td>3</td>
 </tr>
 <tr>
-<td>缺页</td>
+<td>缺页中断</td>
 <td>x</td>
 <td>x</td>
 <td>x</td>
@@ -757,7 +759,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-28T08:01:00.332Z" itemprop="dateUpdated">2019-06-28 16:01:00</time>
+    最后更新时间：<time datetime="2019-06-28T08:07:51.383Z" itemprop="dateUpdated">2019-06-28 16:07:51</time>
 </span><br>
 
 
