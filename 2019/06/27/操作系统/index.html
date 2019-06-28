@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="操作系统">
-    <meta name="description" content="操作系统作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间 周转时间=完成时间-提交时间带权周转时间=周转时间/执行时间平均周转时间=每个周转时间之和/作业总数平均带权周转时间=每个带权周转时间之和/作业总数">
+    <meta name="description" content="操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统">
-<meta property="og:url" content="http://yoursite.com/2019/06/27/操作系统一些大题/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/06/27/操作系统/index.html">
 <meta property="og:site_name" content="Yan&#39;s blog">
-<meta property="og:description" content="操作系统作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间 周转时间=完成时间-提交时间带权周转时间=周转时间/执行时间平均周转时间=每个周转时间之和/作业总数平均带权周转时间=每个带权周转时间之和/作业总数">
+<meta property="og:description" content="操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48137904561_1566c16720_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48137934688_b1c78b1d52_b.jpg">
@@ -38,10 +38,10 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138130057_feaf5dfa2d_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138067208_2331e8f977_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138036656_e274780171_b.jpg">
-<meta property="og:updated_time" content="2019-06-28T03:49:25.398Z">
+<meta property="og:updated_time" content="2019-06-28T03:58:16.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
-<meta name="twitter:description" content="操作系统作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间 周转时间=完成时间-提交时间带权周转时间=周转时间/执行时间平均周转时间=每个周转时间之和/作业总数平均带权周转时间=每个带权周转时间之和/作业总数">
+<meta name="twitter:description" content="操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。">
 <meta name="twitter:image" content="https://live.staticflickr.com/65535/48137904561_1566c16720_b.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
@@ -177,12 +177,12 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先来先服务算法"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">先来先服务算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#短作业优先算法"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">短作业优先算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源分配图的简化"><span class="post-toc-number">2.</span> <span class="post-toc-text">资源分配图的简化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源分配图"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">资源分配图</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信号量解决进程同步问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">信号量解决进程同步问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先来先服务算法"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">先来先服务算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#短作业优先算法"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">短作业优先算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源分配图的简化"><span class="post-toc-number">2.</span> <span class="post-toc-text">资源分配图的简化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源分配图"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">资源分配图</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-操作系统一些大题" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-操作系统" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">操作系统</h1>
@@ -202,10 +202,11 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><a href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间" class="headerlink" title="作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"></a>作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</h2><blockquote>
+            <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="信号量解决进程同步问题"><a href="#信号量解决进程同步问题" class="headerlink" title="信号量解决进程同步问题"></a>信号量解决进程同步问题</h2><p>例题：<br>桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">semaphore s=1,so=0,sa=0;//s表示盘空，so表示橘子，sa表示苹果。</span><br><span class="line">Cobegin</span><br><span class="line">Void father(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(s);</span><br><span class="line">put apple();</span><br><span class="line">v(sa);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void mother(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(s);</span><br><span class="line">put orange();</span><br><span class="line">v (so);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void son(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(so);</span><br><span class="line">eat orange();</span><br><span class="line">v(s);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void daughter(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(sa);</span><br><span class="line">eat apple();</span><br><span class="line">v(s);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Coend</span><br></pre></td></tr></table></figure></p>
+<p>PV操作参考<a href="https://blog.csdn.net/speedme/article/details/17597373" target="_blank" rel="noopener">进程同步之信号量机制（pv操作）及三个经典同步问题</a></p>
+<h2 id="作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><a href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间" class="headerlink" title="作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"></a>作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</h2><blockquote>
 <p><strong>周转时间=完成时间-提交时间</strong><br><strong>带权周转时间=周转时间/执行时间</strong><br><strong>平均周转时间=每个周转时间之和/作业总数</strong><br><strong>平均带权周转时间=每个带权周转时间之和/作业总数</strong></p>
 </blockquote>
-<a id="more"></a>
 <p>例题：求解下表中4个作业在FCFS（先来先服务算法）和SJF（短作业优先算法）调度算法下的调度次序、周转时间、带权周转时间、平均周转时间、平均带权周转时间。     </p>
 <table>
 <thead>
@@ -469,7 +470,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-28T03:49:25.398Z" itemprop="dateUpdated">2019-06-28 11:49:25</time>
+    最后更新时间：<time datetime="2019-06-28T03:58:16.854Z" itemprop="dateUpdated">2019-06-28 11:58:16</time>
 </span><br>
 
 
@@ -501,7 +502,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/06/27/操作系统一些大题/&title=《操作系统》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/06/27/操作系统/&title=《操作系统》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -511,23 +512,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/06/27/操作系统一些大题/&title=《操作系统》 — Yan's blog&source=操作系统作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间
-周转时间=完成时间-提交时间带权周转时..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/06/27/操作系统/&title=《操作系统》 — Yan's blog&source=操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/06/27/操作系统一些大题/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/06/27/操作系统/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《操作系统》 — Yan's blog&url=http://yoursite.com/2019/06/27/操作系统一些大题/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《操作系统》 — Yan's blog&url=http://yoursite.com/2019/06/27/操作系统/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/06/27/操作系统一些大题/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/06/27/操作系统/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -652,7 +652,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/06/27/操作系统一些大题/&title=《操作系统》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/06/27/操作系统/&title=《操作系统》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -662,23 +662,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/06/27/操作系统一些大题/&title=《操作系统》 — Yan's blog&source=操作系统作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间
-周转时间=完成时间-提交时间带权周转时..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/06/27/操作系统/&title=《操作系统》 — Yan's blog&source=操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/06/27/操作系统一些大题/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/06/27/操作系统/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《操作系统》 — Yan's blog&url=http://yoursite.com/2019/06/27/操作系统一些大题/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《操作系统》 — Yan's blog&url=http://yoursite.com/2019/06/27/操作系统/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/06/27/操作系统一些大题/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/06/27/操作系统/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -689,7 +688,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aQRLiMAwEQP7/afa6h02YscJWYbdPVAiJmoNKtvR6xet9u+7v//vK1bf31x9bGBgYP8tIQkzCyjFXV/Jv//FGDAyMAxhXQeTp8urF90+Y/EEYGBgY949LrsxLRgwMDIx5ws3LvntY/vdhYGCczJiUa22gSVL+4l4cAwPjBxlrj/4/n7/S38DAwPgpxrtcaxvdJB1PFgYGxt6MtWOye15eJk4SLgYGxpmMScMyT50toBggw8DA2JQxOZSfFIJtafghNgwMjK0ZeXBrYxN1eTduKmBgYOzHSNJf8m17VPdUsfihNMTAwNiI0b6yTYiToKM3YmBgHMDIa63JdnRebl7GiYGBcQwjKfgmabTdsuZlKAYGxpmMtSOwttBsD+yigTAMDIxNGZNxiuTOdiCsLSUxMDBOYLSNgbYBmQ9wrH3GwMDYm5EcpU1S51p6XTvzx8DAOIfRbiPbsNoWQp6aMTAw9mYkB/FJ8yAfnpiPX1yCMTAwNmXkh275PU9NbRVPxsDAOICxNuw1KSWLwa/kaRgYGAcw8kZmEnS+fX2V6/K3GBgYmzLe5Uq2u+14Wd5G/XBeiIGBsSljkuYmI2X51vSB0DEwMLZgTDaoebGYl5J5DBgYGKcx6rGG8oCsvaeNFgMDAyPfrD5Qh06mRTAwMDDi9mTb4GxJHzqxGBgYmzLasCa//cYfh4GBsTdjbWu6WMCVTYLFDS0GBsY+jD8IWyy6rsFnEwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aMXaEMAwFwL3/pUmbIna+ZG+BPVT7gAUNhZ5s6fOJj2d6zO//fWZ0dX5+24GBgfFaRhLiPKz5k+dvGV0tfz4MDIwLGEkQc/z8fPLhkvcOz2NgYGAEjDzoaprGwMDA6DGqBV/1DAYGBkZvEZvgd32OL67FMTAwXshYCeXbv7/S38DAwHgV4yke1QVqrxAsR4WBgXE0o9qMzAcmNm+lBfFgYGCcyqiOdq0sOHtFYZTKMTAwLmCspNf8ldVWaKFhgIGBcTQjb0Ouv7K3F1j4FwYGxqGMfMG5dzd+ZdhiuGuIgYFxASNJrL3CccOQxPzjYmBgXMCoBtq7fx5KPo72x3MwMDCOZuTpcn1Bmzcmq+0HDAyMsxm9cYeVJkGeXvOkjIGBcTYjT6xJkk2aoNVVZ/lzY2BgHMfIw8qHM/JG5q7fGBgYNzCSZFdNgvmSuNdGxcDAuI1RLfVWrq4sjIdpFwMD42jGShC7tsyqTyiPXGBgYBzE6LUHqoNcCTJPx9u6HBgYGC9h9Ea4qttwK4Nf/5SwGBgYlzF6hWB1UCNP2dHzMTAwDmU8xaOagntb/+XFLQYGxtGMapqrDmT0EvTm0DEwMI5grGzW56Ng1e256nIXAwPjBsb6hn5vpKyHxMDAwOiVaEnJuB7u8DkYGBgYccGXF5e9odUhBgMD4wJGsojdtemWhJsPv2JgYNzAqBZq+RBYsqHWKxybHQ8MDIz3MX4A54zbGSoHWDkAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
