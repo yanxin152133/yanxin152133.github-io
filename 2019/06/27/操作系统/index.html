@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138130057_feaf5dfa2d_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138067208_2331e8f977_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138036656_e274780171_b.jpg">
-<meta property="og:updated_time" content="2019-06-28T03:58:16.854Z">
+<meta property="og:updated_time" content="2019-06-28T04:18:56.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
 <meta name="twitter:description" content="操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。">
@@ -177,7 +177,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信号量解决进程同步问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">信号量解决进程同步问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先来先服务算法"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">先来先服务算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#短作业优先算法"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">短作业优先算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源分配图的简化"><span class="post-toc-number">2.</span> <span class="post-toc-text">资源分配图的简化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源分配图"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">资源分配图</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信号量解决进程同步问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">信号量解决进程同步问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先来先服务算法"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">先来先服务算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#短作业优先算法"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">短作业优先算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源分配图的简化"><span class="post-toc-number">2.</span> <span class="post-toc-text">资源分配图的简化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源分配图"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">资源分配图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分页地址变换"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">分页地址变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分页存储逻辑地址转物理地址"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">分页存储逻辑地址转物理地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#十六进制逻辑地址转物理地址"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">十六进制逻辑地址转物理地址</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -202,7 +202,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="信号量解决进程同步问题"><a href="#信号量解决进程同步问题" class="headerlink" title="信号量解决进程同步问题"></a>信号量解决进程同步问题</h2><p>例题：<br>桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">semaphore s=1,so=0,sa=0;//s表示盘空，so表示橘子，sa表示苹果。</span><br><span class="line">Cobegin</span><br><span class="line">Void father(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(s);</span><br><span class="line">put apple();</span><br><span class="line">v(sa);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void mother(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(s);</span><br><span class="line">put orange();</span><br><span class="line">v (so);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void son(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(so);</span><br><span class="line">eat orange();</span><br><span class="line">v(s);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void daughter(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(sa);</span><br><span class="line">eat apple();</span><br><span class="line">v(s);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Coend</span><br></pre></td></tr></table></figure></p>
+            <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="信号量解决进程同步问题"><a href="#信号量解决进程同步问题" class="headerlink" title="信号量解决进程同步问题"></a>信号量解决进程同步问题</h2><p>例题：<br>桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">semaphore s=2,so=0,sa=0;//s表示盘空，so表示橘子，sa表示苹果。</span><br><span class="line">Cobegin</span><br><span class="line">Void father(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(s);</span><br><span class="line">put apple();</span><br><span class="line">v(sa);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void mother(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(s);</span><br><span class="line">put orange();</span><br><span class="line">v (so);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void son(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(so);</span><br><span class="line">eat orange();</span><br><span class="line">v(s);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void daughter(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(sa);</span><br><span class="line">eat apple();</span><br><span class="line">v(s);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Coend</span><br></pre></td></tr></table></figure></p>
 <p>PV操作参考<a href="https://blog.csdn.net/speedme/article/details/17597373" target="_blank" rel="noopener">进程同步之信号量机制（pv操作）及三个经典同步问题</a></p>
 <h2 id="作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><a href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间" class="headerlink" title="作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"></a>作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</h2><blockquote>
 <p><strong>周转时间=完成时间-提交时间</strong><br><strong>带权周转时间=周转时间/执行时间</strong><br><strong>平均周转时间=每个周转时间之和/作业总数</strong><br><strong>平均带权周转时间=每个带权周转时间之和/作业总数</strong></p>
@@ -462,6 +462,60 @@
 </ul>
 <p><img src="https://live.staticflickr.com/65535/48138036656_e274780171_b.jpg" alt></p>
 <p>由于这个资源分配图可完全简化，因此，不会产生死锁。<br>而如果资源分配图中的点，最终不能够化成孤立的点，则进程资源图不能够完全简化，从而会发生死锁。      </p>
+<h2 id="分页地址变换"><a href="#分页地址变换" class="headerlink" title="分页地址变换"></a>分页地址变换</h2><blockquote>
+<p>地址变换处理</p>
+<ul>
+<li>得到页号：自动将逻辑地址分为页号和页内地址</li>
+<li>用页号查页表，得到块号</li>
+<li>将块号与页内地址拼接，即得物理地址</li>
+</ul>
+</blockquote>
+<h3 id="分页存储逻辑地址转物理地址"><a href="#分页存储逻辑地址转物理地址" class="headerlink" title="分页存储逻辑地址转物理地址"></a>分页存储逻辑地址转物理地址</h3><p>例题：<br>已知某个分页系统，页面大小为1K(即1024字节)，某一个作业有4个页面，分别装入到主存的第3、4、6、8块中，求逻辑地址2100对应的物理地址。  </p>
+<ul>
+<li>第一步：求逻辑地址的页号 = 2100/1024=2 （整除）</li>
+<li>第二步：求页内偏移量 = 2100 % 1024 =52 （取余）</li>
+<li>第三步：产生页表：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>页号</th>
+<th>块号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>第四步：根据逻辑地址的页号查出物理地址的页框号/帧号：<br>如上图，逻辑地址的第2页对应物理地址的第6页。</li>
+<li>第五步：求出物理地址 = 6*1024 + 52 = 6196</li>
+</ul>
+<p>设有8页的逻辑地址空间，每页有1024个字节，它们被映射到32块的物理存储区，那么逻辑地址的有效位是多少，物理地址至少多少位？</p>
+<p>逻辑地址：8x1024=2^3x2^10=2^13<br>物理地址：32x1024=2^5x2^10=2^15<br>逻辑地址的有效位是13，物理地址的有效位是15.      </p>
+<h3 id="十六进制逻辑地址转物理地址"><a href="#十六进制逻辑地址转物理地址" class="headerlink" title="十六进制逻辑地址转物理地址"></a>十六进制逻辑地址转物理地址</h3><p>一分页存储管理系统中逻辑地址长度为16位，页面大小为4KB字节，现有一逻辑地址为2F6AH，且第0、1、2页依次存放在物理块5、10、11中。求逻辑地址2F6AH对应的物理地址      </p>
+<p>解：    </p>
+<ul>
+<li>第一步：将逻辑地址2F6AH转换为二进制为：0010 1110 0110 1010     </li>
+<li>第二步：由于页面大小为4KB字节，（4KB=2的12次方）。所以逻辑地址的后12位为“页内地址”(也叫做页内偏移量)      </li>
+<li>第三步：由于逻辑地址的后12位为页内地址，所以剩下的前4位为页号：即0010为页号      </li>
+<li>第四步：根据页表可知，0010(十进制为2)对于的页框号为11(二进制为1011)<br>所以最终的物理地址为：1011 1111 0110 1010<br>即BF6AH</li>
+</ul>
 
         </div>
 
@@ -470,7 +524,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-28T03:58:16.854Z" itemprop="dateUpdated">2019-06-28 11:58:16</time>
+    最后更新时间：<time datetime="2019-06-28T04:18:56.163Z" itemprop="dateUpdated">2019-06-28 12:18:56</time>
 </span><br>
 
 
