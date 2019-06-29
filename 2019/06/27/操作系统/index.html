@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138130057_feaf5dfa2d_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138067208_2331e8f977_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48138036656_e274780171_b.jpg">
-<meta property="og:updated_time" content="2019-06-28T08:26:33.900Z">
+<meta property="og:updated_time" content="2019-06-29T06:34:57.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
 <meta name="twitter:description" content="操作系统信号量解决进程同步问题例题：桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。">
@@ -177,7 +177,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作系统</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#信号量解决进程同步问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">信号量解决进程同步问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><span class="post-toc-number">3.</span> <span class="post-toc-text">作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先来先服务算法"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">先来先服务算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#短作业优先算法"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">短作业优先算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源分配图的简化"><span class="post-toc-number">4.</span> <span class="post-toc-text">资源分配图的简化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源分配图"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">资源分配图</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分页地址变换"><span class="post-toc-number">5.</span> <span class="post-toc-text">分页地址变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分页存储逻辑地址转物理地址"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">分页存储逻辑地址转物理地址</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十六进制逻辑地址转物理地址"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">十六进制逻辑地址转物理地址</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#页面置换算法"><span class="post-toc-number">6.</span> <span class="post-toc-text">页面置换算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最佳置换算法（OPT）"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">最佳置换算法（OPT）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先进先出页面置换算法（FIFO）"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">先进先出页面置换算法（FIFO）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最近最久未使用置换算法（LRU）"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">最近最久未使用置换算法（LRU）</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作系统"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作系统</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#信号量解决进程同步问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">信号量解决进程同步问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><span class="post-toc-number">3.</span> <span class="post-toc-text">作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先来先服务算法"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">先来先服务算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#短作业优先算法"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">短作业优先算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源分配图的简化"><span class="post-toc-number">4.</span> <span class="post-toc-text">资源分配图的简化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源分配图"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">资源分配图</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分页地址变换"><span class="post-toc-number">5.</span> <span class="post-toc-text">分页地址变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分页存储逻辑地址转物理地址"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">分页存储逻辑地址转物理地址</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十六进制逻辑地址转物理地址"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">十六进制逻辑地址转物理地址</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#页面置换算法"><span class="post-toc-number">6.</span> <span class="post-toc-text">页面置换算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最佳置换算法（OPT）"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">最佳置换算法（OPT）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先进先出页面置换算法（FIFO）"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">先进先出页面置换算法（FIFO）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最近最久未使用置换算法（LRU）"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">最近最久未使用置换算法（LRU）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#磁盘的调度算法"><span class="post-toc-number">7.</span> <span class="post-toc-text">磁盘的调度算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先来先服务（FCFS）"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">先来先服务（FCFS）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最短寻道时间优先磁盘调度算法（SSTF）"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">最短寻道时间优先磁盘调度算法（SSTF）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扫描算法（SCAN）"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">扫描算法（SCAN）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#循环扫描（CSCAN）"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">循环扫描（CSCAN）</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -834,6 +834,75 @@
 </table>
 <p>缺页率：7/12*100%=58.3%</p>
 <p>堆栈实现LRU：<br><strong>系统使用特殊的堆栈来存放内存中每一个页面的页号。每当访问一页时就调整一次，即把被访问页面的页号从栈中移出再压入栈顶。因此，栈顶始终是最新被访问页面的页号。当发生缺页中断时，总是淘汰栈底页号所对应的页面</strong>。</p>
+<h1 id="磁盘的调度算法"><a href="#磁盘的调度算法" class="headerlink" title="磁盘的调度算法"></a>磁盘的调度算法</h1><h2 id="先来先服务（FCFS）"><a href="#先来先服务（FCFS）" class="headerlink" title="先来先服务（FCFS）"></a>先来先服务（FCFS）</h2><p>先来先服务算法是<strong>根据进程请求访问磁盘的先后顺序进行调度</strong>。<br>例题：<br>某一磁盘请求序列（磁盘号）：98，183，37，122，14，124，65，61.按照先来先服务磁盘调度对磁盘进行请求服务，假设当前磁头在53道上，则磁臂总移动倒数为多少？     </p>
+<table>
+<thead>
+<tr>
+<th>下一个磁道</th>
+<th>移动磁道数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>98</td>
+<td>45</td>
+</tr>
+<tr>
+<td>183</td>
+<td>85</td>
+</tr>
+<tr>
+<td>37</td>
+<td>146</td>
+</tr>
+<tr>
+<td>122</td>
+<td>85</td>
+</tr>
+<tr>
+<td>14</td>
+<td>108</td>
+</tr>
+<tr>
+<td>124</td>
+<td>110</td>
+</tr>
+<tr>
+<td>65</td>
+<td>59</td>
+</tr>
+<tr>
+<td>61</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>总移动磁道数=45+85+146+85+108+110+59+4=642.    </p>
+<h2 id="最短寻道时间优先磁盘调度算法（SSTF）"><a href="#最短寻道时间优先磁盘调度算法（SSTF）" class="headerlink" title="最短寻道时间优先磁盘调度算法（SSTF）"></a>最短寻道时间优先磁盘调度算法（SSTF）</h2><p>最短寻道时间优先磁盘调度算法是<strong>每次都优先满足当前磁头位置最近的磁道访问请求</strong>。</p>
+<p>例题：<br>若干个等待访问磁盘者依次要访问的磁道为19，43，40，4，79，11，76，当前磁头位于42号柱面，若用最短寻道时间优先磁盘调度算法，则访问序列是什么？<br>思路：将要访问的磁道与当前磁头所在柱面相减并取绝对值，绝对值越小的优先访问。     </p>
+<p>访问序列为40，43，19，11，4，76，79.     </p>
+<h2 id="扫描算法（SCAN）"><a href="#扫描算法（SCAN）" class="headerlink" title="扫描算法（SCAN）"></a>扫描算法（SCAN）</h2><ul>
+<li>考虑当前移动方向，一直移动到最外/内层磁道时，折返，进行反方向移动。就好比电梯。</li>
+<li>寻道方向：…，里-&gt;外，外-&gt;里，….;</li>
+</ul>
+<p>若干个等待访问磁盘者依次要访问的磁道为86,147,91,177,94,150,102,175,130，当前磁头位于143号柱面，<strong>刚刚处理完125号柱面</strong>，使用SCAN算法则访问序列是什么？    </p>
+<p>答：     </p>
+<ul>
+<li>当前方向：从143向<strong>磁道号增加的方向</strong></li>
+<li>依次访问：147，150，175，177</li>
+<li>反方向：130，102，94，91，86（<strong>电梯原理</strong>）</li>
+</ul>
+<h2 id="循环扫描（CSCAN）"><a href="#循环扫描（CSCAN）" class="headerlink" title="循环扫描（CSCAN）"></a>循环扫描（CSCAN）</h2><ul>
+<li>循环扫描</li>
+<li>寻道方向：…..,里-&gt;外，里-&gt;外，….。或者相反。</li>
+</ul>
+<p>若干个等待访问磁盘者依次要访问的磁道为86,147,91,177,94,150,102,175,130，当前磁头位于143号柱面，<strong>刚刚处理完125号柱面</strong>，使用CSCAN算法则访问序列是什么？     </p>
+<p>答：     </p>
+<ul>
+<li>当前方向：从143向<strong>磁道号增加的方向</strong></li>
+<li>依次访问：147，150，175，177</li>
+<li>再从0开始增加方向：<strong>86，91，94，102，130</strong></li>
+</ul>
 
         </div>
 
@@ -842,7 +911,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-28T08:26:33.900Z" itemprop="dateUpdated">2019-06-28 16:26:33</time>
+    最后更新时间：<time datetime="2019-06-29T06:34:57.739Z" itemprop="dateUpdated">2019-06-29 14:34:57</time>
 </span><br>
 
 
