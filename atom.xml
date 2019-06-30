@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-29T13:39:35.687Z</updated>
+  <updated>2019-06-29T07:17:32.936Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>软件工程</title>
-    <link href="http://yoursite.com/2019/06/29/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/06/29/软件工程/</id>
-    <published>2019-06-29T07:44:33.157Z</published>
-    <updated>2019-06-29T13:39:35.687Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h1><h1 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h1><p><strong>1. 社会、健康、安全、法律、文化、环境对软件工程有什么影响？（举例子说明）</strong></p><a id="more"></a><p>请移步<a href="http://119.3.66.9/" target="_blank" rel="noopener">主站</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;软件工程&quot;&gt;&lt;a href=&quot;#软件工程&quot; class=&quot;headerlink&quot; title=&quot;软件工程&quot;&gt;&lt;/a&gt;软件工程&lt;/h1&gt;&lt;h1 id=&quot;简答题&quot;&gt;&lt;a href=&quot;#简答题&quot; class=&quot;headerlink&quot; title=&quot;简答题&quot;&gt;&lt;/a&gt;简答题&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;1. 社会、健康、安全、法律、文化、环境对软件工程有什么影响？（举例子说明）&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="软件工程" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    
-    
-      <category term="软件工程" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    
-  </entry>
   
   <entry>
     <title>操作系统</title>
@@ -535,6 +513,31 @@
       <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
       <category term="ListView" scheme="http://yoursite.com/tags/ListView/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo主题casper使用教程</title>
+    <link href="http://yoursite.com/2019/05/26/Hexo%E4%B8%BB%E9%A2%98casper%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <id>http://yoursite.com/2019/05/26/Hexo主题casper使用教程/</id>
+    <published>2019-05-26T03:54:07.007Z</published>
+    <updated>2019-04-17T14:08:16.453Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo主题casper使用教程"><a href="#Hexo主题casper使用教程" class="headerlink" title="Hexo主题casper使用教程"></a>Hexo主题casper使用教程</h1><p>demo     </p><p><img src="https://live.staticflickr.com/65535/46905122234_0ab308a723.jpg" alt="casper"></p><a id="more"></a><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/xzhih/hexo-theme-casper.git themes/hexo-casper</span><br></pre></td></tr></table></figure><h2 id="更改主题为casper"><a href="#更改主题为casper" class="headerlink" title="更改主题为casper"></a>更改主题为casper</h2><p>把<strong>Hexo根目录</strong>的配置文件<strong>_config.yml</strong>中的<strong>theme</strong>改为<strong>hexo-casper</strong>。</p><h2 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h2><p>建议先备份以下再执行下面的操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/casper </span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></p><h2 id="添加统一的文章模板参数"><a href="#添加统一的文章模板参数" class="headerlink" title="添加统一的文章模板参数"></a>添加统一的文章模板参数</h2><p>把下面的内容添加到<strong>Hexo根目录</strong>下的<strong>scaffolds/post.md</strong>。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cover_img:     # 在文章摘要上显示</span><br><span class="line">feature_img:   # 在文章详细页面上置顶</span><br><span class="line">description:   # 文章描述</span><br><span class="line">keywords:      # 关键字</span><br></pre></td></tr></table></figure><h2 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h2><p>编辑<strong>themes/hexo-casper/_config.yml</strong>进行配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"># Config</span><br><span class="line">rss:            # link</span><br><span class="line">favicon: https://i.loli.net/2017/11/26/5a19c0b50432e.png</span><br><span class="line">blog_logo: </span><br><span class="line">header_image: https://i.loli.net/2017/11/26/5a19c56faa29f.jpg</span><br><span class="line">bio: This is a demo</span><br><span class="line">post_toc: true</span><br><span class="line"></span><br><span class="line"># 菜单</span><br><span class="line">menu:</span><br><span class="line">  About: /about</span><br><span class="line">  Archives: /archives</span><br><span class="line">  # 其他的可以按照上面的模板添加</span><br><span class="line"></span><br><span class="line"># 作者</span><br><span class="line">author_image:   # 链接</span><br><span class="line">author_bio:     # 描述</span><br><span class="line">author_location: # 地址</span><br><span class="line"></span><br><span class="line"># 社交链接</span><br><span class="line">social:</span><br><span class="line">  facebook: https://www.facebook.com</span><br><span class="line">  twitter: https://www.twitter.com</span><br><span class="line">  twitter: https://twitter.com</span><br><span class="line">  facebook: https://facebook</span><br><span class="line">  telegram:</span><br><span class="line">  bilibili:</span><br><span class="line">  youtube:</span><br><span class="line">  </span><br><span class="line"># 插件（显示在网站底部）</span><br><span class="line">widgets:</span><br><span class="line">  recent_posts: true</span><br><span class="line">  category: true</span><br><span class="line">  tagcloud: true</span><br><span class="line">  # 这是个简洁的主题，我认为3个就够了</span><br><span class="line"></span><br><span class="line"># 文章图片相册（点击图片可以放大）</span><br><span class="line"># https://github.com/sachinchoolur/lightgallery.js</span><br><span class="line">lightgallery: true</span><br><span class="line"></span><br><span class="line"># 懒加载</span><br><span class="line"># 首页已经默认开启，其他页面在此开启</span><br><span class="line"># https://github.com/dinbror/blazy</span><br><span class="line">lazyload: true</span><br><span class="line"></span><br><span class="line"># 搜索功能</span><br><span class="line">local_search: true</span><br><span class="line"></span><br><span class="line"># Valine 评论系统</span><br><span class="line"># https://valine.js.org</span><br><span class="line">comment: false</span><br><span class="line">valine:</span><br><span class="line">  notify: false # mail notifier , https://github.com/xCss/Valine/wiki </span><br><span class="line">  verify: false # Verification code</span><br><span class="line">  appId: # your leancloud application appid</span><br><span class="line">  appKey: # your leancloud application appkey</span><br><span class="line">  placeholder: Just go go # comment box placeholder</span><br><span class="line">  avatar: mm # gravatar style</span><br><span class="line">  pageSize: 10 # pagination size</span><br><span class="line"></span><br><span class="line"># PWA </span><br><span class="line"># 你需要在 hexo 目录的 source 文件夹里创建一个 manifest.json 文件</span><br><span class="line">manifest: false</span><br><span class="line">service_workers: false</span><br><span class="line"></span><br><span class="line">navColor: &apos;3c484e&apos;</span><br><span class="line"></span><br><span class="line"># Baidu 链接提交</span><br><span class="line">baidu: false</span><br><span class="line"></span><br><span class="line"># Google Analytics</span><br><span class="line">googleAnalytics: false</span><br><span class="line">GA_TRACKING_ID: UA-XXXXXXXXXX-1</span><br></pre></td></tr></table></figure></p><h2 id="本地搜索功能"><a href="#本地搜索功能" class="headerlink" title="本地搜索功能"></a>本地搜索功能</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在<strong>Hexo根目录</strong>下中的<strong>_config.yml</strong>进行配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">search：</span><br><span class="line">   path：search.xml </span><br><span class="line">   field：post </span><br><span class="line">   content：true</span><br></pre></td></tr></table></figure></p><p>path-文件路径。默认为search.xml。如果文件扩展名为.json，则输出格式为JSON。否则将导出XML格式文件。<br>filed-要搜索的文件范围。   </p><ul><li>post（默认）-所有帖子  </li><li>page -所有页面    </li><li>all -所有帖子和页面    </li></ul><p>content-是否包含每篇文章的全部内容。默认为true。如果false，生成的结果仅覆盖没有主体的标题和其他元信息。</p><h3 id="排除索引"><a href="#排除索引" class="headerlink" title="排除索引"></a>排除索引</h3><p>要将某个帖子或页面排除在索引之外，您只需indexing: false在其前端的顶部插入设置，例如：     </p><pre><code>title: &quot;Code Highlight&quot;date: &quot;2014-03-15 20:17:16&quot;tags: highlightcategories: Demodescription: &quot;A collection of Hello World applications from helloworld.org.&quot;toc: trueindexing: false---</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Hexo主题casper使用教程&quot;&gt;&lt;a href=&quot;#Hexo主题casper使用教程&quot; class=&quot;headerlink&quot; title=&quot;Hexo主题casper使用教程&quot;&gt;&lt;/a&gt;Hexo主题casper使用教程&lt;/h1&gt;&lt;p&gt;demo     &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/46905122234_0ab308a723.jpg&quot; alt=&quot;casper&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+      <category term="Hexo主题casper使用教程" scheme="http://yoursite.com/categories/Hexo/Hexo%E4%B8%BB%E9%A2%98casper%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Hexo主题casper使用教程" scheme="http://yoursite.com/tags/Hexo%E4%B8%BB%E9%A2%98casper%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
