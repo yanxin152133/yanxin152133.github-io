@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-06T05:25:24.377Z</updated>
+  <updated>2019-07-06T05:30:06.089Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>缺陷跟踪</title>
+    <link href="http://yoursite.com/2019/07/06/%E7%BC%BA%E9%99%B7%E8%B7%9F%E8%B8%AA/"/>
+    <id>http://yoursite.com/2019/07/06/缺陷跟踪/</id>
+    <published>2019-07-06T05:29:17.225Z</published>
+    <updated>2019-07-06T05:30:06.089Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="缺陷跟踪" scheme="http://yoursite.com/categories/%E7%BC%BA%E9%99%B7%E8%B7%9F%E8%B8%AA/"/>
+    
+    
+      <category term="缺陷跟踪" scheme="http://yoursite.com/tags/%E7%BC%BA%E9%99%B7%E8%B7%9F%E8%B8%AA/"/>
+    
+  </entry>
   
   <entry>
     <title>软件测试</title>
@@ -498,35 +516,6 @@
       <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
       <category term="ProgressDialog" scheme="http://yoursite.com/tags/ProgressDialog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LoadRunner</title>
-    <link href="http://yoursite.com/2019/05/26/LoadRunner/"/>
-    <id>http://yoursite.com/2019/05/26/LoadRunner/</id>
-    <published>2019-05-26T03:54:10.137Z</published>
-    <updated>2019-05-11T06:14:47.837Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="LoadRunner-11-0"><a href="#LoadRunner-11-0" class="headerlink" title="LoadRunner 11.0"></a>LoadRunner 11.0</h1><h2 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h2><ul><li>LoadRunner 11.0 安装包</li><li>LoadRunner 11.0 破解相关文件</li></ul><a id="more"></a><h2 id="下载："><a href="#下载：" class="headerlink" title="下载："></a>下载：</h2><ul><li>LoadRunner 11.0 安装包（迅雷下载）：<a href="http://www.genilogix.com/downloads/loadrunner/loadrunner-11.iso" target="_blank" rel="noopener">http://www.genilogix.com/downloads/loadrunner/loadrunner-11.iso</a></li><li><a href="https://link.jianshu.com/?t=https://pan.baidu.com/s/1nu9r7tf" target="_blank" rel="noopener">LoadRunner 11.0 破解相关文件</a></li></ul><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol><li><p>打开<strong>LoadRunner 11.0 安装包</strong>文件夹，点击<strong>setup.exe</strong>。  </p></li><li><p>点击<strong>LoadRunner完整安装程序</strong>，接着按提示进行下去，当它提示缺省文件的时候可以直接打开“附加组件”进入“Monitor Probe for Microsoft COM+ Server Components”这个文件夹，运行“Com_Plus_Probe.exe”文件即可。       </p></li><li><p>安装成功即进入主界面，进入的时候会有一个提示框出现，意思就是你拥有10天的试用权限。     </p></li></ol><h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h2><ol><li><p>打开<strong>LoadRunner 11.0 破解相关文件</strong>，将<strong>mlr5lprg.dll</strong>和<strong>lm70.dll</strong>这两个文件<strong>复制替换</strong>到<strong>LoadRunner安装目录的/bin文件下</strong>。</p></li><li><p>以管理员身份运行<strong>deletelicense.exe</strong></p></li><li><p>管理员身份运行LoadRunner。</p></li><li><p>点击“configuration-&gt;loadRunner License”进入界面，现在你就可以new你自己的license了。下面是不同数量并发的代码：<br>10000个并发：AEABEXFR-YTIEKEKJJMFKEKEKWBRAUNQJU-KBYGB<br>提供一个超级license 最高支持6.5w个并发：AEACFSJI-YJKJKJJKEJIJD-BCLBR。</p></li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.51cto.com/kinghinds/908502" target="_blank" rel="noopener">loadRunner 安装及破解</a></p><p><a href="https://www.jianshu.com/p/b3b5f24d7877" target="_blank" rel="noopener">LoadRunner 11.0安装+汉化+破解</a></p><p><a href="https://blog.csdn.net/u010298501/article/details/36199745" target="_blank" rel="noopener">loadRunner破解不成功的几个原因</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;LoadRunner-11-0&quot;&gt;&lt;a href=&quot;#LoadRunner-11-0&quot; class=&quot;headerlink&quot; title=&quot;LoadRunner 11.0&quot;&gt;&lt;/a&gt;LoadRunner 11.0&lt;/h1&gt;&lt;h2 id=&quot;准备：&quot;&gt;&lt;a href=&quot;#准备：&quot; class=&quot;headerlink&quot; title=&quot;准备：&quot;&gt;&lt;/a&gt;准备：&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;LoadRunner 11.0 安装包&lt;/li&gt;
-&lt;li&gt;LoadRunner 11.0 破解相关文件&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="软件测试" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="LoadRunner" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/LoadRunner/"/>
-    
-    
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="LoadRunner" scheme="http://yoursite.com/tags/LoadRunner/"/>
     
   </entry>
   
