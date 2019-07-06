@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Yan&#39;s blog">
 <meta property="og:description" content="思考题1. 你怎样组建一支新的测试团队，包含一些什么岗位，如果要去招聘，开出什么条件？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-06T09:59:26.140Z">
+<meta property="og:updated_time" content="2019-07-06T10:57:13.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件测试">
 <meta name="twitter:description" content="思考题1. 你怎样组建一支新的测试团队，包含一些什么岗位，如果要去招聘，开出什么条件？">
@@ -403,8 +403,29 @@
 <li><a href="https://blog.csdn.net/rachel_luo/article/details/7444480" target="_blank" rel="noopener">如何合理安排测试时间</a></li>
 <li><a href="https://zhidao.baidu.com/question/163643937.html" target="_blank" rel="noopener">软件测试的测试计划是如何计算测试时间</a></li>
 </ul>
-<p><strong>10. 如果时间紧迫了，测试范围怎样裁剪？</strong>      </p>
-<p><strong>11. QTP自动化测试的时候，怎样提高测试脚本执行效率？</strong>      </p>
+<p><strong>10. 如果时间紧迫了，测试范围怎样裁剪？</strong><br>参考：     </p>
+<ul>
+<li>部分不重要的需求可以裁剪，不进行测试</li>
+<li>对测试范围按照重要性和风险进行优先级评定，优先测试重要的和风险大的</li>
+</ul>
+<p><strong>11. QTP自动化测试的时候，怎样提高测试脚本执行效率？</strong><br>参考：     </p>
+<ul>
+<li>使用VBS文件来启动QTP</li>
+<li>把变量和函数定义放到外部VBS文件，而不要放在Action中</li>
+<li>通过AOM控制QTP重启来解决QTP内存泄露问题</li>
+<li>尽量不要使用wait，而使用.sync或exist语句</li>
+<li>使用with语句可以让代码更清晰，而且效率更好</li>
+<li>使用OR要比DP快点</li>
+<li>不要保存image和movie到测试结果中</li>
+<li>把运行模式设置为fast</li>
+<li>通过AOM控制QTP</li>
+<li>在调用Action时使用相对路径</li>
+</ul>
+<p><strong>参考链接</strong>：     </p>
+<ul>
+<li><a href="https://zhidao.baidu.com/question/569838608.html" target="_blank" rel="noopener">QTP：如何优化测试脚本 提高测试效率 以及脚本结构化</a></li>
+<li><a href="http://www.voidcn.com/article/p-wopghvwx-hm.html" target="_blank" rel="noopener">如何让你的QTP脚本执行效率更高？</a></li>
+</ul>
 <p><strong>12. 理解性能测试的指标和性能测试给出的结果曲线</strong>       </p>
 <p><strong>13. 如果让你负责性能测试，你会按照什么思路开展工作？</strong>      </p>
 
@@ -415,7 +436,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-06T09:59:26.140Z" itemprop="dateUpdated">2019-07-06 17:59:26</time>
+    最后更新时间：<time datetime="2019-07-06T10:57:13.806Z" itemprop="dateUpdated">2019-07-06 18:57:13</time>
 </span><br>
 
 
