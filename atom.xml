@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-07T04:13:43.176Z</updated>
+  <updated>2019-07-07T04:27:52.466Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/07/06/%E7%BC%BA%E9%99%B7%E8%B7%9F%E8%B8%AA/"/>
     <id>http://yoursite.com/2019/07/06/缺陷跟踪/</id>
     <published>2019-07-06T05:29:17.225Z</published>
-    <updated>2019-07-07T04:13:43.176Z</updated>
+    <updated>2019-07-07T04:27:52.466Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1-软件缺陷概述"><a href="#1-软件缺陷概述" class="headerlink" title="1. 软件缺陷概述"></a>1. 软件缺陷概述</h1><h2 id="1-1-软件质量与软件缺陷"><a href="#1-1-软件质量与软件缺陷" class="headerlink" title="1.1 软件质量与软件缺陷"></a>1.1 软件质量与软件缺陷</h2><a id="more"></a><ul><li>缺陷相对于质量而存在，软件违背了质量、违背了客户意愿、不能满足客户的需求，就会引起缺陷或产生缺陷</li></ul><p><img src="https://live.staticflickr.com/65535/48218182962_e0974f6d6d_z.jpg" alt><br><strong>已放弃</strong></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-软件缺陷概述"><a href="#1-软件缺陷概述" class="headerlink" title="1. 软件缺陷概述"></a>1. 软件缺陷概述</h1><h2 id="1-1-软件质量与软件缺陷"><a href="#1-1-软件质量与软件缺陷" class="headerlink" title="1.1 软件质量与软件缺陷"></a>1.1 软件质量与软件缺陷</h2><a id="more"></a><ul><li>缺陷相对于质量而存在，软件违背了质量、违背了客户意愿、不能满足客户的需求，就会引起缺陷或产生缺陷</li></ul><p><img src="https://live.staticflickr.com/65535/48218182962_e0974f6d6d_z.jpg" alt><br><strong>已放弃</strong></p><h1 id="大题"><a href="#大题" class="headerlink" title="大题"></a>大题</h1><p><strong>注入-发现矩阵实例</strong><br>|缺陷注入阶段/缺陷发现阶段|需求阶段|概要设计阶段|详细设计阶段|编码阶段|单元测试阶段|集成测试阶段|系统测试阶段|现场阶段|注入合计|<br>|———————–|——-|———–|———–|——-|———–|———–|———–|——-|——–|<br>|需求评审||||||||||<br>|概要设计审查|49|681|||||||730|<br>|详细设计审查|6|42|681||||||729|<br>|代码审查|12|28|114|941|||||1095|<br>|单元测试|21|43|43|223|2||||332|<br>|集成测试|20|41|61|261|——|4|||387|<br>|系统测试|6|8|24|72|——|——|1||111|<br>|现场|8|16|16|40|——|——|——|1|81|<br>|发现合计|122|859|939|1537|2|4|1|1|3465|<br>|本阶段缺陷移除率|||||||||||</p>]]></content>
     
     <summary type="html">
     
