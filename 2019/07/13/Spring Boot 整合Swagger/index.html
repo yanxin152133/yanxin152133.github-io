@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>整合Swagger | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Spring Boot,Swagger">
+    <meta name="description" content="Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。本文简单介绍了在项目中集成swagger的方法和一些常见问题。 如果想深入分析项目源码，了解更多内容，见参考资料。Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端">
+<meta name="keywords" content="Spring Boot,Swagger">
+<meta property="og:type" content="article">
+<meta property="og:title" content="整合Swagger">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。本文简单介绍了在项目中集成swagger的方法和一些常见问题。 如果想深入分析项目源码，了解更多内容，见参考资料。Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-13T12:48:58.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="整合Swagger">
+<meta name="twitter:description" content="Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。本文简单介绍了在项目中集成swagger的方法和一些常见问题。 如果想深入分析项目源码，了解更多内容，见参考资料。Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">整合Swagger</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">整合Swagger</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-13T12:40:56.543Z" itemprop="datePublished" class="page-time">
+  2019-07-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Spring-Boot/Swagger/">Swagger</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#整合"><span class="post-toc-number">1.</span> <span class="post-toc-text">整合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pom-xml"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">pom.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SwaggerConfig-java"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">SwaggerConfig.java</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">使用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Spring Boot 整合Swagger" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">整合Swagger</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-13 20:40:56" datetime="2019-07-13T12:40:56.543Z" itemprop="datePublished">2019-07-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Spring-Boot/Swagger/">Swagger</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。本文简单介绍了在项目中集成swagger的方法和一些常见问题。 如果想深入分析项目源码，了解更多内容，见参考资料。Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。Swagger 让部署管理和使用功能强大的API从未如此简单。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="整合"><a href="#整合" class="headerlink" title="整合"></a>整合</h1><h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">      &lt;!-- swagger api文档 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;2.6.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;2.6.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="SwaggerConfig-java"><a href="#SwaggerConfig-java" class="headerlink" title="SwaggerConfig.java"></a>SwaggerConfig.java</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">package com.cleanhome.service.config;</span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import springfox.documentation.builders.ApiInfoBuilder;</span><br><span class="line">import springfox.documentation.builders.PathSelectors;</span><br><span class="line">import springfox.documentation.builders.RequestHandlerSelectors;</span><br><span class="line">import springfox.documentation.service.ApiInfo;</span><br><span class="line">import springfox.documentation.spi.DocumentationType;</span><br><span class="line">import springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line">import springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author Yan</span><br><span class="line"> * @date 2019/6/10 13:58</span><br><span class="line"> *</span><br><span class="line"> * swaggerui配置文件</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">@EnableSwagger2</span><br><span class="line">public class SwaggerConfig &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 创建API应用</span><br><span class="line">     * apiInfo() 增加API相关信息</span><br><span class="line">     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，</span><br><span class="line">     * 本例采用指定扫描的包路径来定义指定要建立API的目录。</span><br><span class="line">     *</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    @Bean</span><br><span class="line">    public Docket createRestApi() &#123;</span><br><span class="line">        return new Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(&quot;com.cleanhome.service.controller&quot;))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 创建该API的基本信息（这些基本信息会展现在文档页面中）</span><br><span class="line">     * 访问地址：http://项目实际地址/swagger-ui.html</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private ApiInfo apiInfo() &#123;</span><br><span class="line">        return new ApiInfoBuilder()</span><br><span class="line">                .title(&quot;XXXX&quot;)</span><br><span class="line">                .description(&quot;XXXX&quot;)</span><br><span class="line">                .termsOfServiceUrl(&quot;https://yanxin152133.github.io/&quot;)</span><br><span class="line">                .contact(&quot;yan&quot;)</span><br><span class="line">                .version(&quot;1.0&quot;)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line">package com.cleanhome.service.controller;</span><br><span class="line"></span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import com.cleanhome.service.bean.EjCustomer;</span><br><span class="line">import com.cleanhome.service.service.impl.IEjCustomerServiceImpl;</span><br><span class="line">import com.cleanhome.service.utils.Message;</span><br><span class="line">import com.cleanhome.service.utils.MessageUtil;</span><br><span class="line">import io.swagger.annotations.Api;</span><br><span class="line">import io.swagger.annotations.ApiImplicitParam;</span><br><span class="line">import io.swagger.annotations.ApiImplicitParams;</span><br><span class="line">import io.swagger.annotations.ApiOperation;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.beans.propertyeditors.CustomDateEditor;</span><br><span class="line">import org.springframework.web.bind.WebDataBinder;</span><br><span class="line">import org.springframework.web.bind.annotation.*;</span><br><span class="line">import org.springframework.web.context.request.WebRequest;</span><br><span class="line"></span><br><span class="line">import java.text.DateFormat;</span><br><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line">import java.util.Date;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author Yan、ysq</span><br><span class="line"> * @date 2019/6/11 8:40</span><br><span class="line"> * 顾客</span><br><span class="line"> * 主要功能：</span><br><span class="line"> * 1.查询顾客的所有信息</span><br><span class="line"> * 2.查询顾客数量</span><br><span class="line"> * 3.添加顾客信息</span><br><span class="line"> * 4.根据编号进行删除顾客信息</span><br><span class="line"> * 5.根据编号进行更新操作</span><br><span class="line"> */</span><br><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;/customer&quot;)</span><br><span class="line">@Api(value = &quot;/customer&quot;, description = &quot;顾客信息管理&quot;)</span><br><span class="line">public class EjCustomerController &#123;</span><br><span class="line">    Logger logger = LoggerFactory.getLogger(EjCustomerController.class);</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private IEjCustomerServiceImpl ejCustomerService;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @InitBinder</span><br><span class="line">    public void initBinder(WebDataBinder binder, WebRequest request) &#123;</span><br><span class="line"></span><br><span class="line">        //转换日期</span><br><span class="line">        DateFormat dateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span><br><span class="line">        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为自定义日期编辑器</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //查询顾客的所有信息</span><br><span class="line">    @ApiOperation(value = &quot;查询顾客的所有信息&quot;)</span><br><span class="line">    @GetMapping(&quot;findAll&quot;)</span><br><span class="line">    public Message findAll() &#123;</span><br><span class="line">        List&lt;EjCustomer&gt; list = ejCustomerService.findAll();</span><br><span class="line">        logger.info(&quot;查询顾客所有信息成功&quot;);</span><br><span class="line">        return MessageUtil.success(&quot;查询顾客所有信息成功&quot;, list);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //查询顾客数量</span><br><span class="line">    @ApiOperation(value = &quot;查询顾客数量&quot;)</span><br><span class="line">    @GetMapping(&quot;findCustomer_Num&quot;)</span><br><span class="line">    public Message findCustomer_Num() &#123;</span><br><span class="line">        int num = ejCustomerService.findCustomer_Num();</span><br><span class="line">        logger.info(&quot;查询顾客数量成功&quot;);</span><br><span class="line">        return MessageUtil.success(&quot;查询顾客数量成功&quot;, num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //查询当天新增顾客量</span><br><span class="line">    @ApiOperation(value = &quot;查询当天新增顾客量&quot;)</span><br><span class="line">    @GetMapping(&quot;TodayCustomerNum&quot;)</span><br><span class="line">    public Message TodayCustomerNum() &#123;</span><br><span class="line">        int num = ejCustomerService.TodayCustomerNum();</span><br><span class="line">        logger.info(&quot;查询当天新增顾客量成功&quot;);</span><br><span class="line">        return MessageUtil.success(&quot;查询当天新增顾客量成功&quot;, num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //添加顾客信息</span><br><span class="line">    @ApiOperation(value = &quot;添加顾客信息&quot;)</span><br><span class="line">    @PostMapping(&quot;insert&quot;)</span><br><span class="line">    @ApiImplicitParams(&#123;</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;id&quot;, value = &quot;顾客编号&quot;, required = false, dataType = &quot;Integer&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;account&quot;, value = &quot;顾客账号&quot;, required = true, dataType = &quot;Long&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;password&quot;, value = &quot;顾客账号密码&quot;, required = true, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;realname&quot;, value = &quot;顾客真实姓名&quot;, required = true, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;status&quot;, value = &quot;状态&quot;, required = true, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;photo&quot;, value = &quot;顾客头像&quot;, required = true, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;telephone&quot;, value = &quot;顾客联系方式&quot;, required = true, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;register_time&quot;, value = &quot;顾客注册时间&quot;, required = true, dataType = &quot;java.util.Date&quot;)</span><br><span class="line">    &#125;)</span><br><span class="line">    public Message insert(EjCustomer ejCustomer) throws Exception &#123;</span><br><span class="line">        boolean isValid = ejCustomerService.isExits(ejCustomer.getAccount());</span><br><span class="line">        if (isValid) &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                ejCustomerService.insert(ejCustomer);</span><br><span class="line">                logger.info(&quot;添加顾客信息成功&quot;);</span><br><span class="line">                return MessageUtil.success(&quot;添加顾客信息成功&quot;);</span><br><span class="line">            &#125; catch (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                return MessageUtil.error(e.getMessage());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            logger.warn(&quot;添加顾客信息失败&quot;);</span><br><span class="line">            return MessageUtil.error(&quot;error&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //根据顾客id删除用户信息</span><br><span class="line">    @ApiOperation(value = &quot;根据顾客id删除顾客信息&quot;)</span><br><span class="line">    @GetMapping(&quot;deleteById&quot;)</span><br><span class="line">    @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;id&quot;, value = &quot;顾客编号&quot;, required = true, dataType = &quot;Integer&quot;)</span><br><span class="line">    public Message deleteById(Integer id) throws Exception &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            ejCustomerService.deleteById(id);</span><br><span class="line">            logger.info(&quot;顾客编号为&quot; + id + &quot;删除成功&quot;);</span><br><span class="line">            return MessageUtil.success(&quot;删除顾客信息成功&quot;);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            logger.warn(&quot;顾客信息删除失败&quot;);</span><br><span class="line">            return MessageUtil.error(e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //根据顾客id进行更新操作</span><br><span class="line">    @ApiOperation(value = &quot;根据顾客id进行更新&quot;)</span><br><span class="line">    @PostMapping(&quot;updateById&quot;)</span><br><span class="line">    @ApiImplicitParams(&#123;</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;id&quot;, value = &quot;顾客编号&quot;, required = true, dataType = &quot;Integer&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;account&quot;, value = &quot;顾客账号&quot;, required = false, dataType = &quot;Long&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;password&quot;, value = &quot;顾客账号密码&quot;, required = false, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;realname&quot;, value = &quot;顾客真实姓名&quot;, required = false, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;status&quot;, value = &quot;状态&quot;, required = false, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;photo&quot;, value = &quot;顾客头像&quot;, required = false, dataType = &quot;String&quot;),</span><br><span class="line">            @ApiImplicitParam(paramType = &quot;query&quot;, name = &quot;telephone&quot;, value = &quot;顾客联系方式&quot;, required = false, dataType = &quot;String&quot;),</span><br><span class="line">    &#125;)</span><br><span class="line">    public Message updateById(EjCustomer ejCustomer) throws Exception&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            ejCustomerService.updateById(ejCustomer);</span><br><span class="line">            logger.info(&quot;顾客编号&quot;+ejCustomer.getId()+&quot;更新成功&quot;);</span><br><span class="line">            return MessageUtil.success(&quot;更新顾客信息成功&quot;);</span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            logger.warn(&quot;顾客信息更新失败&quot;);</span><br><span class="line">            return MessageUtil.error(e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-13T12:48:58.192Z" itemprop="dateUpdated">2019-07-13 20:48:58</time>
+</span><br>
+
+
+        
+        感谢阅读。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swagger/">Swagger</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/&title=《整合Swagger》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/&title=《整合Swagger》 — Yan's blog&source=
+Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。本文简单介绍了在项目中集成swagger的方法和一些常见问题。 如果想深入..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《整合Swagger》 — Yan's blog&url=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/10/缺陷跟踪/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">缺陷跟踪</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cC32O3WOzKWqjws6cIXqIlkr-gzGzoHsz",
+            appKey: "ANkLBmNFHMoDRJiUPXtNUWr9",
+            avatar: "monsterid",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/&title=《整合Swagger》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/&title=《整合Swagger》 — Yan's blog&source=
+Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。本文简单介绍了在项目中集成swagger的方法和一些常见问题。 如果想深入..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《整合Swagger》 — Yan's blog&url=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/07/13/Spring Boot 整合Swagger/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3awW7rMAwEwPz/T6fXB7za3aWSAJHGp8KxLY4OrCTy8Yiv5+317zP3z///5NUoj3dcGBgYX8vIQ7wa5v7XlS8ksWFgYJzDuBo4SaZX30mCS8a6jw0DAwPjPsQc1qZ1DAwMjM8k3Pv7+VgYGBgY7zhKa6l5Kn/BXhwDA+MLGfmp++f/fkt9AwMD46sYz/JK0mK+rGzT62VUGBgYWzPa5dos0JXEnceDgYGxK2OlPWJl25kDoi0rBgbG1ow23ITxqinLmzkwMDD2ZiQJrn0maaFI7iclTAwMjHMYf+Tj0Z2V47m61QMDA2NrRrI0bI/S8ufbZF3syDEwMDZi5C/kC8TZUi8f65evYWBgHMBIXktKkq8qLdQFAwwMjMMYedExSbj5BM3ejXI/BgbGAYzZ4m+l2SJZmBa7ZwwMjC9nzAqHebj5AjEf8Y+3MDAwNmXMhp+l0fWjt7rvDAMDYwtGuyjMU2fd4BWn4MsYMDAwDmCsb0pnR/9tCbNovMDAwNiCsdLO1Q45S8fR1GBgYBzA+EypIN/iJhOKgYGBsVKqbLeg+eKy2L5iYGBswXiWV15WjPbNZfvX5bRiYGBszZhVBtsms/bQrZ0yDAyMExizJJsHNCte1stHDAyMAxgrbRPtcX+byqP/FRgYGBhl+8XK0nBY1MTAwMAYNV60C9CldzEwMA5g5E0Vr0rQRTJNJg4DA2NrRrt1nDV4rQcxa9HAwMD4csYPUS+yUB/FkcAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
