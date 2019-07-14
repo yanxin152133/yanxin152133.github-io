@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/05/27/%E6%90%AD%E5%BB%BAphp%E7%8E%AF%E5%A2%83/</loc>
+    
+    <lastmod>2019-07-14T13:12:02.056Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/13/Spring%20Boot%20%E6%95%B4%E5%90%88Swagger/</loc>
     
     <lastmod>2019-07-13T12:48:58.192Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://yoursite.com/2019/05/26/git%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2019-06-03T05:43:52.083Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/05/27/%E6%90%AD%E5%BB%BAphp%E7%8E%AF%E5%A2%83/</loc>
-    
-    <lastmod>2019-06-01T15:02:20.786Z</lastmod>
     
   </url>
   
