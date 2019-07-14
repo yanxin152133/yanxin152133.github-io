@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-13T12:48:58.192Z</updated>
+  <updated>2019-07-14T13:33:42.097Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java基础</title>
+    <link href="http://yoursite.com/2019/07/14/java%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2019/07/14/java基础/</id>
+    <published>2019-07-14T13:17:20.148Z</published>
+    <updated>2019-07-14T13:33:42.097Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h1><h1 id="Java简介"><a href="#Java简介" class="headerlink" title="Java简介"></a>Java简介</h1><a id="more"></a><p>Java是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。      </p><p>Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点 。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等。</p><p><a href="https://baike.baidu.com/item/Java/85979?fr=aladdin" target="_blank" rel="noopener">详情</a></p><h1 id="运行环境搭建"><a href="#运行环境搭建" class="headerlink" title="运行环境搭建"></a>运行环境搭建</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>JDK建议使用1.8及以上的版本。<br>官方下载路径：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">jdk下载路地址</a></p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>双击下载软件，一路单击下一步即可。     </p><h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p><strong>Windows</strong>：右击【我的电脑】→【属性】→【高级系统设置】→【环境变量】→【系统变量】→【新建】，接着如下图所示：<br><img src="https://farm8.staticflickr.com/7873/40480682053_903c92b01b_b.jpg" alt="java_home"></p><p>在【系统变量】的path中添加 <strong>%JAVA_HOME%\bin</strong>。</p><p>验证，如下图所示：<br><img src="https://farm8.staticflickr.com/7860/40480681993_9a639b1dc2_b.jpg" alt="java"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Java-基础&quot;&gt;&lt;a href=&quot;#Java-基础&quot; class=&quot;headerlink&quot; title=&quot;Java 基础&quot;&gt;&lt;/a&gt;Java 基础&lt;/h1&gt;&lt;h1 id=&quot;Java简介&quot;&gt;&lt;a href=&quot;#Java简介&quot; class=&quot;headerlink&quot; title=&quot;Java简介&quot;&gt;&lt;/a&gt;Java简介&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Java/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>整合Swagger</title>
@@ -501,32 +527,6 @@
       <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
       <category term="qtp" scheme="http://yoursite.com/tags/qtp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ProgressBar</title>
-    <link href="http://yoursite.com/2019/05/26/ProgressBar/"/>
-    <id>http://yoursite.com/2019/05/26/ProgressBar/</id>
-    <published>2019-05-26T03:54:10.158Z</published>
-    <updated>2019-04-19T07:43:59.118Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ProgressBar"><a href="#ProgressBar" class="headerlink" title="ProgressBar"></a>ProgressBar</h1><p>ProgressBar用于在界面上显示一个进度条，表示程序正在加载一些数据。<br><a id="more"></a></p><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p>activity_main.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout</span><br><span class="line">        android:orientation=&quot;vertical&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;Button</span><br><span class="line">            android:id=&quot;@+id/button&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:text=&quot;button&quot;/&gt;</span><br><span class="line">        &lt;ProgressBar</span><br><span class="line">            android:id=&quot;@+id/progress_bar&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            /&gt;</span><br><span class="line">    &lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure></p><h2 id="实现点击一下按钮让进度条消失，再点击一下按钮让进度条出现的效果"><a href="#实现点击一下按钮让进度条消失，再点击一下按钮让进度条出现的效果" class="headerlink" title="实现点击一下按钮让进度条消失，再点击一下按钮让进度条出现的效果"></a>实现点击一下按钮让进度条消失，再点击一下按钮让进度条出现的效果</h2><p>MainActivity</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends AppCompatActivity implements View.OnClickListener &#123;</span><br><span class="line">    private Button button;</span><br><span class="line">    private ProgressBar progressBar;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        button = findViewById(R.id.button);</span><br><span class="line">        progressBar = findViewById(R.id.progress_bar);</span><br><span class="line">        button.setOnClickListener(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onClick(View v) &#123;</span><br><span class="line">        switch (v.getId()) &#123;</span><br><span class="line">            case R.id.button:</span><br><span class="line">                if (progressBar.getVisibility() == View.GONE) &#123;</span><br><span class="line">                    progressBar.setVisibility(View.VISIBLE);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    progressBar.setVisibility(View.GONE);</span><br><span class="line">                &#125;</span><br><span class="line">            default:</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="给ProgressBar指定不同的样式"><a href="#给ProgressBar指定不同的样式" class="headerlink" title="给ProgressBar指定不同的样式"></a>给ProgressBar指定不同的样式</h2><p>activity_main.xml </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout</span><br><span class="line">        android:orientation=&quot;vertical&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;Button</span><br><span class="line">            android:id=&quot;@+id/button&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:text=&quot;button&quot;/&gt;</span><br><span class="line">        &lt;ProgressBar</span><br><span class="line">            android:id=&quot;@+id/progress_bar&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            style=&quot;?android:attr/progressBarStyleHorizontal&quot;</span><br><span class="line">            android:max=&quot;100&quot;/&gt;</span><br><span class="line">    &lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure><p>MainActivity</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends AppCompatActivity implements View.OnClickListener &#123;</span><br><span class="line">    private Button button;</span><br><span class="line">    private ProgressBar progressBar;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        button = findViewById(R.id.button);</span><br><span class="line">        progressBar = findViewById(R.id.progress_bar);</span><br><span class="line">        button.setOnClickListener(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onClick(View v) &#123;</span><br><span class="line">        switch (v.getId()) &#123;</span><br><span class="line">            case R.id.button:</span><br><span class="line">                int progress=progressBar.getProgress();</span><br><span class="line">                progress=progress+10;</span><br><span class="line">                progressBar.setProgress(progress);</span><br><span class="line">                break;</span><br><span class="line">            default:</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;ProgressBar&quot;&gt;&lt;a href=&quot;#ProgressBar&quot; class=&quot;headerlink&quot; title=&quot;ProgressBar&quot;&gt;&lt;/a&gt;ProgressBar&lt;/h1&gt;&lt;p&gt;ProgressBar用于在界面上显示一个进度条，表示程序正在加载一些数据。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="ProgressBar" scheme="http://yoursite.com/categories/Android/ProgressBar/"/>
-    
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
-    
-      <category term="ProgressBar" scheme="http://yoursite.com/tags/ProgressBar/"/>
     
   </entry>
   
