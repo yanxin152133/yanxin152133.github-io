@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://farm8.staticflickr.com/7873/40480682053_903c92b01b_b.jpg">
 <meta property="og:image" content="https://farm8.staticflickr.com/7860/40480681993_9a639b1dc2_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48287266636_32ed239f62_z.jpg">
-<meta property="og:updated_time" content="2019-07-15T05:49:17.384Z">
+<meta property="og:updated_time" content="2019-07-15T06:19:30.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
 <meta name="twitter:description" content="Java 基础Java简介">
@@ -416,7 +416,59 @@
 </tr>
 </tbody>
 </table>
-<p>符号位0表示正   范围  00000000~01111111<br>符号位1表示负   范围  10000000~11111111（减一取反）<br>      <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op=>operation: Hello World.java(Javac 编译)
+<p>符号位0表示正   范围  00000000~01111111<br>符号位1表示负   范围  10000000~11111111（减一取反）</p>
+<p>代码实例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.java1234.chap02;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Yan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/7/15 13:53</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义一个int类型的变量</span></span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        <span class="comment">//给变量a赋值</span></span><br><span class="line">        a=<span class="number">1</span>;</span><br><span class="line">        System.out.println(a);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//定义一个int类型的变量a2</span></span><br><span class="line">        <span class="keyword">int</span> a2=<span class="number">1</span>;</span><br><span class="line">        System.out.println(<span class="string">"a2="</span>+a2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//定义一个byte类型的变量b</span></span><br><span class="line">        <span class="keyword">byte</span> b=<span class="number">3</span>;</span><br><span class="line">        System.out.println(<span class="string">"b="</span>+b);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//定义一个short类型的变量</span></span><br><span class="line">        <span class="keyword">short</span> s=<span class="number">4</span>;</span><br><span class="line">        System.out.println(<span class="string">"s="</span>+s);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//定义一个long类型的变量l</span></span><br><span class="line">        <span class="keyword">long</span> l=<span class="number">5</span>;</span><br><span class="line">        System.out.println(<span class="string">"l="</span>+l);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> a11=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> a22=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> a3=a11+a22;</span><br><span class="line">        System.out.println(<span class="string">"a1+a2="</span>+a3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>浮点类型</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>数据类型</th>
+<th>大小/位</th>
+<th>可表示的数据范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>float(单精度)</td>
+<td>32</td>
+<td>-3.4E38(-3.4x10<sup>38</sup>) 到 3.4E38(3.4x10<sup>38</sup>))</td>
+</tr>
+<tr>
+<td>2</td>
+<td>double(双精度)</td>
+<td>64</td>
+<td>-1.7E308(-1.7x10<sup>308</sup>) 到 1.7E308(1.7x10<sup>308</sup>))</td>
+</tr>
+</tbody>
+</table>
+<p>代码示例：<br><code>`</code>java<br>package com.java1234.chap02;</p>
+<p>/**</p>
+<ul>
+<li>@author Yan</li>
+<li><p>@date 2019/7/15 14:10<br>*/<br>public class Demo2 {<br> public static void main(String[] args) {</p>
+<pre><code>//定义一个float类型的变量f
+//小数默认是double类型，所以必须加一个f,来表示float类型
+float f=1.1f;
+System.out.println(&quot;f=&quot;+f);
+
+//定义一个double类型变量d
+double d=1.2;
+System.out.println(&quot;d=&quot;+d);
+
+//获取float的最大值
+float maxF=Float.MAX_VALUE;
+System.out.println(&quot;float最大值：&quot;+maxF);
+//获取float的最小值
+float minF=Float.MIN_VALUE;
+System.out.println(&quot;float最小值：&quot;+minF);
+</code></pre><p> }<br>}</p>
+</li>
+</ul>
+<p><code>`</code><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">op=>operation: Hello World.java(Javac 编译)
 op1=>operation: Hello World.class(Java 运行)
 op2=>operation: 执行并运行结果
 e=>end
@@ -429,7 +481,7 @@ op->op1->op2</textarea><textarea id="flowchart-0-options" style="display: none">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-15T05:49:17.384Z" itemprop="dateUpdated">2019-07-15 13:49:17</time>
+    最后更新时间：<time datetime="2019-07-15T06:19:30.968Z" itemprop="dateUpdated">2019-07-15 14:19:30</time>
 </span><br>
 
 
