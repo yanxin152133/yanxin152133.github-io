@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-16T08:01:22.666Z</updated>
+  <updated>2019-07-16T12:26:07.904Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决git clone速度慢的问题</title>
+    <link href="http://yoursite.com/2019/07/16/%E8%A7%A3%E5%86%B3git%20clone%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2019/07/16/解决git clone速度慢的问题/</id>
+    <published>2019-07-16T12:12:59.244Z</published>
+    <updated>2019-07-16T12:26:07.904Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><a id="more"></a><h2 id="1-在git内部设置代理"><a href="#1-在git内部设置代理" class="headerlink" title="1. 在git内部设置代理"></a>1. 在git内部设置代理</h2><ul><li>命令行</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><ul><li>直接编辑相关文件</li></ul><p><strong>C:\Users\用户名</strong>文件夹下的 <strong>.gitconfig</strong>,点击打开。<br>将以下内容添加进去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[http]</span><br><span class="line">proxy = socks5://127.0.0.1:1080</span><br><span class="line">[https]</span><br><span class="line">proxy = socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure></p><h2 id="2-注意下载时是否是https"><a href="#2-注意下载时是否是https" class="headerlink" title="2. 注意下载时是否是https"></a>2. 注意<strong>下载时是否是https</strong></h2><h2 id="3-在使用代理下载时，会遇到git-push需要每次输入密码。"><a href="#3-在使用代理下载时，会遇到git-push需要每次输入密码。" class="headerlink" title="3. 在使用代理下载时，会遇到git push需要每次输入密码。"></a>3. 在使用代理下载时，会遇到git push需要每次输入密码。</h2><p>通过以下方式解决该问题。      </p><ul><li><p>设置记住密码（默认15分钟）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br></pre></td></tr></table></figure></li><li><p>如果想自己设置时间，可以这样做：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper <span class="string">'cache --timeout=3600'</span></span><br></pre></td></tr></table></figure></li></ul><p>这样就设置一个小时之后失效</p><ul><li>长期存储密码：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://juejin.im/post/5a6c7806f265da3e355b4d1d" target="_blank" rel="noopener">提高 git clone 速度</a></li><li><a href="https://blog.csdn.net/hanqingsong412/article/details/50464465" target="_blank" rel="noopener">git设置代理、记住密码</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="http://yoursite.com/categories/git/"/>
+    
+      <category term="git clone速度慢" scheme="http://yoursite.com/categories/git/git-clone%E9%80%9F%E5%BA%A6%E6%85%A2/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="git clone速度慢" scheme="http://yoursite.com/tags/git-clone%E9%80%9F%E5%BA%A6%E6%85%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Java基础</title>
@@ -504,35 +530,6 @@
       <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
       <category term="RecyclerView" scheme="http://yoursite.com/tags/RecyclerView/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>qtp破解</title>
-    <link href="http://yoursite.com/2019/05/26/qtp/"/>
-    <id>http://yoursite.com/2019/05/26/qtp/</id>
-    <published>2019-05-26T03:54:10.169Z</published>
-    <updated>2019-04-20T14:22:35.124Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="qtp安装与破解"><a href="#qtp安装与破解" class="headerlink" title="qtp安装与破解"></a>qtp安装与破解</h1><p>准备：</p><ul><li>QTP 10.0</li><li>破解文件<a id="more"></a><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2></li></ul><p>链接: <a href="https://pan.baidu.com/s/19TGLWjd_znKFM8RZkj1ITg" target="_blank" rel="noopener">https://pan.baidu.com/s/19TGLWjd_znKFM8RZkj1ITg</a> 提取码: 9wjv</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://live.staticflickr.com/65535/46735361215_83283715cc.jpg" alt="qtp" title>                </div>                <div class="image-caption">qtp</div>            </figure><p>选择 <strong>QTP10.iso</strong>,解压后点击文件目录中的 <strong>setup.exe</strong>,双击运行。<br>按照图片顺序进行操作。   </p><p><img src="https://live.staticflickr.com/65535/40684441953_317366f332.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/40684441833_c75926247c.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/40684441463_f2dd1a0d8a.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/40684441383_e54b1aae08.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/46735360805_7d747db5fc.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/40684441273_cd0bda4b8a.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/40684441043_0636ac9c5f.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/46735360575_702bbd5e7d.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/40684440933_6a15dbbafe.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/46735360435_1b00578c95.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/40684440783_c657959660.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/46735360325_ca3acbf638.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/46735360275_571ab8de4e.jpg" alt></p><p><img src="https://live.staticflickr.com/65535/40684440503_e69cee4487.jpg" alt></p><h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h2><p>1.在<strong>c:\program files\common files\mercury interactive</strong>目录下新建一个文件夹：<strong>License Manager</strong><br>注：<strong>64位操作系统</strong>在<strong>c:\program files(x86)\common files\mercury interactive</strong>以下步骤以此类推。</p><p>2.将下载的文件中的<strong>qtp破解</strong>解压，将<strong>mgn-mqt8.2.exe</strong>复制到qtp的安装路径的<strong>bin文件夹中</strong>，然后以管理员身份运行。</p><p>3.打开<strong>c:\program files\common files\mercury interactive\License Manager</strong>中的<strong>lservrc</strong>文件。</p><p>4.将<strong>lservrc</strong>文件中的内容（<strong>将”QuickTestPro”之前的所有字符复制进去，不包括”QuickTestPro”字符</strong>）粘贴到如下图中。</p><p><img src="https://live.staticflickr.com/65535/40684440503_e69cee4487.jpg" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;qtp安装与破解&quot;&gt;&lt;a href=&quot;#qtp安装与破解&quot; class=&quot;headerlink&quot; title=&quot;qtp安装与破解&quot;&gt;&lt;/a&gt;qtp安装与破解&lt;/h1&gt;&lt;p&gt;准备：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;QTP 10.0&lt;/li&gt;
-&lt;li&gt;破解文件
-    
-    </summary>
-    
-      <category term="软件测试" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="qtp" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/qtp/"/>
-    
-    
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="qtp" scheme="http://yoursite.com/tags/qtp/"/>
     
   </entry>
   
