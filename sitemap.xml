@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/08/01/PHP%E5%85%A5%E9%97%A8/</loc>
+    
+    <lastmod>2019-08-01T12:41:47.405Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/14/java%E5%9F%BA%E7%A1%80/</loc>
     
-    <lastmod>2019-07-31T15:14:13.770Z</lastmod>
+    <lastmod>2019-07-31T15:30:19.242Z</lastmod>
     
   </url>
   
