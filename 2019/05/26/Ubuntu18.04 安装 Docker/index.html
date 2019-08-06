@@ -44,7 +44,9 @@
     
 
 </head>
-
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
 
 <body>
     <script type="text/javascript" src="/js/src/click_love.js"></script>
@@ -205,32 +207,90 @@
 </ul>
 <p>推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。<br><a id="more"></a></p>
 <h1 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h1><p>旧版本的 Docker 称为 docker 或者 docker-engine，使用以下命令卸载旧版本： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker \</span><br><span class="line">               docker-engine \</span><br><span class="line">               docker.io</span><br></pre></td></tr></table></figure>
-<h1 id="安装与验证"><a href="#安装与验证" class="headerlink" title="安装与验证"></a>安装与验证</h1><p>从 Ubuntu 14.04 开始，一部分内核模块移到了可选内核模块包 (linux-image-extra-*) ，以减少内核软件包的体积。正常安装的系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。AUFS 内核驱动属于可选内核模块的一部分，作为推荐的 Docker 存储层驱动，一般建议安装可选内核模块包以使用 AUFS。    </p>
+<pre><code>sudo apt-get remove docker \
+               docker-engine \
+               docker.io
+</code></pre><h1 id="安装与验证"><a href="#安装与验证" class="headerlink" title="安装与验证"></a>安装与验证</h1><p>从 Ubuntu 14.04 开始，一部分内核模块移到了可选内核模块包 (linux-image-extra-*) ，以减少内核软件包的体积。正常安装的系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。AUFS 内核驱动属于可选内核模块的一部分，作为推荐的 Docker 存储层驱动，一般建议安装可选内核模块包以使用 AUFS。    </p>
 <p>如果系统没有安装可选内核模块的话，可以执行下面的命令来安装可选内核模块包：(操作均为普通用户下)     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo apt-get install \</span><br><span class="line">    linux-image-extra-$(uname -r) \</span><br><span class="line">    linux-image-extra-virtual</span><br></pre></td></tr></table></figure>
-<p>Ubuntu 16.04 + 上的 Docker CE 默认使用 overlay2 存储层驱动,无需手动配置。    </p>
+<pre><code>sudo apt-get update
+
+
+sudo apt-get install \
+    linux-image-extra-$(uname -r) \
+    linux-image-extra-virtual
+</code></pre><p>Ubuntu 16.04 + 上的 Docker CE 默认使用 overlay2 存储层驱动,无需手动配置。    </p>
 <h2 id="使用APT安装"><a href="#使用APT安装" class="headerlink" title="使用APT安装"></a>使用APT安装</h2><p>由于 apt 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。      </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
-<p>鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。<br>为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(任选其一即可)</span><br><span class="line">curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">官方源</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
-<p>然后，我们需要向 source.list 中添加 Docker 软件源     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository \</span><br><span class="line">    &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \</span><br><span class="line">    $(lsb_release -cs) \</span><br><span class="line">    stable&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 官方源</span><br><span class="line"># $ sudo add-apt-repository \</span><br><span class="line">#    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">#    $(lsb_release -cs) \</span><br><span class="line">#    stable&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="安装-Docker-CE"><a href="#安装-Docker-CE" class="headerlink" title="安装 Docker CE"></a>安装 Docker CE</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install docker-ce</span><br></pre></td></tr></table></figure>
-<h2 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h2><p>建立docker组:   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
-<p>将当前用户加入docker组：    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
-<h2 id="更换国内Docker仓库"><a href="#更换国内Docker仓库" class="headerlink" title="更换国内Docker仓库"></a>更换国内Docker仓库</h2><p>创建文件：       </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
-<p>加入以下内容：     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://registry.docker-cn.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后重启系统。    </p>
+<pre><code>sudo apt-get update
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+</code></pre><p>鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。<br>为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。     </p>
+<pre><code>(任选其一即可)
+curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+
+
+官方源
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</code></pre><p>然后，我们需要向 source.list 中添加 Docker 软件源     </p>
+<pre><code>sudo add-apt-repository \
+    &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable&quot;
+
+
+# 官方源
+# $ sudo add-apt-repository \
+#    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#    $(lsb_release -cs) \
+#    stable&quot;
+</code></pre><h2 id="安装-Docker-CE"><a href="#安装-Docker-CE" class="headerlink" title="安装 Docker CE"></a>安装 Docker CE</h2><pre><code>sudo apt update
+sudo apt install docker-ce
+</code></pre><h2 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h2><p>建立docker组:   </p>
+<pre><code>sudo groupadd docker
+</code></pre><p>将当前用户加入docker组：    </p>
+<pre><code>sudo usermod -aG docker $USER
+</code></pre><h2 id="更换国内Docker仓库"><a href="#更换国内Docker仓库" class="headerlink" title="更换国内Docker仓库"></a>更换国内Docker仓库</h2><p>创建文件：       </p>
+<pre><code>sudo vim /etc/docker/daemon.json
+</code></pre><p>加入以下内容：     </p>
+<pre><code>{
+  &quot;registry-mirrors&quot;: [
+    &quot;https://registry.docker-cn.com&quot;
+  ]
+}
+</code></pre><p>然后重启系统。    </p>
 <h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>输入以下命令：       </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>若输出以下内容则为成功。          </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image &apos;hello-world:latest&apos; locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">ca4f61b1923c: Pull complete</span><br><span class="line">Digest: sha256:be0cd392e45be79ffeffa6b05338b98ebb16c87b255f48e297ec7f98e123905c</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://cloud.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/engine/userguide/</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.codingfanlt.xyz/2018/10/17/Ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85-Docker/#more" target="_blank" rel="noopener">Ubuntu 下安装 Docker</a><br><a href="https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html" target="_blank" rel="noopener">Docker —— 从入门到实践</a></p>
+<pre><code>docker run hello-world
+</code></pre><p>若输出以下内容则为成功。          </p>
+<pre><code>Unable to find image &#39;hello-world:latest&#39; locally
+latest: Pulling from library/hello-world
+ca4f61b1923c: Pull complete
+Digest: sha256:be0cd392e45be79ffeffa6b05338b98ebb16c87b255f48e297ec7f98e123905c
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.codingfanlt.xyz/2018/10/17/Ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85-Docker/#more" target="_blank" rel="noopener">Ubuntu 下安装 Docker</a><br><a href="https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html" target="_blank" rel="noopener">Docker —— 从入门到实践</a></p>
 
         </div>
 
@@ -532,6 +592,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
 
 </body>
 

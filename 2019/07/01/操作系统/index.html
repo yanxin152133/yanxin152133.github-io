@@ -56,7 +56,9 @@
     
 
 </head>
-
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
 
 <body>
     <script type="text/javascript" src="/js/src/click_love.js"></script>
@@ -208,8 +210,43 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h1 id="信号量解决进程同步问题"><a href="#信号量解决进程同步问题" class="headerlink" title="信号量解决进程同步问题"></a>信号量解决进程同步问题</h1><p>例题：<br>桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">semaphore s=2,so=0,sa=0;//s表示盘空，so表示橘子，sa表示苹果。</span><br><span class="line">Cobegin</span><br><span class="line">Void father(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(s);</span><br><span class="line">put apple();</span><br><span class="line">v(sa);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void mother(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(s);</span><br><span class="line">put orange();</span><br><span class="line">v (so);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void son(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(so);</span><br><span class="line">eat orange();</span><br><span class="line">v(s);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Void daughter(void)</span><br><span class="line">&#123;</span><br><span class="line">while(1)&#123;</span><br><span class="line">p(sa);</span><br><span class="line">eat apple();</span><br><span class="line">v(s);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">Coend</span><br></pre></td></tr></table></figure></p>
-<p>PV操作参考<a href="https://blog.csdn.net/speedme/article/details/17597373" target="_blank" rel="noopener">进程同步之信号量机制（pv操作）及三个经典同步问题</a></p>
+            <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h1 id="信号量解决进程同步问题"><a href="#信号量解决进程同步问题" class="headerlink" title="信号量解决进程同步问题"></a>信号量解决进程同步问题</h1><p>例题：<br>桌子上有一只盘子，最多可容纳两个水果，每次只能放入或取出一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，两个儿子专等吃盘子中的橘子，两个女儿专等吃盘子中的苹果。请用信号量操作来实现爸爸、妈妈、儿子、女儿之间的同步与互斥关系。<br><a id="more"></a></p>
+<pre><code>semaphore s=2,so=0,sa=0;//s表示盘空，so表示橘子，sa表示苹果。
+Cobegin
+Void father(void)
+{
+while(1){
+p(s);
+put apple();
+v(sa);
+}
+}
+Void mother(void)
+{
+while(1){
+p(s);
+put orange();
+v (so);
+}
+}
+Void son(void)
+{
+while(1){
+p(so);
+eat orange();
+v(s);
+}
+}
+Void daughter(void)
+{
+while(1){
+p(sa);
+eat apple();
+v(s);
+}
+}
+Coend
+</code></pre><p>PV操作参考<a href="https://blog.csdn.net/speedme/article/details/17597373" target="_blank" rel="noopener">进程同步之信号量机制（pv操作）及三个经典同步问题</a></p>
 <h1 id="作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"><a href="#作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间" class="headerlink" title="作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间"></a>作业调度算法（先来先服务算法、短作业优先算法），计算周转时间、带权周转时间、平均周转时间、平均带权周转时间</h1><blockquote>
 <p><strong>周转时间=完成时间-提交时间</strong><br><strong>带权周转时间=周转时间/执行时间</strong><br><strong>平均周转时间=每个周转时间之和/作业总数</strong><br><strong>平均带权周转时间=每个带权周转时间之和/作业总数</strong></p>
 </blockquote>
@@ -1223,6 +1260,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
 
 </body>
 

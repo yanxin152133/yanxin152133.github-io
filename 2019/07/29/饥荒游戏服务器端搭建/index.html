@@ -48,7 +48,9 @@
     
 
 </head>
-
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
 
 <body>
     <script type="text/javascript" src="/js/src/click_love.js"></script>
@@ -212,60 +214,91 @@
 <ul>
 <li>首先确认SWAP设置了多少 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">free -m
+</code></pre>
 <ul>
 <li>如果觉得不满意其空间大小，则对SWAP进行删除</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapoff -a</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">swapoff -a
+
+</code></pre>
 <ul>
 <li>新增SWAP分区</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/root/swapfile bs=1M count=1024</span><br><span class="line">  <span class="comment">#1024大小可根据自己情况进行更改</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">dd if=/dev/zero of=/root/swapfile bs=1M count=1024
+  #1024大小可根据自己情况进行更改
+</code></pre>
 <ul>
 <li>格式化交换分区文件</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /root/swapfile</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">mkswap /root/swapfile
+</code></pre>
 <ul>
 <li>启用swap分区文件</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /root/swapfile</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">swapon /root/swapfile
+</code></pre>
 <ul>
 <li>添加开机启动</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/fstab</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">vi /etc/fstab
+</code></pre>
 <p>这里提一下vi编辑器的基本用法：<br>进入文本后按键盘上的insert按钮开始编辑，按esc退出编辑，输入:wq保存并退出。           </p>
 <ol>
 <li>添加或修改</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/root/swapfile swap swap defaults 0 0</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">/root/swapfile swap swap defaults 0 0
+</code></pre>
 <ol start="2">
 <li>重启下是否生效</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">reboot
+</code></pre>
 <ol start="3">
 <li>重启后输入指令查看下SWAP是否增加</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
-<h1 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu</span></span><br><span class="line">$ sudo apt-get install libstdc++6:i386 libgcc1:i386 libcurl4-gnutls-dev:i386 lib32gcc1</span><br><span class="line"><span class="comment"># CentOS(仅供参考)</span></span><br><span class="line">$ yum -y install glibc.i686 libstdc++.i686 libcurl4-gnutls-dev.i686 libcurl.i686</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">free -m
+</code></pre>
+<h1 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h1><pre><code class="bash"># Ubuntu
+$ sudo apt-get install libstdc++6:i386 libgcc1:i386 libcurl4-gnutls-dev:i386 lib32gcc1
+# CentOS(仅供参考)
+$ yum -y install glibc.i686 libstdc++.i686 libcurl4-gnutls-dev.i686 libcurl.i686
+</code></pre>
 <h1 id="安装-SteamCMD"><a href="#安装-SteamCMD" class="headerlink" title="安装 SteamCMD"></a>安装 SteamCMD</h1><p>SteamCMD，顾名思义，就是 Steam 的命令行版本。虽然饥荒服务器本身并不需要用 Steam 进行验证啊之类的，但我们还是得用它来把服务器更新到最新版本，不然其他人是进不来的。</p>
 <p>我们最好新建一个用户来运行 SteamCMD，如果直接用 root 用户运行游戏服务端的话可能会导致严重的安全隐患。在 root 权限下使用以下命令来创建一个新用户： </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ useradd -m steam</span><br><span class="line">$ su - steam</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">$ useradd -m steam
+$ su - steam
+</code></pre>
 <p>然后在你喜欢的地方创建一个为 SteamCMD 准备的目录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~/steamcmd  <span class="comment">## 创建目录</span></span><br><span class="line">$ <span class="built_in">cd</span> ~/steamcmd  <span class="comment">## 进入该目录</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">$ mkdir ~/steamcmd  ## 创建目录
+$ cd ~/steamcmd  ## 进入该目录
+</code></pre>
 <p>下载并解压 Linux 专用的 SteamCMD：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz  <span class="comment">##  下载</span></span><br><span class="line">$ tar -xvzf steamcmd_linux.tar.gz  <span class="comment">## 解压</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">$ wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz  ##  下载
+$ tar -xvzf steamcmd_linux.tar.gz  ## 解压
+</code></pre>
 <p>运行 SteamCMD：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./steamcmd.sh</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">$ ./steamcmd.sh
+</code></pre>
 <p>登录安装退出操作：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匿名登录，没必要用用户名密码登录</span></span><br><span class="line">login anonymous</span><br><span class="line"><span class="comment"># 这里我们强制要 Steam 把饥荒服务端安装到此目录下</span></span><br><span class="line"><span class="comment"># 最好用绝对路径，否则可能会安装到奇怪的地方去</span></span><br><span class="line">force_install_dir ../dontstarvetogether_dedicated_server</span><br><span class="line">app_update 343050 validate</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+<pre><code class="bash"># 匿名登录，没必要用用户名密码登录
+login anonymous
+# 这里我们强制要 Steam 把饥荒服务端安装到此目录下
+# 最好用绝对路径，否则可能会安装到奇怪的地方去
+force_install_dir ../dontstarvetogether_dedicated_server
+app_update 343050 validate
+quit
+</code></pre>
 <p>安装完成后，使用 quit 命令退出 steam 程序。</p>
 <ul>
 <li>成功安装所出现的标志：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Success! App <span class="string">'343050'</span> fully installed.</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">Success! App &#39;343050&#39; fully installed.
+</code></pre>
 <h1 id="通过客户端获取配置文件"><a href="#通过客户端获取配置文件" class="headerlink" title="通过客户端获取配置文件"></a>通过客户端获取配置文件</h1><h2 id="服务器端配置文件位置及相关操作"><a href="#服务器端配置文件位置及相关操作" class="headerlink" title="服务器端配置文件位置及相关操作"></a>服务器端配置文件位置及相关操作</h2><p>饥荒的配置目录位于: <strong>~/.klei/DoNotStarveTogether</strong></p>
 <p>然后手动创建一个存档目录：     </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.klei/DoNotStarveTogether/MyDediServer</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">mkdir -p ~/.klei/DoNotStarveTogether/MyDediServer
+</code></pre>
 <h2 id="利用客户端创建世界"><a href="#利用客户端创建世界" class="headerlink" title="利用客户端创建世界"></a>利用客户端创建世界</h2><ol>
 <li>进入游戏</li>
 <li>创建自己的世界，设置可自定应。</li>
@@ -273,13 +306,47 @@
 <li>在该目录的下一级目录中，在一个<strong>全是数字的文件夹</strong>中有一个命名为 Cluster_X 的文件夹（X 为数字编号），提取出刚刚创建的存档。</li>
 </ol>
 <h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p><strong>cluster.ini</strong></p>
-<p>修改<strong>bind_ip</strong>和<strong>master_ip</strong>内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[SHARD]</span><br><span class="line">shard_enabled = true</span><br><span class="line">bind_ip = 0.0.0.0 </span><br><span class="line">master_ip = 你的主服务器的 IP</span><br></pre></td></tr></table></figure></p>
-<h2 id="Mod"><a href="#Mod" class="headerlink" title="Mod"></a>Mod</h2><p>进入到服务器的的饥荒安装目录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/dontstarvetogether_dedicated_server/mods</span><br></pre></td></tr></table></figure>
+<p>修改<strong>bind_ip</strong>和<strong>master_ip</strong>内容       </p>
+<pre><code>[SHARD]
+shard_enabled = true
+bind_ip = 0.0.0.0 
+master_ip = 你的主服务器的 IP 
+</code></pre><h2 id="Mod"><a href="#Mod" class="headerlink" title="Mod"></a>Mod</h2><p>进入到服务器的的饥荒安装目录：</p>
+<pre><code class="bash">cd ~/dontstarvetogether_dedicated_server/mods
+</code></pre>
 <p>修改该目录下的 dedicated_server_mods_setup.lua 文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim dedicated_server_mods_setup.lua </span><br><span class="line"></span><br><span class="line"><span class="comment"># 在该文件中添加类似这样的内容，这串 ID 是 Mod 文件在 Steam 中的 ID</span></span><br><span class="line"><span class="comment"># 可以在提取到的配置文件的 Master/modoverrides.lua 中找到</span></span><br><span class="line"><span class="comment"># 然后添加到本文件中，一行一个</span></span><br><span class="line">ServerModSetup(<span class="string">"362175979"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">vim dedicated_server_mods_setup.lua 
+
+# 在该文件中添加类似这样的内容，这串 ID 是 Mod 文件在 Steam 中的 ID
+# 可以在提取到的配置文件的 Master/modoverrides.lua 中找到
+# 然后添加到本文件中，一行一个
+ServerModSetup(&quot;362175979&quot;)
+</code></pre>
 <p>本教程模板：    </p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ServerModSetup(<span class="string">"1089344410"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"1146082006"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"1200745268"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"1207269058"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"1290228121"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"1301033176"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"352499675"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"362175979"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"375850593"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"378160973"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"380423963"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"444235588"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"458587300"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"462434129"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"488009136"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"577104313"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"622448972"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"666155465"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"682721879"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"785295023"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"841471368"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"892478248"</span>)</span><br><span class="line">ServerModSetup(<span class="string">"934638020"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="lua">ServerModSetup(&quot;1089344410&quot;)
+ServerModSetup(&quot;1146082006&quot;)
+ServerModSetup(&quot;1200745268&quot;)
+ServerModSetup(&quot;1207269058&quot;)
+ServerModSetup(&quot;1290228121&quot;)
+ServerModSetup(&quot;1301033176&quot;)
+ServerModSetup(&quot;352499675&quot;)
+ServerModSetup(&quot;362175979&quot;)
+ServerModSetup(&quot;375850593&quot;)
+ServerModSetup(&quot;378160973&quot;)
+ServerModSetup(&quot;380423963&quot;)
+ServerModSetup(&quot;444235588&quot;)
+ServerModSetup(&quot;458587300&quot;)
+ServerModSetup(&quot;462434129&quot;)
+ServerModSetup(&quot;488009136&quot;)
+ServerModSetup(&quot;577104313&quot;)
+ServerModSetup(&quot;622448972&quot;)
+ServerModSetup(&quot;666155465&quot;)
+ServerModSetup(&quot;682721879&quot;)
+ServerModSetup(&quot;785295023&quot;)
+ServerModSetup(&quot;841471368&quot;)
+ServerModSetup(&quot;892478248&quot;)
+ServerModSetup(&quot;934638020&quot;)
+</code></pre>
 <h2 id="上传配置文件"><a href="#上传配置文件" class="headerlink" title="上传配置文件"></a>上传配置文件</h2><p>将配置文件上传到 <strong>~/.klei/DoNotStarveTogether/MyDediServer</strong>下</p>
 <p>Linux传输文件可参考链接：     </p>
 <ul>
@@ -307,23 +374,51 @@
 <ol start="3">
 <li>编辑相关文件<br>先新建 cluster_token.txt 文件，再将此前获取到的 Token 复制到文件中。</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch cluster_token.txt</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">touch cluster_token.txt
+</code></pre>
 <p>再新建 adminlist.txt 文件，再将此前获取到的 UserID 复制到文件中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch adminlist.txt</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">touch adminlist.txt
+</code></pre>
 <h1 id="启动游戏"><a href="#启动游戏" class="headerlink" title="启动游戏"></a>启动游戏</h1><h2 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h2><p>创建脚本文件:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~ &amp;&amp; touch startDST.sh</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">cd ~ &amp;&amp; touch startDST.sh
+</code></pre>
 <p>编辑脚本文件:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">steamcmd_dir=<span class="string">"<span class="variable">$HOME</span>/steamcmd"</span></span><br><span class="line">install_dir=<span class="string">"<span class="variable">$HOME</span>/dontstarvetogether_dedicated_server"</span></span><br><span class="line">cluster_name=<span class="string">"MyDediServer"</span></span><br><span class="line">dontstarve_dir=<span class="string">"<span class="variable">$HOME</span>/.klei/DoNotStarveTogether"</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">"<span class="variable">$install_dir</span>/bin"</span></span><br><span class="line">run_shared=(./dontstarve_dedicated_server_nullrenderer)</span><br><span class="line">run_shared+=(-console)</span><br><span class="line">run_shared+=(-cluster <span class="string">"<span class="variable">$cluster_name</span>"</span>)</span><br><span class="line">run_shared+=(-monitor_parent_process $$)</span><br><span class="line"><span class="string">"<span class="variable">$&#123;run_shared[@]&#125;</span>"</span> -shard Caves  | sed <span class="string">'s/^/Caves:  /'</span> &amp;</span><br><span class="line"><span class="string">"<span class="variable">$&#123;run_shared[@]&#125;</span>"</span> -shard Master | sed <span class="string">'s/^/Master: /'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">#!/bin/bash
+steamcmd_dir=&quot;$HOME/steamcmd&quot;
+install_dir=&quot;$HOME/dontstarvetogether_dedicated_server&quot;
+cluster_name=&quot;MyDediServer&quot;
+dontstarve_dir=&quot;$HOME/.klei/DoNotStarveTogether&quot;
+cd &quot;$install_dir/bin&quot;
+run_shared=(./dontstarve_dedicated_server_nullrenderer)
+run_shared+=(-console)
+run_shared+=(-cluster &quot;$cluster_name&quot;)
+run_shared+=(-monitor_parent_process $$)
+&quot;${run_shared[@]}&quot; -shard Caves  | sed &#39;s/^/Caves:  /&#39; &amp;
+&quot;${run_shared[@]}&quot; -shard Master | sed &#39;s/^/Master: /&#39;
+
+</code></pre>
 <p>给启动脚本添加权限：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./startDST.sh</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">chmod +x ./startDST.sh
+</code></pre>
 <p>运行：    </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./startDST.sh</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">./startDST.sh
+</code></pre>
 <h1 id="更新游戏版本"><a href="#更新游戏版本" class="headerlink" title="更新游戏版本"></a>更新游戏版本</h1><p>创建脚本文件：    </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~ &amp;&amp; touch updateDST.sh</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">cd ~ &amp;&amp; touch updateDST.sh
+</code></pre>
 <p>编辑脚本文件：    </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">steamcmd_dir=<span class="string">"<span class="variable">$HOME</span>/steamcmd"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 检查并更新更新游戏版本</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">"<span class="variable">$steamcmd_dir</span>"</span></span><br><span class="line">./steamcmd.sh +@ShutdownOnFailedCommand 1 +@NoPromptForPassword 1 +login anonymous +force_install_dir ../dontstarvetogether_dedicated_server +app_update 343050 validate +quit</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">#!/bin/bash
+
+steamcmd_dir=&quot;$HOME/steamcmd&quot;
+
+## 检查并更新更新游戏版本
+cd &quot;$steamcmd_dir&quot;
+./steamcmd.sh +@ShutdownOnFailedCommand 1 +@NoPromptForPassword 1 +login anonymous +force_install_dir ../dontstarvetogether_dedicated_server +app_update 343050 validate +quit
+
+</code></pre>
 <p>给脚本添加权限：    </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./startDST.sh</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">chmod +x ./startDST.sh
+</code></pre>
 <h1 id="模板下载"><a href="#模板下载" class="headerlink" title="模板下载"></a>模板下载</h1><p>下载地址： <a href="https://github.com/yanxin152133/DST" target="_blank" rel="noopener">DST服务器搭建</a></p>
 
         </div>
@@ -628,6 +723,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
 
 </body>
 

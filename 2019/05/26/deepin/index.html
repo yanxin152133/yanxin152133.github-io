@@ -50,7 +50,9 @@
     
 
 </head>
-
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
 
 <body>
     <script type="text/javascript" src="/js/src/click_love.js"></script>
@@ -203,10 +205,11 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="Deepin"><a href="#Deepin" class="headerlink" title="Deepin"></a>Deepin</h1><h2 id="无线网络极慢的解决方案"><a href="#无线网络极慢的解决方案" class="headerlink" title="无线网络极慢的解决方案"></a>无线网络极慢的解决方案</h2><p>初次安装，出现无线网络网速极慢的状况。<br><a id="more"></a></p>
-<h3 id="更改文件参数"><a href="#更改文件参数" class="headerlink" title="更改文件参数"></a>更改文件参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/modprobe.d/iwlwifi.conf</span><br></pre></td></tr></table></figure>
-<p>将该文件中的11n_disable=1改为11n_disable=8     </p>
-<h3 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h3><h4 id="查看驱动型号"><a href="#查看驱动型号" class="headerlink" title="查看驱动型号"></a>查看驱动型号</h4><p>输入以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lspci|grep Wireless</span><br></pre></td></tr></table></figure></p>
-<p>例如下图中的型号：<br><img src="https://farm8.staticflickr.com/7910/32392733287_18cb0bd927_b.jpg" alt></p>
+<h3 id="更改文件参数"><a href="#更改文件参数" class="headerlink" title="更改文件参数"></a>更改文件参数</h3><pre><code>vim /etc/modprobe.d/iwlwifi.conf
+</code></pre><p>将该文件中的11n_disable=1改为11n_disable=8     </p>
+<h3 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h3><h4 id="查看驱动型号"><a href="#查看驱动型号" class="headerlink" title="查看驱动型号"></a>查看驱动型号</h4><p>输入以下命令      </p>
+<pre><code>lspci|grep Wireless
+</code></pre><p>例如下图中的型号：<br><img src="https://farm8.staticflickr.com/7910/32392733287_18cb0bd927_b.jpg" alt></p>
 <p>型号为：Intel Corporation Intel Dual Band Wireless-AC 3165 Plus Bluetooth (rev 99)     </p>
 <h4 id="下载相对应的驱动"><a href="#下载相对应的驱动" class="headerlink" title="下载相对应的驱动"></a>下载相对应的驱动</h4><p>下载地址：<a href="https://www.intel.cn/content/www/cn/zh/support/articles/000005511/network-and-i-o/wireless-networking.html" target="_blank" rel="noopener">英特尔® 无线适配器的 Linux* 支持</a><br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -215,39 +218,73 @@
                 </div>
                 <div class="image-caption"></div>
             </figure></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf iwlwifi-7265-ucode-25.30.14.0.tgz</span><br><span class="line">sudo cp iwlwifi-*.ucode /lib/firmware</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure></p>
-<p>一般情况下是可以解决该问题的。     </p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入以下命令：     </p>
+<pre><code>tar -zxvf iwlwifi-7265-ucode-25.30.14.0.tgz
+sudo cp iwlwifi-*.ucode /lib/firmware
+sudo reboot
+</code></pre><p>一般情况下是可以解决该问题的。     </p>
 <h2 id="electorn-ssr"><a href="#electorn-ssr" class="headerlink" title="electorn-ssr"></a>electorn-ssr</h2><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>下载地址：<a href="https://github.com/erguotou520/electron-ssr/releases/download/v0.2.6/electron-ssr-0.2.6.deb" target="_blank" rel="noopener">electron-ssr</a><br>也可以根据喜好自己下载：<a href="https://github.com/erguotou520/electron-ssr/releases" target="_blank" rel="noopener">列表</a>       </p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>一般情况下安装后是无法使用electron-ssr的，需要进行配置。<br>如图（二选一即可）：<br><img src="https://farm8.staticflickr.com/7923/40369635983_05eb970b70_b.jpg" alt></p>
 <p><img src="https://farm8.staticflickr.com/7897/47334882911_1e4ab7fdbb_b.jpg" alt> </p>
 <h2 id="node-js安装"><a href="#node-js安装" class="headerlink" title="node.js安装"></a>node.js安装</h2><p>主要讲两个方式：     </p>
 <h3 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a><br>根据个人习惯进行下载。     </p>
-<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xvJf node-v10.15.3-linux-x64.tar.xz    //解压</span><br><span class="line">cd node-v10.15.3-linux-x64/bin/</span><br><span class="line">./node -v</span><br></pre></td></tr></table></figure></p>
-<h4 id="设置全局"><a href="#设置全局" class="headerlink" title="设置全局"></a>设置全局</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/node /usr/local/bin/node</span><br><span class="line">ln -s /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/npm /usr/local/bin/npm</span><br><span class="line"># /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/node为自己存放文件的地址   /usr/local/bin/npm和/usr/local/bin/node不需要更改</span><br></pre></td></tr></table></figure>
-<h3 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h3><p>通过命令进行安装，输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure></p>
-<h2 id="配置Clion"><a href="#配置Clion" class="headerlink" title="配置Clion"></a>配置Clion</h2><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-<h3 id="gcc、g"><a href="#gcc、g" class="headerlink" title="gcc、g++"></a>gcc、g++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br><span class="line">sudo apt-get install g++</span><br></pre></td></tr></table></figure>
-<p>设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line">## 将以下内容填写进去 </span><br><span class="line">export CC=/usr/bin/gcc</span><br><span class="line">export CXX=/usr/bin/g++</span><br></pre></td></tr></table></figure></p>
-<p>验证是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br><span class="line">g++ --version</span><br></pre></td></tr></table></figure></p>
-<h3 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h3><h4 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h4><p>下载列表：<a href="https://cmake.org/files/v3.11/" target="_blank" rel="noopener">cmake</a><br>下载地址:[cmake-3.11.3.tar.gz]<a href="https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz" target="_blank" rel="noopener">https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz</a></p>
-<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><p>新建一个“cmake”目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home</span><br><span class="line">mkdir Cmake</span><br></pre></td></tr></table></figure></p>
-<p>解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/Cmake</span><br><span class="line">tar -xzvf cmake-3.11.3.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>进入cmake 目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd cmake-3.11.3</span><br></pre></td></tr></table></figure></p>
-<p>编译安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">### 最好使用root用户</span><br><span class="line">./bootstrap &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
-<p>验证是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -version</span><br></pre></td></tr></table></figure></p>
-<h3 id="配置Clion-1"><a href="#配置Clion-1" class="headerlink" title="配置Clion"></a>配置Clion</h3><p>如图所示：     </p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>输入以下命令：     </p>
+<pre><code>tar xvJf node-v10.15.3-linux-x64.tar.xz    //解压
+cd node-v10.15.3-linux-x64/bin/
+./node -v
+</code></pre><h4 id="设置全局"><a href="#设置全局" class="headerlink" title="设置全局"></a>设置全局</h4><pre><code>ln -s /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/node /usr/local/bin/node
+ln -s /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/npm /usr/local/bin/npm
+# /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/node为自己存放文件的地址   /usr/local/bin/npm和/usr/local/bin/node不需要更改
+</code></pre><h3 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h3><p>通过命令进行安装，输入以下命令：    </p>
+<pre><code>sudo apt-get install nodejs
+sudo apt-get install npm
+</code></pre><h2 id="配置Clion"><a href="#配置Clion" class="headerlink" title="配置Clion"></a>配置Clion</h2><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><pre><code>sudo apt update
+</code></pre><h3 id="gcc、g"><a href="#gcc、g" class="headerlink" title="gcc、g++"></a>gcc、g++</h3><pre><code>sudo apt-get install build-essential
+sudo apt-get install g++
+</code></pre><p>设置环境变量    </p>
+<pre><code>sudo vim /etc/profile
+## 将以下内容填写进去 
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+</code></pre><p>验证是否安装成功     </p>
+<pre><code>gcc --version
+g++ --version
+</code></pre><h3 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h3><h4 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h4><p>下载列表：<a href="https://cmake.org/files/v3.11/" target="_blank" rel="noopener">cmake</a><br>下载地址:[cmake-3.11.3.tar.gz]<a href="https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz" target="_blank" rel="noopener">https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz</a></p>
+<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><p>新建一个“cmake”目录     </p>
+<pre><code>cd /home
+mkdir Cmake
+</code></pre><p>解压      </p>
+<pre><code>cd /home/Cmake
+tar -xzvf cmake-3.11.3.tar.gz 
+</code></pre><p>进入cmake 目录</p>
+<pre><code>cd cmake-3.11.3
+</code></pre><p>编译安装</p>
+<pre><code>### 最好使用root用户
+./bootstrap &amp;&amp; make &amp;&amp; make install
+</code></pre><p>验证是否安装成功      </p>
+<pre><code>cmake -version
+</code></pre><h3 id="配置Clion-1"><a href="#配置Clion-1" class="headerlink" title="配置Clion"></a>配置Clion</h3><p>如图所示：     </p>
 <p><img src="https://farm8.staticflickr.com/7810/47335052501_6da8fb6517_b.jpg" alt></p>
-<h2 id="deepin下idea中文异常"><a href="#deepin下idea中文异常" class="headerlink" title="deepin下idea中文异常"></a>deepin下idea中文异常</h2><p>输入以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">passwd</span><br><span class="line">aptitude search uming</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aptitude install fonts-arphic-uming</span><br></pre></td></tr></table></figure>
-<p>之后重新启动idea（Netbeans也适用）</p>
+<h2 id="deepin下idea中文异常"><a href="#deepin下idea中文异常" class="headerlink" title="deepin下idea中文异常"></a>deepin下idea中文异常</h2><p>输入以下命令</p>
+<pre><code>su
+passwd
+aptitude search uming
+</code></pre><pre><code>aptitude install fonts-arphic-uming
+</code></pre><p>之后重新启动idea（Netbeans也适用）</p>
 <h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>参考链接：<a href="https://wiki.deepin.org/wiki/Docker" target="_blank" rel="noopener">deepin安装Docker</a>     </p>
-<h2 id="Android-Studio-dev-kvm-device-permission-denied"><a href="#Android-Studio-dev-kvm-device-permission-denied" class="headerlink" title="Android Studio: /dev/kvm device permission denied"></a>Android Studio: /dev/kvm device permission denied</h2><h3 id="安装-qemu-kvm"><a href="#安装-qemu-kvm" class="headerlink" title="安装 qemu-kvm"></a>安装 qemu-kvm</h3><p>输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install qemu-kvm</span><br></pre></td></tr></table></figure></p>
-<h3 id="检查-dev-kvm-使用的所有权"><a href="#检查-dev-kvm-使用的所有权" class="headerlink" title="检查/dev/kvm 使用的所有权"></a>检查/dev/kvm 使用的所有权</h3><p>输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al /dev/kvm</span><br></pre></td></tr></table></figure></p>
-<p>结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crw-rw---- 1 root kvm 10, 232 3月  11 10:36 /dev/kvm</span><br></pre></td></tr></table></figure></p>
-<p>检查组中的用户kvm，使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep kvm /etc/group</span><br></pre></td></tr></table></figure></p>
-<p>添加用户到kvm中，请使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser yourname kvm</span><br></pre></td></tr></table></figure></p>
-<p>再检查<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep kvm /etc/group</span><br></pre></td></tr></table></figure></p>
-<p>最后重启或注销。</p>
+<h2 id="Android-Studio-dev-kvm-device-permission-denied"><a href="#Android-Studio-dev-kvm-device-permission-denied" class="headerlink" title="Android Studio: /dev/kvm device permission denied"></a>Android Studio: /dev/kvm device permission denied</h2><h3 id="安装-qemu-kvm"><a href="#安装-qemu-kvm" class="headerlink" title="安装 qemu-kvm"></a>安装 qemu-kvm</h3><p>输入以下命令：    </p>
+<pre><code>sudo apt install qemu-kvm
+</code></pre><h3 id="检查-dev-kvm-使用的所有权"><a href="#检查-dev-kvm-使用的所有权" class="headerlink" title="检查/dev/kvm 使用的所有权"></a>检查/dev/kvm 使用的所有权</h3><p>输入以下命令：     </p>
+<pre><code>ls -al /dev/kvm
+</code></pre><p>结果为：     </p>
+<pre><code>crw-rw---- 1 root kvm 10, 232 3月  11 10:36 /dev/kvm
+</code></pre><p>检查组中的用户kvm，使用：    </p>
+<pre><code>grep kvm /etc/group
+</code></pre><p>添加用户到kvm中，请使用：     </p>
+<pre><code>sudo adduser yourname kvm
+</code></pre><p>再检查</p>
+<pre><code>grep kvm /etc/group
+</code></pre><p>最后重启或注销。</p>
 
         </div>
 
@@ -543,6 +580,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
 
 </body>
 

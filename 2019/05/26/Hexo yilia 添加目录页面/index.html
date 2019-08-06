@@ -46,7 +46,9 @@
     
 
 </head>
-
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
 
 <body>
     <script type="text/javascript" src="/js/src/click_love.js"></script>
@@ -203,20 +205,123 @@
 <h2 id="1-添加-categories-页面"><a href="#1-添加-categories-页面" class="headerlink" title="1 添加 categories 页面"></a>1 添加 categories 页面</h2><h3 id="1-1-新建-categories-页面"><a href="#1-1-新建-categories-页面" class="headerlink" title="1.1 新建 categories 页面"></a>1.1 新建 categories 页面</h3><blockquote>
 <p>输入命令： </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>hexo new page categories
+</code></pre><blockquote>
 <p>该命令在 <strong>source</strong>  目录下生成一个 categories 目录，categories 目录下有一个 index.md 文件。  </p>
 </blockquote>
-<h3 id="1-2-修改-index-md-文件"><a href="#1-2-修改-index-md-文件" class="headerlink" title="1.2 修改 index.md 文件"></a>1.2 修改 index.md 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2018-10-19 11:22:21</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">comments: false #关闭评论</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h2 id="2-添加-categories-链接"><a href="#2-添加-categories-链接" class="headerlink" title="2 添加 categories 链接"></a>2 添加 categories 链接</h2><blockquote>
+<h3 id="1-2-修改-index-md-文件"><a href="#1-2-修改-index-md-文件" class="headerlink" title="1.2 修改 index.md 文件"></a>1.2 修改 index.md 文件</h3><pre><code>---
+title: 文章分类
+date: 2018-10-19 11:22:21
+type: &quot;categories&quot;
+layout: &quot;categories&quot;
+comments: false #关闭评论
+---
+</code></pre><h2 id="2-添加-categories-链接"><a href="#2-添加-categories-链接" class="headerlink" title="2 添加 categories 链接"></a>2 添加 categories 链接</h2><blockquote>
 <p>若主题为 yilia ，则打开 yilia/_config.yml ，修改为：  </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  主页: /</span><br><span class="line">  相册: /</span><br><span class="line">  分类: /categories</span><br></pre></td></tr></table></figure>
-<h2 id="3-修改-yilia-主题"><a href="#3-修改-yilia-主题" class="headerlink" title="3 修改 yilia 主题"></a>3 修改 yilia 主题</h2><h3 id="3-1-新建yilia-layout-categories-ejs"><a href="#3-1-新建yilia-layout-categories-ejs" class="headerlink" title="3.1 新建yilia/layout/categories.ejs"></a>3.1 新建yilia/layout/categories.ejs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;article class=&quot;article article-type-post show&quot;&gt;</span><br><span class="line">  &lt;header class=&quot;article-header&quot;&gt;</span><br><span class="line">  &lt;h1 class=&quot;article-title&quot; itemprop=&quot;name&quot;&gt;</span><br><span class="line">    &lt;%= page.title %&gt;</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line"></span><br><span class="line">  &lt;% if (site.categories.length)&#123; %&gt;</span><br><span class="line">  &lt;div class=&quot;category-all-page article-type-post show&quot;&gt;</span><br><span class="line">    &lt;h3&gt;共计&amp;nbsp;&lt;%= site.categories.length %&gt;&amp;nbsp;个分类&lt;/h3&gt;</span><br><span class="line">    &lt;ul class=&quot;category-list&quot;&gt;</span><br><span class="line">    &lt;% site.categories.sort(&apos;name&apos;).each(function(item)&#123; %&gt;</span><br><span class="line">      &lt;% if(item.posts.length)&#123; %&gt;</span><br><span class="line">        &lt;li class=&quot;category-list-item&quot;&gt;</span><br><span class="line">          &lt;a href=&quot;&lt;%- config.root %&gt;&lt;%- item.path %&gt;&quot; title=&quot;&lt;%= item.name %&gt;&quot;&gt;&lt;%= item.name %&gt;&lt;sup&gt;[&lt;%= item.posts.length %&gt;]&lt;/sup&gt;&lt;/a&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">      &lt;% &#125; %&gt;</span><br><span class="line">    &lt;% &#125;); %&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;/article&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去"><a href="#3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去" class="headerlink" title="3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去"></a>3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">category-all-page &#123;</span><br><span class="line">    margin: 30px 40px 30px 40px;</span><br><span class="line">    position: relative;</span><br><span class="line">    min-height: 70vh;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page h2 &#123;</span><br><span class="line">    margin: 20px 0;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-all-title &#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-all &#123;</span><br><span class="line">    margin-top: 20px;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">    list-style: none;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-item-list-item &#123;</span><br><span class="line">    margin: 10px 15px;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-item-list-count &#123;</span><br><span class="line">    color: $grey;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-item-list-count:before &#123;</span><br><span class="line">    display: inline;</span><br><span class="line">    content: &quot; (&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-item-list-count:after &#123;</span><br><span class="line">    display: inline;</span><br><span class="line">    content: &quot;) &quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-item &#123;</span><br><span class="line">    margin: 10px 10px;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-count &#123;</span><br><span class="line">    color: $grey;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-count:before &#123;</span><br><span class="line">    display: inline;</span><br><span class="line">    content: &quot; (&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-count:after &#123;</span><br><span class="line">    display: inline;</span><br><span class="line">    content: &quot;) &quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  .category-all-page .category-list-child &#123;</span><br><span class="line">    padding-left: 10px;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-多层分类"><a href="#4-多层分类" class="headerlink" title="4 多层分类"></a>4 多层分类</h2><h3 id="4-1-修改yilia-layout-categories-ejs为："><a href="#4-1-修改yilia-layout-categories-ejs为：" class="headerlink" title="4.1 修改yilia/layout/categories.ejs为："></a>4.1 修改yilia/layout/categories.ejs为：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;article class=&quot;article article-type-post show&quot;&gt;</span><br><span class="line">  &lt;header class=&quot;article-header&quot; style=&quot;border-bottom: 1px solid #ccc&quot;&gt;</span><br><span class="line">  &lt;h1 class=&quot;article-title&quot; itemprop=&quot;name&quot;&gt;</span><br><span class="line">    &lt;%= page.title %&gt;</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line"></span><br><span class="line">  &lt;% if (site.categories.length)&#123; %&gt;</span><br><span class="line">  &lt;div class=&quot;category-all-page&quot;&gt;</span><br><span class="line">    &lt;h2&gt;共计&amp;nbsp;&lt;%= site.categories.length %&gt;&amp;nbsp;个分类&lt;/h2&gt;</span><br><span class="line">    &lt;%- list_categories(site.categories, &#123;</span><br><span class="line">      show_count: true,</span><br><span class="line">      class: &apos;category-list-item&apos;,</span><br><span class="line">      style: &apos;list&apos;,</span><br><span class="line">      depth: 2,</span><br><span class="line">      separator: &apos;&apos;</span><br><span class="line">    &#125;) %&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;/article&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="4-2-修改自己的文章"><a href="#4-2-修改自己的文章" class="headerlink" title="4.2 修改自己的文章"></a>4.2 修改自己的文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo yilia 添加目录页面</span><br><span class="line">tags: Hexo yilia 添加目录</span><br><span class="line">toc: true</span><br><span class="line">categories: [Hexo,创建目录]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h2 id="5-效果"><a href="#5-效果" class="headerlink" title="5 效果"></a>5 效果</h2><blockquote>
+<pre><code>menu:
+  主页: /
+  相册: /
+  分类: /categories
+</code></pre><h2 id="3-修改-yilia-主题"><a href="#3-修改-yilia-主题" class="headerlink" title="3 修改 yilia 主题"></a>3 修改 yilia 主题</h2><h3 id="3-1-新建yilia-layout-categories-ejs"><a href="#3-1-新建yilia-layout-categories-ejs" class="headerlink" title="3.1 新建yilia/layout/categories.ejs"></a>3.1 新建yilia/layout/categories.ejs</h3><pre><code>&lt;article class=&quot;article article-type-post show&quot;&gt;
+  &lt;header class=&quot;article-header&quot;&gt;
+  &lt;h1 class=&quot;article-title&quot; itemprop=&quot;name&quot;&gt;
+    &lt;%= page.title %&gt;
+  &lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;% if (site.categories.length){ %&gt;
+  &lt;div class=&quot;category-all-page article-type-post show&quot;&gt;
+    &lt;h3&gt;共计&amp;nbsp;&lt;%= site.categories.length %&gt;&amp;nbsp;个分类&lt;/h3&gt;
+    &lt;ul class=&quot;category-list&quot;&gt;
+    &lt;% site.categories.sort(&#39;name&#39;).each(function(item){ %&gt;
+      &lt;% if(item.posts.length){ %&gt;
+        &lt;li class=&quot;category-list-item&quot;&gt;
+          &lt;a href=&quot;&lt;%- config.root %&gt;&lt;%- item.path %&gt;&quot; title=&quot;&lt;%= item.name %&gt;&quot;&gt;&lt;%= item.name %&gt;&lt;sup&gt;[&lt;%= item.posts.length %&gt;]&lt;/sup&gt;&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;% } %&gt;
+    &lt;% }); %&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;% } %&gt;
+&lt;/article&gt;
+</code></pre><h3 id="3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去"><a href="#3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去" class="headerlink" title="3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去"></a>3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去</h3><pre><code>category-all-page {
+    margin: 30px 40px 30px 40px;
+    position: relative;
+    min-height: 70vh;
+  }
+  .category-all-page h2 {
+    margin: 20px 0;
+  }
+  .category-all-page .category-all-title {
+    text-align: center;
+  }
+  .category-all-page .category-all {
+    margin-top: 20px;
+  }
+  .category-all-page .category-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .category-all-page .category-list-item-list-item {
+    margin: 10px 15px;
+  }
+  .category-all-page .category-list-item-list-count {
+    color: $grey;
+  }
+  .category-all-page .category-list-item-list-count:before {
+    display: inline;
+    content: &quot; (&quot;;
+  }
+  .category-all-page .category-list-item-list-count:after {
+    display: inline;
+    content: &quot;) &quot;;
+  }
+  .category-all-page .category-list-item {
+    margin: 10px 10px;
+  }
+  .category-all-page .category-list-count {
+    color: $grey;
+  }
+  .category-all-page .category-list-count:before {
+    display: inline;
+    content: &quot; (&quot;;
+  }
+  .category-all-page .category-list-count:after {
+    display: inline;
+    content: &quot;) &quot;;
+  }
+  .category-all-page .category-list-child {
+    padding-left: 10px;
+  }
+</code></pre><h2 id="4-多层分类"><a href="#4-多层分类" class="headerlink" title="4 多层分类"></a>4 多层分类</h2><h3 id="4-1-修改yilia-layout-categories-ejs为："><a href="#4-1-修改yilia-layout-categories-ejs为：" class="headerlink" title="4.1 修改yilia/layout/categories.ejs为："></a>4.1 修改yilia/layout/categories.ejs为：</h3><pre><code>&lt;article class=&quot;article article-type-post show&quot;&gt;
+  &lt;header class=&quot;article-header&quot; style=&quot;border-bottom: 1px solid #ccc&quot;&gt;
+  &lt;h1 class=&quot;article-title&quot; itemprop=&quot;name&quot;&gt;
+    &lt;%= page.title %&gt;
+  &lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;% if (site.categories.length){ %&gt;
+  &lt;div class=&quot;category-all-page&quot;&gt;
+    &lt;h2&gt;共计&amp;nbsp;&lt;%= site.categories.length %&gt;&amp;nbsp;个分类&lt;/h2&gt;
+    &lt;%- list_categories(site.categories, {
+      show_count: true,
+      class: &#39;category-list-item&#39;,
+      style: &#39;list&#39;,
+      depth: 2,
+      separator: &#39;&#39;
+    }) %&gt;
+  &lt;/div&gt;
+  &lt;% } %&gt;
+&lt;/article&gt;
+</code></pre><h3 id="4-2-修改自己的文章"><a href="#4-2-修改自己的文章" class="headerlink" title="4.2 修改自己的文章"></a>4.2 修改自己的文章</h3><pre><code>---
+title: Hexo yilia 添加目录页面
+tags: Hexo yilia 添加目录
+toc: true
+categories: [Hexo,创建目录]
+---
+</code></pre><h2 id="5-效果"><a href="#5-效果" class="headerlink" title="5 效果"></a>5 效果</h2><blockquote>
 <p>如下图： </p>
 </blockquote>
 <p><img src="https://farm2.staticflickr.com/1914/30502562127_06a9af4659_b.jpg" alt="效果">  </p>
@@ -518,6 +623,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
 
 </body>
 

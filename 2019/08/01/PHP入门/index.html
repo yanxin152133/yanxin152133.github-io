@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/48461097092_ed8fd6cd37_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48461096952_19ff034f6c_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48461241292_16bb9f32e5_b.jpg">
-<meta property="og:updated_time" content="2019-08-05T08:57:31.237Z">
+<meta property="og:updated_time" content="2019-08-06T06:34:57.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP入门">
 <meta name="twitter:description" content="代码仓库仓库地址：GitHub 环境：        Apache/2.4.39 (Win64) PHP 7.3.6 PhpStorm 2019.2 MySQL 5.6  软件安装路径  Apache D:\server\apache PHP D:\server\php7  搭建环境（Windows）较早版本Apache 下载下载地址：Apache msi">
@@ -60,7 +60,9 @@
     
 
 </head>
-
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
 
 <body>
     <script type="text/javascript" src="/js/src/click_love.js"></script>
@@ -187,7 +189,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码仓库"><span class="post-toc-number">1.</span> <span class="post-toc-text">代码仓库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搭建环境（Windows）"><span class="post-toc-number">2.</span> <span class="post-toc-text">搭建环境（Windows）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#较早版本Apache-下载"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">较早版本Apache 下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#较早版本Apache-安装"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">较早版本Apache 安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Apache-目录结构说明"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Apache 目录结构说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Apache-httpd-exe介绍"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">Apache-httpd.exe介绍</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-2-4-39-Win64-下载与安装"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Apache/2.4.39 (Win64)下载与安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装、运行、卸载"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">安装、运行、卸载</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP-安装"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">PHP 安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载-1"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置-Apache-加载-PHP-模块"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">配置 Apache 加载 PHP 模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#httpd-conf"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">httpd.conf</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装MySQL"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">安装MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装Docker"><span class="post-toc-number">2.7.1.</span> <span class="post-toc-text">安装Docker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装MySQL-1"><span class="post-toc-number">2.7.2.</span> <span class="post-toc-text">安装MySQL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL的目录结构说明（Windows）"><span class="post-toc-number">2.7.3.</span> <span class="post-toc-text">MySQL的目录结构说明（Windows）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL的访问流程"><span class="post-toc-number">2.7.4.</span> <span class="post-toc-text">MySQL的访问流程</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP连接MySQL数据库"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">PHP连接MySQL数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#php7配置mysqli或者pdo-mysql和使用mysqli或者pdo-mysql连接MySQL"><span class="post-toc-number">2.8.1.</span> <span class="post-toc-text">php7配置mysqli或者pdo_mysql和使用mysqli或者pdo_mysql连接MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#我是该用-MySQLi-，还是-PDO"><span class="post-toc-number">2.8.1.1.</span> <span class="post-toc-text">我是该用 MySQLi ，还是 PDO?</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设定PHP的系统时区"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">设定PHP的系统时区</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码仓库"><span class="post-toc-number">1.</span> <span class="post-toc-text">代码仓库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搭建环境（Windows）"><span class="post-toc-number">2.</span> <span class="post-toc-text">搭建环境（Windows）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#较早版本Apache-下载"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">较早版本Apache 下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#较早版本Apache-安装"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">较早版本Apache 安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Apache-目录结构说明"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Apache 目录结构说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Apache-httpd-exe介绍"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">Apache-httpd.exe介绍</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apache-2-4-39-Win64-下载与安装"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Apache/2.4.39 (Win64)下载与安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装、运行、卸载"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">安装、运行、卸载</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP-安装"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">PHP 安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载-1"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置-Apache-加载-PHP-模块"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">配置 Apache 加载 PHP 模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#httpd-conf"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">httpd.conf</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装MySQL"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">安装MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装Docker"><span class="post-toc-number">2.7.1.</span> <span class="post-toc-text">安装Docker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装MySQL-1"><span class="post-toc-number">2.7.2.</span> <span class="post-toc-text">安装MySQL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL的目录结构说明（Windows）"><span class="post-toc-number">2.7.3.</span> <span class="post-toc-text">MySQL的目录结构说明（Windows）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL的访问流程"><span class="post-toc-number">2.7.4.</span> <span class="post-toc-text">MySQL的访问流程</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP连接MySQL数据库"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">PHP连接MySQL数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#php7配置mysqli或者pdo-mysql和使用mysqli或者pdo-mysql连接MySQL"><span class="post-toc-number">2.8.1.</span> <span class="post-toc-text">php7配置mysqli或者pdo_mysql和使用mysqli或者pdo_mysql连接MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#我是该用-MySQLi-，还是-PDO"><span class="post-toc-number">2.8.1.1.</span> <span class="post-toc-text">我是该用 MySQLi ，还是 PDO?</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设定PHP的系统时区"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">设定PHP的系统时区</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PHP标记与注释"><span class="post-toc-number">3.</span> <span class="post-toc-text">PHP标记与注释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP语法初步"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">PHP语法初步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP代码标记"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">PHP代码标记</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP注释"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">PHP注释</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -321,20 +323,63 @@
 <li>Apache 加载 PHP 模块：在Apache的主配置文件中加载对应的PHP提供的模块</li>
 </ol>
 <p>在apache安装目录的<strong>conf目录</strong>下对<strong>httpd.conf</strong>进行添加一下内容：     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#加载PHP</span><br><span class="line">LoadModule php7_module &apos;D:/server/php7/php7apache2_4.dll&apos;</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<pre><code>#加载PHP
+LoadModule php7_module &#39;D:/server/php7/php7apache2_4.dll&#39;
+</code></pre><ol start="2">
 <li>验证</li>
 </ol>
 <p><strong>需改内容之后都需要重启apache</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">Microsoft Windows [版本 10.0.17763.615]</span><br><span class="line">(c) 2018 Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">C:\Users\Yan&gt;D:</span><br><span class="line"></span><br><span class="line">D:\&gt;cd server\apache\bin</span><br><span class="line"></span><br><span class="line">D:\server\apache\bin&gt;httpd.exe -t</span><br><span class="line">AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::3993:9c4f:39af:664d. Set the 'ServerName' directive globally to suppress this message</span><br><span class="line">Syntax OK</span><br><span class="line"></span><br><span class="line">D:\server\apache\bin&gt;httpd.exe -M</span><br><span class="line">AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::3993:9c4f:39af:664d. Set the 'ServerName' directive globally to suppress this message</span><br><span class="line">Loaded Modules:</span><br><span class="line"> core_module (static)</span><br><span class="line"> win32_module (static)</span><br><span class="line"> mpm_winnt_module (static)</span><br><span class="line"> http_module (static)</span><br><span class="line"> so_module (static)</span><br><span class="line"> actions_module (shared)</span><br><span class="line"> alias_module (shared)</span><br><span class="line"> allowmethods_module (shared)</span><br><span class="line"> asis_module (shared)</span><br><span class="line"> auth_basic_module (shared)</span><br><span class="line"> authn_core_module (shared)</span><br><span class="line"> authn_file_module (shared)</span><br><span class="line"> authz_core_module (shared)</span><br><span class="line"> authz_groupfile_module (shared)</span><br><span class="line"> authz_host_module (shared)</span><br><span class="line"> authz_user_module (shared)</span><br><span class="line"> autoindex_module (shared)</span><br><span class="line"> cgi_module (shared)</span><br><span class="line"> dir_module (shared)</span><br><span class="line"> env_module (shared)</span><br><span class="line"> include_module (shared)</span><br><span class="line"> isapi_module (shared)</span><br><span class="line"> log_config_module (shared)</span><br><span class="line"> mime_module (shared)</span><br><span class="line"> negotiation_module (shared)</span><br><span class="line"> setenvif_module (shared)</span><br><span class="line"> php7_module (shared)   ##需要出现这个即可</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">Microsoft Windows [版本 10.0.17763.615]
+(c) 2018 Microsoft Corporation。保留所有权利。
+
+C:\Users\Yan&gt;D:
+
+D:\&gt;cd server\apache\bin
+
+D:\server\apache\bin&gt;httpd.exe -t
+AH00558: httpd.exe: Could not reliably determine the server&#39;s fully qualified domain name, using fe80::3993:9c4f:39af:664d. Set the &#39;ServerName&#39; directive globally to suppress this message
+Syntax OK
+
+D:\server\apache\bin&gt;httpd.exe -M
+AH00558: httpd.exe: Could not reliably determine the server&#39;s fully qualified domain name, using fe80::3993:9c4f:39af:664d. Set the &#39;ServerName&#39; directive globally to suppress this message
+Loaded Modules:
+ core_module (static)
+ win32_module (static)
+ mpm_winnt_module (static)
+ http_module (static)
+ so_module (static)
+ actions_module (shared)
+ alias_module (shared)
+ allowmethods_module (shared)
+ asis_module (shared)
+ auth_basic_module (shared)
+ authn_core_module (shared)
+ authn_file_module (shared)
+ authz_core_module (shared)
+ authz_groupfile_module (shared)
+ authz_host_module (shared)
+ authz_user_module (shared)
+ autoindex_module (shared)
+ cgi_module (shared)
+ dir_module (shared)
+ env_module (shared)
+ include_module (shared)
+ isapi_module (shared)
+ log_config_module (shared)
+ mime_module (shared)
+ negotiation_module (shared)
+ setenvif_module (shared)
+ php7_module (shared)   ##需要出现这个即可
+</code></pre>
 <ol start="3">
 <li><p>Apache 分配工作给PHP模块：如果是PHP代码就交给PHP处理（通过文件后缀名.php进行识别）</p>
 </li>
 <li><p>在apache安装目录的<strong>conf目录</strong>下对<strong>httpd.conf</strong>进行添加一下内容：     </p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 分配给PHP</span><br><span class="line">AddType application/x-httpd-php .php</span><br></pre></td></tr></table></figure>
-<p><strong>需改内容之后都需要重启apache</strong></p>
+<pre><code># 分配给PHP
+AddType application/x-httpd-php .php
+</code></pre><p><strong>需改内容之后都需要重启apache</strong></p>
 <ol start="5">
 <li>将PHP的配置文件加载到Apache配置文件中，使之共同生效。</li>
 </ol>
@@ -342,22 +387,42 @@
 <li>在Apache中指定PHP配置文件所在路径</li>
 </ul>
 <p><strong>httpd.conf</strong>中添加：   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#加载PHP配置文件</span><br><span class="line">PHPIniDir &apos;D:/server/php7&apos;</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>#加载PHP配置文件
+PHPIniDir &#39;D:/server/php7&#39;
+</code></pre><ul>
 <li><p>php.ini 文件是默认不存在的，是以development和production格式存在，需要格式化。</p>
 </li>
 <li><p>将php安装目录中的<strong>php.ini-development</strong>文件复制一个副本并重名为<strong>php.ini</strong>,然后重启Apache。</p>
 </li>
 </ul>
 <p>说明：PHP的配置文件已经加入到Apache的配置项中，意味着php.ini的修改需要Apache重启才会生效。</p>
-<h2 id="httpd-conf"><a href="#httpd-conf" class="headerlink" title="httpd.conf"></a>httpd.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#加载PHP</span><br><span class="line">LoadModule php7_module &apos;D:/server/php7/php7apache2_4.dll&apos;</span><br><span class="line">#加载PHP配置文件</span><br><span class="line">PHPIniDir &apos;D:/server/php7&apos;</span><br><span class="line"># 分配给PHP</span><br><span class="line">AddType application/x-httpd-php .php</span><br></pre></td></tr></table></figure>
-<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>为了方便安装，使用docker来搭建MySQL环境。没有条件的可以百度自行安装MySQL。</p>
+<h2 id="httpd-conf"><a href="#httpd-conf" class="headerlink" title="httpd.conf"></a>httpd.conf</h2><pre><code>#加载PHP
+LoadModule php7_module &#39;D:/server/php7/php7apache2_4.dll&#39;
+#加载PHP配置文件
+PHPIniDir &#39;D:/server/php7&#39;
+# 分配给PHP
+AddType application/x-httpd-php .php
+</code></pre><h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>为了方便安装，使用docker来搭建MySQL环境。没有条件的可以百度自行安装MySQL。</p>
 <h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>参考：     </p>
 <ul>
 <li><a href="https://yanxin152133.github.io/2019/05/26/Ubuntu18.04%20%E5%AE%89%E8%A3%85%20Docker/" target="_blank" rel="noopener">Ubuntu18.04 安装 Docker</a></li>
 </ul>
 <h3 id="安装MySQL-1"><a href="#安装MySQL-1" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><p>输入以下命令：    </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 拉取官方的镜像,标签为5.6</span></span><br><span class="line">docker pull mysql:5.6</span><br><span class="line"><span class="comment">## 运行</span></span><br><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci</span><br><span class="line"></span><br><span class="line"><span class="comment">## -p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口。</span></span><br><span class="line"><span class="comment">## e MYSQL_ROOT_PASSWORD=123456：初始化 root 用户的密码。</span></span><br><span class="line"><span class="comment">## --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci：解决中文问题</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 进入MySQL</span></span><br><span class="line">docker <span class="built_in">exec</span> -it mysql bash</span><br><span class="line"><span class="comment">## 登录MySQL</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="comment">## 然后输入密码</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">## 拉取官方的镜像,标签为5.6
+docker pull mysql:5.6
+## 运行
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+## -p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口。
+## e MYSQL_ROOT_PASSWORD=123456：初始化 root 用户的密码。
+## --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci：解决中文问题
+
+## 进入MySQL
+docker exec -it mysql bash
+## 登录MySQL
+mysql -u root -p
+## 然后输入密码
+</code></pre>
 <h3 id="MySQL的目录结构说明（Windows）"><a href="#MySQL的目录结构说明（Windows）" class="headerlink" title="MySQL的目录结构说明（Windows）"></a>MySQL的目录结构说明（Windows）</h3><p><img src="https://live.staticflickr.com/65535/48444297712_23161d2721_b.jpg" alt></p>
 <p><strong>bin目录</strong></p>
 <p><img src="https://live.staticflickr.com/65535/48444166761_0c2857d850_b.jpg" alt></p>
@@ -394,7 +459,10 @@
 <li><strong>重启apache服务</strong></li>
 <li>编辑<strong>index.php</strong></li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="php">&lt;?php
+    phpinfo();
+?&gt;
+</code></pre>
 <ul>
 <li>浏览器输入：<a href="http://localhost:80/index.php" target="_blank" rel="noopener">http://localhost:80/index.php</a></li>
 <li>验证</li>
@@ -405,15 +473,57 @@
 <li>数据库连接（三种方式）</li>
 <li>MySQLi - 面向对象</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$servername = <span class="string">"localhost"</span>;</span><br><span class="line">$username = <span class="string">"username"</span>;</span><br><span class="line">$password = <span class="string">"password"</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 创建连接</span></span><br><span class="line">$conn = <span class="keyword">new</span> mysqli($servername, $username, $password);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 检测连接</span></span><br><span class="line"><span class="keyword">if</span> ($conn-&gt;connect_error) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"连接失败: "</span> . $conn-&gt;connect_error);</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"连接成功"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="php">&lt;?php
+$servername = &quot;localhost&quot;;
+$username = &quot;username&quot;;
+$password = &quot;password&quot;;
+
+// 创建连接
+$conn = new mysqli($servername, $username, $password);
+
+// 检测连接
+if ($conn-&gt;connect_error) {
+    die(&quot;连接失败: &quot; . $conn-&gt;connect_error);
+} 
+echo &quot;连接成功&quot;;
+?&gt;
+</code></pre>
 <ul>
 <li>MySQLi - 面向过程</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$servername = <span class="string">"localhost"</span>;</span><br><span class="line">$username = <span class="string">"username"</span>;</span><br><span class="line">$password = <span class="string">"password"</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 创建连接</span></span><br><span class="line">$conn = mysqli_connect($servername, $username, $password);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 检测连接</span></span><br><span class="line"><span class="keyword">if</span> (!$conn) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"Connection failed: "</span> . mysqli_connect_error());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"连接成功"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="php">&lt;?php
+$servername = &quot;localhost&quot;;
+$username = &quot;username&quot;;
+$password = &quot;password&quot;;
+
+// 创建连接
+$conn = mysqli_connect($servername, $username, $password);
+
+// 检测连接
+if (!$conn) {
+    die(&quot;Connection failed: &quot; . mysqli_connect_error());
+}
+echo &quot;连接成功&quot;;
+?&gt;
+</code></pre>
 <ul>
 <li>PDO</li>
 </ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$servername = <span class="string">"localhost"</span>;</span><br><span class="line">$username = <span class="string">"username"</span>;</span><br><span class="line">$password = <span class="string">"password"</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $conn = <span class="keyword">new</span> PDO(<span class="string">"mysql:host=$servername;"</span>, $username, $password);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"连接成功"</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(PDOException $e)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> $e-&gt;getMessage();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="php">&lt;?php
+$servername = &quot;localhost&quot;;
+$username = &quot;username&quot;;
+$password = &quot;password&quot;;
+
+try {
+    $conn = new PDO(&quot;mysql:host=$servername;&quot;, $username, $password);
+    echo &quot;连接成功&quot;; 
+}
+catch(PDOException $e)
+{
+    echo $e-&gt;getMessage();
+}
+?&gt;
+</code></pre>
 <p>参考链接：     </p>
 <ul>
 <li><a href="https://www.runoob.com/php/php-mysql-connect.html" target="_blank" rel="noopener">PHP 连接 MySQL</a></li>
@@ -422,11 +532,50 @@
 <li>编辑<strong>php.ini</strong>     </li>
 <li>修改为以下内容</li>
 </ul>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">date.timezone</span> = PRC</span><br></pre></td></tr></table></figure>
+<pre><code class="ini">date.timezone = PRC
+</code></pre>
 <ul>
 <li>重启Apache服务</li>
 </ul>
 <p><img src="https://live.staticflickr.com/65535/48461241292_16bb9f32e5_b.jpg" alt></p>
+<h1 id="PHP标记与注释"><a href="#PHP标记与注释" class="headerlink" title="PHP标记与注释"></a>PHP标记与注释</h1><h2 id="PHP语法初步"><a href="#PHP语法初步" class="headerlink" title="PHP语法初步"></a>PHP语法初步</h2><p>PHP是一种运行在服务器端的脚本语言，可以嵌入到HTML中。</p>
+<h2 id="PHP代码标记"><a href="#PHP代码标记" class="headerlink" title="PHP代码标记"></a>PHP代码标记</h2><p>在PHP历史发展中，可以使用多种标记来区分PHP脚本。</p>
+<ul>
+<li>ASP标记：&lt;% php 代码 %&gt;</li>
+<li>短标记：&lt;? php代码 ?&gt;</li>
+</ul>
+<p>以上两种基本弃用，如果需要使用则需要在配置文件中开启。</p>
+<ul>
+<li>脚本标记：&lt; script language=”php”&gt;php代码&lt;/ script &gt;</li>
+</ul>
+<pre><code class="php">&lt;html&gt;
+&lt;body&gt;
+    &lt;b&gt;
+        &lt;script language=&quot;php&quot;&gt;
+            &lt;!--脚本标记--&gt;
+            echo &#39;hello world&#39;;
+        &lt;/script&gt;
+    &lt;/b&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+</code></pre>
+<p>注：移除了 ASP 和 script PHP 标签</p>
+<ul>
+<li>标准标记（常用）：&lt;?php php代码?&gt;</li>
+</ul>
+<pre><code class="php">&lt;html&gt;
+&lt;body&gt;
+    &lt;b&gt;
+        &lt;?php
+            echo &#39;hello world&#39;;
+        ?&gt;
+    &lt;/b&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="PHP注释"><a href="#PHP注释" class="headerlink" title="PHP注释"></a>PHP注释</h2><p>习惯：所有的代码在写的过程中都必须进行注释。</p>
 
         </div>
 
@@ -435,7 +584,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-05T08:57:31.237Z" itemprop="dateUpdated">2019-08-05 16:57:31</time>
+    最后更新时间：<time datetime="2019-08-06T06:34:57.551Z" itemprop="dateUpdated">2019-08-06 14:34:57</time>
 </span><br>
 
 
@@ -727,6 +876,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
 
 </body>
 
