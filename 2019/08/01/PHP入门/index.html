@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/48461097092_ed8fd6cd37_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48461096952_19ff034f6c_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48461241292_16bb9f32e5_b.jpg">
-<meta property="og:updated_time" content="2019-08-06T14:30:01.823Z">
+<meta property="og:updated_time" content="2019-08-07T07:29:38.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP入门">
 <meta name="twitter:description" content="代码仓库仓库地址：GitHub 环境：        Apache/2.4.39 (Win64) PHP 7.3.6 PhpStorm 2019.2 MySQL 5.6  软件安装路径  Apache D:\server\apache PHP D:\server\php7  搭建环境（Windows）较早版本Apache 下载下载地址：Apache msi">
@@ -681,9 +681,65 @@ catch(PDOException $e)
 
     // 第一，文件末尾的 ? &gt;可以省略
     // 第二，该脚本若被其他脚本包含，所以该脚本不需要结束，否则会报错，因为是要和其他脚本衔接，只有在php代码后面需要写html的才使用闭合标签。
-
+?&gt;
 </code></pre>
-<h2 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h2><h2 id="预定义变量"><a href="#预定义变量" class="headerlink" title="预定义变量"></a>预定义变量</h2><h2 id="可变变量"><a href="#可变变量" class="headerlink" title="可变变量"></a>可变变量</h2><h2 id="变量传值"><a href="#变量传值" class="headerlink" title="变量传值"></a>变量传值</h2>
+<h2 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h2><ol>
+<li>在PHP中变量名必须以“<code>$</code>”符号开始；</li>
+<li>名字由字母、数字和下划线“<code>_</code>”构成，但是不能以数字开头；</li>
+<li><p>在PHP中本身还允许中文变量（不建议）<br>　　　　　<br>代码示例：　　　　
+　　　　</p>
+<pre><code class="php"> // 变量命名规则
+ $var_1;$var_var_1;$_var1;   //正确格式
+
+ $1var;     //不正确格式
+
+ // 中文变量
+ $中国=‘china’;
+</code></pre>
+</li>
+</ol>
+<h2 id="预定义变量"><a href="#预定义变量" class="headerlink" title="预定义变量"></a>预定义变量</h2><blockquote>
+<p>预定义变量：提前定义的变量，系统定义的变量，存储许多需要用到的数据（预定义变量都是数组）。</p>
+</blockquote>
+<ul>
+<li><code>$_GET</code>：获取所有表单以get方式提交的数据</li>
+<li><code>$_POST</code>：POST提交的数据都会保存在此</li>
+<li><code>$_REQUEST</code>：GET和POST提交的都会保存</li>
+<li><code>$GLOBALS</code>：PHP中所有的全局变量</li>
+<li><code>$_SERVER</code>：服务器信息</li>
+<li><code>$_SESSION</code>：session会话数据</li>
+<li><code>$_COOKIE</code>：cookie会话数据</li>
+<li><code>$_ENV</code>：环境信息</li>
+<li><code>$_FILES</code>：用户上传的文件信息</li>
+</ul>
+<h2 id="可变变量"><a href="#可变变量" class="headerlink" title="可变变量"></a>可变变量</h2><blockquote>
+<p>可变变量：如果 一个变量保存的值 刚好是另外一个变量的名字，那么可以直接通过访问一个变量得到另外一个变量的值：在变量前面在多加一个<code>$</code>符号。</p>
+</blockquote>
+<p>代码示例：       </p>
+<pre><code class="php">&lt;?php
+
+
+    /*
+    * Create by PhpStorm
+    * Author: Yan
+    * Date: 2019/8/7
+    * Time: 15:15
+    * Features: 可变变量
+    */
+
+    // 可变变量
+
+    // 定义两个变量
+    $a = &#39;b&#39;;
+    $b = &#39;bb&#39;;
+
+    echo $$a;
+    // 1、找到$a，解析结果：b
+    // 2、将前面的$符号与结果  b绑定：$b
+    // 3、解析 
+?&gt;
+</code></pre>
+<h2 id="变量传值"><a href="#变量传值" class="headerlink" title="变量传值"></a>变量传值</h2>
         </div>
 
         <blockquote class="post-copyright">
@@ -691,7 +747,7 @@ catch(PDOException $e)
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-06T14:30:01.823Z" itemprop="dateUpdated">2019-08-06 22:30:01</time>
+    最后更新时间：<time datetime="2019-08-07T07:29:38.176Z" itemprop="dateUpdated">2019-08-07 15:29:38</time>
 </span><br>
 
 
