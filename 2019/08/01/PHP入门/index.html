@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://live.staticflickr.com/65535/48486081426_2e19c56fa6_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48486081426_2e19c56fa6_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48496217207_41006ba77b_b.jpg">
-<meta property="og:updated_time" content="2019-08-09T14:57:12.974Z">
+<meta property="og:updated_time" content="2019-08-10T15:06:30.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP入门">
 <meta name="twitter:description" content="代码仓库仓库地址：GitHub 环境：        Apache/2.4.39 (Win64) PHP 7.3.6 PhpStorm 2019.2 MySQL 5.6  软件安装路径  Apache D:\server\apache PHP D:\server\php7  PHP手册文件名为php_manual_zh.chm即为PHP手册。 打不开参考下面链接：      解决win10中无法打">
@@ -1475,7 +1475,50 @@ $f=1.23e10;    //科学计数法，其中e表示底10，1.23x10^10
 <p>运算符优先级：在多种运算符同时存在的时候，如何结合运算。</p>
 </blockquote>
 <p><img src="https://live.staticflickr.com/65535/48496217207_41006ba77b_b.jpg" alt></p>
-<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="控制分类"><a href="#控制分类" class="headerlink" title="控制分类"></a>控制分类</h2><h2 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h2><h2 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h2><h2 id="if分支"><a href="#if分支" class="headerlink" title="if分支"></a>if分支</h2><h2 id="switch分支"><a href="#switch分支" class="headerlink" title="switch分支"></a>switch分支</h2>
+<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><blockquote>
+<p>流程控制：代码执行的方向。</p>
+</blockquote>
+<h2 id="控制分类"><a href="#控制分类" class="headerlink" title="控制分类"></a>控制分类</h2><ul>
+<li>顺序结构：代码从上往下，顺序执行。（代码执行的最基本结构）</li>
+<li>分支结构：给定一个条件，同时有多种可执行代码（块），然后会根据条件执行某一段代码。</li>
+<li>循环结构：在某个条件控制范围内，指定的代码（块）可以重复执行。</li>
+</ul>
+<h2 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h2><blockquote>
+<p>顺序结构：最基本结构，所有代码默认是从上往下依次执行</p>
+</blockquote>
+<h2 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h2><blockquote>
+<p>在PHP中 ，分支结构主要有两种：if分支和switch分支</p>
+</blockquote>
+<h2 id="if分支"><a href="#if分支" class="headerlink" title="if分支"></a>if分支</h2><blockquote>
+<p>if：如果的意思，给定一个条件，同时为该条件设置多种（两种 ）情况，然后通过条件判断来实现具体的执行段。</p>
+</blockquote>
+<p>基本语法：if分支PHP也是提供多种方式来实现。</p>
+<ul>
+<li>最简if：只有一段代码，但是可以选择是否执行。</li>
+</ul>
+<pre><code>if(条件表达式){
+    //满足条件所要执行的内容;    //顺序结构
+}
+</code></pre><ul>
+<li>基础if：有两面性，满足条件或者不满足条件都有对应的执行代码。</li>
+</ul>
+<pre><code>if(条件表达式){
+    //满足条件后执行的代码段
+}else{
+    //不满足条件执行的代码段
+}
+</code></pre><ul>
+<li>复杂if结构：在判断条件之后，通常就有两种结果：满足或者不满足，在不满足之后还可以再次进行条件判断。</li>
+</ul>
+<pre><code>if(条件表示式1){
+    //满足条件表达式1的代码段
+}else if(条件表达式2){
+    //不满足表达式1条件，但是满足表达式2的代码
+}...//可以使用多个else if来进行再次条件筛选
+else{
+    //全部不满足要执行的代码
+}
+</code></pre><h2 id="switch分支"><a href="#switch分支" class="headerlink" title="switch分支"></a>switch分支</h2>
         </div>
 
         <blockquote class="post-copyright">
@@ -1483,7 +1526,7 @@ $f=1.23e10;    //科学计数法，其中e表示底10，1.23x10^10
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-09T14:57:12.974Z" itemprop="dateUpdated">2019-08-09 22:57:12</time>
+    最后更新时间：<time datetime="2019-08-10T15:06:30.801Z" itemprop="dateUpdated">2019-08-10 23:06:30</time>
 </span><br>
 
 
