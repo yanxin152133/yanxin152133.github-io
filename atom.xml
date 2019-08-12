@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-11T14:15:44.818Z</updated>
+  <updated>2019-08-12T13:31:24.716Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker搭建PHP、apache环境</title>
+    <link href="http://yoursite.com/2019/08/12/Docker%E6%90%AD%E5%BB%BAPHP%E3%80%81apache%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/2019/08/12/Docker搭建PHP、apache环境/</id>
+    <published>2019-08-12T04:57:11.090Z</published>
+    <updated>2019-08-12T13:31:24.716Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="拉取Ubuntu镜像"><a href="#拉取Ubuntu镜像" class="headerlink" title="拉取Ubuntu镜像"></a>拉取Ubuntu镜像</h1><p>输入命令：   </p><pre><code class="bash">$ docker pull ubuntu</code></pre><a id="more"></a><h1 id="运行Ubuntu容器"><a href="#运行Ubuntu容器" class="headerlink" title="运行Ubuntu容器"></a>运行Ubuntu容器</h1><ol><li>确认是否已下载好镜像，输入命令：</li></ol><pre><code class="bash">$ docker images</code></pre><ol start="2"><li>上述命令之后如果出现以下情况，即为下载好了。</li></ol><pre><code class="bash">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZEubuntu              latest              3556258649b2        2 weeks ago         64.2MB</code></pre><ol start="3"><li>运行，输入命令：     </li></ol><pre><code class="bash">$ docker run -it -d --name ubuntu -p 80:80 ubuntu</code></pre><p>–name自定义容器名，-p指定端口映射，前者为虚拟机端口，后者为容器端口,成功后返回id<br>查看所有启动的容器。</p><ol start="4"><li>查看所有容器。</li></ol><pre><code class="bash">$ docker ps -a</code></pre><ol start="5"><li>如果是以下情况，则为运行成功。</li></ol><pre><code class="bash">CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS                  NAMESd5d8952f48b2        ubuntu              &quot;/bin/bash&quot;         About a minute ago   Up About a minute   0.0.0.0:8088-&gt;80/tcp   ubuntu</code></pre><h1 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h1><p>输入以下命令：    </p><pre><code class="bash">$ docker exec -it ubuntu /bin/bash</code></pre><h1 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;拉取Ubuntu镜像&quot;&gt;&lt;a href=&quot;#拉取Ubuntu镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取Ubuntu镜像&quot;&gt;&lt;/a&gt;拉取Ubuntu镜像&lt;/h1&gt;&lt;p&gt;输入命令：   &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ docker pull ubuntu
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
+    
+      <category term="PHP、apache" scheme="http://yoursite.com/categories/Docker/PHP%E3%80%81apache/"/>
+    
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+      <category term="PHP、apache" scheme="http://yoursite.com/tags/PHP%E3%80%81apache/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP入门</title>
@@ -340,9 +368,9 @@
     <link href="http://yoursite.com/2019/05/26/Ubuntu18.04%20%E5%AE%89%E8%A3%85%20Docker/"/>
     <id>http://yoursite.com/2019/05/26/Ubuntu18.04 安装 Docker/</id>
     <published>2019-05-26T03:54:10.201Z</published>
-    <updated>2019-08-03T08:34:47.428Z</updated>
+    <updated>2019-08-12T05:02:48.233Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h1 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h1><p>Docker CE 支持以下版本的 Ubuntu 操作系统：</p><ul><li>Artful 17.10(Docker CE 17.11 Edge)</li><li>Zesty 17.04</li><li>Xenial 16.04(LTS)</li><li>Trusty 14.04(LTS)</li></ul><p>推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。<br><a id="more"></a></p><h1 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h1><p>旧版本的 Docker 称为 docker 或者 docker-engine，使用以下命令卸载旧版本： </p><pre><code>sudo apt-get remove docker \               docker-engine \               docker.io</code></pre><h1 id="安装与验证"><a href="#安装与验证" class="headerlink" title="安装与验证"></a>安装与验证</h1><p>从 Ubuntu 14.04 开始，一部分内核模块移到了可选内核模块包 (linux-image-extra-*) ，以减少内核软件包的体积。正常安装的系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。AUFS 内核驱动属于可选内核模块的一部分，作为推荐的 Docker 存储层驱动，一般建议安装可选内核模块包以使用 AUFS。    </p><p>如果系统没有安装可选内核模块的话，可以执行下面的命令来安装可选内核模块包：(操作均为普通用户下)     </p><pre><code>sudo apt-get updatesudo apt-get install \    linux-image-extra-$(uname -r) \    linux-image-extra-virtual</code></pre><p>Ubuntu 16.04 + 上的 Docker CE 默认使用 overlay2 存储层驱动,无需手动配置。    </p><h2 id="使用APT安装"><a href="#使用APT安装" class="headerlink" title="使用APT安装"></a>使用APT安装</h2><p>由于 apt 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。      </p><pre><code>sudo apt-get updatesudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-properties-common</code></pre><p>鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。<br>为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。     </p><pre><code>(任选其一即可)curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -官方源curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre><p>然后，我们需要向 source.list 中添加 Docker 软件源     </p><pre><code>sudo add-apt-repository \    &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \    $(lsb_release -cs) \    stable&quot;# 官方源# $ sudo add-apt-repository \#    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \#    $(lsb_release -cs) \#    stable&quot;</code></pre><h2 id="安装-Docker-CE"><a href="#安装-Docker-CE" class="headerlink" title="安装 Docker CE"></a>安装 Docker CE</h2><pre><code>sudo apt updatesudo apt install docker-ce</code></pre><h2 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h2><p>建立docker组:   </p><pre><code>sudo groupadd docker</code></pre><p>将当前用户加入docker组：    </p><pre><code>sudo usermod -aG docker $USER</code></pre><h2 id="更换国内Docker仓库"><a href="#更换国内Docker仓库" class="headerlink" title="更换国内Docker仓库"></a>更换国内Docker仓库</h2><p>创建文件：       </p><pre><code>sudo vim /etc/docker/daemon.json</code></pre><p>加入以下内容：     </p><pre><code>{  &quot;registry-mirrors&quot;: [    &quot;https://registry.docker-cn.com&quot;  ]}</code></pre><p>然后重启系统。    </p><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>输入以下命令：       </p><pre><code>docker run hello-world</code></pre><p>若输出以下内容则为成功。          </p><pre><code>Unable to find image &#39;hello-world:latest&#39; locallylatest: Pulling from library/hello-worldca4f61b1923c: Pull completeDigest: sha256:be0cd392e45be79ffeffa6b05338b98ebb16c87b255f48e297ec7f98e123905cStatus: Downloaded newer image for hello-world:latestHello from Docker!This message shows that your installation appears to be working correctly.To generate this message, Docker took the following steps: 1. The Docker client contacted the Docker daemon. 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.    (amd64) 3. The Docker daemon created a new container from that image which runs the    executable that produces the output you are currently reading. 4. The Docker daemon streamed that output to the Docker client, which sent it    to your terminal.To try something more ambitious, you can run an Ubuntu container with: $ docker run -it ubuntu bashShare images, automate workflows, and more with a free Docker ID: https://cloud.docker.com/For more examples and ideas, visit: https://docs.docker.com/engine/userguide/</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.codingfanlt.xyz/2018/10/17/Ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85-Docker/#more" target="_blank" rel="noopener">Ubuntu 下安装 Docker</a><br><a href="https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html" target="_blank" rel="noopener">Docker —— 从入门到实践</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h1 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h1><p>Docker CE 支持以下版本的 Ubuntu 操作系统：</p><ul><li>Artful 17.10(Docker CE 17.11 Edge)</li><li>Zesty 17.04</li><li>Xenial 16.04(LTS)</li><li>Trusty 14.04(LTS)</li></ul><p>推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。<br><a id="more"></a></p><h1 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h1><p>旧版本的 Docker 称为 docker 或者 docker-engine，使用以下命令卸载旧版本： </p><pre><code>sudo apt-get remove docker \               docker-engine \               docker.io</code></pre><h1 id="安装与验证"><a href="#安装与验证" class="headerlink" title="安装与验证"></a>安装与验证</h1><p>从 Ubuntu 14.04 开始，一部分内核模块移到了可选内核模块包 (linux-image-extra-*) ，以减少内核软件包的体积。正常安装的系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。AUFS 内核驱动属于可选内核模块的一部分，作为推荐的 Docker 存储层驱动，一般建议安装可选内核模块包以使用 AUFS。    </p><p>如果系统没有安装可选内核模块的话，可以执行下面的命令来安装可选内核模块包：(操作均为普通用户下)     </p><pre><code>sudo apt-get updatesudo apt-get install \    linux-image-extra-$(uname -r) \    linux-image-extra-virtual</code></pre><p>Ubuntu 16.04 + 上的 Docker CE 默认使用 overlay2 存储层驱动,无需手动配置。    </p><h2 id="使用APT安装"><a href="#使用APT安装" class="headerlink" title="使用APT安装"></a>使用APT安装</h2><p>由于 apt 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。      </p><pre><code>sudo apt-get updatesudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-properties-common</code></pre><p>鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。<br>为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。     </p><pre><code>(任选其一即可)curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -官方源curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre><p>然后，我们需要向 source.list 中添加 Docker 软件源     </p><pre><code>sudo add-apt-repository \    &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \    $(lsb_release -cs) \    stable&quot;# 官方源# $ sudo add-apt-repository \#    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \#    $(lsb_release -cs) \#    stable&quot;</code></pre><h2 id="安装-Docker-CE"><a href="#安装-Docker-CE" class="headerlink" title="安装 Docker CE"></a>安装 Docker CE</h2><pre><code>sudo apt updatesudo apt install docker-ce</code></pre><h2 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h2><p>建立docker组:   </p><pre><code>sudo groupadd docker</code></pre><p>将当前用户加入docker组：    </p><pre><code>sudo usermod -aG docker $USER</code></pre><h2 id="更换国内Docker仓库"><a href="#更换国内Docker仓库" class="headerlink" title="更换国内Docker仓库"></a>更换国内Docker仓库</h2><p>创建文件：       </p><pre><code>sudo vim /etc/docker/daemon.json</code></pre><p>加入以下内容：     </p><pre><code>{  &quot;registry-mirrors&quot;: [    &quot;https://docker.mirrors.ustc.edu.cn&quot;  ]}</code></pre><p>然后重启系统。    </p><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>输入以下命令：       </p><pre><code>docker run hello-world</code></pre><p>若输出以下内容则为成功。          </p><pre><code>Unable to find image &#39;hello-world:latest&#39; locallylatest: Pulling from library/hello-worldca4f61b1923c: Pull completeDigest: sha256:be0cd392e45be79ffeffa6b05338b98ebb16c87b255f48e297ec7f98e123905cStatus: Downloaded newer image for hello-world:latestHello from Docker!This message shows that your installation appears to be working correctly.To generate this message, Docker took the following steps: 1. The Docker client contacted the Docker daemon. 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.    (amd64) 3. The Docker daemon created a new container from that image which runs the    executable that produces the output you are currently reading. 4. The Docker daemon streamed that output to the Docker client, which sent it    to your terminal.To try something more ambitious, you can run an Ubuntu container with: $ docker run -it ubuntu bashShare images, automate workflows, and more with a free Docker ID: https://cloud.docker.com/For more examples and ideas, visit: https://docs.docker.com/engine/userguide/</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.codingfanlt.xyz/2018/10/17/Ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85-Docker/#more" target="_blank" rel="noopener">Ubuntu 下安装 Docker</a><br><a href="https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html" target="_blank" rel="noopener">Docker —— 从入门到实践</a></p>]]></content>
     
     <summary type="html">
     
@@ -547,37 +575,6 @@
     
     
       <category term="Hexo yilia Valine" scheme="http://yoursite.com/tags/Hexo-yilia-Valine/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git使用</title>
-    <link href="http://yoursite.com/2019/05/26/git%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2019/05/26/git使用/</id>
-    <published>2019-05-26T03:54:06.950Z</published>
-    <updated>2019-06-03T05:43:52.083Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="提交文件到GitHub"><a href="#提交文件到GitHub" class="headerlink" title="提交文件到GitHub"></a>提交文件到GitHub</h1><p>具体步骤如下：    </p><ol><li>登录GitHub，复制git仓库的地址 <strong>[github_repository_url]</strong>。     </li><li>执行 <strong>git clone [github_repository_url]</strong>,将GitHub 的仓库克隆到本地。      </li><li>进入到克隆的仓库目录，若目录是很久之前克隆出来，需要使用 <strong>git pull</strong> 以更新到GitHub中的最新文件。     </li><li>执行 <strong>git add .</strong> 将所有改动添加到本地仓库中。      </li><li>执行 <strong>git commit -m “这次提交的内容的描述，自行填写”</strong> 将改动提交到本地仓库。     </li><li>执行 <strong>git push origin master</strong> 将本地的改动提交到GitHub，<strong>master</strong> 为主分支。</li></ol><h1 id="重写历史"><a href="#重写历史" class="headerlink" title="重写历史"></a>重写历史</h1><pre><code>git add Titlegit commit -m &quot;ceshi&quot;git commit --amend   ##重写上次提交的信息</code></pre><h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>首先，先创建<strong>dev</strong>,然后切换到<strong>dev</strong>分支：    </p><pre><code>git checkout -b dev</code></pre><p><strong>git checkout</strong> 命令加上<strong>-b</strong>参数表示创建并切换，相当于一下两条命令：      </p><pre><code>git branch devgit checkout dev</code></pre><p>然后用<strong>git branch</strong>命令查看当前分支：     </p><pre><code>git branch* dev  master</code></pre><p><strong>git branch</strong>命令会列出所有分支，当前分支前面会标一个*号。</p><p>之后提交同上步。</p><h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><pre><code>git merge dev</code></pre><p><strong>git merge</strong>命令用于合并指定分支到当前分支</p><h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><pre><code>git branch -d dev</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;提交文件到GitHub&quot;&gt;&lt;a href=&quot;#提交文件到GitHub&quot; class=&quot;headerlink&quot; title=&quot;提交文件到GitHub&quot;&gt;&lt;/a&gt;提交文件到GitHub&lt;/h1&gt;&lt;p&gt;具体步骤如下：    &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;登录GitHub，
-      
-    
-    </summary>
-    
-      <category term="版本控制" scheme="http://yoursite.com/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
-    
-      <category term="git" scheme="http://yoursite.com/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/git/"/>
-    
-    
-      <category term="版本控制" scheme="http://yoursite.com/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
   </entry>
   
