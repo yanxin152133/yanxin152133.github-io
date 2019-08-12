@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/08/01/PHP%E5%85%A5%E9%97%A8/</loc>
+    
+    <lastmod>2019-08-12T17:13:19.025Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/08/12/Docker%E6%90%AD%E5%BB%BAPHP%E3%80%81apache%E7%8E%AF%E5%A2%83/</loc>
     
     <lastmod>2019-08-12T13:31:24.716Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/2019/05/26/Ubuntu18.04%20%E5%AE%89%E8%A3%85%20Docker/</loc>
     
     <lastmod>2019-08-12T05:02:48.233Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/08/01/PHP%E5%85%A5%E9%97%A8/</loc>
-    
-    <lastmod>2019-08-11T14:15:44.818Z</lastmod>
     
   </url>
   
