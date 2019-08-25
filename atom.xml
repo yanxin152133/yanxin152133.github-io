@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-15T08:32:25.803Z</updated>
+  <updated>2019-08-25T11:26:12.813Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql</title>
+    <link href="http://yoursite.com/2019/08/25/mysql/"/>
+    <id>http://yoursite.com/2019/08/25/mysql/</id>
+    <published>2019-08-25T11:25:41.317Z</published>
+    <updated>2019-08-25T11:26:12.813Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker搭建PHP、apache环境</title>
@@ -556,30 +574,6 @@
     
     
       <category term="Hexo yilia 添加目录" scheme="http://yoursite.com/tags/Hexo-yilia-%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo yilia 添加Valine</title>
-    <link href="http://yoursite.com/2019/05/26/Hexo%20yilia%20%E6%B7%BB%E5%8A%A0Valine/"/>
-    <id>http://yoursite.com/2019/05/26/Hexo yilia 添加Valine/</id>
-    <published>2019-05-26T03:54:06.971Z</published>
-    <updated>2018-10-21T04:49:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p> 1.Valine 介绍<br> 2.注册LeanCloud<br> 3.配置<br> 4.参考文档</p><a id="more"></a><h2 id="Valine-介绍"><a href="#Valine-介绍" class="headerlink" title="Valine 介绍"></a>Valine 介绍</h2><blockquote><p>Valine- 一款快速、简洁且高效的无后端评论系统。  </p></blockquote><blockquote><p>Valine 诞生于2017年8月7日，是一款基于Leancloud的快速、简洁且高效的无后端评论系统。理论上支持但不限于静态博客，目前已有Hexo、Jekyll、Typecho、Hugo 等博客程序在使用Valine。  </p></blockquote><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><blockquote><p>快速<br>安全<br>Emoji 😉<br>无后端实现<br>MarkDown 全语法支持<br>轻量易用(~15kb gzipped)<br>文章阅读量统计 v1.2.0+</p></blockquote><h2 id="注册-LeanCloud"><a href="#注册-LeanCloud" class="headerlink" title="注册 LeanCloud"></a>注册 LeanCloud</h2><blockquote><p>注册 <a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">LeanCloud</a>  </p></blockquote><blockquote><p>注册完成后创建一个应用。然后打开设置-应用Key。如下图：  </p></blockquote><p><img src="https://farm2.staticflickr.com/1909/30501889127_29b161ac31_b.jpg" alt="key">  </p><blockquote><p>复制图中的 <strong>App ID</strong> <strong>App key</strong> <strong>Master Key</strong>  作为备用  </p></blockquote><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><blockquote><p><strong>_config.yml</strong>  </p></blockquote><pre><code>#6、Valine https://valine.js.orgvaline:  appid:  #Leancloud应用的appId appkey:  #Leancloud应用的appKey verify: false #验证码 notify: false #评论回复提醒 avatar: mm #评论列表头像样式：&#39;&#39;/mm/identicon/monsterid/wavatar/retro/hide placeholder: Just go go #评论框占位符</code></pre><blockquote><p><strong>layout/_partial/article.ejs</strong>  </p></blockquote><pre><code>   &lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey){ %&gt;    &lt;section id=&quot;comments&quot; style=&quot;margin:10px;padding:10px;background:#fff;&quot;&gt;      &lt;%- partial(&#39;post/valine&#39;, {        key: post.slug,        title: post.title,        url: config.url+url_for(post.path)        }) %&gt;    &lt;/section&gt;  &lt;% } %&gt;&lt;% } %&gt;</code></pre><blockquote><p><strong>layout/_partial/post/valine.ejs</strong>  </p></blockquote><pre><code>&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; &lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;&lt;script src=&quot;//unpkg.com/valine/dist/Valine.min.js&quot;&gt;&lt;/script&gt;&lt;script&gt;   var notify = &#39;&lt;%= theme.valine.notify %&gt;&#39; == true ? true : false;   var verify = &#39;&lt;%= theme.valine.verify %&gt;&#39; == true ? true : false;    window.onload = function() {        new Valine({            el: &#39;.comment&#39;,            notify: notify,            verify: verify,            app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,            app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,            placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,            avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;        });    }&lt;/script&gt;</code></pre><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><blockquote><p>1 <a href="https://www.bluelzy.com/articles/use_valine_for_your_blog.html" target="_blank" rel="noopener">为你的Hexo加上评论系统-Valine</a><br>2 <a href="https://github.com/litten/hexo-theme-yilia/pull/646" target="_blank" rel="noopener">新增对Valine评论系统的支持</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h1&gt;&lt;p&gt; 1.Valine 介绍&lt;br&gt; 2.注册LeanCloud&lt;br&gt; 3.配置&lt;br&gt; 4.参考文档&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
-    
-      <category term="Valine评论" scheme="http://yoursite.com/categories/Hexo/Valine%E8%AF%84%E8%AE%BA/"/>
-    
-    
-      <category term="Hexo yilia Valine" scheme="http://yoursite.com/tags/Hexo-yilia-Valine/"/>
     
   </entry>
   
