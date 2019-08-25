@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Yan&#39;s blog">
 <meta property="og:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-25T13:56:28.469Z">
+<meta property="og:updated_time" content="2019-08-25T15:26:30.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
@@ -248,7 +248,61 @@
 <li>中型关系型数据库：Microsoft SQL Server、MySQL</li>
 <li>大型关系型数据库：Oracle、DB2</li>
 </ul>
-<h1 id="SQL介绍"><a href="#SQL介绍" class="headerlink" title="SQL介绍"></a>SQL介绍</h1><h2 id="SQL基本介绍"><a href="#SQL基本介绍" class="headerlink" title="SQL基本介绍"></a>SQL基本介绍</h2><h2 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h2><h2 id="MySQL基本介绍"><a href="#MySQL基本介绍" class="headerlink" title="MySQL基本介绍"></a>MySQL基本介绍</h2><h3 id="启动和停止MySQL"><a href="#启动和停止MySQL" class="headerlink" title="启动和停止MySQL"></a>启动和停止MySQL</h3><h3 id="登录和退出MySQL"><a href="#登录和退出MySQL" class="headerlink" title="登录和退出MySQL"></a>登录和退出MySQL</h3>
+<h1 id="SQL介绍"><a href="#SQL介绍" class="headerlink" title="SQL介绍"></a>SQL介绍</h1><h2 id="SQL基本介绍"><a href="#SQL基本介绍" class="headerlink" title="SQL基本介绍"></a>SQL基本介绍</h2><blockquote>
+<p>结构化查询语言（Structured Query Language）简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。</p>
+</blockquote>
+<p>SQL就是专门为关系型数据库而设计出来的。</p>
+<h2 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h2><ol>
+<li><p>数据查询语言（DQL：Data Query Language）:<br>其语句，也称为“数据检索语句”，用以从表中获取数据，确定数据怎样在应用程序给出。保留字SELETE是DQL（也是所有SQL）用的最多的动词i，其它DQL常用的保留字有WHERE，ORDER BY，GROUP BY和HAVING。这些DQL保留字常与其他类型的SQL语句一起使用。<br><strong>专门用于查询数据：代表指令为selete/show</strong></p>
+</li>
+<li><p>数据操作语言（DML：Data Manipulation Language）:<br>其语句包括动词INSERT，UPDATE和DELETE。它们分别用于添加、修改和删除表中的行。也称为动作查询语言。<br><strong>专门用于写数据：代表指令：insert,update和delete</strong></p>
+</li>
+<li><p>事务处理语言（TPL）：<br>它的语句能确保被DML语句影响的表的所有行即使得以更新。TPL语句包括BEGIN、TRANSACTIOIN、COMMIT和ROLLBACK。（不是所有的关系型数据库都提供事务安全处理）<br><strong>专门用于事务安全处理：transation</strong></p>
+</li>
+<li><p>数据控制语言（DCL）：<br>它的语句通过GRANT和REVOKE获取许可，确定单个用户和用户组对数据库对象的访问。某些RDBMS可用GRANT或REVOKE控制对表单个列的访问。<br><strong>专门用于权限管理：代表指令为grant和revoke</strong></p>
+</li>
+<li><p>数据定义语言（DDL）：<br>其语句包括动词CREATE和DROP。在数据库中创建新表或删除表（CREATE TABLE或DROP TABLE）；为表加入索引等。DDL包括许多与数据库目录中获得数据有关的保留字。它也是动作查询的一部分。<br><strong>专门用于结构管理：代表指令create和drop(alter)</strong></p>
+</li>
+</ol>
+<h2 id="MySQL基本介绍"><a href="#MySQL基本介绍" class="headerlink" title="MySQL基本介绍"></a>MySQL基本介绍</h2><blockquote>
+<p>MySQL是一个关系型数据库关系系统，由瑞典MySQL AB公司开发，目前属于Oracle旗下产品。MySQL是最流行的关系型数据库管理系统之一，在WEB应用方面，MySQL是最好的RDBMS（Relational Database Management System,关系数据库管理系统）应用软件。</p>
+</blockquote>
+<h3 id="启动和停止MySQL"><a href="#启动和停止MySQL" class="headerlink" title="启动和停止MySQL"></a>启动和停止MySQL</h3><blockquote>
+<p>MySQL是一种C/S结构：客户端和服务端。</p>
+</blockquote>
+<ul>
+<li>命令行方式<br>通过Windows下打开cmd控制器，然后使用命令进行管理。<ul>
+<li>net start 服务（mysql）：开启服务</li>
+<li>net stop mysql：关闭服务</li>
+</ul>
+</li>
+<li>系统服务方式<br>前提：在安装的MySQL的时候将MySQL添加到Windows的服务中去。</li>
+</ul>
+<h3 id="登录和退出MySQL"><a href="#登录和退出MySQL" class="headerlink" title="登录和退出MySQL"></a>登录和退出MySQL</h3><p>通过客户端与服务器进行连接认证，就可以进行操作。通常服务端与客户端不在同一台电脑上。</p>
+<ul>
+<li>登录</li>
+</ul>
+<ol>
+<li>找到相关程序</li>
+<li>输入对应的服务器地址</li>
+<li>输入服务器中MySQL监听的端口</li>
+<li>输入用户名：-u:username</li>
+<li>输入密码：-p:password</li>
+</ol>
+<p><strong>注意事项</strong></p>
+<ol>
+<li>通常端口都可以默认，MySQL监听的端口通常是3306</li>
+<li>密码的输入可以先输入-p，直接换行，然后再以密文方式输入密码</li>
+</ol>
+<ul>
+<li>退出<br>断开与服务器的连接：通常MySQL提供的服务器数量有限，一旦客户端用完，建议就应该断开连接。<br>建议方式：使用SQL提供的指令<ul>
+<li><code>exit;</code></li>
+<li><code>\q</code></li>
+<li><code>quit</code></li>
+</ul>
+</li>
+</ul>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -256,7 +310,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-25T13:56:28.469Z" itemprop="dateUpdated">2019-08-25 21:56:28</time>
+    最后更新时间：<time datetime="2019-08-25T15:26:30.078Z" itemprop="dateUpdated">2019-08-25 23:26:30</time>
 </span><br>
 
 
