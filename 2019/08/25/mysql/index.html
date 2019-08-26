@@ -30,7 +30,7 @@
 <meta property="og:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48622298426_9149c94e79_b.jpg">
-<meta property="og:updated_time" content="2019-08-26T14:20:27.196Z">
+<meta property="og:updated_time" content="2019-08-26T14:50:42.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
@@ -547,7 +547,64 @@ drop table class;
 show tables;
 drop table class2,my_student;
 </code></pre>
-<h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><h3 id="查询操作"><a href="#查询操作" class="headerlink" title="查询操作"></a>查询操作</h3><h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3>
+<h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>本质含义：将数据以SQL的形式存储到指定的数据表（字段）里面</p>
+<p>基本语法：</p>
+<pre><code class="sql">insert into 表名 [(字段列表)] values (对应字段列表);
+
+</code></pre>
+<pre><code class="sql"># 插入数据到数据表
+create table my_teacher
+(
+    name varchar(10),
+    age  int
+);
+
+insert into my_teacher (name, age) values (&#39;Jaca&#39;, 30);
+insert into my_teacher (age, name) values (40, &#39;Tom&#39;);
+insert into my_teacher (name) values (&#39;Li&#39;);
+
+insert into my_teacher values (&#39;Zhang&#39;,22);
+</code></pre>
+<h3 id="查询操作"><a href="#查询操作" class="headerlink" title="查询操作"></a>查询操作</h3><ul>
+<li>查询表中全部数据<br>基本语法：</li>
+</ul>
+<pre><code class="sql">select * from 表名;   //*表示匹配所有的字段
+</code></pre>
+<ul>
+<li>查询表中部分字段<br>基本语法：</li>
+</ul>
+<pre><code class="sql">select 字段列表 from 表名;   //字段列表使用逗号隔开
+</code></pre>
+<ul>
+<li>简单条件查询数据<br>基本语法：</li>
+</ul>
+<pre><code class="sql">select 字段列表/* from 表名 where 字段名=值;
+</code></pre>
+<pre><code class="sql"># 获取所有数据
+select * from my_teacher;
+
+# 获取指定字段数据
+select name from my_teacher;
+
+# 获取年龄为30岁的人的名字
+select name from my_teacher where age=30;
+</code></pre>
+<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><p>基本语法：</p>
+<pre><code class="sql">delete from 表名 [where 条件];  //如果没有where条件：意味着系统会自动删除该表所有数据
+
+## 示例代码
+# 删除年龄为30岁的人
+delete from my_teacher where age = 30;
+</code></pre>
+<h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3><p>更新：将数据进行修改（通常是修改部分字段数据）</p>
+<p>基本语法：</p>
+<pre><code class="sql">update 表名 set 字段名=新值 [where 条件];     //如果没有where条件，那么所有的表中对应的那个字段都会被修改成同一值
+
+## 示例代码
+# 更新年龄
+update my_teacher set age=28 where name=&#39;Li&#39;;
+</code></pre>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -555,7 +612,7 @@ drop table class2,my_student;
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-26T14:20:27.196Z" itemprop="dateUpdated">2019-08-26 22:20:27</time>
+    最后更新时间：<time datetime="2019-08-26T14:50:42.489Z" itemprop="dateUpdated">2019-08-26 22:50:42</time>
 </span><br>
 
 
