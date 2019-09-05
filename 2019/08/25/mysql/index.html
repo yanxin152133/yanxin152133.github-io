@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48622298426_9149c94e79_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48677396686_07c2cd09d6_b.jpg">
-<meta property="og:updated_time" content="2019-09-05T07:02:58.789Z">
+<meta property="og:updated_time" content="2019-09-05T13:13:14.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
@@ -1530,7 +1530,178 @@ select class_id,group_concat(stu_name),count(*),max(stu_age),min(stu_height),avg
 +----------+------------------------+----------+--------------+-----------------+--------------+
 2 rows in set (0.00 sec)
 </code></pre>
-<h4 id="多分组"><a href="#多分组" class="headerlink" title="多分组"></a>多分组</h4><h4 id="分组排序"><a href="#分组排序" class="headerlink" title="分组排序"></a>分组排序</h4><h4 id="回溯统计"><a href="#回溯统计" class="headerlink" title="回溯统计"></a>回溯统计</h4><h3 id="having子句"><a href="#having子句" class="headerlink" title="having子句"></a>having子句</h3><h3 id="order-by-子句"><a href="#order-by-子句" class="headerlink" title="order by 子句"></a>order by 子句</h3><h3 id="limit-子句"><a href="#limit-子句" class="headerlink" title="limit 子句"></a>limit 子句</h3><h4 id="记录数据限制"><a href="#记录数据限制" class="headerlink" title="记录数据限制"></a>记录数据限制</h4><h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3>
+<h4 id="多分组"><a href="#多分组" class="headerlink" title="多分组"></a>多分组</h4><blockquote>
+<p>将数据按照某个字段进行分组之后，对已经分组的数据进行再次分组。</p>
+</blockquote>
+<p>基本语法：<code>group by 字段1,字段2;  //先按照字段1进行排序，之后将结果在按照字段2进行排序，以此类推</code></p>
+<pre><code class="sql"># 多分组
+alter table my_student add gender enum(&#39;男&#39;,&#39;女&#39;,&#39;保密&#39;);
+# 插入数据自行处理
+# 进行多分组
+select class_id,gender,count(*),group_concat(stu_name) from my_student group by class_id, gender;
+</code></pre>
+<p>上面结果为：</p>
+<pre><code class="sql">+----------+--------+----------+------------------------+
+| class_id | gender | count(*) | group_concat(stu_name) |
++----------+--------+----------+------------------------+
+|        1 | 男     |        1 | 小张                   |
+|        1 | 女     |        2 | 张四,小猪              |
+|        2 | 男     |        2 | 张五,小狗              |
+|        2 | 女     |        1 | 小明                   |
++----------+--------+----------+------------------------+
+4 rows in set (0.00 sec)
+</code></pre>
+<h4 id="分组排序"><a href="#分组排序" class="headerlink" title="分组排序"></a>分组排序</h4><blockquote>
+<p>MySQL中，分钟默认有排序的功能，按照分组字段进行排序，默认是升序。</p>
+</blockquote>
+<p>基本语法：<code>group by 字段 [asc|desc], 字段 [asc|desc]</code></p>
+<h4 id="回溯统计"><a href="#回溯统计" class="headerlink" title="回溯统计"></a>回溯统计</h4><blockquote>
+<p>当分组进行多分组之后，往上统计的过程中，需要进行层层上报，将这种层层上报统计的过程称之为回溯统计，每一次分组向上统计的过程都会产生一次新的统计数据，而且当前数据对应的分组字段为NULL。</p>
+</blockquote>
+<p>基本语法：<code>group by 字段 [asc|desc] with rollup;</code></p>
+<pre><code class="sql">select class_id,count(*) from my_student group by class_id with rollup;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+----------+----------+
+| class_id | count(*) |
++----------+----------+
+|        1 |        3 |
+|        2 |        3 |
+|     NULL |        6 |
++----------+----------+
+3 rows in set (0.00 sec)
+</code></pre>
+<pre><code class="sql">select class_id,gender,count(*) from my_student group by class_id,gender with rollup;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+----------+--------+----------+
+| class_id | gender | count(*) |
++----------+--------+----------+
+|        1 | 男     |        1 |
+|        1 | 女     |        2 |
+|        1 | NULL   |        3 |
+|        2 | 男     |        2 |
+|        2 | 女     |        1 |
+|        2 | NULL   |        3 |
+|     NULL | NULL   |        6 |
++----------+--------+----------+
+7 rows in set (0.00 sec)
+</code></pre>
+<h3 id="having子句"><a href="#having子句" class="headerlink" title="having子句"></a>having子句</h3><blockquote>
+<p>having的本质和where一样，是用来进行数据条件筛选。</p>
+<ol>
+<li>having是在group by子句之后，可以针对分组数据进行统计筛选，但是where不行（<strong>having在group by分组之后，可以使用聚合函数或者字段别名，where是从表中取出数据，别名是在数据进入到内存才有的</strong>）</li>
+</ol>
+</blockquote>
+<pre><code class="sql"># having子句
+# 插入数据自行处理
+# 查询班级人数大于等于4个以上的班级
+select class_id,count(*) as number from my_student group by class_id having number &gt;= 4;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+----------+--------+
+| class_id | number |
++----------+--------+
+|        1 |      4 |
++----------+--------+
+1 row in set (0.06 sec)
+</code></pre>
+<p><strong>强调：having是在group by之后，group by 是在where之后，where的时候表示将数据从磁盘拿到内存，where之后的所有操作都是内存操作。</strong></p>
+<h3 id="order-by-子句"><a href="#order-by-子句" class="headerlink" title="order by 子句"></a>order by 子句</h3><blockquote>
+<p>order by排序：根据校对规则对数据进行排序。</p>
+</blockquote>
+<p>基本语法：<code>order by字段 [asc|desc];    //asc升序,默认的</code></p>
+<pre><code class="sql"># order by 子句
+# 班级学生按照身高排序
+select * from my_student order by stu_height asc ;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
++---------+----------+----------+---------+------------+--------+
+7 rows in set (0.00 sec)
+</code></pre>
+<p>order by 也可以向group by 一样进行多字段排序，先按照第一个字段进行排序，然后再按照第二个字段进行排序。</p>
+<p>基本语法：<code>order by 字段1 规则,字段2 规则;</code></p>
+<p>多字段排序：</p>
+<pre><code class="sql"># 按照班级、身高排序
+select * from my_student order by class_id desc ,stu_height;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
++---------+----------+----------+---------+------------+--------+
+7 rows in set (0.00 sec)
+</code></pre>
+<h3 id="limit-子句"><a href="#limit-子句" class="headerlink" title="limit 子句"></a>limit 子句</h3><blockquote>
+<p>limit限制子句：主要是用来限制记录数量获取。</p>
+</blockquote>
+<h4 id="记录数据限制"><a href="#记录数据限制" class="headerlink" title="记录数据限制"></a>记录数据限制</h4><blockquote>
+<p>纯粹的限制获取的数量：从第一条到指定的数量</p>
+</blockquote>
+<p>基本语法：<code>limit 数量;</code></p>
+<pre><code class="sql"># limit 子句
+select * from my_student limit 2;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
++---------+----------+----------+---------+------------+--------+
+2 rows in set (0.00 sec)
+</code></pre>
+<p>limit通常在查询的时候如果限定为一条记录的时候，使用的比较多，有时候获取多条记录并不能解决业务问题，但是会增加服务器的压力。</p>
+<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><blockquote>
+<p>利用limit来限制获取指定区间的数据。</p>
+</blockquote>
+<p>基本语法：<code></code>limit offset,length;  //offset 偏移量,从哪里开始，length，就是具体 的获取多少条记录`</p>
+<p>如：MySQL中记录的数量从0开始，<code>limit 0,2;  //表示获取前两条数据</code></p>
+<pre><code class="sql">mysql&gt; select * from my_student limit 0,2;
++---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
++---------+----------+----------+---------+------------+--------+
+2 rows in set (0.00 sec)
+
+mysql&gt; select * from my_student limit 2,2;
++---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
++---------+----------+----------+---------+------------+--------+
+2 rows in set (0.00 sec)
+</code></pre>
+<p><strong>注意：limit后面的length表示最多获取对应数量，但是如果数量不够，系统不会强求</strong></p>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>参考10.4.3节。     </p>
+<ul>
+<li><code>count()</code>：统计每组中的数量，如果统计的目标是字段，那么不统计为空NULL字段，如果为*，那么代表统计记录。</li>
+<li><code>avg()</code>：求平均值</li>
+<li><code>sum()</code>：求和</li>
+<li><code>max()</code>：求最大值</li>
+<li><code>min()</code>：求最小值</li>
+</ul>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -1538,7 +1709,7 @@ select class_id,group_concat(stu_name),count(*),max(stu_age),min(stu_height),avg
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-05T07:02:58.789Z" itemprop="dateUpdated">2019-09-05 15:02:58</time>
+    最后更新时间：<time datetime="2019-09-05T13:13:14.523Z" itemprop="dateUpdated">2019-09-05 21:13:14</time>
 </span><br>
 
 
