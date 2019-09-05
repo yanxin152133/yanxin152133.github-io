@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48622298426_9149c94e79_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48677396686_07c2cd09d6_b.jpg">
-<meta property="og:updated_time" content="2019-09-05T03:25:30.167Z">
+<meta property="og:updated_time" content="2019-09-05T07:02:58.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
@@ -1425,7 +1425,112 @@ truncate my_auto;
 # 插入数据
 insert into my_auto values (null,&#39;ceshi&#39;,&#39;123456&#39;);  # auto_increment是无法进行重置的
 </code></pre>
-<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><h3 id="from数据源"><a href="#from数据源" class="headerlink" title="from数据源"></a>from数据源</h3><h4 id="单表数据"><a href="#单表数据" class="headerlink" title="单表数据"></a>单表数据</h4><h4 id="多表数据"><a href="#多表数据" class="headerlink" title="多表数据"></a>多表数据</h4><h4 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h4><h3 id="where字句"><a href="#where字句" class="headerlink" title="where字句"></a>where字句</h3><h3 id="group-by-子句"><a href="#group-by-子句" class="headerlink" title="group by 子句"></a>group by 子句</h3><h4 id="分组统计"><a href="#分组统计" class="headerlink" title="分组统计"></a>分组统计</h4><h4 id="多分组"><a href="#多分组" class="headerlink" title="多分组"></a>多分组</h4><h4 id="分组排序"><a href="#分组排序" class="headerlink" title="分组排序"></a>分组排序</h4><h4 id="回溯统计"><a href="#回溯统计" class="headerlink" title="回溯统计"></a>回溯统计</h4><h3 id="having子句"><a href="#having子句" class="headerlink" title="having子句"></a>having子句</h3><h3 id="order-by-子句"><a href="#order-by-子句" class="headerlink" title="order by 子句"></a>order by 子句</h3><h3 id="limit-子句"><a href="#limit-子句" class="headerlink" title="limit 子句"></a>limit 子句</h3><h4 id="记录数据限制"><a href="#记录数据限制" class="headerlink" title="记录数据限制"></a>记录数据限制</h4><h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3>
+<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><blockquote>
+<p>完整的查询指令：<code>select select选项 字段列表 from 数据源 where 条件 group by 分组 having 条件 order by 排序 limit 限制;</code></p>
+</blockquote>
+<ul>
+<li>select选项：系统该如何对待查询得到的数据<ul>
+<li>all：默认的，表示保存所有的记录</li>
+<li>distinct：去重，去除重复的记录，只保留一条（所有的字段都相同）</li>
+</ul>
+</li>
+</ul>
+<pre><code class="sql"># select选项
+select all * from my_simple;  -- select *
+
+select distinct * from my_simple;
+</code></pre>
+<ul>
+<li>字段列表：有的时候需要从多张表获取数据，在获取数据的时候，可能存在不同表中有同名的字段，需要将同名的字段命名成不同名的（别名）。基本语法如下：</li>
+</ul>
+<pre><code class="sql">字段名 [as] 别名
+</code></pre>
+<pre><code class="sql"># 字段别名
+select distinct name as name1,name name2 from my_simple;
+</code></pre>
+<h3 id="from数据源"><a href="#from数据源" class="headerlink" title="from数据源"></a>from数据源</h3><blockquote>
+<p>from是为前面的查询提供数据，数据源只要是一个符合二维表结构的数据即可。</p>
+</blockquote>
+<h4 id="单表数据"><a href="#单表数据" class="headerlink" title="单表数据"></a>单表数据</h4><p><code>from 表名</code></p>
+<h4 id="多表数据"><a href="#多表数据" class="headerlink" title="多表数据"></a>多表数据</h4><p>从多张表中获取数据，基本语法：<code>from 表1，表2...</code>    </p>
+<pre><code class="sql">select * from my_int,my_set;
+</code></pre>
+<p>上面的结果为：</p>
+<pre><code class="sql">+-------+-------+-------+-------+-------+--------+---------+------------+------------------------------------------------------------------+
+| int_8 | int_7 | int_6 | int_1 | int_2 | int_3  | int_4   | int_5      | hobby                                                            |
++-------+-------+-------+-------+-------+--------+---------+------------+------------------------------------------------------------------+
+|  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 | 篮球,足球,乒乓球                                                 |
+|  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|  NULL |  NULL |  NULL |  -128 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球                                                 |
+|  NULL |  NULL |  NULL |  -128 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |  NULL |  NULL |  -128 |   255 |    255 |     255 |        255 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|  NULL |  NULL |  NULL |   127 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球                                                 |
+|  NULL |  NULL |  NULL |   127 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |  NULL |  NULL |   127 |   255 |    255 |     255 |        255 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|  NULL |  NULL |   255 |   100 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球                                                 |
+|  NULL |  NULL |   255 |   100 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |  NULL |   255 |   100 |   255 |    255 |     255 |        255 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|  NULL |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球                                                 |
+|  NULL |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|   100 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球                                                 |
+|   100 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|   100 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|    01 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球                                                 |
+|    01 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|    01 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
++-------+-------+-------+-------+-------+--------+---------+------------+------------------------------------------------------------------+
+21 rows in set (0.00 sec)
+</code></pre>
+<p>结果：两张表的记录数相乘，字段数拼接。<br>本质：从第一张表去除一条记录。去拼凑第二张表中的所有记录，保留所有记录。<br>在数学上有一个专业的说法：笛卡尔积，这个结果除了给数据库造成压力，没有其他意义。应该避免出现笛卡尔积。</p>
+<h4 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h4><p>from后面跟的数据不是一个实体表，而是一个从表中查询出来得到的二维结果表（子查询）。</p>
+<p>基本语法：<code>from (select 字段列表 from 表) as 别名;</code></p>
+<pre><code class="sql">
+# 动态数据
+select * from (select int_1,int_8 from my_int) as int_my;
+</code></pre>
+<h3 id="where字句"><a href="#where字句" class="headerlink" title="where字句"></a>where字句</h3><blockquote>
+<p>where子句：用来从数据表获取数据的时候，然后进行条件筛选。<br>数据获取原理：针对表去对应的磁盘出获取所有的记录（一条条），where的作用就是在拿到一条结果就开始进行判断，判断是否符合条件，如果符合就保存下来，如过上不符合直接舍弃（不放到内存中）<br>where是通过运算符进行结果比较来判断数据。        </p>
+</blockquote>
+<h3 id="group-by-子句"><a href="#group-by-子句" class="headerlink" title="group by 子句"></a>group by 子句</h3><blockquote>
+<p>group by表示分组的含义，根据指定的字段，将数据进行分组，分组的目标是为了统计。</p>
+</blockquote>
+<h4 id="分组统计"><a href="#分组统计" class="headerlink" title="分组统计"></a>分组统计</h4><p>基本语法：<code>group by 字段名</code></p>
+<pre><code class="sql"># 分组统计
+alter table my_student add class_id int;
+# 插入数据处理
+# 进行分组
+select * from my_student group by class_id;  -- 根据班级id进行分组
+</code></pre>
+<p><strong>group by 是为了分组后进行数据统计，如果只是想看数据显示，那么group by没有什么含义，group by将数据按照指定的字段分组之后，只会保留每组的第一条记录。</strong></p>
+<p>利用一些统计函数：       </p>
+<ul>
+<li><code>count()</code>：统计每组中的数量，如果统计的目标是字段，那么不统计为空NULL字段，如果为*，那么代表统计记录。</li>
+<li><code>avg()</code>：求平均值</li>
+<li><code>sum()</code>：求和</li>
+<li><code>max()</code>：求最大值</li>
+<li><code>min()</code>：求最小值      </li>
+<li><code>group_concat()</code>：为了将分组中指定的字段进行合并（字符串拼接）</li>
+</ul>
+<pre><code class="sql"># 使用聚合函数
+alter table my_student add stu_age tinyint unsigned;
+alter table my_student add stu_height tinyint unsigned;
+# 自行处理插入数据
+# 按照班级统计每班人数，最大年龄，最矮身高，平均年龄
+select class_id,count(*),max(stu_age),min(stu_height),avg(stu_age) from my_student group by class_id;
+select class_id,group_concat(stu_name),count(*),max(stu_age),min(stu_height),avg(stu_age) from my_student group by class_id;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+----------+------------------------+----------+--------------+-----------------+--------------+
+| class_id | group_concat(stu_name) | count(*) | max(stu_age) | min(stu_height) | avg(stu_age) |
++----------+------------------------+----------+--------------+-----------------+--------------+
+|        1 | 小张,张四              |        2 |           28 |             165 |      23.0000 |
+|        2 | 张五,小明              |        2 |           25 |             187 |      23.5000 |
++----------+------------------------+----------+--------------+-----------------+--------------+
+2 rows in set (0.00 sec)
+</code></pre>
+<h4 id="多分组"><a href="#多分组" class="headerlink" title="多分组"></a>多分组</h4><h4 id="分组排序"><a href="#分组排序" class="headerlink" title="分组排序"></a>分组排序</h4><h4 id="回溯统计"><a href="#回溯统计" class="headerlink" title="回溯统计"></a>回溯统计</h4><h3 id="having子句"><a href="#having子句" class="headerlink" title="having子句"></a>having子句</h3><h3 id="order-by-子句"><a href="#order-by-子句" class="headerlink" title="order by 子句"></a>order by 子句</h3><h3 id="limit-子句"><a href="#limit-子句" class="headerlink" title="limit 子句"></a>limit 子句</h3><h4 id="记录数据限制"><a href="#记录数据限制" class="headerlink" title="记录数据限制"></a>记录数据限制</h4><h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3>
         </div>
 
         <blockquote class="post-copyright">
@@ -1433,7 +1538,7 @@ insert into my_auto values (null,&#39;ceshi&#39;,&#39;123456&#39;);  # auto_incr
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-05T03:25:30.167Z" itemprop="dateUpdated">2019-09-05 11:25:30</time>
+    最后更新时间：<time datetime="2019-09-05T07:02:58.789Z" itemprop="dateUpdated">2019-09-05 15:02:58</time>
 </span><br>
 
 
