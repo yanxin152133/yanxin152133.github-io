@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48622298426_9149c94e79_b.jpg">
 <meta property="og:image" content="https://live.staticflickr.com/65535/48677396686_07c2cd09d6_b.jpg">
-<meta property="og:updated_time" content="2019-09-05T15:01:32.822Z">
+<meta property="og:updated_time" content="2019-09-06T03:35:11.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
@@ -1870,7 +1870,27 @@ select * from my_student where stu_name like &#39;小%&#39;;
 select * from my_student where stu_name like &#39;小_&#39;;
 </code></pre>
 <p>结果为：</p>
-<pre><code class="sql">
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+5 rows in set (0.00 sec)
+</code></pre>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+5 rows in set (0.00 sec)
 </code></pre>
 
         </div>
@@ -1880,7 +1900,7 @@ select * from my_student where stu_name like &#39;小_&#39;;
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-05T15:01:32.822Z" itemprop="dateUpdated">2019-09-05 23:01:32</time>
+    最后更新时间：<time datetime="2019-09-06T03:35:11.773Z" itemprop="dateUpdated">2019-09-06 11:35:11</time>
 </span><br>
 
 
