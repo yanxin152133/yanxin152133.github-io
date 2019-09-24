@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-24T08:02:23.143Z</updated>
+  <updated>2019-09-06T14:29:45.590Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>demo</title>
-    <link href="http://yoursite.com/2019/09/24/demo/"/>
-    <id>http://yoursite.com/2019/09/24/demo/</id>
-    <published>2019-09-24T08:01:54.446Z</published>
-    <updated>2019-09-24T08:02:23.143Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;demo&quot;&gt;&lt;a href=&quot;#demo&quot; class=&quot;headerlink&quot; title=&quot;demo&quot;&gt;&lt;/a&gt;demo&lt;/h1&gt;
-      
-    
-    </summary>
-    
-      <category term="demo" scheme="http://yoursite.com/categories/demo/"/>
-    
-    
-      <category term="demo" scheme="http://yoursite.com/tags/demo/"/>
-    
-  </entry>
   
   <entry>
     <title>mysql</title>
@@ -590,6 +565,30 @@
     
     
       <category term="hexo-theme-indigo" scheme="http://yoursite.com/tags/hexo-theme-indigo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo yilia 添加目录页面</title>
+    <link href="http://yoursite.com/2019/05/26/Hexo%20yilia%20%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://yoursite.com/2019/05/26/Hexo yilia 添加目录页面/</id>
+    <published>2019-05-26T03:54:06.987Z</published>
+    <updated>2018-12-17T14:02:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p> 1.添加 categories 页面<br> 2.添加 categories 链接<br> 3.修改 yilia 主题<br> 4.多层分类<br> 5.效果<br> 6.参考文档</p><a id="more"></a><h2 id="1-添加-categories-页面"><a href="#1-添加-categories-页面" class="headerlink" title="1 添加 categories 页面"></a>1 添加 categories 页面</h2><h3 id="1-1-新建-categories-页面"><a href="#1-1-新建-categories-页面" class="headerlink" title="1.1 新建 categories 页面"></a>1.1 新建 categories 页面</h3><blockquote><p>输入命令： </p></blockquote><pre><code>hexo new page categories</code></pre><blockquote><p>该命令在 <strong>source</strong>  目录下生成一个 categories 目录，categories 目录下有一个 index.md 文件。  </p></blockquote><h3 id="1-2-修改-index-md-文件"><a href="#1-2-修改-index-md-文件" class="headerlink" title="1.2 修改 index.md 文件"></a>1.2 修改 index.md 文件</h3><pre><code>---title: 文章分类date: 2018-10-19 11:22:21type: &quot;categories&quot;layout: &quot;categories&quot;comments: false #关闭评论---</code></pre><h2 id="2-添加-categories-链接"><a href="#2-添加-categories-链接" class="headerlink" title="2 添加 categories 链接"></a>2 添加 categories 链接</h2><blockquote><p>若主题为 yilia ，则打开 yilia/_config.yml ，修改为：  </p></blockquote><pre><code>menu:  主页: /  相册: /  分类: /categories</code></pre><h2 id="3-修改-yilia-主题"><a href="#3-修改-yilia-主题" class="headerlink" title="3 修改 yilia 主题"></a>3 修改 yilia 主题</h2><h3 id="3-1-新建yilia-layout-categories-ejs"><a href="#3-1-新建yilia-layout-categories-ejs" class="headerlink" title="3.1 新建yilia/layout/categories.ejs"></a>3.1 新建yilia/layout/categories.ejs</h3><pre><code>&lt;article class=&quot;article article-type-post show&quot;&gt;  &lt;header class=&quot;article-header&quot;&gt;  &lt;h1 class=&quot;article-title&quot; itemprop=&quot;name&quot;&gt;    &lt;%= page.title %&gt;  &lt;/h1&gt;  &lt;/header&gt;  &lt;% if (site.categories.length){ %&gt;  &lt;div class=&quot;category-all-page article-type-post show&quot;&gt;    &lt;h3&gt;共计&amp;nbsp;&lt;%= site.categories.length %&gt;&amp;nbsp;个分类&lt;/h3&gt;    &lt;ul class=&quot;category-list&quot;&gt;    &lt;% site.categories.sort(&#39;name&#39;).each(function(item){ %&gt;      &lt;% if(item.posts.length){ %&gt;        &lt;li class=&quot;category-list-item&quot;&gt;          &lt;a href=&quot;&lt;%- config.root %&gt;&lt;%- item.path %&gt;&quot; title=&quot;&lt;%= item.name %&gt;&quot;&gt;&lt;%= item.name %&gt;&lt;sup&gt;[&lt;%= item.posts.length %&gt;]&lt;/sup&gt;&lt;/a&gt;        &lt;/li&gt;      &lt;% } %&gt;    &lt;% }); %&gt;    &lt;/ul&gt;  &lt;/div&gt;  &lt;% } %&gt;&lt;/article&gt;</code></pre><h3 id="3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去"><a href="#3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去" class="headerlink" title="3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去"></a>3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去</h3><pre><code>category-all-page {    margin: 30px 40px 30px 40px;    position: relative;    min-height: 70vh;  }  .category-all-page h2 {    margin: 20px 0;  }  .category-all-page .category-all-title {    text-align: center;  }  .category-all-page .category-all {    margin-top: 20px;  }  .category-all-page .category-list {    margin: 0;    padding: 0;    list-style: none;  }  .category-all-page .category-list-item-list-item {    margin: 10px 15px;  }  .category-all-page .category-list-item-list-count {    color: $grey;  }  .category-all-page .category-list-item-list-count:before {    display: inline;    content: &quot; (&quot;;  }  .category-all-page .category-list-item-list-count:after {    display: inline;    content: &quot;) &quot;;  }  .category-all-page .category-list-item {    margin: 10px 10px;  }  .category-all-page .category-list-count {    color: $grey;  }  .category-all-page .category-list-count:before {    display: inline;    content: &quot; (&quot;;  }  .category-all-page .category-list-count:after {    display: inline;    content: &quot;) &quot;;  }  .category-all-page .category-list-child {    padding-left: 10px;  }</code></pre><h2 id="4-多层分类"><a href="#4-多层分类" class="headerlink" title="4 多层分类"></a>4 多层分类</h2><h3 id="4-1-修改yilia-layout-categories-ejs为："><a href="#4-1-修改yilia-layout-categories-ejs为：" class="headerlink" title="4.1 修改yilia/layout/categories.ejs为："></a>4.1 修改yilia/layout/categories.ejs为：</h3><pre><code>&lt;article class=&quot;article article-type-post show&quot;&gt;  &lt;header class=&quot;article-header&quot; style=&quot;border-bottom: 1px solid #ccc&quot;&gt;  &lt;h1 class=&quot;article-title&quot; itemprop=&quot;name&quot;&gt;    &lt;%= page.title %&gt;  &lt;/h1&gt;  &lt;/header&gt;  &lt;% if (site.categories.length){ %&gt;  &lt;div class=&quot;category-all-page&quot;&gt;    &lt;h2&gt;共计&amp;nbsp;&lt;%= site.categories.length %&gt;&amp;nbsp;个分类&lt;/h2&gt;    &lt;%- list_categories(site.categories, {      show_count: true,      class: &#39;category-list-item&#39;,      style: &#39;list&#39;,      depth: 2,      separator: &#39;&#39;    }) %&gt;  &lt;/div&gt;  &lt;% } %&gt;&lt;/article&gt;</code></pre><h3 id="4-2-修改自己的文章"><a href="#4-2-修改自己的文章" class="headerlink" title="4.2 修改自己的文章"></a>4.2 修改自己的文章</h3><pre><code>---title: Hexo yilia 添加目录页面tags: Hexo yilia 添加目录toc: truecategories: [Hexo,创建目录]---</code></pre><h2 id="5-效果"><a href="#5-效果" class="headerlink" title="5 效果"></a>5 效果</h2><blockquote><p>如下图： </p></blockquote><p><img src="https://farm2.staticflickr.com/1914/30502562127_06a9af4659_b.jpg" alt="效果">  </p><h2 id="6-参考文档"><a href="#6-参考文档" class="headerlink" title="6 参考文档"></a>6 参考文档</h2><blockquote><p><a href="https://www.voidking.com/2018/06/11/deve-hexo-categories/#%E4%B9%A6%E7%AD%BE" target="_blank" rel="noopener">Hexo添加categories页面</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h1&gt;&lt;p&gt; 1.添加 categories 页面&lt;br&gt; 2.添加 categories 链接&lt;br&gt; 3.修改 yilia 主题&lt;br&gt; 4.多层分类&lt;br&gt; 5.效果&lt;br&gt; 6.参考文档&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+      <category term="创建目录" scheme="http://yoursite.com/categories/Hexo/%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95/"/>
+    
+    
+      <category term="Hexo yilia 添加目录" scheme="http://yoursite.com/tags/Hexo-yilia-%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95/"/>
     
   </entry>
   
