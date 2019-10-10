@@ -306,37 +306,6 @@
   </entry>
   
   <entry>
-    <title>Ubuntu18.04 安装 Docker</title>
-    <link href="http://yoursite.com/1970/01/01/Ubuntu18.04%20%E5%AE%89%E8%A3%85%20Docker/"/>
-    <id>http://yoursite.com/1970/01/01/Ubuntu18.04 安装 Docker/</id>
-    <published>1970-01-01T00:00:00.000Z</published>
-    <updated>2019-08-12T05:02:48.233Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h1 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h1><p>Docker CE 支持以下版本的 Ubuntu 操作系统：</p><ul><li>Artful 17.10(Docker CE 17.11 Edge)</li><li>Zesty 17.04</li><li>Xenial 16.04(LTS)</li><li>Trusty 14.04(LTS)</li></ul><p>推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。<br><a id="more"></a></p><h1 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h1><p>旧版本的 Docker 称为 docker 或者 docker-engine，使用以下命令卸载旧版本： </p><pre><code>sudo apt-get remove docker \               docker-engine \               docker.io</code></pre><h1 id="安装与验证"><a href="#安装与验证" class="headerlink" title="安装与验证"></a>安装与验证</h1><p>从 Ubuntu 14.04 开始，一部分内核模块移到了可选内核模块包 (linux-image-extra-*) ，以减少内核软件包的体积。正常安装的系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。AUFS 内核驱动属于可选内核模块的一部分，作为推荐的 Docker 存储层驱动，一般建议安装可选内核模块包以使用 AUFS。    </p><p>如果系统没有安装可选内核模块的话，可以执行下面的命令来安装可选内核模块包：(操作均为普通用户下)     </p><pre><code>sudo apt-get updatesudo apt-get install \    linux-image-extra-$(uname -r) \    linux-image-extra-virtual</code></pre><p>Ubuntu 16.04 + 上的 Docker CE 默认使用 overlay2 存储层驱动,无需手动配置。    </p><h2 id="使用APT安装"><a href="#使用APT安装" class="headerlink" title="使用APT安装"></a>使用APT安装</h2><p>由于 apt 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。      </p><pre><code>sudo apt-get updatesudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-properties-common</code></pre><p>鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。<br>为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。     </p><pre><code>(任选其一即可)curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -官方源curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre><p>然后，我们需要向 source.list 中添加 Docker 软件源     </p><pre><code>sudo add-apt-repository \    &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \    $(lsb_release -cs) \    stable&quot;# 官方源# $ sudo add-apt-repository \#    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \#    $(lsb_release -cs) \#    stable&quot;</code></pre><h2 id="安装-Docker-CE"><a href="#安装-Docker-CE" class="headerlink" title="安装 Docker CE"></a>安装 Docker CE</h2><pre><code>sudo apt updatesudo apt install docker-ce</code></pre><h2 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h2><p>建立docker组:   </p><pre><code>sudo groupadd docker</code></pre><p>将当前用户加入docker组：    </p><pre><code>sudo usermod -aG docker $USER</code></pre><h2 id="更换国内Docker仓库"><a href="#更换国内Docker仓库" class="headerlink" title="更换国内Docker仓库"></a>更换国内Docker仓库</h2><p>创建文件：       </p><pre><code>sudo vim /etc/docker/daemon.json</code></pre><p>加入以下内容：     </p><pre><code>{  &quot;registry-mirrors&quot;: [    &quot;https://docker.mirrors.ustc.edu.cn&quot;  ]}</code></pre><p>然后重启系统。    </p><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>输入以下命令：       </p><pre><code>docker run hello-world</code></pre><p>若输出以下内容则为成功。          </p><pre><code>Unable to find image &#39;hello-world:latest&#39; locallylatest: Pulling from library/hello-worldca4f61b1923c: Pull completeDigest: sha256:be0cd392e45be79ffeffa6b05338b98ebb16c87b255f48e297ec7f98e123905cStatus: Downloaded newer image for hello-world:latestHello from Docker!This message shows that your installation appears to be working correctly.To generate this message, Docker took the following steps: 1. The Docker client contacted the Docker daemon. 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.    (amd64) 3. The Docker daemon created a new container from that image which runs the    executable that produces the output you are currently reading. 4. The Docker daemon streamed that output to the Docker client, which sent it    to your terminal.To try something more ambitious, you can run an Ubuntu container with: $ docker run -it ubuntu bashShare images, automate workflows, and more with a free Docker ID: https://cloud.docker.com/For more examples and ideas, visit: https://docs.docker.com/engine/userguide/</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.codingfanlt.xyz/2018/10/17/Ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85-Docker/#more" target="_blank" rel="noopener">Ubuntu 下安装 Docker</a><br><a href="https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html" target="_blank" rel="noopener">Docker —— 从入门到实践</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;h1 id=&quot;系统要求&quot;&gt;&lt;a href=&quot;#系统要求&quot; class=&quot;headerlink&quot; title=&quot;系统要求&quot;&gt;&lt;/a&gt;系统要求&lt;/h1&gt;&lt;p&gt;Docker CE 支持以下版本的 Ubuntu 操作系统：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Artful 17.10(Docker CE 17.11 Edge)&lt;/li&gt;
-&lt;li&gt;Zesty 17.04&lt;/li&gt;
-&lt;li&gt;Xenial 16.04(LTS)&lt;/li&gt;
-&lt;li&gt;Trusty 14.04(LTS)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
-    
-      <category term="安装" scheme="http://yoursite.com/categories/Docker/%E5%AE%89%E8%A3%85/"/>
-    
-    
-      <category term="Docker安装" scheme="http://yoursite.com/tags/Docker%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Android studio安装</title>
     <link href="http://yoursite.com/1970/01/01/Android%20studio%E5%AE%89%E8%A3%85/"/>
     <id>http://yoursite.com/1970/01/01/Android studio安装/</id>
@@ -391,6 +360,37 @@
       <category term="软件缺陷" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/"/>
     
       <category term="bugzilla" scheme="http://yoursite.com/tags/bugzilla/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu18.04 安装 Docker</title>
+    <link href="http://yoursite.com/1970/01/01/Ubuntu18.04%20%E5%AE%89%E8%A3%85%20Docker/"/>
+    <id>http://yoursite.com/1970/01/01/Ubuntu18.04 安装 Docker/</id>
+    <published>1970-01-01T00:00:00.000Z</published>
+    <updated>2019-08-12T05:02:48.233Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h1 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h1><p>Docker CE 支持以下版本的 Ubuntu 操作系统：</p><ul><li>Artful 17.10(Docker CE 17.11 Edge)</li><li>Zesty 17.04</li><li>Xenial 16.04(LTS)</li><li>Trusty 14.04(LTS)</li></ul><p>推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。<br><a id="more"></a></p><h1 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h1><p>旧版本的 Docker 称为 docker 或者 docker-engine，使用以下命令卸载旧版本： </p><pre><code>sudo apt-get remove docker \               docker-engine \               docker.io</code></pre><h1 id="安装与验证"><a href="#安装与验证" class="headerlink" title="安装与验证"></a>安装与验证</h1><p>从 Ubuntu 14.04 开始，一部分内核模块移到了可选内核模块包 (linux-image-extra-*) ，以减少内核软件包的体积。正常安装的系统应该会包含可选内核模块包，而一些裁剪后的系统可能会将其精简掉。AUFS 内核驱动属于可选内核模块的一部分，作为推荐的 Docker 存储层驱动，一般建议安装可选内核模块包以使用 AUFS。    </p><p>如果系统没有安装可选内核模块的话，可以执行下面的命令来安装可选内核模块包：(操作均为普通用户下)     </p><pre><code>sudo apt-get updatesudo apt-get install \    linux-image-extra-$(uname -r) \    linux-image-extra-virtual</code></pre><p>Ubuntu 16.04 + 上的 Docker CE 默认使用 overlay2 存储层驱动,无需手动配置。    </p><h2 id="使用APT安装"><a href="#使用APT安装" class="headerlink" title="使用APT安装"></a>使用APT安装</h2><p>由于 apt 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。      </p><pre><code>sudo apt-get updatesudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-properties-common</code></pre><p>鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。<br>为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。     </p><pre><code>(任选其一即可)curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -官方源curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre><p>然后，我们需要向 source.list 中添加 Docker 软件源     </p><pre><code>sudo add-apt-repository \    &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \    $(lsb_release -cs) \    stable&quot;# 官方源# $ sudo add-apt-repository \#    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \#    $(lsb_release -cs) \#    stable&quot;</code></pre><h2 id="安装-Docker-CE"><a href="#安装-Docker-CE" class="headerlink" title="安装 Docker CE"></a>安装 Docker CE</h2><pre><code>sudo apt updatesudo apt install docker-ce</code></pre><h2 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h2><p>建立docker组:   </p><pre><code>sudo groupadd docker</code></pre><p>将当前用户加入docker组：    </p><pre><code>sudo usermod -aG docker $USER</code></pre><h2 id="更换国内Docker仓库"><a href="#更换国内Docker仓库" class="headerlink" title="更换国内Docker仓库"></a>更换国内Docker仓库</h2><p>创建文件：       </p><pre><code>sudo vim /etc/docker/daemon.json</code></pre><p>加入以下内容：     </p><pre><code>{  &quot;registry-mirrors&quot;: [    &quot;https://docker.mirrors.ustc.edu.cn&quot;  ]}</code></pre><p>然后重启系统。    </p><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>输入以下命令：       </p><pre><code>docker run hello-world</code></pre><p>若输出以下内容则为成功。          </p><pre><code>Unable to find image &#39;hello-world:latest&#39; locallylatest: Pulling from library/hello-worldca4f61b1923c: Pull completeDigest: sha256:be0cd392e45be79ffeffa6b05338b98ebb16c87b255f48e297ec7f98e123905cStatus: Downloaded newer image for hello-world:latestHello from Docker!This message shows that your installation appears to be working correctly.To generate this message, Docker took the following steps: 1. The Docker client contacted the Docker daemon. 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.    (amd64) 3. The Docker daemon created a new container from that image which runs the    executable that produces the output you are currently reading. 4. The Docker daemon streamed that output to the Docker client, which sent it    to your terminal.To try something more ambitious, you can run an Ubuntu container with: $ docker run -it ubuntu bashShare images, automate workflows, and more with a free Docker ID: https://cloud.docker.com/For more examples and ideas, visit: https://docs.docker.com/engine/userguide/</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.codingfanlt.xyz/2018/10/17/Ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85-Docker/#more" target="_blank" rel="noopener">Ubuntu 下安装 Docker</a><br><a href="https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html" target="_blank" rel="noopener">Docker —— 从入门到实践</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;h1 id=&quot;系统要求&quot;&gt;&lt;a href=&quot;#系统要求&quot; class=&quot;headerlink&quot; title=&quot;系统要求&quot;&gt;&lt;/a&gt;系统要求&lt;/h1&gt;&lt;p&gt;Docker CE 支持以下版本的 Ubuntu 操作系统：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Artful 17.10(Docker CE 17.11 Edge)&lt;/li&gt;
+&lt;li&gt;Zesty 17.04&lt;/li&gt;
+&lt;li&gt;Xenial 16.04(LTS)&lt;/li&gt;
+&lt;li&gt;Trusty 14.04(LTS)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
+    
+      <category term="安装" scheme="http://yoursite.com/categories/Docker/%E5%AE%89%E8%A3%85/"/>
+    
+    
+      <category term="Docker安装" scheme="http://yoursite.com/tags/Docker%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
@@ -503,6 +503,29 @@
   </entry>
   
   <entry>
+    <title>个人觉得比较好的一些插件</title>
+    <link href="http://yoursite.com/1970/01/01/%E6%8F%92%E4%BB%B6/"/>
+    <id>http://yoursite.com/1970/01/01/插件/</id>
+    <published>1970-01-01T00:00:00.000Z</published>
+    <updated>2019-05-08T13:36:55.386Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h1><h2 id="Chinese-Simplified-Language-Pack-for-Visual-Studio-Code"><a href="#Chinese-Simplified-Language-Pack-for-Visual-Studio-Code" class="headerlink" title="Chinese (Simplified) Language Pack for Visual Studio Code"></a>Chinese (Simplified) Language Pack for Visual Studio Code</h2><p>适用于 VS Code 的中文（简体）语言包。     </p><p><img src="https://live.staticflickr.com/7810/47599193841_ce5cc251fe.jpg" alt="Chinese (Simplified) Language Pack for Visual Studio Code"></p><a id="more"></a><h2 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a>Markdown Preview Enhanced</h2><p>Markdown Preview Enhanced 是一款为 Atom 以及 Visual Studio Code 编辑器编写的超级强大的 Markdown 插件。 这款插件意在让你拥有飘逸的 Markdown 写作体验。    </p><p><img src="https://user-images.githubusercontent.com/1908863/28227953-eb6eefa4-68a1-11e7-8769-96ea83facf3b.png" alt="Markdown Preview Enhanced"></p><h2 id="City-Lights-Icon-package"><a href="#City-Lights-Icon-package" class="headerlink" title="City Lights Icon package"></a>City Lights Icon package</h2><p>一个美化 Visual Studio Code 图标的插件。</p><p><img src="https://raw.githubusercontent.com/yummygum/city-lights-icons-vsc/master/city-lights-icon-preview.gif" alt="City Lights Icon package"></p><h1 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h1><h2 id="广告净化器"><a href="#广告净化器" class="headerlink" title="广告净化器"></a>广告净化器</h2><p>免费高效的广告过滤工具：可以过滤烦人的视频广告、弹窗广告、大横幅广告等网页广告，让你清爽浏览网页。    </p><p>下载地址：<a href="https://chrome.google.com/webstore/detail/%E5%B9%BF%E5%91%8A%E5%87%80%E5%8C%96%E5%99%A8/cbiaicifbmeokbhollcjfeaoakmppfeh?hl=zh-CN" target="_blank" rel="noopener">谷歌浏览器</a>   <a href="https://www.yiclear.com/download/" target="_blank" rel="noopener">火狐浏览器</a></p><h2 id="Convertio"><a href="#Convertio" class="headerlink" title="Convertio"></a>Convertio</h2><p>一个文件转换器。<br>网址：<a href="https://convertio.co/zh/" target="_blank" rel="noopener">https://convertio.co/zh/</a></p><h1 id="适用于Chrome的Web服务器"><a href="#适用于Chrome的Web服务器" class="headerlink" title="适用于Chrome的Web服务器"></a>适用于Chrome的Web服务器</h1><h2 id="Web-Server-for-Chrome"><a href="#Web-Server-for-Chrome" class="headerlink" title="Web Server for Chrome"></a>Web Server for Chrome</h2><p>适用于Chrome的Web服务器使用HTTP通过网络从本地文件夹提供网页。可离线运行。</p><p><img src="https://live.staticflickr.com/65535/33926865808_92c256c9fb_z.jpg" alt="Web Server for Chrome"></p><p><img src="https://live.staticflickr.com/65535/32860400467_9b3c5a39ba_z.jpg" alt="Web Server for Chrome"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Visual-Studio-Code&quot;&gt;&lt;a href=&quot;#Visual-Studio-Code&quot; class=&quot;headerlink&quot; title=&quot;Visual Studio Code&quot;&gt;&lt;/a&gt;Visual Studio Code&lt;/h1&gt;&lt;h2 id=&quot;Chinese-Simplified-Language-Pack-for-Visual-Studio-Code&quot;&gt;&lt;a href=&quot;#Chinese-Simplified-Language-Pack-for-Visual-Studio-Code&quot; class=&quot;headerlink&quot; title=&quot;Chinese (Simplified) Language Pack for Visual Studio Code&quot;&gt;&lt;/a&gt;Chinese (Simplified) Language Pack for Visual Studio Code&lt;/h2&gt;&lt;p&gt;适用于 VS Code 的中文（简体）语言包。     &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/7810/47599193841_ce5cc251fe.jpg&quot; alt=&quot;Chinese (Simplified) Language Pack for Visual Studio Code&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="插件" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6/"/>
+    
+    
+      <category term="插件" scheme="http://yoursite.com/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>缺陷跟踪</title>
     <link href="http://yoursite.com/1970/01/01/%E7%BC%BA%E9%99%B7%E8%B7%9F%E8%B8%AA/"/>
     <id>http://yoursite.com/1970/01/01/缺陷跟踪/</id>
@@ -526,29 +549,6 @@
       <category term="期末复习" scheme="http://yoursite.com/tags/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"/>
     
       <category term="缺陷跟踪" scheme="http://yoursite.com/tags/%E7%BC%BA%E9%99%B7%E8%B7%9F%E8%B8%AA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个人觉得比较好的一些插件</title>
-    <link href="http://yoursite.com/1970/01/01/%E6%8F%92%E4%BB%B6/"/>
-    <id>http://yoursite.com/1970/01/01/插件/</id>
-    <published>1970-01-01T00:00:00.000Z</published>
-    <updated>2019-05-08T13:36:55.386Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h1><h2 id="Chinese-Simplified-Language-Pack-for-Visual-Studio-Code"><a href="#Chinese-Simplified-Language-Pack-for-Visual-Studio-Code" class="headerlink" title="Chinese (Simplified) Language Pack for Visual Studio Code"></a>Chinese (Simplified) Language Pack for Visual Studio Code</h2><p>适用于 VS Code 的中文（简体）语言包。     </p><p><img src="https://live.staticflickr.com/7810/47599193841_ce5cc251fe.jpg" alt="Chinese (Simplified) Language Pack for Visual Studio Code"></p><a id="more"></a><h2 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a>Markdown Preview Enhanced</h2><p>Markdown Preview Enhanced 是一款为 Atom 以及 Visual Studio Code 编辑器编写的超级强大的 Markdown 插件。 这款插件意在让你拥有飘逸的 Markdown 写作体验。    </p><p><img src="https://user-images.githubusercontent.com/1908863/28227953-eb6eefa4-68a1-11e7-8769-96ea83facf3b.png" alt="Markdown Preview Enhanced"></p><h2 id="City-Lights-Icon-package"><a href="#City-Lights-Icon-package" class="headerlink" title="City Lights Icon package"></a>City Lights Icon package</h2><p>一个美化 Visual Studio Code 图标的插件。</p><p><img src="https://raw.githubusercontent.com/yummygum/city-lights-icons-vsc/master/city-lights-icon-preview.gif" alt="City Lights Icon package"></p><h1 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h1><h2 id="广告净化器"><a href="#广告净化器" class="headerlink" title="广告净化器"></a>广告净化器</h2><p>免费高效的广告过滤工具：可以过滤烦人的视频广告、弹窗广告、大横幅广告等网页广告，让你清爽浏览网页。    </p><p>下载地址：<a href="https://chrome.google.com/webstore/detail/%E5%B9%BF%E5%91%8A%E5%87%80%E5%8C%96%E5%99%A8/cbiaicifbmeokbhollcjfeaoakmppfeh?hl=zh-CN" target="_blank" rel="noopener">谷歌浏览器</a>   <a href="https://www.yiclear.com/download/" target="_blank" rel="noopener">火狐浏览器</a></p><h2 id="Convertio"><a href="#Convertio" class="headerlink" title="Convertio"></a>Convertio</h2><p>一个文件转换器。<br>网址：<a href="https://convertio.co/zh/" target="_blank" rel="noopener">https://convertio.co/zh/</a></p><h1 id="适用于Chrome的Web服务器"><a href="#适用于Chrome的Web服务器" class="headerlink" title="适用于Chrome的Web服务器"></a>适用于Chrome的Web服务器</h1><h2 id="Web-Server-for-Chrome"><a href="#Web-Server-for-Chrome" class="headerlink" title="Web Server for Chrome"></a>Web Server for Chrome</h2><p>适用于Chrome的Web服务器使用HTTP通过网络从本地文件夹提供网页。可离线运行。</p><p><img src="https://live.staticflickr.com/65535/33926865808_92c256c9fb_z.jpg" alt="Web Server for Chrome"></p><p><img src="https://live.staticflickr.com/65535/32860400467_9b3c5a39ba_z.jpg" alt="Web Server for Chrome"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Visual-Studio-Code&quot;&gt;&lt;a href=&quot;#Visual-Studio-Code&quot; class=&quot;headerlink&quot; title=&quot;Visual Studio Code&quot;&gt;&lt;/a&gt;Visual Studio Code&lt;/h1&gt;&lt;h2 id=&quot;Chinese-Simplified-Language-Pack-for-Visual-Studio-Code&quot;&gt;&lt;a href=&quot;#Chinese-Simplified-Language-Pack-for-Visual-Studio-Code&quot; class=&quot;headerlink&quot; title=&quot;Chinese (Simplified) Language Pack for Visual Studio Code&quot;&gt;&lt;/a&gt;Chinese (Simplified) Language Pack for Visual Studio Code&lt;/h2&gt;&lt;p&gt;适用于 VS Code 的中文（简体）语言包。     &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/7810/47599193841_ce5cc251fe.jpg&quot; alt=&quot;Chinese (Simplified) Language Pack for Visual Studio Code&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="插件" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6/"/>
-    
-    
-      <category term="插件" scheme="http://yoursite.com/tags/%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
