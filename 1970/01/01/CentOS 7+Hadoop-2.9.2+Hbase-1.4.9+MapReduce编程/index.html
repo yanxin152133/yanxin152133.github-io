@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程 | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="大数据,Hadoop Hbase MapReduce编程">
+    <meta name="description" content="所用软件及环境 Centos 7 jdk1.8.0_181 hadoop-2.9.2 Hbase-1.4.9 idea U">
+<meta name="keywords" content="Hadoop Hbase MapReduce编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程">
+<meta property="og:url" content="http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="所用软件及环境 Centos 7 jdk1.8.0_181 hadoop-2.9.2 Hbase-1.4.9 idea U">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180819150800479?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180906015229845?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NlYWxpcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180819150923655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://static.oschina.net/uploads/space/2016/1220/181243_qILQ_2892110.png">
+<meta property="og:updated_time" content="2019-01-10T07:47:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程">
+<meta name="twitter:description" content="所用软件及环境 Centos 7 jdk1.8.0_181 hadoop-2.9.2 Hbase-1.4.9 idea U">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180819150800479?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
+
+<body>
+    <script type="text/javascript" src="/js/src/click_love.js"></script>
+
+
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://yanxin152133.github.io/notes/#/">
+                <i class="icon icon-lg icon-sticky-note"></i>
+                个人笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  1970-01-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/大数据/">大数据</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/大数据/Hadoop-Hbase-MapReduce编程/">Hadoop Hbase MapReduce编程</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#所用软件及环境"><span class="post-toc-number">1.</span> <span class="post-toc-text">所用软件及环境</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#规划"><span class="post-toc-number">2.</span> <span class="post-toc-text">规划</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hadoop、jdk、Hbase下载"><span class="post-toc-number">3.</span> <span class="post-toc-text">Hadoop、jdk、Hbase下载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下载地址"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下载地址</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-主机名修改"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">1.主机名修改</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-添加各个节点的IP"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">2.添加各个节点的IP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-防火墙设置"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">3.防火墙设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-时钟同步"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">4.时钟同步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-SSH免密登录"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">5.SSH免密登录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-安装并配置jdk"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">6.安装并配置jdk</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装-Hadoop-并配置"><span class="post-toc-number">5.</span> <span class="post-toc-text">安装 Hadoop 并配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改相关文件"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">修改相关文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hadoop-env-sh"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">hadoop-env.sh</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#core-site-xml"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">core-site.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hdfs-site-xml"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">hdfs-site.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mapred-site-xml"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">mapred-site.xml</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#slaves"><span class="post-toc-number">5.5.1.</span> <span class="post-toc-text">slaves</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#yarn-site-xml"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">yarn-site.xml</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#启动-Hadoop"><span class="post-toc-number">6.</span> <span class="post-toc-text">启动 Hadoop</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初始化"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">初始化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#克隆"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">克隆</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动Hadoop"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">启动Hadoop</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看Hadoop进程"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">查看Hadoop进程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#停止Hadoop"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">停止Hadoop</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装-Hbase-并配置"><span class="post-toc-number">7.</span> <span class="post-toc-text">安装 Hbase 并配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置-1"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#etc-profile"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">/etc/profile</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hbase-env-sh"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">hbase-env.sh</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hbase-site-xml"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">hbase-site.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#regionservers"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">regionservers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拷贝给其他节点"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">拷贝给其他节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动HBase"><span class="post-toc-number">7.7.</span> <span class="post-toc-text">启动HBase</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证"><span class="post-toc-number">7.8.</span> <span class="post-toc-text">验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#wordcount"><span class="post-toc-number">8.</span> <span class="post-toc-text">wordcount</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MapReduce编程"><span class="post-toc-number">9.</span> <span class="post-toc-text">MapReduce编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pom-xml"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">pom.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#src-main-java-WordcountMapper-java"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">src/main/java/WordcountMapper.java</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#src-main-java-WordcountReducer-java"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">src/main/java/WordcountReducer.java</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#src-main-java-WordCountMapReduce-java"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">src/main/java/WordCountMapReduce.java</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译打包"><span class="post-toc-number">9.5.</span> <span class="post-toc-text">编译打包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行"><span class="post-toc-number">9.6.</span> <span class="post-toc-text">运行</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">10.</span> <span class="post-toc-text">参考</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#推荐"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">推荐</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="1970-01-01 08:00:00" datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished">1970-01-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/大数据/">大数据</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/大数据/Hadoop-Hbase-MapReduce编程/">Hadoop Hbase MapReduce编程</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="所用软件及环境"><a href="#所用软件及环境" class="headerlink" title="所用软件及环境"></a>所用软件及环境</h1><ul>
+<li>Centos 7</li>
+<li>jdk1.8.0_181</li>
+<li>hadoop-2.9.2</li>
+<li>Hbase-1.4.9</li>
+<li>idea U</li>
+</ul>
+<a id="more"></a>
+<p><strong>注：全程使用root用户</strong>      </p>
+<h1 id="规划"><a href="#规划" class="headerlink" title="规划"></a>规划</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">组件</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">jdk</td>
+<td style="text-align:left">1.8.0_181</td>
+<td style="text-align:left">/usr/local/java</td>
+</tr>
+<tr>
+<td style="text-align:left">Hadoop</td>
+<td style="text-align:left">2.9.2</td>
+<td style="text-align:left">/usr/local/hadoop</td>
+</tr>
+<tr>
+<td style="text-align:left">Hbase</td>
+<td style="text-align:left">1.4.9</td>
+<td style="text-align:left">/usr/local/hbase</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">node01</td>
+</tr>
+<tr>
+<td style="text-align:left">node02</td>
+</tr>
+<tr>
+<td style="text-align:left">node03</td>
+</tr>
+</tbody>
+</table>
+<p>注：节点IP根据实际情况自行配置      </p>
+<h1 id="Hadoop、jdk、Hbase下载"><a href="#Hadoop、jdk、Hbase下载" class="headerlink" title="Hadoop、jdk、Hbase下载"></a>Hadoop、jdk、Hbase下载</h1><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>点击即可下载</p>
+<blockquote>
+<p><a href="http://www.gtlib.gatech.edu/pub/apache/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz" target="_blank" rel="noopener">Hadoop-2.9.2</a><br><a href="http://download.oracle.com/otn/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz" target="_blank" rel="noopener">jdk-1.8.0_181</a><br><a href="http://mirror.linux-ia64.org/apache/hbase/1.4.9/hbase-1.4.9-bin.tar.gz" target="_blank" rel="noopener">Hbase-1.4.9</a></p>
+</blockquote>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="1-主机名修改"><a href="#1-主机名修改" class="headerlink" title="1.主机名修改"></a>1.主机名修改</h2><blockquote>
+<p>在node01上输入  </p>
+</blockquote>
+<pre><code>  hostnamectl --static set-hostname node01
+</code></pre><h2 id="2-添加各个节点的IP"><a href="#2-添加各个节点的IP" class="headerlink" title="2.添加各个节点的IP"></a>2.添加各个节点的IP</h2><p>输入：    </p>
+<pre><code>vim /etc/hosts
+</code></pre><blockquote>
+<p>添加各个节点信息     </p>
+</blockquote>
+<pre><code>&lt;!-- 下列的IP需根据自己的主机确定，不唯一 --&gt;
+192.168.130.130 node01
+192.168.130.133 node02
+192.168.130.135 node03
+</code></pre><h2 id="3-防火墙设置"><a href="#3-防火墙设置" class="headerlink" title="3.防火墙设置"></a>3.防火墙设置</h2><blockquote>
+<p>若主机中未安装iptables,执行以下命令进行安装    </p>
+</blockquote>
+<pre><code>yum install iptables-services
+</code></pre><blockquote>
+<p>执行iptables -L -n -v命令可以查看iptables配置，执行以下命令永久关闭主机的iptables：  </p>
+</blockquote>
+<pre><code>chkconfig iptables off
+</code></pre><blockquote>
+<p>同时关闭主机的iptables和firewalld并设置开机不启动，执行以下命令：   </p>
+</blockquote>
+<pre><code>systemctl stop iptables
+systemctl disable iptables
+systemctl stop firewalld
+systemctl disable firewalld
+</code></pre><blockquote>
+<p>执行systemctl status iptables和systemctl status firewalld可以查看防火墙已经关闭。   </p>
+</blockquote>
+<h2 id="4-时钟同步"><a href="#4-时钟同步" class="headerlink" title="4.时钟同步"></a>4.时钟同步</h2><blockquote>
+<p>执行以下命令安装ntdate    </p>
+</blockquote>
+<pre><code>yum install ntpdate
+</code></pre><blockquote>
+<p>执行以下命令同步时针    </p>
+</blockquote>
+<pre><code>ntpdate us.pool.ntp.org
+</code></pre><blockquote>
+<p>添加时针同步的定时任务，执行以下命令    </p>
+</blockquote>
+<pre><code>crontab -e
+</code></pre><blockquote>
+<p>接着输入以下内容，设置每天凌晨5点同步时针     </p>
+</blockquote>
+<pre><code>0 5 * * * /usr/sbin/ntpdate cn.pool.ntp.org
+</code></pre><blockquote>
+<p>执行以下命令重启服务并设置开机自启：     </p>
+</blockquote>
+<pre><code>service crond restart
+systemctl enable crond.service
+</code></pre><h2 id="5-SSH免密登录"><a href="#5-SSH免密登录" class="headerlink" title="5.SSH免密登录"></a>5.SSH免密登录</h2><blockquote>
+<p>首先执行以下以下命令，可以生成.ssh隐藏文件夹       </p>
+</blockquote>
+<pre><code>ssh localhost
+</code></pre><blockquote>
+<p>接着执行    </p>
+</blockquote>
+<pre><code>cd .ssh
+ssh-keygen -t rsa #遇到提示一路回车就行
+ll #会看到 id_rsa id_rsa.pub 两文件前为私钥，后为公钥
+cat id_rsa.pub &gt;&gt; authorized_keys #把公钥内容追加到authorized_keys文件中
+chmod 600 authorized_keys #修改文件权限，重要不要忽略
+</code></pre><blockquote>
+<p>在最后的克隆node01得到的node02,node03主机以及node01上可通过<strong>ssh node01/node02/node03/node04</strong>测试是否可以免密登录<br>若能连接即为成功    </p>
+</blockquote>
+<h2 id="6-安装并配置jdk"><a href="#6-安装并配置jdk" class="headerlink" title="6.安装并配置jdk"></a>6.安装并配置jdk</h2><blockquote>
+<p>通过 <a href="https://git-scm.com/" target="_blank" rel="noopener">git</a> 将已下载好的jdk1.8.0_181 发送给各个节点，执行以下命令    </p>
+</blockquote>
+<pre><code>cd C:/Users//Yan/Downloads    #C:/Users//Yan/Downloads为本人jdk1.8.0_181下载后的路径
+scp jdk1.8.0_181 root@192.168.130.130:/usr/local/java   #输入密码后即可将jdk1.8.0_181发送给node01,192.168.130.130为自己node01的IP
+</code></pre><blockquote>
+<p>cd /usr/local/java进入该目录后执行</p>
+</blockquote>
+<pre><code>tar -zxvf jdk-8u181-linux-x64.tar.gz
+</code></pre><blockquote>
+<p>添加环境变量,执行</p>
+</blockquote>
+<pre><code>vim /etc/profile
+</code></pre><p>添加以下配置    </p>
+<pre><code>export JAVA_HOME=/usr/local/java/jdk1.8.0_181
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=.:$JAVA_HOME/bin:$PATH
+</code></pre><blockquote>
+<p>之后执行以下命令使配置生效</p>
+</blockquote>
+<pre><code>source /etc/profile
+</code></pre><p>可通过 java -version 查看jdk版本  </p>
+<h1 id="安装-Hadoop-并配置"><a href="#安装-Hadoop-并配置" class="headerlink" title="安装 Hadoop 并配置"></a>安装 Hadoop 并配置</h1><blockquote>
+<p>执行以下命令     </p>
+</blockquote>
+<pre><code>cd /usr/local/hadoop
+tar -zxvf hadoop-2.9.2.tar.gz     #解压
+</code></pre><blockquote>
+<p>添加环境变量,执行     </p>
+</blockquote>
+<pre><code>vim /etc/profile
+</code></pre><blockquote>
+<p>在该文件中添加以下内容       </p>
+</blockquote>
+<pre><code>export HADOOP_HOME=/usr/local/hadoop/hadoop-2.9.2
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+</code></pre><blockquote>
+<p>执行 source /etc/profile 使配置生效<br>同时创建Hadoop相关配置目录    </p>
+</blockquote>
+<pre><code>mkdir -p /data/hadoop/hdfs/name /data/hadoop/hdfs/data /var/log/hadoop/tmp
+</code></pre><h2 id="修改相关文件"><a href="#修改相关文件" class="headerlink" title="修改相关文件"></a>修改相关文件</h2><blockquote>
+<p>执行以下命令    </p>
+</blockquote>
+<pre><code>cd /usr/local/hadoop/hadoop-2.9.2/etc/hadoop
+</code></pre><h2 id="hadoop-env-sh"><a href="#hadoop-env-sh" class="headerlink" title="hadoop-env.sh"></a>hadoop-env.sh</h2><pre><code>export JAVA_HOME=/usr/local/java/jdk1.8.0_181   #一定要写真实路径
+</code></pre><h2 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h2><pre><code>&lt;configuration&gt;
+    &lt;!-- define the default file system host and port --&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://node01:9000/&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><h2 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h2><pre><code>&lt;configuration&gt;
+    &lt;!-- set namenode storage path--&gt;
+    &lt;!-- storage node info --&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+        &lt;value&gt;file:///root/hdfs/namenode&lt;/value&gt;
+        &lt;description&gt;NameNode directory for namespace and transaction logs storage.&lt;/description&gt;
+    &lt;/property&gt;
+    &lt;!-- set datanode storage path--&gt;
+    &lt;!-- storage data --&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
+        &lt;value&gt;file:///root/hdfs/datanode&lt;/value&gt;
+        &lt;description&gt;DataNode directory&lt;/description&gt;
+    &lt;/property&gt;
+    &lt;!-- set the number of copies, default 3, reset to 2 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;2&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><h2 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h2><pre><code>&lt;configuration&gt;
+    &lt;!-- specify the frame name --&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><h3 id="slaves"><a href="#slaves" class="headerlink" title="slaves"></a>slaves</h3><pre><code>node02
+node03
+node04
+</code></pre><h2 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h2><pre><code>&lt;configuration&gt;
+    &lt;!-- Ancillary services running on the NodeManager. You need to configure &quot;mapreduce_shuffle&quot; to run the MapReduce program. --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- The class corresponding to the auxiliary service in the NodeManager. --&gt;
+    &lt;!-- &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.aux-services.mapreduce_shuffle.class&lt;/name&gt;
+        &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
+    &lt;/property&gt; --&gt;
+    &lt;!-- Configuration name node --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+        &lt;value&gt;node01&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><h1 id="启动-Hadoop"><a href="#启动-Hadoop" class="headerlink" title="启动 Hadoop"></a>启动 Hadoop</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><blockquote>
+<p>执行以下命令   </p>
+</blockquote>
+<pre><code>cd /usr/local/hadoop/hadoop-2.9.2/bin
+./hdfs namenode  -format
+</code></pre><p><strong>等待一会后，不报错返回 “Exiting with status 0” 为成功，“Exiting with status 1”为失败</strong><br><strong>切勿多次执行</strong>   </p>
+<h2 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h2><blockquote>
+<p>对node01进行克隆操作进而得到node02,node03,node04<br>修改node02,node03,node04的主机名，以及检查<strong>/etc/hosts</strong>文件中的各个节点对应的IP地址是否有误<br>同时也要检查自己配置的<strong>/etc/profile</strong>文件是否已经生效</p>
+</blockquote>
+<h2 id="启动Hadoop"><a href="#启动Hadoop" class="headerlink" title="启动Hadoop"></a>启动Hadoop</h2><p>输入以下命令      </p>
+<pre><code>sudo -s      #若是root用户可省略
+cd /usr/local/hadoop/hadoop-2.9.2/sbin
+./start-all.sh
+</code></pre><h2 id="查看Hadoop进程"><a href="#查看Hadoop进程" class="headerlink" title="查看Hadoop进程"></a>查看Hadoop进程</h2><p>输入命令jps<br><img src="https://img-blog.csdn.net/20180819150800479?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt><br>若出现6个进程则为配置正确<br>在浏览器输入<strong>192.168.130.130：8088</strong>则可以看到<br><img src="https://img-blog.csdn.net/20180906015229845?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NlYWxpcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt><br>在浏览器输入<strong>192.168.130.130：50070</strong>则可以看到<br><img src="https://img-blog.csdn.net/20180819150923655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt><br>即配置成功   </p>
+<h2 id="停止Hadoop"><a href="#停止Hadoop" class="headerlink" title="停止Hadoop"></a>停止Hadoop</h2><pre><code>./stop-all.sh    #在/usr/local/hadoop/hadoop-2.9.2/sbin目录下
+</code></pre><h1 id="安装-Hbase-并配置"><a href="#安装-Hbase-并配置" class="headerlink" title="安装 Hbase 并配置"></a>安装 Hbase 并配置</h1><blockquote>
+<p>执行以下命令</p>
+</blockquote>
+<pre><code>cd /usr/local/hbase/
+&lt;!-- 解压 --&gt;
+tar -zxvf hbase-1.4.9-bin.tar.gz
+&lt;!-- 创建目录 --&gt;
+cd hbase-1.4.9/
+mkdir logs
+mkdir pids
+mkdir tmp
+
+
+</code></pre><h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><h2 id="etc-profile"><a href="#etc-profile" class="headerlink" title="/etc/profile"></a>/etc/profile</h2><pre><code>export HBASE_HOME=/usr/local/hbasehbase-1.4.9
+export PATH=$HBASE_HOME/bin:$PATH
+</code></pre><pre><code>source /etc/profile   #使配置立即生效
+</code></pre><h2 id="hbase-env-sh"><a href="#hbase-env-sh" class="headerlink" title="hbase-env.sh"></a>hbase-env.sh</h2><pre><code>#内容
+export JAVA_HOME=/usr/local/java/jdk1.8.0_181
+export HBASE_CLASSPATH=/usr/local/hbase/hbase-1.4.9/conf
+# 此配置信息，设置由hbase自己管理zookeeper，不需要单独的zookeeper。
+export HBASE_MANAGES_ZK=true
+export HBASE_HOME=/usr/local/hbase/hbase-1.4.9
+export HADOOP_HOME=/usr/local/hadoop/hadoop-2.9.2
+#Hbase日志目录
+export HBASE_LOG_DIR=/usr/local/hbase/hbase-1.4.9/logs
+</code></pre><h2 id="hbase-site-xml"><a href="#hbase-site-xml" class="headerlink" title="hbase-site.xml"></a>hbase-site.xml</h2><pre><code>&lt;configuration&gt;
+        &lt;property&gt;
+                &lt;name&gt;hbase.rootdir&lt;/name&gt;
+                &lt;value&gt;hdfs://node01:9000/hbase&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property&gt;
+                &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;
+                &lt;value&gt;true&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property&gt;
+                &lt;name&gt;hbase.master&lt;/name&gt;
+                &lt;value&gt;node01:60000&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property&gt;
+                &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;
+                &lt;value&gt;node01:2181,node02:2181,node03:2181&lt;/value&gt;
+        &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><h2 id="regionservers"><a href="#regionservers" class="headerlink" title="regionservers"></a>regionservers</h2><pre><code>node01
+node02
+node03
+</code></pre><h2 id="拷贝给其他节点"><a href="#拷贝给其他节点" class="headerlink" title="拷贝给其他节点"></a>拷贝给其他节点</h2><pre><code>scp -r /usr/local/hbase root@node02:/usr/local/
+scp -r /usr/local/hbase root@node03:/usr/local/
+</code></pre><h2 id="启动HBase"><a href="#启动HBase" class="headerlink" title="启动HBase"></a>启动HBase</h2><p><strong>在node01上启动</strong></p>
+<blockquote>
+<p>执行</p>
+</blockquote>
+<pre><code>cd /usr/local/hbase/hbase-1.4.9/bin
+./start-hbase.sh
+</code></pre><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><blockquote>
+<p>在每个节点使用jps命令查看    </p>
+</blockquote>
+<p><strong>node01上是否有HMaster进程</strong><br><strong>node02,node03上是否有HRegionServer进程</strong></p>
+<blockquote>
+<p>通过node:16010查看HBase集群相关情况,如下图所示：    </p>
+</blockquote>
+<p><img src="https://static.oschina.net/uploads/space/2016/1220/181243_qILQ_2892110.png" alt></p>
+<blockquote>
+<p>500 为初始化，稍等即可          </p>
+</blockquote>
+<h1 id="wordcount"><a href="#wordcount" class="headerlink" title="wordcount"></a>wordcount</h1><blockquote>
+<p>输入以下命令(root用户下)                    </p>
+</blockquote>
+<pre><code>cd /home/hadoop     #hadoop为自己创建的用户名，不固定
+touch README.txt
+vim README.txt
+        #下面为README.txt的内容
+        hello c
+        hello java
+        hello python
+hadoop fs -mkdir /wordcount
+hadoop fs -mkdir /wordcount/input
+hadoop fs -put /home/hadoop/README.txt /wordcount/input 
+cd /usr/local/hadoop/hadoop-2.9.2/share/hadoop/mapreduce/
+hadoop jar hadoop-mapreduce-examples-2.9.2.jar wordcount /wordcount/input  /wordcount/output
+</code></pre><p>出现以下信息即为成功：           </p>
+<pre><code>2018-12-29 20:38:15,997 INFO mapreduce.Job:  map 100% reduce 0%
+2018-12-29 20:38:24,174 INFO mapreduce.Job:  map 100% reduce 100%
+2018-12-29 20:38:28,259 INFO mapreduce.Job: Job job_1546086772385_0001 completed successfully
+2018-12-29 20:38:29,164 INFO mapreduce.Job: Counters: 55
+    File System Counters
+        FILE: Number of bytes read=50
+        FILE: Number of bytes written=429541
+        FILE: Number of read operations=0
+        FILE: Number of large read operations=0
+        FILE: Number of write operations=0
+        HDFS: Number of bytes read=144
+        HDFS: Number of bytes written=28
+        HDFS: Number of read operations=8
+        HDFS: Number of large read operations=0
+        HDFS: Number of write operations=2
+    Job Counters 
+        Failed map tasks=3
+        Launched map tasks=4
+        Launched reduce tasks=1
+        Other local map tasks=3
+        Data-local map tasks=1
+        Total time spent by all maps in occupied slots (ms)=38093
+        Total time spent by all reduces in occupied slots (ms)=5732
+        Total time spent by all map tasks (ms)=38093
+        Total time spent by all reduce tasks (ms)=5732
+        Total vcore-milliseconds taken by all map tasks=38093
+        Total vcore-milliseconds taken by all reduce tasks=5732
+        Total megabyte-milliseconds taken by all map tasks=39007232
+        Total megabyte-milliseconds taken by all reduce tasks=5869568
+    Map-Reduce Framework
+        Map input records=5
+        Map output records=6
+        Map output bytes=56
+        Map output materialized bytes=50
+        Input split bytes=110
+        Combine input records=6
+        Combine output records=4
+        Reduce input groups=4
+        Reduce shuffle bytes=50
+        Reduce input records=4
+        Reduce output records=4
+        Spilled Records=8
+        Shuffled Maps =1
+        Failed Shuffles=0
+        Merged Map outputs=1
+        GC time elapsed (ms)=152
+        CPU time spent (ms)=2050
+        Physical memory (bytes) snapshot=517804032
+        Virtual memory (bytes) snapshot=5624598528
+        Total committed heap usage (bytes)=336592896
+        Peak Map Physical memory (bytes)=293904384
+        Peak Map Virtual memory (bytes)=2790219776
+        Peak Reduce Physical memory (bytes)=223899648
+        Peak Reduce Virtual memory (bytes)=2834378752
+    Shuffle Errors
+        BAD_ID=0
+        CONNECTION=0
+        IO_ERROR=0
+        WRONG_LENGTH=0
+        WRONG_MAP=0
+        WRONG_REDUCE=0
+    File Input Format Counters 
+        Bytes Read=34
+    File Output Format Counters 
+        Bytes Written=28
+</code></pre><blockquote>
+<p>查看统计结果      </p>
+</blockquote>
+<pre><code>hdfs dfs -ls /wordcount/output
+hdfs dfs -cat /wordcount/output/part-r-00000
+</code></pre><h1 id="MapReduce编程"><a href="#MapReduce编程" class="headerlink" title="MapReduce编程"></a>MapReduce编程</h1><h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.hadoop&lt;/groupId&gt;
+    &lt;artifactId&gt;wordcount&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;commons-beanutils&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-beanutils&lt;/artifactId&gt;
+            &lt;version&gt;1.9.3&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+            &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;
+            &lt;version&gt;2.7.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+            &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;
+            &lt;version&gt;2.7.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+            &lt;artifactId&gt;hadoop-mapreduce-client-common&lt;/artifactId&gt;
+            &lt;version&gt;2.7.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+            &lt;artifactId&gt;hadoop-mapreduce-client-core&lt;/artifactId&gt;
+            &lt;version&gt;2.7.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;3.8.1&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+&lt;/project&gt;  
+</code></pre><h2 id="src-main-java-WordcountMapper-java"><a href="#src-main-java-WordcountMapper-java" class="headerlink" title="src/main/java/WordcountMapper.java"></a>src/main/java/WordcountMapper.java</h2><pre><code>import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+
+/**
+ * Created by zxk on 2017/6/29.
+ */
+public class WordcountMapper extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        //得到输入的每一行数据
+        String line = value.toString();
+
+        //通过空格分隔
+        String[] words = line.split(&quot; &quot;);
+
+        //循环遍历输出
+        for (String word : words) {
+            context.write(new Text(word), new IntWritable(1));
+        }
+    }
+
+}
+</code></pre><h2 id="src-main-java-WordcountReducer-java"><a href="#src-main-java-WordcountReducer-java" class="headerlink" title="src/main/java/WordcountReducer.java"></a>src/main/java/WordcountReducer.java</h2><pre><code>import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+
+/**
+ * Created by zxk on 2017/6/29.
+ */
+public class WordcountReducer extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+    protected void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context) throws IOException, InterruptedException {
+        Integer count = 0;
+        for (IntWritable value : values) {
+            count += value.get();
+        }
+        context.write(key, new IntWritable(count));
+    }
+}
+</code></pre><h2 id="src-main-java-WordCountMapReduce-java"><a href="#src-main-java-WordCountMapReduce-java" class="headerlink" title="src/main/java/WordCountMapReduce.java"></a>src/main/java/WordCountMapReduce.java</h2><pre><code>
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+/**
+ * Created by zxk on 2017/6/29.
+ */
+public class WordCountMapReduce {
+
+    public static void main(String[] args) throws Exception {
+
+        //创建配置对象
+        Configuration conf = new Configuration();
+
+        //创建job对象
+        Job job = Job.getInstance(conf, &quot;wordcount&quot;);
+
+        //设置运行job的类
+        job.setJarByClass(WordCountMapReduce.class);
+
+        //设置mapper 类
+        job.setMapperClass(WordcountMapper.class);
+
+        //设置reduce 类
+        job.setReducerClass(WordcountReducer.class);
+
+        //设置map输出的key value
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(IntWritable.class);
+
+        //设置reduce 输出的 key value
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+
+        //设置输入输出的路径
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        //提交job
+        boolean b = job.waitForCompletion(true);
+        if (!b) {
+            System.out.println(&quot;wordcount task fail!&quot;);
+        }
+    }
+}
+</code></pre><h2 id="编译打包"><a href="#编译打包" class="headerlink" title="编译打包"></a>编译打包</h2><blockquote>
+<p>在idea中打jar包可以参考这里 <strong><a href="http://www.cnblogs.com/blog5277/p/5920560.html" target="_blank" rel="noopener">点击</a></strong></p>
+</blockquote>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><pre><code>&lt;!-- 一些命令与worcount命令相同不再重复 --&gt;
+hadoop jar hadoop-demo.jar WordCountMapReduce /wordcount/input /wordcount/output
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://blog.csdn.net/qq_38799155/article/details/75949250" target="_blank" rel="noopener">在centos7上搭建hadoop集群</a><br><a href="https://blog.csdn.net/sealir/article/details/81953727" target="_blank" rel="noopener">CentOS 7搭建Apache Hadoop 3.1.1集群</a><br><a href="https://blog.csdn.net/pucao_cug/article/details/71698903" target="_blank" rel="noopener">Linux上安装Hadoop集群(CentOS7+hadoop-2.8.0)</a><br><a href="https://blog.csdn.net/weixin_42142630/article/details/81837131" target="_blank" rel="noopener">Centos7虚拟机 搭建 Hadoop3.1.1 教程</a><br><a href="https://my.oschina.net/xhhuang/blog/809210" target="_blank" rel="noopener">CentOS 7下安装集群HBase1.2.4</a><br><a href="https://blog.csdn.net/zxk1992jx/article/details/73927434" target="_blank" rel="noopener">windows下idea编写WordCount程序，并打jar包上传到hadoop集群运行</a></p>
+</blockquote>
+<h2 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h2><blockquote>
+<p><a href="https://blog.codingfanlt.xyz/2018/12/08/%E4%BD%BF%E7%94%A8-Docker-%E6%90%AD%E5%BB%BA-Hadoop-%E9%9B%86%E7%BE%A4/" target="_blank" rel="noopener">使用 Docker 搭建 Hadoop 集群</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-10T07:47:41.000Z" itemprop="dateUpdated">2019-01-10 15:47:41</time>
+</span><br>
+
+
+        
+        感谢阅读。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop-Hbase-MapReduce编程/">Hadoop Hbase MapReduce编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/&title=《CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/&title=《CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程》 — Yan's blog&source=所用软件及环境
+Centos 7
+jdk1.8.0_181
+hadoop-2.9.2
+Hbase-1.4.9
+idea U
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程》 — Yan's blog&url=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/1970/01/01/饥荒游戏服务器端搭建/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">饥荒游戏服务器端搭建</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/1970/01/01/操作系统/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">操作系统</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cC32O3WOzKWqjws6cIXqIlkr-gzGzoHsz",
+            appKey: "ANkLBmNFHMoDRJiUPXtNUWr9",
+            avatar: "monsterid",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/&title=《CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/&title=《CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程》 — Yan's blog&source=所用软件及环境
+Centos 7
+jdk1.8.0_181
+hadoop-2.9.2
+Hbase-1.4.9
+idea U
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程》 — Yan's blog&url=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/1970/01/01/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACv0lEQVR42u3a0U4cMQwFUP7/p6nUp1aF2XvtBKh05gnBkMmZlWKv7be3+Hr/fSX3/Hn9+/vn+z/733wPwwsPDw9vtPXZYz67//nOU3t4vh8PDw/vNu85GOSH9fO2nmH5q0n2jIeHh/cTeAlmlpS3rwkPDw/vf+Hl3/rb1fJUGw8PD+/n8JJCQJL4zooLSUC6XmvBw8PDi3ltA+wn/Hyxv4eHh4e36KonV9IGy5+bFCOKveHh4eFd4LWl2KRMsCk3tEMGUcDAw8PDu8ZryxOzAkR79LetuA9EeHh4eEd5eVNqNph1ttxQl4bx8PDwrvH2ba02jc4HrVapPx4eHt41XrtEOyCVB57ZCi8KuHh4eHhHeXljaX+gz1plbTB70QDDw8PDO8Rrywd5aXUWGE49EQ8PD+9reEkjKtnEbJhgM/j1IunHw8PDO8rLG/b7oFIMS8Vh7EXAwMPDwzvKa5vxbdEhHztoXwoeHh7ed/GSpTelgVkqPEvlXwQbPDw8vKO8ZHNFq2lzfB99Ch4eHt5X8triQjJq0AaSfQkYDw8P7wZvc+Dm4OIQj/v+UXKPh4eHd4G3L6omx3p+T1tuKNJ0PDw8vEO82aGfp7mz19GWMF58Ynh4eHgXeMkhm/w1L7zOhr2SJ34QGPDw8PCO8tov/7PhgHYIoA4AZVqPh4eHd4+3Kd22W8kLGcUcGR4eHt413uaYzocGThUd2uEtPDw8vHu8WRhIEuuz4WQYGPDw8PAO8d7La5aht0Fl8/u/noiHh4d3gTfbYr7cfjRhVlB+28QWPDw8vIA3Cwb5QTwrVSQZcvS54eHh4V3j7cu7ecxpk/hN0w4PDw/vJ/BmxYJ9SBiugIeHh/etvM1o1KyQ0bbKVoEBDw8Pr+RtmlLtgT4LNsmaq1oLHh4eXszbt//zsYDnTW9aa8f6e3h4eHhPvF/NOlS5B2u4LAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
+
+</body>
+
+</html>

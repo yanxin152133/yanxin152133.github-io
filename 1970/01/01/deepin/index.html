@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>deepin | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="deepin">
+    <meta name="description" content="Deepin无线网络极慢的解决方案初次安装，出现无线网络网速极慢的状况。">
+<meta name="keywords" content="deepin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="deepin">
+<meta property="og:url" content="http://yoursite.com/1970/01/01/deepin/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="Deepin无线网络极慢的解决方案初次安装，出现无线网络网速极慢的状况。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://farm8.staticflickr.com/7910/32392733287_18cb0bd927_b.jpg">
+<meta property="og:image" content="https://farm8.staticflickr.com/7857/33458876818_c016c3cc9d_b.jpg">
+<meta property="og:image" content="https://farm8.staticflickr.com/7923/40369635983_05eb970b70_b.jpg">
+<meta property="og:image" content="https://farm8.staticflickr.com/7897/47334882911_1e4ab7fdbb_b.jpg">
+<meta property="og:image" content="https://farm8.staticflickr.com/7810/47335052501_6da8fb6517_b.jpg">
+<meta property="og:updated_time" content="2019-03-21T04:16:23.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="deepin">
+<meta name="twitter:description" content="Deepin无线网络极慢的解决方案初次安装，出现无线网络网速极慢的状况。">
+<meta name="twitter:image" content="https://farm8.staticflickr.com/7910/32392733287_18cb0bd927_b.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
+
+<body>
+    <script type="text/javascript" src="/js/src/click_love.js"></script>
+
+
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://yanxin152133.github.io/notes/#/">
+                <i class="icon icon-lg icon-sticky-note"></i>
+                个人笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">deepin</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">deepin</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  1970-01-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/deepin/">deepin</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/deepin/配置/">配置</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Deepin"><span class="post-toc-number">1.</span> <span class="post-toc-text">Deepin</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无线网络极慢的解决方案"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">无线网络极慢的解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更改文件参数"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">更改文件参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#驱动安装"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">驱动安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看驱动型号"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">查看驱动型号</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载相对应的驱动"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">下载相对应的驱动</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">安装</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#electorn-ssr"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">electorn-ssr</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载地址"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">下载地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#node-js安装"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">node.js安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一种方式"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">第一种方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装-1"><span class="post-toc-number">1.3.1.2.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设置全局"><span class="post-toc-number">1.3.1.3.</span> <span class="post-toc-text">设置全局</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二种方式"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">第二种方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置Clion"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">配置Clion</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更新"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">更新</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gcc、g"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">gcc、g++</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cmake"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">cmake</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载-1"><span class="post-toc-number">1.4.3.1.</span> <span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装-2"><span class="post-toc-number">1.4.3.2.</span> <span class="post-toc-text">安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置Clion-1"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">配置Clion</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#deepin下idea中文异常"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">deepin下idea中文异常</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装-Docker"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">安装 Docker</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-Studio-dev-kvm-device-permission-denied"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">Android Studio: /dev/kvm device permission denied</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-qemu-kvm"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">安装 qemu-kvm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检查-dev-kvm-使用的所有权"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">检查/dev/kvm 使用的所有权</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-deepin" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">deepin</h1>
+        <div class="post-meta">
+            <time class="post-time" title="1970-01-01 08:00:00" datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished">1970-01-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/deepin/">deepin</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/deepin/配置/">配置</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Deepin"><a href="#Deepin" class="headerlink" title="Deepin"></a>Deepin</h1><h2 id="无线网络极慢的解决方案"><a href="#无线网络极慢的解决方案" class="headerlink" title="无线网络极慢的解决方案"></a>无线网络极慢的解决方案</h2><p>初次安装，出现无线网络网速极慢的状况。<br><a id="more"></a></p>
+<h3 id="更改文件参数"><a href="#更改文件参数" class="headerlink" title="更改文件参数"></a>更改文件参数</h3><pre><code>vim /etc/modprobe.d/iwlwifi.conf
+</code></pre><p>将该文件中的11n_disable=1改为11n_disable=8     </p>
+<h3 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h3><h4 id="查看驱动型号"><a href="#查看驱动型号" class="headerlink" title="查看驱动型号"></a>查看驱动型号</h4><p>输入以下命令      </p>
+<pre><code>lspci|grep Wireless
+</code></pre><p>例如下图中的型号：<br><img src="https://farm8.staticflickr.com/7910/32392733287_18cb0bd927_b.jpg" alt></p>
+<p>型号为：Intel Corporation Intel Dual Band Wireless-AC 3165 Plus Bluetooth (rev 99)     </p>
+<h4 id="下载相对应的驱动"><a href="#下载相对应的驱动" class="headerlink" title="下载相对应的驱动"></a>下载相对应的驱动</h4><p>下载地址：<a href="https://www.intel.cn/content/www/cn/zh/support/articles/000005511/network-and-i-o/wireless-networking.html" target="_blank" rel="noopener">英特尔® 无线适配器的 Linux* 支持</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://farm8.staticflickr.com/7857/33458876818_c016c3cc9d_b.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>输入以下命令：     </p>
+<pre><code>tar -zxvf iwlwifi-7265-ucode-25.30.14.0.tgz
+sudo cp iwlwifi-*.ucode /lib/firmware
+sudo reboot
+</code></pre><p>一般情况下是可以解决该问题的。     </p>
+<h2 id="electorn-ssr"><a href="#electorn-ssr" class="headerlink" title="electorn-ssr"></a>electorn-ssr</h2><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>下载地址：<a href="https://github.com/erguotou520/electron-ssr/releases/download/v0.2.6/electron-ssr-0.2.6.deb" target="_blank" rel="noopener">electron-ssr</a><br>也可以根据喜好自己下载：<a href="https://github.com/erguotou520/electron-ssr/releases" target="_blank" rel="noopener">列表</a>       </p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>一般情况下安装后是无法使用electron-ssr的，需要进行配置。<br>如图（二选一即可）：<br><img src="https://farm8.staticflickr.com/7923/40369635983_05eb970b70_b.jpg" alt></p>
+<p><img src="https://farm8.staticflickr.com/7897/47334882911_1e4ab7fdbb_b.jpg" alt> </p>
+<h2 id="node-js安装"><a href="#node-js安装" class="headerlink" title="node.js安装"></a>node.js安装</h2><p>主要讲两个方式：     </p>
+<h3 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a><br>根据个人习惯进行下载。     </p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>输入以下命令：     </p>
+<pre><code>tar xvJf node-v10.15.3-linux-x64.tar.xz    //解压
+cd node-v10.15.3-linux-x64/bin/
+./node -v
+</code></pre><h4 id="设置全局"><a href="#设置全局" class="headerlink" title="设置全局"></a>设置全局</h4><pre><code>ln -s /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/node /usr/local/bin/node
+ln -s /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/npm /usr/local/bin/npm
+# /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/node为自己存放文件的地址   /usr/local/bin/npm和/usr/local/bin/node不需要更改
+</code></pre><h3 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h3><p>通过命令进行安装，输入以下命令：    </p>
+<pre><code>sudo apt-get install nodejs
+sudo apt-get install npm
+</code></pre><h2 id="配置Clion"><a href="#配置Clion" class="headerlink" title="配置Clion"></a>配置Clion</h2><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><pre><code>sudo apt update
+</code></pre><h3 id="gcc、g"><a href="#gcc、g" class="headerlink" title="gcc、g++"></a>gcc、g++</h3><pre><code>sudo apt-get install build-essential
+sudo apt-get install g++
+</code></pre><p>设置环境变量    </p>
+<pre><code>sudo vim /etc/profile
+## 将以下内容填写进去 
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+</code></pre><p>验证是否安装成功     </p>
+<pre><code>gcc --version
+g++ --version
+</code></pre><h3 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h3><h4 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h4><p>下载列表：<a href="https://cmake.org/files/v3.11/" target="_blank" rel="noopener">cmake</a><br>下载地址:[cmake-3.11.3.tar.gz]<a href="https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz" target="_blank" rel="noopener">https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz</a></p>
+<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><p>新建一个“cmake”目录     </p>
+<pre><code>cd /home
+mkdir Cmake
+</code></pre><p>解压      </p>
+<pre><code>cd /home/Cmake
+tar -xzvf cmake-3.11.3.tar.gz 
+</code></pre><p>进入cmake 目录</p>
+<pre><code>cd cmake-3.11.3
+</code></pre><p>编译安装</p>
+<pre><code>### 最好使用root用户
+./bootstrap &amp;&amp; make &amp;&amp; make install
+</code></pre><p>验证是否安装成功      </p>
+<pre><code>cmake -version
+</code></pre><h3 id="配置Clion-1"><a href="#配置Clion-1" class="headerlink" title="配置Clion"></a>配置Clion</h3><p>如图所示：     </p>
+<p><img src="https://farm8.staticflickr.com/7810/47335052501_6da8fb6517_b.jpg" alt></p>
+<h2 id="deepin下idea中文异常"><a href="#deepin下idea中文异常" class="headerlink" title="deepin下idea中文异常"></a>deepin下idea中文异常</h2><p>输入以下命令</p>
+<pre><code>su
+passwd
+aptitude search uming
+</code></pre><pre><code>aptitude install fonts-arphic-uming
+</code></pre><p>之后重新启动idea（Netbeans也适用）</p>
+<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>参考链接：<a href="https://wiki.deepin.org/wiki/Docker" target="_blank" rel="noopener">deepin安装Docker</a>     </p>
+<h2 id="Android-Studio-dev-kvm-device-permission-denied"><a href="#Android-Studio-dev-kvm-device-permission-denied" class="headerlink" title="Android Studio: /dev/kvm device permission denied"></a>Android Studio: /dev/kvm device permission denied</h2><h3 id="安装-qemu-kvm"><a href="#安装-qemu-kvm" class="headerlink" title="安装 qemu-kvm"></a>安装 qemu-kvm</h3><p>输入以下命令：    </p>
+<pre><code>sudo apt install qemu-kvm
+</code></pre><h3 id="检查-dev-kvm-使用的所有权"><a href="#检查-dev-kvm-使用的所有权" class="headerlink" title="检查/dev/kvm 使用的所有权"></a>检查/dev/kvm 使用的所有权</h3><p>输入以下命令：     </p>
+<pre><code>ls -al /dev/kvm
+</code></pre><p>结果为：     </p>
+<pre><code>crw-rw---- 1 root kvm 10, 232 3月  11 10:36 /dev/kvm
+</code></pre><p>检查组中的用户kvm，使用：    </p>
+<pre><code>grep kvm /etc/group
+</code></pre><p>添加用户到kvm中，请使用：     </p>
+<pre><code>sudo adduser yourname kvm
+</code></pre><p>再检查</p>
+<pre><code>grep kvm /etc/group
+</code></pre><p>最后重启或注销。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-21T04:16:23.111Z" itemprop="dateUpdated">2019-03-21 12:16:23</time>
+</span><br>
+
+
+        
+        感谢阅读。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deepin/">deepin</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/1970/01/01/deepin/&title=《deepin》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/1970/01/01/deepin/&title=《deepin》 — Yan's blog&source=Deepin无线网络极慢的解决方案初次安装，出现无线网络网速极慢的状况。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/1970/01/01/deepin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《deepin》 — Yan's blog&url=http://yoursite.com/1970/01/01/deepin/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/1970/01/01/deepin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/1970/01/01/buzilla/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">bugzilla</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/1970/01/01/git使用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cC32O3WOzKWqjws6cIXqIlkr-gzGzoHsz",
+            appKey: "ANkLBmNFHMoDRJiUPXtNUWr9",
+            avatar: "monsterid",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/1970/01/01/deepin/&title=《deepin》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/1970/01/01/deepin/&title=《deepin》 — Yan's blog&source=Deepin无线网络极慢的解决方案初次安装，出现无线网络网速极慢的状况。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/1970/01/01/deepin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《deepin》 — Yan's blog&url=http://yoursite.com/1970/01/01/deepin/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/1970/01/01/deepin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABv0lEQVR42u3ay4rDMAwF0P7/T2dgVgNlwpUluykcr0pInZMshB5+veJ1/a789/t//677+wcWLi5um3vdrvd77l+jemduwMXFPc9NgtfiAxpBDRcX9/ncPAFaC4K4uLjfy00eXw1euLi4z+Qmxc9auvPfi22v1XBxcWdqk7GGaafB+oH+Li4ubhzCkoBSLZA6CxcX9wx3qomZF0J5CCtkZLi4uNu4nfZHXqiMHb/AxcXdxp1NX5L911okuLi457lTTc/+SxaOZOHi4m7mVscnSfirpkdRGYaLi/shbpLoVIuWtaFpoX+Di4s7yu1s18k68obs4jfGxcVtc9f6k9URS7Jb60gWLi7uBu7sdp3ipxx9cXFxN3CTRCRPTZI2aN5Yiea0uLi4o9z7oqUzaKkOXKPAh4uLe5y7Ng6ZGrJGnwAXF/cIt9OmTIJgUvws9j1wcXG3ca/iqpZDwy+Mi4t7hFvdOilm8vFJdeCKi4t7ktsJXtU2x0CJhYuLe5BbDTR5gdRJfXBxcZ/P7VzJw2U0asXFxX0ktz8sSa4XoiMuLu4Gbl78rB3CGBu64OLiHuGuNUzX7l87ulGm4+LirnN/AOetXJv/215aAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
+
+</body>
+
+</html>

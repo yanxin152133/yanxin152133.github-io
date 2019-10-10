@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Android studio安装 | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Android studio安装">
+    <meta name="description" content="准备 1.配置环境变量 2.安装 3.创建HelloWorld">
+<meta name="keywords" content="Android studio安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android studio安装">
+<meta property="og:url" content="http://yoursite.com/1970/01/01/Android studio安装/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="准备 1.配置环境变量 2.安装 3.创建HelloWorld">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://farm5.staticflickr.com/4880/31841109308_a313d85517.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4850/44988271314_bce2619ccd.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1924/31841108958_71159909a5.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1978/44988271084_080a359272.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1979/44988270794_180a75c45c.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4817/31841108368_b1d91b3f89.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4809/31841108118_9edc0bcdb4.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1954/44988270384_d49952b74c.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4884/45713614351_f3d9beab30.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1948/44989011554_572e559b9c.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4868/45662348002_c066024b41.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4848/31841107568_1bafdb8257.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1935/31841107508_42dd0db9fd.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4904/30773437437_5195c8b96d.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4911/45713738121_8d9af38424.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1918/44989226494_82e0de973b.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4912/31841106718_6aac7eb41e.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4806/31841110248_4c7903f740.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1931/45662349702_1f0e2483a3.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4811/45663495252_64a02fef07.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1913/31842430028_f9b5f10a7f.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1901/45663624032_36c485e140.jpg">
+<meta property="og:image" content="https://farm5.staticflickr.com/4883/45714458841_ecc2e7eff2.jpg">
+<meta property="og:updated_time" content="2018-11-07T09:47:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android studio安装">
+<meta name="twitter:description" content="准备 1.配置环境变量 2.安装 3.创建HelloWorld">
+<meta name="twitter:image" content="https://farm5.staticflickr.com/4880/31841109308_a313d85517.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
+
+<body>
+    <script type="text/javascript" src="/js/src/click_love.js"></script>
+
+
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://yanxin152133.github.io/notes/#/">
+                <i class="icon icon-lg icon-sticky-note"></i>
+                个人笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android studio安装</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android studio安装</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  1970-01-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/Android-studio安装/">Android studio安装</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置环境变量"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置环境变量</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建第一个-Android-程序-HelloWorld"><span class="post-toc-number">4.</span> <span class="post-toc-text">创建第一个 Android 程序 HelloWorld</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Android studio安装" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android studio安装</h1>
+        <div class="post-meta">
+            <time class="post-time" title="1970-01-01 08:00:00" datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished">1970-01-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/Android-studio安装/">Android studio安装</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p> 1.配置环境变量<br> 2.安装<br> 3.创建HelloWorld<br><a id="more"></a> </p>
+<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><blockquote>
+<p>为什么首先要配置环境变量呢？配置环境变量可以防止之后Android studio安装SDK时安装到默认位置，减少C盘的占用空间。   </p>
+</blockquote>
+<blockquote>
+<p>新建 变量名 <strong>ANDROID_HOME</strong> ，值为 <strong>自己创建的放置SDK的路径</strong>  </p>
+</blockquote>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><blockquote>
+<p>首先下载 <a href="https://developer.android.com/studio/" target="_blank" rel="noopener">Android studio</a> &gt;下载完成直接打开。  </p>
+</blockquote>
+<p><img src="https://farm5.staticflickr.com/4880/31841109308_a313d85517.jpg" alt>  </p>
+<p><img src="https://farm5.staticflickr.com/4850/44988271314_bce2619ccd.jpg" alt>  </p>
+<p><img src="https://farm2.staticflickr.com/1924/31841108958_71159909a5.jpg" alt>  </p>
+<p><img src="https://farm2.staticflickr.com/1978/44988271084_080a359272.jpg" alt>  </p>
+<blockquote>
+<p>如果不想安装到C盘也可以选择其他的。  </p>
+</blockquote>
+<p><img src="https://farm2.staticflickr.com/1979/44988270794_180a75c45c.jpg" alt>  </p>
+<p><img src="https://farm5.staticflickr.com/4817/31841108368_b1d91b3f89.jpg" alt>  </p>
+<blockquote>
+<p>等待一段时间。  </p>
+</blockquote>
+<p><img src="https://farm5.staticflickr.com/4809/31841108118_9edc0bcdb4.jpg" alt>  </p>
+<p><img src="https://farm2.staticflickr.com/1954/44988270384_d49952b74c.jpg" alt>  </p>
+<p><img src="https://farm5.staticflickr.com/4884/45713614351_f3d9beab30.jpg" alt>  </p>
+<p><img src="https://farm2.staticflickr.com/1948/44989011554_572e559b9c.jpg" alt>  </p>
+<blockquote>
+<p>点击 cancle  </p>
+</blockquote>
+<p><img src="https://farm5.staticflickr.com/4868/45662348002_c066024b41.jpg" alt>  </p>
+<p><img src="https://farm5.staticflickr.com/4848/31841107568_1bafdb8257.jpg" alt>  </p>
+<p><img src="https://farm2.staticflickr.com/1935/31841107508_42dd0db9fd.jpg" alt>  </p>
+<blockquote>
+<p>选择喜欢的主题  </p>
+</blockquote>
+<p><img src="https://farm5.staticflickr.com/4904/30773437437_5195c8b96d.jpg" alt>  </p>
+<p><img src="https://farm5.staticflickr.com/4911/45713738121_8d9af38424.jpg" alt>  </p>
+<blockquote>
+<p>之后就是漫长的等待…  </p>
+</blockquote>
+<p><img src="https://farm2.staticflickr.com/1918/44989226494_82e0de973b.jpg" alt>  </p>
+<blockquote>
+<p>等待总会有结果的。  </p>
+</blockquote>
+<h1 id="创建第一个-Android-程序-HelloWorld"><a href="#创建第一个-Android-程序-HelloWorld" class="headerlink" title="创建第一个 Android 程序 HelloWorld"></a>创建第一个 Android 程序 HelloWorld</h1><blockquote>
+<p>点击上图中的 <strong>Start a new Android Studio project</strong>    </p>
+</blockquote>
+<p><img src="https://farm5.staticflickr.com/4912/31841106718_6aac7eb41e.jpg" alt>  </p>
+<blockquote>
+<p>Application name 填写 HelloWorld<br>Company domain 按照系统默认的就行<br>Project location 存放自己代码的位置，可自定义。  </p>
+</blockquote>
+<p><img src="https://farm5.staticflickr.com/4806/31841110248_4c7903f740.jpg" alt>  </p>
+<blockquote>
+<p>系统默认即可  </p>
+</blockquote>
+<p><img src="https://farm2.staticflickr.com/1931/45662349702_1f0e2483a3.jpg" alt>  </p>
+<blockquote>
+<p>一般选择 Empty Activity  </p>
+</blockquote>
+<p><img src="https://farm5.staticflickr.com/4811/45663495252_64a02fef07.jpg" alt>  </p>
+<p><img src="https://farm2.staticflickr.com/1913/31842430028_f9b5f10a7f.jpg" alt>  </p>
+<blockquote>
+<p>点击 Finish。  </p>
+</blockquote>
+<p><img src="https://farm2.staticflickr.com/1901/45663624032_36c485e140.jpg" alt>  </p>
+<blockquote>
+<p>等待红线部分加载完毕。<br>加载完成后点击工具栏-Bulid—Bulid Bundle(s)/APK(s)-Bulid APK(s)。<br>之后可以选择自己手机运行自己的程序。也可以选择下图中的自行安装模拟器运行。  </p>
+</blockquote>
+<p><img src="https://farm5.staticflickr.com/4883/45714458841_ecc2e7eff2.jpg" alt>  </p>
+<blockquote>
+<p>之后再补充…</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-07T09:47:10.000Z" itemprop="dateUpdated">2018-11-07 17:47:10</time>
+</span><br>
+
+
+        
+        感谢阅读。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-studio安装/">Android studio安装</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/1970/01/01/Android studio安装/&title=《Android studio安装》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/1970/01/01/Android studio安装/&title=《Android studio安装》 — Yan's blog&source=准备 1.配置环境变量 2.安装 3.创建HelloWorld" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/1970/01/01/Android studio安装/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android studio安装》 — Yan's blog&url=http://yoursite.com/1970/01/01/Android studio安装/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/1970/01/01/Android studio安装/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/1970/01/01/Spring Boot 整合Druid/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Spring Boot整合Druid</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/1970/01/01/Docker搭建Rocket.chat/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Rocket.chat</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cC32O3WOzKWqjws6cIXqIlkr-gzGzoHsz",
+            appKey: "ANkLBmNFHMoDRJiUPXtNUWr9",
+            avatar: "monsterid",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/1970/01/01/Android studio安装/&title=《Android studio安装》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/1970/01/01/Android studio安装/&title=《Android studio安装》 — Yan's blog&source=准备 1.配置环境变量 2.安装 3.创建HelloWorld" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/1970/01/01/Android studio安装/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android studio安装》 — Yan's blog&url=http://yoursite.com/1970/01/01/Android studio安装/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/1970/01/01/Android studio安装/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQXLCMAwFUO5/abpthzb8LwOdOM8rhoDtl4XGsnS7xeP+bcy+f/ycz/aygYGBcVrG/XAc/+Zxi48zt7Bk3V9WxMDAuAAj2cRsc8evLF/ryZ4xMDAw4s3NzmzJuhgYGBgrjCT4zpJbDAwMjDaJzYPpLIB+KBfHwMA4ISO/df/857fUNzAwME7FuJdjFmrzFHe4KwwMjK0ZeYBbSi+DIN7OgIGBcTVGu1gefNcLlklijIGBsTcjD1vt1tev2/IyAwYGxt6M5HGbrCaFyVmRoK7EYmBgbMSYTf2Zq7phkoyBgbERoz3MrR/7ZsXLKLxiYGBsynjV0e34KJncib3x0g0DA+PkjGSxtpEih7UtF3/+HgMD4wKM9UlnF3NtGaDuFsHAwNiU0SacKw0WbXCvi5cYGBhbMGadYklYXL90e0GzBQYGxnaM9s9tUSFvwsijKAYGxnUYefEyLwn8b9MYBgbGfoxZC0X+NHkdbXCPklgMDIytGbP0NWmkaI+JBRsDA+MyjDZlba/Y8su1emYMDIwLMPJWifW6Yd5akSfDGBgYuzLu5cgPdm0bWUv98RQDA2NrxnqgXIr05WXferjHwMA4L2O9/bRt8JoVKZ+8PgwMjAswVhovkgNiG4jroikGBgZGsN1Z+XOl8ImBgYHRNoe96siYt2VEPSMYGBgbMZJNzC7CkjLDyovDwMC4AqNNHfOQOtvEO1JfDAyM0zK+ABl22xlJwNDwAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
+
+</body>
+
+</html>

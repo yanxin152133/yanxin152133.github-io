@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>mysql | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mysql">
+    <meta name="description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql">
+<meta property="og:url" content="http://yoursite.com/1970/01/01/mysql/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://live.staticflickr.com/65535/48622298426_9149c94e79_b.jpg">
+<meta property="og:image" content="https://live.staticflickr.com/65535/48677396686_07c2cd09d6_b.jpg">
+<meta property="og:updated_time" content="2019-09-06T14:29:45.590Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql">
+<meta name="twitter:description" content="环境 Linux/Ubuntu18.04 docker mysql 5.6  代码仓库 GitHub  视频地址参考：  链接: https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q 提取码: wsfd">
+<meta name="twitter:image" content="https://live.staticflickr.com/65535/48622298426_9149c94e79_b.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
+
+<body>
+    <script type="text/javascript" src="/js/src/click_love.js"></script>
+
+
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://yanxin152133.github.io/notes/#/">
+                <i class="icon icon-lg icon-sticky-note"></i>
+                个人笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">mysql</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">mysql</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished" class="page-time">
+  1970-01-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/mysql/">mysql</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#环境"><span class="post-toc-number">1.</span> <span class="post-toc-text">环境</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码仓库"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码仓库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#视频地址"><span class="post-toc-number">3.</span> <span class="post-toc-text">视频地址</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据库概念"><span class="post-toc-number">4.</span> <span class="post-toc-text">数据库概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据库分类"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">数据库分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络数据库"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">网络数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#层级数据库"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">层级数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关系数据库"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">关系数据库</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关系型数据库"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">关系型数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#典型关系型数据库"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">典型关系型数据库</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL介绍"><span class="post-toc-number">5.</span> <span class="post-toc-text">SQL介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL基本介绍"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">SQL基本介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL分类"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">SQL分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MySQL基本介绍"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">MySQL基本介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动和停止MySQL"><span class="post-toc-number">5.3.1.</span> <span class="post-toc-text">启动和停止MySQL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#登录和退出MySQL"><span class="post-toc-number">5.3.2.</span> <span class="post-toc-text">登录和退出MySQL</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MySQL服务端架构"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">MySQL服务端架构</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据库基本操作"><span class="post-toc-number">6.</span> <span class="post-toc-text">数据库基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#库操作"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">库操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建数据库"><span class="post-toc-number">6.1.1.</span> <span class="post-toc-text">创建数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显示数据库"><span class="post-toc-number">6.1.2.</span> <span class="post-toc-text">显示数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择数据库"><span class="post-toc-number">6.1.3.</span> <span class="post-toc-text">选择数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改数据库"><span class="post-toc-number">6.1.4.</span> <span class="post-toc-text">修改数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除数据库"><span class="post-toc-number">6.1.5.</span> <span class="post-toc-text">删除数据库</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表操作"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">表操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建数据表"><span class="post-toc-number">6.2.1.</span> <span class="post-toc-text">创建数据表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显示数据表"><span class="post-toc-number">6.2.2.</span> <span class="post-toc-text">显示数据表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显示表结构"><span class="post-toc-number">6.2.3.</span> <span class="post-toc-text">显示表结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显示表创建语句"><span class="post-toc-number">6.2.4.</span> <span class="post-toc-text">显示表创建语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置表属性"><span class="post-toc-number">6.2.5.</span> <span class="post-toc-text">设置表属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改表结构"><span class="post-toc-number">6.2.6.</span> <span class="post-toc-text">修改表结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除表结构"><span class="post-toc-number">6.2.7.</span> <span class="post-toc-text">删除表结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据操作"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">数据操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插入操作"><span class="post-toc-number">6.3.1.</span> <span class="post-toc-text">插入操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查询操作"><span class="post-toc-number">6.3.2.</span> <span class="post-toc-text">查询操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除操作"><span class="post-toc-number">6.3.3.</span> <span class="post-toc-text">删除操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更新操作"><span class="post-toc-number">6.3.4.</span> <span class="post-toc-text">更新操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符集"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">字符集</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符编码概念"><span class="post-toc-number">6.4.1.</span> <span class="post-toc-text">字符编码概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符集概念"><span class="post-toc-number">6.4.2.</span> <span class="post-toc-text">字符集概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置客户端所有字符集"><span class="post-toc-number">6.4.3.</span> <span class="post-toc-text">设置客户端所有字符集</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#列类型"><span class="post-toc-number">7.</span> <span class="post-toc-text">列类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#整数类型"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">整数类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tinyint"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">tinyint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#smallint"><span class="post-toc-number">7.1.2.</span> <span class="post-toc-text">smallint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mediumint"><span class="post-toc-number">7.1.3.</span> <span class="post-toc-text">mediumint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#int"><span class="post-toc-number">7.1.4.</span> <span class="post-toc-text">int</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bigint"><span class="post-toc-number">7.1.5.</span> <span class="post-toc-text">bigint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无符号表示设定"><span class="post-toc-number">7.1.6.</span> <span class="post-toc-text">无符号表示设定</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示长度"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">显示长度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小数类型"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">小数类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浮点型"><span class="post-toc-number">7.3.1.</span> <span class="post-toc-text">浮点型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#float"><span class="post-toc-number">7.3.1.1.</span> <span class="post-toc-text">float</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#double"><span class="post-toc-number">7.3.1.2.</span> <span class="post-toc-text">double</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定点数"><span class="post-toc-number">7.3.2.</span> <span class="post-toc-text">定点数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#decimal"><span class="post-toc-number">7.3.2.1.</span> <span class="post-toc-text">decimal</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时间日期型"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">时间日期型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#date"><span class="post-toc-number">7.4.1.</span> <span class="post-toc-text">date</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#time"><span class="post-toc-number">7.4.2.</span> <span class="post-toc-text">time</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#datetime"><span class="post-toc-number">7.4.3.</span> <span class="post-toc-text">datetime</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#timestamp"><span class="post-toc-number">7.4.4.</span> <span class="post-toc-text">timestamp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#year"><span class="post-toc-number">7.4.5.</span> <span class="post-toc-text">year</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符串型"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">字符串型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#char"><span class="post-toc-number">7.5.1.</span> <span class="post-toc-text">char</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#varchar"><span class="post-toc-number">7.5.2.</span> <span class="post-toc-text">varchar</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#text"><span class="post-toc-number">7.5.3.</span> <span class="post-toc-text">text</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#enum"><span class="post-toc-number">7.5.4.</span> <span class="post-toc-text">enum</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#set"><span class="post-toc-number">7.5.5.</span> <span class="post-toc-text">set</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MySQL记录长度"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">MySQL记录长度</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#列属性"><span class="post-toc-number">8.</span> <span class="post-toc-text">列属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#null属性"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">null属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#默认值"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">默认值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列描述"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">列描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主键"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">主键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建主键"><span class="post-toc-number">8.4.1.</span> <span class="post-toc-text">创建主键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#随表主键"><span class="post-toc-number">8.4.1.1.</span> <span class="post-toc-text">随表主键</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#表后增加"><span class="post-toc-number">8.4.1.2.</span> <span class="post-toc-text">表后增加</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看主键"><span class="post-toc-number">8.4.2.</span> <span class="post-toc-text">查看主键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除主键"><span class="post-toc-number">8.4.3.</span> <span class="post-toc-text">删除主键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复合主键"><span class="post-toc-number">8.4.4.</span> <span class="post-toc-text">复合主键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主键约束"><span class="post-toc-number">8.4.5.</span> <span class="post-toc-text">主键约束</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主键分类"><span class="post-toc-number">8.5.</span> <span class="post-toc-text">主键分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自动增长"><span class="post-toc-number">8.6.</span> <span class="post-toc-text">自动增长</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理"><span class="post-toc-number">8.6.1.</span> <span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用自动增长"><span class="post-toc-number">8.6.2.</span> <span class="post-toc-text">使用自动增长</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改自动增长"><span class="post-toc-number">8.6.3.</span> <span class="post-toc-text">修改自动增长</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除自动增长"><span class="post-toc-number">8.6.4.</span> <span class="post-toc-text">删除自动增长</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始设置"><span class="post-toc-number">8.6.5.</span> <span class="post-toc-text">初始设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#细节问题"><span class="post-toc-number">8.6.6.</span> <span class="post-toc-text">细节问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#唯一键"><span class="post-toc-number">8.7.</span> <span class="post-toc-text">唯一键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建唯一键"><span class="post-toc-number">8.7.1.</span> <span class="post-toc-text">创建唯一键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看唯一键"><span class="post-toc-number">8.7.2.</span> <span class="post-toc-text">查看唯一键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除唯一键"><span class="post-toc-number">8.7.3.</span> <span class="post-toc-text">删除唯一键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复合唯一键"><span class="post-toc-number">8.7.4.</span> <span class="post-toc-text">复合唯一键</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#表关系"><span class="post-toc-number">9.</span> <span class="post-toc-text">表关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一对一"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">一对一</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一对多"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">一对多</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多对多"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">多对多</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级数据操作"><span class="post-toc-number">10.</span> <span class="post-toc-text">高级数据操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新增数据"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">新增数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多数据插入"><span class="post-toc-number">10.1.1.</span> <span class="post-toc-text">多数据插入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主键冲突"><span class="post-toc-number">10.1.2.</span> <span class="post-toc-text">主键冲突</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#蠕虫复制"><span class="post-toc-number">10.1.3.</span> <span class="post-toc-text">蠕虫复制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新数据"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">更新数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除数据"><span class="post-toc-number">10.3.</span> <span class="post-toc-text">删除数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查询数据"><span class="post-toc-number">10.4.</span> <span class="post-toc-text">查询数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#from数据源"><span class="post-toc-number">10.4.1.</span> <span class="post-toc-text">from数据源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单表数据"><span class="post-toc-number">10.4.1.1.</span> <span class="post-toc-text">单表数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多表数据"><span class="post-toc-number">10.4.1.2.</span> <span class="post-toc-text">多表数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态数据"><span class="post-toc-number">10.4.1.3.</span> <span class="post-toc-text">动态数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#where字句"><span class="post-toc-number">10.4.2.</span> <span class="post-toc-text">where字句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#group-by-子句"><span class="post-toc-number">10.4.3.</span> <span class="post-toc-text">group by 子句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分组统计"><span class="post-toc-number">10.4.3.1.</span> <span class="post-toc-text">分组统计</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多分组"><span class="post-toc-number">10.4.3.2.</span> <span class="post-toc-text">多分组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分组排序"><span class="post-toc-number">10.4.3.3.</span> <span class="post-toc-text">分组排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#回溯统计"><span class="post-toc-number">10.4.3.4.</span> <span class="post-toc-text">回溯统计</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#having子句"><span class="post-toc-number">10.4.4.</span> <span class="post-toc-text">having子句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#order-by-子句"><span class="post-toc-number">10.4.5.</span> <span class="post-toc-text">order by 子句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#limit-子句"><span class="post-toc-number">10.4.6.</span> <span class="post-toc-text">limit 子句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#记录数据限制"><span class="post-toc-number">10.4.6.1.</span> <span class="post-toc-text">记录数据限制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分页"><span class="post-toc-number">10.4.6.2.</span> <span class="post-toc-text">分页</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#聚合函数"><span class="post-toc-number">10.4.7.</span> <span class="post-toc-text">聚合函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查询中的运算符"><span class="post-toc-number">10.5.</span> <span class="post-toc-text">查询中的运算符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#算数运算符"><span class="post-toc-number">10.5.1.</span> <span class="post-toc-text">算数运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#比较运算符"><span class="post-toc-number">10.5.2.</span> <span class="post-toc-text">比较运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑运算符"><span class="post-toc-number">10.5.3.</span> <span class="post-toc-text">逻辑运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#in运算符"><span class="post-toc-number">10.5.4.</span> <span class="post-toc-text">in运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#is运算符"><span class="post-toc-number">10.5.5.</span> <span class="post-toc-text">is运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#like运算符"><span class="post-toc-number">10.5.6.</span> <span class="post-toc-text">like运算符</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#联合查询"><span class="post-toc-number">10.6.</span> <span class="post-toc-text">联合查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念-1"><span class="post-toc-number">10.6.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用场景"><span class="post-toc-number">10.6.2.</span> <span class="post-toc-text">应用场景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本语法"><span class="post-toc-number">10.6.3.</span> <span class="post-toc-text">基本语法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#order-by的使用"><span class="post-toc-number">10.6.4.</span> <span class="post-toc-text">order by的使用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#连接查询"><span class="post-toc-number">11.</span> <span class="post-toc-text">连接查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#交叉连接"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">交叉连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理-1"><span class="post-toc-number">11.1.1.</span> <span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语法"><span class="post-toc-number">11.1.2.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用"><span class="post-toc-number">11.1.3.</span> <span class="post-toc-text">应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#连接查询-1"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">连接查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#连接查询的意义"><span class="post-toc-number">11.2.1.</span> <span class="post-toc-text">连接查询的意义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#连接查询分类"><span class="post-toc-number">11.2.2.</span> <span class="post-toc-text">连接查询分类</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内连接"><span class="post-toc-number">11.3.</span> <span class="post-toc-text">内连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理-2"><span class="post-toc-number">11.3.1.</span> <span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语法-1"><span class="post-toc-number">11.3.2.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用-1"><span class="post-toc-number">11.3.3.</span> <span class="post-toc-text">应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#外连接"><span class="post-toc-number">11.4.</span> <span class="post-toc-text">外连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原理-3"><span class="post-toc-number">11.4.1.</span> <span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语法-2"><span class="post-toc-number">11.4.2.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用-2"><span class="post-toc-number">11.4.3.</span> <span class="post-toc-text">应用</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-mysql" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">mysql</h1>
+        <div class="post-meta">
+            <time class="post-time" title="1970-01-01 08:00:00" datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished">1970-01-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/mysql/">mysql</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>Linux/Ubuntu18.04</li>
+<li>docker</li>
+<li>mysql 5.6</li>
+</ul>
+<h1 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h1><ul>
+<li><a href="https://github.com/yanxin152133/PHP" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<h1 id="视频地址"><a href="#视频地址" class="headerlink" title="视频地址"></a>视频地址</h1><p>参考：</p>
+<ul>
+<li>链接: <a href="https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1oxqVH8_GH94bhbpmQ4b-8Q</a> 提取码: wsfd </li>
+</ul>
+<a id="more"></a>
+<h1 id="数据库概念"><a href="#数据库概念" class="headerlink" title="数据库概念"></a>数据库概念</h1><blockquote>
+<p>数据库（Database）是按照数据结构来阻止、存储和管理数据的建立再计算机存储设备上的仓库。</p>
+</blockquote>
+<p>数据库:存储数据的仓库。</p>
+<h2 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h2><h3 id="网络数据库"><a href="#网络数据库" class="headerlink" title="网络数据库"></a>网络数据库</h3><blockquote>
+<p>网络数据库是指把数据库技术引入到计算机网络系统中，借助于网络技术将存储与数据库中的大量信息及时发布出去；而计算机网络借助于成熟的数据库技术对网络中的各种数据进行有效管理，并实现用户与网络中的数据库进行实时动态数据交互。</p>
+</blockquote>
+<h3 id="层级数据库"><a href="#层级数据库" class="headerlink" title="层级数据库"></a>层级数据库</h3><blockquote>
+<p>层次结构模型实质上是一种有根结点的定向有序树（在数学中“树”被定义为一个无回的连通图）。</p>
+</blockquote>
+<h3 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h3><blockquote>
+<p>关系数据库，是建立在关系模型基础上的数据库，借助于几何代数等数学概念和方法来处理数据库中的数据。</p>
+</blockquote>
+<p>数据库的另一种区分方式：基于存储介质。</p>
+<p>存储介质分为两种：磁盘和内存。</p>
+<p>关系型数据库：存储在磁盘中。</p>
+<p>非关系型数据库：存储在内存中。</p>
+<h2 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><blockquote>
+<p>关系数据库，是建立在关系模型基础上的数据库，借助于几何代数等数学概念和方法来处理数据库中的数据。现实世界中的各种实体以及实体之间的各种练习均用关系模型来表示。关系模型是由埃德加·科德于1970年首先提出的，并配合“科德十二定律”。现如今虽然对此模型有一些批评意见，但它还是数据存储的传统标准。关系模型由关系数据结构、关系操作集合、关系完整性约束三部分组成。</p>
+</blockquote>
+<ul>
+<li>关系数据结构：指的是数据以什么方式来存储，是一种二维表的形式存储。<ul>
+<li>本质：二维表</li>
+</ul>
+</li>
+<li>关系操作集合:如何来关联和管理对应的存储数据，SQL指令</li>
+<li>关系完整性约束：数据内部有对应的关联关系，以及数据与数据之间也有对应的关联关系。<ul>
+<li>表内约束：对应的具体列只能放对应的数据（不能乱放）</li>
+<li>表间约束：自然界各实体都是有着对应的关联关系（外键）</li>
+</ul>
+</li>
+</ul>
+<h3 id="典型关系型数据库"><a href="#典型关系型数据库" class="headerlink" title="典型关系型数据库"></a>典型关系型数据库</h3><ul>
+<li>小型关系型数据库Microsoft Access、SQLite</li>
+<li>中型关系型数据库：Microsoft SQL Server、MySQL</li>
+<li>大型关系型数据库：Oracle、DB2</li>
+</ul>
+<h1 id="SQL介绍"><a href="#SQL介绍" class="headerlink" title="SQL介绍"></a>SQL介绍</h1><h2 id="SQL基本介绍"><a href="#SQL基本介绍" class="headerlink" title="SQL基本介绍"></a>SQL基本介绍</h2><blockquote>
+<p>结构化查询语言（Structured Query Language）简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。</p>
+</blockquote>
+<p>SQL就是专门为关系型数据库而设计出来的。</p>
+<h2 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h2><ol>
+<li><p>数据查询语言（DQL：Data Query Language）:<br>其语句，也称为“数据检索语句”，用以从表中获取数据，确定数据怎样在应用程序给出。保留字SELETE是DQL（也是所有SQL）用的最多的动词i，其它DQL常用的保留字有WHERE，ORDER BY，GROUP BY和HAVING。这些DQL保留字常与其他类型的SQL语句一起使用。<br><strong>专门用于查询数据：代表指令为selete/show</strong></p>
+</li>
+<li><p>数据操作语言（DML：Data Manipulation Language）:<br>其语句包括动词INSERT，UPDATE和DELETE。它们分别用于添加、修改和删除表中的行。也称为动作查询语言。<br><strong>专门用于写数据：代表指令：insert,update和delete</strong></p>
+</li>
+<li><p>事务处理语言（TPL）：<br>它的语句能确保被DML语句影响的表的所有行即使得以更新。TPL语句包括BEGIN、TRANSACTIOIN、COMMIT和ROLLBACK。（不是所有的关系型数据库都提供事务安全处理）<br><strong>专门用于事务安全处理：transation</strong></p>
+</li>
+<li><p>数据控制语言（DCL）：<br>它的语句通过GRANT和REVOKE获取许可，确定单个用户和用户组对数据库对象的访问。某些RDBMS可用GRANT或REVOKE控制对表单个列的访问。<br><strong>专门用于权限管理：代表指令为grant和revoke</strong></p>
+</li>
+<li><p>数据定义语言（DDL）：<br>其语句包括动词CREATE和DROP。在数据库中创建新表或删除表（CREATE TABLE或DROP TABLE）；为表加入索引等。DDL包括许多与数据库目录中获得数据有关的保留字。它也是动作查询的一部分。<br><strong>专门用于结构管理：代表指令create和drop(alter)</strong></p>
+</li>
+</ol>
+<h2 id="MySQL基本介绍"><a href="#MySQL基本介绍" class="headerlink" title="MySQL基本介绍"></a>MySQL基本介绍</h2><blockquote>
+<p>MySQL是一个关系型数据库关系系统，由瑞典MySQL AB公司开发，目前属于Oracle旗下产品。MySQL是最流行的关系型数据库管理系统之一，在WEB应用方面，MySQL是最好的RDBMS（Relational Database Management System,关系数据库管理系统）应用软件。</p>
+</blockquote>
+<h3 id="启动和停止MySQL"><a href="#启动和停止MySQL" class="headerlink" title="启动和停止MySQL"></a>启动和停止MySQL</h3><blockquote>
+<p>MySQL是一种C/S结构：客户端和服务端。</p>
+</blockquote>
+<ul>
+<li>命令行方式<br>通过Windows下打开cmd控制器，然后使用命令进行管理。<ul>
+<li>net start 服务（mysql）：开启服务</li>
+<li>net stop mysql：关闭服务</li>
+</ul>
+</li>
+<li>系统服务方式<br>前提：在安装的MySQL的时候将MySQL添加到Windows的服务中去。</li>
+</ul>
+<h3 id="登录和退出MySQL"><a href="#登录和退出MySQL" class="headerlink" title="登录和退出MySQL"></a>登录和退出MySQL</h3><p>通过客户端与服务器进行连接认证，就可以进行操作。通常服务端与客户端不在同一台电脑上。</p>
+<ul>
+<li>登录</li>
+</ul>
+<ol>
+<li>找到相关程序</li>
+<li>输入对应的服务器地址</li>
+<li>输入服务器中MySQL监听的端口</li>
+<li>输入用户名：-u:username</li>
+<li>输入密码：-p:password</li>
+</ol>
+<p><strong>注意事项</strong></p>
+<ol>
+<li>通常端口都可以默认，MySQL监听的端口通常是3306</li>
+<li>密码的输入可以先输入-p，直接换行，然后再以密文方式输入密码</li>
+</ol>
+<ul>
+<li>退出<br>断开与服务器的连接：通常MySQL提供的服务器数量有限，一旦客户端用完，建议就应该断开连接。<br>建议方式：使用SQL提供的指令<ul>
+<li><code>exit;</code></li>
+<li><code>\q</code></li>
+<li><code>quit</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="MySQL服务端架构"><a href="#MySQL服务端架构" class="headerlink" title="MySQL服务端架构"></a>MySQL服务端架构</h2><blockquote>
+<p>MySQL服务端架构有以下几层构成：</p>
+<ol>
+<li>数据库管理系统（最外层）：DBMS，专门管理服务器端的所有内容</li>
+<li>数据库（第二层）：DB，专门用于存储数据的仓库（可以有很多个）</li>
+<li>二维数据表（第三层）：Table，专门用于存储具体实体的数据</li>
+<li>字段（第四层）：Field，具体存储某种类型的数据（实际存储单元）</li>
+</ol>
+</blockquote>
+<p>数据库中常用的几个关键字：</p>
+<ul>
+<li>row：行</li>
+<li>Column：列（field）</li>
+</ul>
+<h1 id="数据库基本操作"><a href="#数据库基本操作" class="headerlink" title="数据库基本操作"></a>数据库基本操作</h1><blockquote>
+<p>数据库是数据存储的最外层（最大单元）</p>
+</blockquote>
+<h2 id="库操作"><a href="#库操作" class="headerlink" title="库操作"></a>库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><p>基本语法：</p>
+<pre><code class="sql">create database 数据库名字 [库选项];
+
+## 示例代码
+create database mydatabase;
+</code></pre>
+<p>库选项：数据库的相关属性。</p>
+<ul>
+<li>字符集：charset字符集，代表着当前数据库下的所有表存储的数据默认指定的字符集（如果当前不指定，那么采用DBMS默认的）。</li>
+<li>校对集：collate校对集</li>
+</ul>
+<p>基本语法：</p>
+<pre><code class="sql">create database 数据库名字 charset 字符集名称;
+
+## 示例代码
+create database mydatabase2 charset gbk;
+</code></pre>
+<h3 id="显示数据库"><a href="#显示数据库" class="headerlink" title="显示数据库"></a>显示数据库</h3><blockquote>
+<p>每当用户通过SQL指令创建一个数据库，那么系统就会产生一个对应的存储数据的文件夹（data）</p>
+</blockquote>
+<ul>
+<li>显示全部<br>基本语法：</li>
+</ul>
+<pre><code class="sql">show databases;
+</code></pre>
+<p><img src="https://live.staticflickr.com/65535/48622298426_9149c94e79_b.jpg" alt></p>
+<ul>
+<li>显示部分<br>基本语法：</li>
+</ul>
+<pre><code class="sql">show databases like &#39;匹配模式&#39;;
+
+_：匹配当前位置单个字符
+%：匹配指定位置多个字符
+
+获取以my开头的全部数据库：&#39;my%&#39;;
+获取m开头，后面第一个字母不确定，最后为database的数据库：&#39;m_database&#39;;
+获取以database结尾的数据库：&#39;%database&#39;;
+
+
+## 示例代码
+show databases like &#39;my%&#39;;
+</code></pre>
+<ul>
+<li>显示数据库创建语句<br>基本语法：</li>
+</ul>
+<pre><code class="sql">show create database 数据库名字
+
+## 示例代码
+show create database mydatabase;
+</code></pre>
+<h3 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h3><blockquote>
+<p>为什么要选择数据库？<br>因为数据是存储到数据表，表存在数据库下。如果要操作数据，那么必须进入到对应的数据库才行</p>
+</blockquote>
+<p>基本语法：</p>
+<pre><code class="sql">use 数据库名字;
+
+## 示例代码
+use mydatabase;
+</code></pre>
+<h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><blockquote>
+<p>修改数据库字符集（库选项）：字符集和校对集。在5.5之前是可以通过<code>rename</code>命令进行修改数据库名字，但是之后的版本是不可以的。</p>
+</blockquote>
+<p>基本语法：</p>
+<pre><code class="sql">alter database 数据库名字 charset = 字符集;
+
+## 示例代码
+alter database mydatabase charset gbk;
+</code></pre>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><p>基本语法：</p>
+<pre><code class="sql">drop database 数据库名字
+
+## 示例代码
+drop database mydatabase;
+show databases;
+</code></pre>
+<p><strong>删除虽简单，但是切记要做好安全操作：确保里面数据没有问题。</strong></p>
+<p>删除数据库之后，对应的存储数据的文件也会被删除。</p>
+<h2 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h2><h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><ul>
+<li>普通创建表<br>基本语法：</li>
+</ul>
+<pre><code class="sql">create table 表名(字段名 字段类型[字段属性],...) [表选项];
+
+- 表选项：与数据库选项类似。
+    - engine：存储引擎，MySQL提供的具体存储数据的方式，默认有一个innodb（5.5以前默认是myisam）
+    - charse：字符集，只对当前自己表有效（级别比数据库高）
+    - collate：校对集
+</code></pre>
+<pre><code class="sql">## 示例代码
+# 创建数据表
+use mydatabase2;
+create table class
+(
+    name varchar(10)
+);
+
+# 创建数据表
+create table mydatabase2.class2
+(
+    name varchar(10)
+);
+
+# 使用表选项
+create table mydatabase2.student
+(
+    name varchar(10)
+) charset utf8;
+</code></pre>
+<ul>
+<li>复制已有表结构<br>从已经存在的表复制一份（只复制结构，如果表中有数据不复制）<br>基本语法：</li>
+</ul>
+<pre><code class="sql">create table 表明 like 表名;   //只要使用数据库.表名，就可以在任何数据库下访问其他数据库的表名
+
+## 示例代码
+# 在test数据库下创建一个与student一样的表
+use test;
+create table student like mydatabase2.student;
+show tables;
+</code></pre>
+<h3 id="显示数据表"><a href="#显示数据表" class="headerlink" title="显示数据表"></a>显示数据表</h3><ul>
+<li>显示所有表<br>基本语法：</li>
+</ul>
+<pre><code class="sql">show tables;
+</code></pre>
+<ul>
+<li>匹配显示表<br>基本语法：</li>
+</ul>
+<pre><code class="sql">show tables like &#39;匹配模式&#39;
+</code></pre>
+<h3 id="显示表结构"><a href="#显示表结构" class="headerlink" title="显示表结构"></a>显示表结构</h3><p>本质含义：显示表中所包含的字段信息（名字，类型，属性等）</p>
+<ul>
+<li>describe 表名</li>
+<li>desc 表名</li>
+<li>show columns from 表名</li>
+</ul>
+<pre><code class="sql">## 示例代码
+# 显示表结构
+use mydatabase2;
+describe class;
+
+desc student;
+
+show columns from student;
+</code></pre>
+<h3 id="显示表创建语句"><a href="#显示表创建语句" class="headerlink" title="显示表创建语句"></a>显示表创建语句</h3><p>查看数据表创建时的语句：此语句看到的结果已经不是用户之前自己输入的。</p>
+<p>基本语法：</p>
+<pre><code class="sql">show create table 表名;
+</code></pre>
+<p><strong>MySQL中有多种语句结束符</strong></p>
+<ul>
+<li><code>;</code>与<code>\g</code>所表示的效果是一样的，都是字段在上排横着，下面跟对应的数据</li>
+<li><code>\G</code>字段在左侧竖着，数据在右侧横着</li>
+</ul>
+<h3 id="设置表属性"><a href="#设置表属性" class="headerlink" title="设置表属性"></a>设置表属性</h3><p>表属性指的就是表选项：engine，charset和collate。</p>
+<p>基本语法：</p>
+<pre><code class="sql">alter table 表名 表选项 [=] 值;
+
+## 示例代码
+alter table mydatabase2.student charset gbk;
+
+show create table mydatabase2.student;
+</code></pre>
+<p><strong>注意</strong>：如果数据库已经确定了，里面有很多数据了，不要轻易修改表选项（字符集影响不大）</p>
+<h3 id="修改表结构"><a href="#修改表结构" class="headerlink" title="修改表结构"></a>修改表结构</h3><ul>
+<li>修改表名<br>基本语法：</li>
+</ul>
+<pre><code class="sql">rename table 旧表名 to 新表名;
+</code></pre>
+<ul>
+<li>修改表选项<br>基本语法：</li>
+</ul>
+<pre><code class="sql">alter table 表名 表选项 [=] 新值;
+</code></pre>
+<ul>
+<li>新增字段<br>基本语法：</li>
+</ul>
+<pre><code class="sql">alter table 表名 add [column] 新字段名 列类型 [列属性] [位置first/after 字段名];
+</code></pre>
+<p><strong>字段位置</strong>：字段想要存放的位置。</p>
+<ol>
+<li>First：在某某之前（最前面），第一个字段</li>
+<li>after 字段名：放在某个具体的字段之后</li>
+</ol>
+<ul>
+<li>修改字段名<br>基本语法：</li>
+</ul>
+<pre><code class="sql">alter table 表名 change 旧字段名 新字段名 字段类型 [列属性] [新位置];
+</code></pre>
+<ul>
+<li>修改字段类型（属性）<br>基本语法：</li>
+</ul>
+<pre><code class="sql">alter table 表名 modify 字段名 新类型 [新属性] [新位置];
+</code></pre>
+<ul>
+<li>删除字段<br>基本语法：</li>
+</ul>
+<pre><code class="sql">alter table 表名 drop 字段名;
+</code></pre>
+<pre><code class="sql">## 示例代码
+# 数据库中数据表名字通常有前缀：取数据库的前两个字母加上下划线
+rename table mydatabase2.student to my_student;
+show tables;
+
+# 给学生表增加age字段
+alter table my_student add column age int;
+desc my_student;
+# 增加字段：放在第一个字段
+alter table my_student add id int first;
+
+# 修改字段名
+alter table my_student change age nj int;
+
+# 修改字段类型
+alter table my_student modify name varchar(20);
+
+# 删除字段
+alter table my_student drop nj;
+</code></pre>
+<h3 id="删除表结构"><a href="#删除表结构" class="headerlink" title="删除表结构"></a>删除表结构</h3><p>基本语法：</p>
+<pre><code class="sql">drop table 表名[,表名2]...;   //可以同时删除多个数据表
+</code></pre>
+<pre><code class="sql">## 示例代码
+# 删除表名
+drop table class;
+show tables;
+drop table class2,my_student;
+</code></pre>
+<h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>本质含义：将数据以SQL的形式存储到指定的数据表（字段）里面</p>
+<p>基本语法：</p>
+<pre><code class="sql">insert into 表名 [(字段列表)] values (对应字段列表);
+
+</code></pre>
+<pre><code class="sql"># 插入数据到数据表
+create table my_teacher
+(
+    name varchar(10),
+    age  int
+);
+
+insert into my_teacher (name, age) values (&#39;Jaca&#39;, 30);
+insert into my_teacher (age, name) values (40, &#39;Tom&#39;);
+insert into my_teacher (name) values (&#39;Li&#39;);
+
+insert into my_teacher values (&#39;Zhang&#39;,22);
+</code></pre>
+<h3 id="查询操作"><a href="#查询操作" class="headerlink" title="查询操作"></a>查询操作</h3><ul>
+<li>查询表中全部数据<br>基本语法：</li>
+</ul>
+<pre><code class="sql">select * from 表名;   //*表示匹配所有的字段
+</code></pre>
+<ul>
+<li>查询表中部分字段<br>基本语法：</li>
+</ul>
+<pre><code class="sql">select 字段列表 from 表名;   //字段列表使用逗号隔开
+</code></pre>
+<ul>
+<li>简单条件查询数据<br>基本语法：</li>
+</ul>
+<pre><code class="sql">select 字段列表/* from 表名 where 字段名=值;
+</code></pre>
+<pre><code class="sql"># 获取所有数据
+select * from my_teacher;
+
+# 获取指定字段数据
+select name from my_teacher;
+
+# 获取年龄为30岁的人的名字
+select name from my_teacher where age=30;
+</code></pre>
+<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><p>基本语法：</p>
+<pre><code class="sql">delete from 表名 [where 条件];  //如果没有where条件：意味着系统会自动删除该表所有数据
+
+## 示例代码
+# 删除年龄为30岁的人
+delete from my_teacher where age = 30;
+</code></pre>
+<h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3><p>更新：将数据进行修改（通常是修改部分字段数据）</p>
+<p>基本语法：</p>
+<pre><code class="sql">update 表名 set 字段名=新值 [where 条件];     //如果没有where条件，那么所有的表中对应的那个字段都会被修改成同一值
+
+## 示例代码
+# 更新年龄
+update my_teacher set age=28 where name=&#39;Li&#39;;
+</code></pre>
+<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><h3 id="字符编码概念"><a href="#字符编码概念" class="headerlink" title="字符编码概念"></a>字符编码概念</h3><blockquote>
+<p>字符（character）是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数据等。<br>字符编码（character code）是计算机针对各种符号，在计算机中的一种二进制存储代号。</p>
+</blockquote>
+<h3 id="字符集概念"><a href="#字符集概念" class="headerlink" title="字符集概念"></a>字符集概念</h3><blockquote>
+<p>字符集（character set）是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不同。</p>
+</blockquote>
+<p>常见字符集名称：ASCII字符集，GB2312字符集，BIG5字符集，GB18030字符集，Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符集编码，以便计算机能够识别和存储各种文字。中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英文单字节字符设计的，因此，对中文字符进行编码，是中文信息交流的技术基础。</p>
+<h3 id="设置客户端所有字符集"><a href="#设置客户端所有字符集" class="headerlink" title="设置客户端所有字符集"></a>设置客户端所有字符集</h3><p>快捷方式：</p>
+<pre><code class="sql">set names 字符集;
+
+
+# 查看系统保存的三种关系处理字符集
+show variables like &#39;character_set%&#39;;
+</code></pre>
+<h1 id="列类型"><a href="#列类型" class="headerlink" title="列类型"></a>列类型</h1><h2 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h2><h3 id="tinyint"><a href="#tinyint" class="headerlink" title="tinyint"></a>tinyint</h3><blockquote>
+<p>迷你整型：系统采用一个字节来保存整型，一个字节=8位，最大能表示的数值的0-255</p>
+</blockquote>
+<h3 id="smallint"><a href="#smallint" class="headerlink" title="smallint"></a>smallint</h3><blockquote>
+<p>小整型：系统采用两个字节来保存的整形：能表示0-65535之间</p>
+</blockquote>
+<h3 id="mediumint"><a href="#mediumint" class="headerlink" title="mediumint"></a>mediumint</h3><blockquote>
+<p>中整型：系统采用三个字节保存数据</p>
+</blockquote>
+<h3 id="int"><a href="#int" class="headerlink" title="int"></a>int</h3><blockquote>
+<p>整型（标准整型）：采用四个字节保存数据</p>
+</blockquote>
+<h3 id="bigint"><a href="#bigint" class="headerlink" title="bigint"></a>bigint</h3><blockquote>
+<p>大整型：采用八个字节来保存数据</p>
+</blockquote>
+<pre><code class="sql">-- 示例代码
+# 创建数据表
+create table my_int
+(
+    int_1 tinyint,
+    int_2 smallint,
+    int_3 mediumint,
+    int_4 int,
+    int_5 bigint
+);
+
+# 插入数据
+insert into my_int values (10,10000,100000,1000000,1000000000);
+
+# 插入错误数据（超出对应的数据范围）
+insert into my_int values (255,255,255,255,255);
+# 上面的错误原因
+insert into my_int values (-128,255,255,255,255);
+insert into my_int values (127,255,255,255,255);
+
+</code></pre>
+<h3 id="无符号表示设定"><a href="#无符号表示设定" class="headerlink" title="无符号表示设定"></a>无符号表示设定</h3><blockquote>
+<p>无符号，表示存储的数据在当前字段中，没有负数（只有正数，区间为0-255）</p>
+</blockquote>
+<p>基本语法：在类型之后加上一个<code>unsigned</code></p>
+<pre><code class="sql"># 无符号表示设定
+alter table my_int add int_6 tinyint unsigned first;
+insert into my_int values (255,100,255,255,255,255);
+insert into my_int values (-100,100,255,255,255,255);
+</code></pre>
+<h2 id="显示长度"><a href="#显示长度" class="headerlink" title="显示长度"></a>显示长度</h2><blockquote>
+<p>显示长度：指数据（整型）在数据显示的时候，到底可以显示多长位。如tinyint(3),表示最长可以显示3位，显示长度只是代表了数据是否可以达到指定的长度，但是不会自动满足到指定长度：如果想要数据显示的时候，保持最高位（显示长度），那么还需要给字段增加一个<code>zerofill</code>属性才可以。同时显示长度可以自己设定，超出长度（但是不超出范围）不会影响，只会对不够长度的进行补充（显示长度）。</p>
+</blockquote>
+<pre><code class="sql">-- 示例代码
+# 显示长度
+alter table my_int add int_7 tinyint zerofill first;
+insert into my_int values (1,1,1,1,1,1,1);
+
+alter table my_int add int_8 tinyint(2) zerofill first;
+insert into my_int values (100,1,1,1,1,1,1,1);
+insert into my_int values (1,1,1,1,1,1,1,1);
+</code></pre>
+<h2 id="小数类型"><a href="#小数类型" class="headerlink" title="小数类型"></a>小数类型</h2><blockquote>
+<p>专门用来存储小数的。在MySQL中将小数类型又分为两类：浮点型和定点型。</p>
+</blockquote>
+<h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><blockquote>
+<p>浮点型又称之为精度类型，是一种有可能丢失精度的数据类型，数据有可能不那么准确（尤其是在超出范围的时候）。浮点型之所以能够存储较大的数值（不精确），原因就是利用存储数据的位来存储指数。</p>
+</blockquote>
+<h4 id="float"><a href="#float" class="headerlink" title="float"></a>float</h4><blockquote>
+<p>float又称之为单精度类型，系统提供4个字节用来存储数据，但是能表示的数据范围比整型大得多，大概是10^38。只能保证大概7个左右的精度（如果数据在7位数以内，那么基本是准确的，但是如果超过7位数，那么就是不准确的）。</p>
+</blockquote>
+<p>基本语法<br>float：表示不指定小数位的浮点数<br>float(M,D)：表示一共存储M个有效数字，其中小数部分占D位<br>float(10,2)：整数部分为8位，小数部分为2位</p>
+<pre><code class="sql">-- 示例代码
+# 创建表
+create table my_float(
+    f1 float,
+    f2 float(10,2)
+);
+
+# 插入数据
+insert into my_float values (123.123,123456789.90);
+insert into my_float values (123.1234567,123456789.00);
+insert into my_float values (123.1234567,99999999.99);  # 用户不能插入数据直接超过指定的整数部分长度，但是如果是系统自动进位导致的，系统可以承担
+insert into my_float values (123.123,10e5);   # 浮点数可以采用科学计数法来存储数据
+</code></pre>
+<p>浮点数的应用：通常是用来保存一些数量特别大的，大到可以不用那么精确的数据。</p>
+<h4 id="double"><a href="#double" class="headerlink" title="double"></a>double</h4><blockquote>
+<p>double又称之为双精度，系统用8个字节来存储数据，表示的范围更大，10^308次方，但是精度也只有15位左右。</p>
+</blockquote>
+<h3 id="定点数"><a href="#定点数" class="headerlink" title="定点数"></a>定点数</h3><blockquote>
+<p>定点数：能够保证数据精确的小数（小数部分可能不精确，超出长度会四舍五入），整数部分一定精确。</p>
+</blockquote>
+<h4 id="decimal"><a href="#decimal" class="headerlink" title="decimal"></a>decimal</h4><blockquote>
+<p>decimal定点数：系统自动根据存储的数据来分配存储空间，每大概9个数就会分配四个字节进行存储，同时小数和整数部分是分开的。</p>
+</blockquote>
+<p>基本语法：<br>decimal(M,D)：M表示在那个长度，最大值不能超过65，D表示小数部分长度，最长不能超过30。</p>
+<pre><code class="sql">-- 示例代码
+# 创建表
+create table my_decimal(
+    f1 float(10,2),
+    f2 decimal(10,2)
+);
+
+# 插入数据
+insert into my_decimal values (12345678.90,12345678.90);
+insert into my_decimal values (99999999.99,99999999.99);
+insert into my_decimal values (99999999.99,99999999.999);  # 定点数如果整数部分进位超出长度也会报错
+</code></pre>
+<p>定点数的应用：如果涉及到钱的时候有可能使用定点数。</p>
+<h2 id="时间日期型"><a href="#时间日期型" class="headerlink" title="时间日期型"></a>时间日期型</h2><h3 id="date"><a href="#date" class="headerlink" title="date"></a>date</h3><blockquote>
+<p>日期类型：系统使用三个字节来存储数据，对应的格式位YYYY-mm-dd，能表示的范围是从1000-01-01到9999-12-12，初始值位0000-00-00</p>
+</blockquote>
+<h3 id="time"><a href="#time" class="headerlink" title="time"></a>time</h3><blockquote>
+<p>时间类型：能够表示某个指定的时间，但是系统同样是提供三个字节来存储，对应的格式为HH:ii:ss，但是MySQL中time类型能够表示时间范围要大得多，能表示从-838:59:59-838:59:59，在MySQL中具体的用处是用来描述时间段。</p>
+</blockquote>
+<h3 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h3><blockquote>
+<p>日期时间类型：就是将前面的date和time合并起来，表示的时间，使用8个字节存储数据，格式为YYYY-mm-dd HH:ii:ss，能表示的区间1000-01-01 00:00:00到9999-12-12 23:59:59，其可以为0值：0000-00-00 00:00:00。</p>
+</blockquote>
+<h3 id="timestamp"><a href="#timestamp" class="headerlink" title="timestamp"></a>timestamp</h3><blockquote>
+<p>时间戳类型：MySQL中的时间戳只是表示从格林威治事件开始，但是其格式依然是YYYY-mm-dd HH:ii:ss。</p>
+</blockquote>
+<h3 id="year"><a href="#year" class="headerlink" title="year"></a>year</h3><blockquote>
+<p>年类型：占用一个字节来保存，能表示1900-2188年，但是year有两种数据插入方式：0-99和四位数的具体年。</p>
+</blockquote>
+<pre><code class="sql">-- 示例代码
+# 创建表
+create table my_date(
+    d1 date,
+    d2 time,
+    d3 datetime,
+    d4 timestamp,
+    d5 year
+);
+
+# 插入数据
+insert into my_date values (&#39;1900-01-01&#39;,&#39;12:12:12&#39;,&#39;1900-01-01 12:12:12&#39;,&#39;1999-01-01 12:12:12&#39;,69);
+# year的特殊性：可以采用两位数的数据插入，也可以四位数的年份插入
+insert into my_date values (&#39;1900-01-01&#39;,&#39;12:12:12&#39;,&#39;1900-01-01 12:12:12&#39;,&#39;1999-01-01 12:12:12&#39;,2020);
+# year进行两位数插入的时候，有一个区间划分，零界点为69和70，当输入69以下，那么系统时间为20+数字，如果是70以上。那么系统时间为19+数字
+insert into my_date values (&#39;1900-01-01&#39;,&#39;12:12:12&#39;,&#39;1900-01-01 12:12:12&#39;,&#39;1999-01-01 12:12:12&#39;,70);
+# timestamp
+update my_date set d1=&#39;2000-01-01&#39; where d5=2069;
+# time类型的特殊性，本质是用来表示时间区间，能表示的范围比较大
+insert into my_date values (&#39;1900-01-01&#39;,&#39;512:12:12&#39;,&#39;1900-01-01 12:12:12&#39;,&#39;1999-01-01 12:12:12&#39;,70);
+# 在进行时间类型录入的时候（time）还可以使用一个简单的日期代替时间，在时间格式之前加一个空格，然后指定一个数字（可以是负数），系统会自动将该数字转换成天数*24小时，再加上后面的时间
+insert into my_date values (&#39;1900-01-01&#39;,&#39;5 12:12:12&#39;,&#39;1900-01-01 12:12:12&#39;,&#39;1999-01-01 12:12:12&#39;,70);
+</code></pre>
+<pre><code class="sql">mysql&gt; desc my_date;
++-------+-----------+------+-----+-------------------+-----------------------------+
+| Field | Type      | Null | Key | Default           | Extra                       |
++-------+-----------+------+-----+-------------------+-----------------------------+
+| d1    | date      | YES  |     | NULL              |                             |
+| d2    | time      | YES  |     | NULL              |                             |
+| d3    | datetime  | YES  |     | NULL              |                             |
+| d4    | timestamp | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+| d5    | year(4)   | YES  |     | NULL              |                             |
++-------+-----------+------+-----+-------------------+-----------------------------+
+5 rows in set (0.00 sec)
+
+## d4一行  时间戳类型不能为空，有默认值，为当前时间戳对应的时间，当数据被更新的时候，这个字段更新为当前最新的时间。
+
+</code></pre>
+<h2 id="字符串型"><a href="#字符串型" class="headerlink" title="字符串型"></a>字符串型</h2><h3 id="char"><a href="#char" class="headerlink" title="char"></a>char</h3><blockquote>
+<p>定长字符：指定长度之后，系统一定会分配指定的空间用于存储数据。</p>
+</blockquote>
+<p>基本语法：char(L):L代表字符数（中文与英文字母一样），L长度为0到255</p>
+<h3 id="varchar"><a href="#varchar" class="headerlink" title="varchar"></a>varchar</h3><blockquote>
+<p>变长字符：指定长度之后，系统会根据实际存储的数据来计算长度，分配合适的长度（数据没有超出长度）</p>
+</blockquote>
+<p>基本语法：varchar(L):L代表字符数，L的长度理论值为0到65535</p>
+<p>因为varchar要记录数据长度（系统根据数据长度自动分配空间），所以每个varchar数据产生后，系统都会在数据后面增加1-2个字节的额外开销，是用来保存数据所占用的空间长度，如果数据本身小于127个字节，额外开销一个字节；如果大于127个，就开销两个字节。</p>
+<p>char和varchar数据存储对比（utf8，一个字符都会占用3个字节）</p>
+<table>
+<thead>
+<tr>
+<th>存储数据</th>
+<th>char(2)</th>
+<th>varchar(2)</th>
+<th>char所占字节</th>
+<th>varchar所占字节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>A</td>
+<td>A</td>
+<td>2x3=6</td>
+<td>1x3+1=4</td>
+</tr>
+<tr>
+<td>AB</td>
+<td>AB</td>
+<td>AB</td>
+<td>2x3=6</td>
+<td>2x3+1=7</td>
+</tr>
+</tbody>
+</table>
+<p>char和varchar的区别       </p>
+<ol>
+<li>char一定会使用指定的空间，varchar是根据数据来定空间</li>
+<li>char的数据查询效率比varchar高，varchar是需要通过后面的记录数来计算</li>
+</ol>
+<p>如果确定数据一定是占指定长度，那么使用char类型<br>如果不确定数据到底有多少，那么使用varchar类型<br>如果数据长度超过255个字符，不论是否固定长度，都会使用text，不再使用char和varchar。</p>
+<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><blockquote>
+<p>文本类型：本质上MySQL提供了两种文本类型<br>text：存储普通的字符文本<br>blob：存储二进制文本（图片，文件），一般都不会使用blob来存储文件本身，通常是使用一个链接来指向对应的文件本身。</p>
+</blockquote>
+<p>text系统中提供的四种text</p>
+<ul>
+<li>tinytext:系统使用一个字节来保存，实际能够存储的数据为2^8+1</li>
+<li><strong>text</strong>:使用两个字节保存，实际存储：2^16+2</li>
+<li>mediumtext:使用三个字节保存，实际存储：2^24+3</li>
+<li>longtext:使用四个字节保存，实际存储为2^32+4</li>
+</ul>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>在选择对应的存储文本的时候，不用刻意去选择text类型，系统会自动根据存储的数据长度来选择合适的文本类型。</li>
+<li>在选择字符存储的时候，如果数据超过255个字符，那么一定选择text存储</li>
+</ol>
+<h3 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h3><blockquote>
+<p>枚举类型：在数据插入之前，先设定几个项，这几个项就是可能最终出现的数据结果。</p>
+</blockquote>
+<p>如果确定某个字段的数据只有那么几个值：如性别，男，女，保密，系统就可以在设定字段的时候规定当前字段只能存放固定的几个值，使用枚举。</p>
+<p>基本语法：enum(数据值1，数据值2,…)<br>系统提供了1到2个字节来存储枚举数据：通过计算enum列举的具体值来选择实际的存储空间，如果数据值列表在255个以内，那么一个字节就够；如果超过255但是小于65535，那么系统采用两个字节保存。</p>
+<p>枚举的意义：</p>
+<ol>
+<li>规范数据本身，限定只能插入规定的数据项</li>
+<li>节省存储空间</li>
+</ol>
+<pre><code class="sql">-- 示例代码
+# 创建表
+create table my_enum(
+    gender enum(&#39;男&#39;,&#39;女&#39;,&#39;保密&#39;)
+);
+
+desc my_enum;
+
+# 插入数据
+insert into my_enum values (&#39;男&#39;);
+insert into my_enum values (&#39;女&#39;);
+insert into my_enum values (&#39;男&#39;);
+
+# enum字段存储的结果是数值
+# 将字段按照数值输出
+select gender + 0 from my_enum;
+
+insert into my_enum values (3);
+</code></pre>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><blockquote>
+<p>集合：是一种将多个数据选项可以同时保存的数据类型，本质是将指定的项按照对应的二进制位来进行控制：1表示该选项被选中，0表示该选项没有被选中</p>
+</blockquote>
+<p>基本语法：set(‘值1’,’值2’,’值3’,…)     </p>
+<p>系统为set提供了多个字节进行保存，但是系统会自动计算来选择具体的存储单元。</p>
+<ul>
+<li>1个字节：set只能由8个选项</li>
+<li>2个字节：set只能有16个选项</li>
+<li>3个字节：set只能有24个选项</li>
+<li>8个字节：set可以表示64个选项</li>
+</ul>
+<p>set和enum一样，最终存储到数据字段中的依然是数字而不是真实的字符串。</p>
+<pre><code class="sql"># 创建表
+create table my_set(
+    hobby set(&#39;篮球&#39;,&#39;足球&#39;,&#39;羽毛球&#39;,&#39;乒乓球&#39;,&#39;网球&#39;,&#39;橄榄球&#39;,&#39;冰球&#39;,&#39;跳高&#39;)
+);
+
+# 插入数据
+insert into my_set values (&#39;篮球,乒乓球,足球&#39;);
+insert into my_set values (&#39;橄榄球,跳高,篮球,乒乓球,足球&#39;);   # 排序顺序为创建表时的顺序
+
+# 查看数据:以数值方式查看
+select hobby + 0 from my_set;
+
+insert into my_set values (255);
+</code></pre>
+<p>set集合的意义：</p>
+<ol>
+<li>规范数据</li>
+<li>节省存储空间</li>
+</ol>
+<ul>
+<li>enum:单选框</li>
+<li>set:复选框</li>
+</ul>
+<h2 id="MySQL记录长度"><a href="#MySQL记录长度" class="headerlink" title="MySQL记录长度"></a>MySQL记录长度</h2><p>在MySQL中，有一项规定，MySQL的记录长度（record==行row）总长度不能超过65535个字节。<br>varchar能够存储的理论值为65535个字符，字符在不同的字符集下不可能占用多个字节。</p>
+<pre><code class="sql"># 创建表(证明varchar在MySQL中能够达到的理论值   utf8和gbk)
+create table my_varchar(
+    name varchar(65535)
+)charset utf8;
+
+# 计算在utf8和gbk下对应的varchar能够存储的长度
+# utf8 65535/3=21845 如果采用varchar存储，需要两个额外的字节来保存长度
+# gbk 65535/2=32767 | 1 如果采用varchar存储，需要额外的2个字节
+
+create table my_utf(
+    name varchar(21844)
+)charset utf8;
+
+create table my_gbk(
+    name varchar(32766)
+)charset gbk;
+</code></pre>
+<h1 id="列属性"><a href="#列属性" class="headerlink" title="列属性"></a>列属性</h1><blockquote>
+<p>列属性又称之为字段属性，在MySQL中一共有6个属性：<strong>null，默认值，列描述，主键，唯一键，自动增长</strong>。</p>
+</blockquote>
+<h2 id="null属性"><a href="#null属性" class="headerlink" title="null属性"></a>null属性</h2><blockquote>
+<p>NULL属性：代表字段为空</p>
+</blockquote>
+<pre><code class="sql">+-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+</code></pre>
+<p>如果对应的值为<strong>YES</strong>表示该字段可以为NULL。</p>
+<p><strong>注意</strong></p>
+<ol>
+<li>在设计表的时候，尽量不要让数据为空。</li>
+<li>MySQL的记录长度为65535个字节，如果一个表中有字段允许为NULL，那么系统就会设计保留一个字节来存储NULL，最终有效存储长度为65534个字节。</li>
+</ol>
+<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><blockquote>
+<p>default：默认值，当字段被设计的时候，如果允许默认条件下，用户不进行数据的插入，那么就可以使用事先准备好的数据来填充，通常填充的是NULL。</p>
+</blockquote>
+<pre><code class="sql"># 创建表
+create table my_default(
+    name varchar(10) NOT NULL,   -- 不能为空
+    age int default 18    -- 表示，如果当前字段在进行数据插入的时候没有提供，那么就使用18
+);
+
+# 测试插入数据
+insert into my_default(name) values(&#39;Tom&#39;);
+
+# default关键字的另外一层使用：显示的告知字段使用默认值，在进行数据插入的时候，对字段值直接使用default
+insert into my_default values (&#39;Jack&#39;,default);
+</code></pre>
+<h2 id="列描述"><a href="#列描述" class="headerlink" title="列描述"></a>列描述</h2><blockquote>
+<p>列描述：comment，是专门用于开发人员进行维护的一个注释说明。</p>
+</blockquote>
+<p>基本语法：comment ‘字段描述’;</p>
+<pre><code class="sql"># 创建表，增加字段描述
+create table my_comment(
+    name varchar(10) not null comment &#39;当前是用户名，不能为空。&#39;,
+    pass varchar(50) not null comment &#39;密码不能为空&#39;
+);
+
+# 查看效果(查看表创建语句)
+show create table my_comment;
+</code></pre>
+<h2 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h2><blockquote>
+<p>顾名思义，主要的键，primarykey，在一张表中，有且只有一个字段，里面的值具有唯一性。</p>
+</blockquote>
+<h3 id="创建主键"><a href="#创建主键" class="headerlink" title="创建主键"></a>创建主键</h3><h4 id="随表主键"><a href="#随表主键" class="headerlink" title="随表主键"></a>随表主键</h4><p>系统提供了两种增加主键的方式</p>
+<ol>
+<li>方案1：直接在需要当作主键的字段之后，增加primarykey属性来确定主键</li>
+<li>方案2：在所有字段之后增加primarykey选项：primarykey(字段信息)</li>
+</ol>
+<h4 id="表后增加"><a href="#表后增加" class="headerlink" title="表后增加"></a>表后增加</h4><p>基本语法：<code>alter table 表名 add primary key(字段);</code></p>
+<h3 id="查看主键"><a href="#查看主键" class="headerlink" title="查看主键"></a>查看主键</h3><p>方案1：查看表结构。<code>desc 表名</code><br>方案2：查看表的创建语句。<code>show create table 表名</code></p>
+<h3 id="删除主键"><a href="#删除主键" class="headerlink" title="删除主键"></a>删除主键</h3><p>基本语法：<code>alter table 表名 drop primary key</code></p>
+<pre><code class="sql"># 随表主键
+# 方案1
+# 创建表，在字段后增加主键属性
+create table my_pri1(
+    username varchar(10) primary key
+);
+
+# 方案2
+create table my_pri2(
+    username varchar(10),
+    primary key(username)
+);
+
+# 表后增加
+create table my_pri3(
+    username varchar(10)
+);
+
+# 增加主键
+alter table my_pri3 add primary key(username);
+
+# 删除主键
+alter table my_pri3 drop primary key;
+</code></pre>
+<h3 id="复合主键"><a href="#复合主键" class="headerlink" title="复合主键"></a>复合主键</h3><p>案例：有一张学生选修课表，一个学生可以选修多个选修课，一个选修课也可以由多个学生来选，但是一个学生在一个选修课中只有一个成绩。</p>
+<pre><code class="sql"># 创建表
+create table my_score(
+    student_no char(10),
+    course_no char(10),
+    score tinyint not null,
+    primary key (student_no,course_no)
+);
+</code></pre>
+<h3 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h3><p>主键一旦增加，那么对对应的字段有数据要求。       </p>
+<ol>
+<li>当前字段对应的数据不能为空</li>
+<li>当前字段对应的数据不能有任何重复</li>
+</ol>
+<pre><code class="sql">-- 以上面的my_score表为例
+# 创建表
+create table my_score(
+    student_no char(10),
+    course_no char(10),
+    score tinyint not null,
+    primary key (student_no,course_no)
+);
+
+# 主键约束
+insert into my_score values (&#39;000000001&#39;,&#39;course001&#39;,&#39;100&#39;);
+insert into my_score values (&#39;000000002&#39;,&#39;course001&#39;,&#39;90&#39;);
+insert into my_score values (&#39;000000001&#39;,&#39;course002&#39;,&#39;95&#39;);
+insert into my_score values (&#39;000000002&#39;,&#39;course001&#39;,&#39;95&#39;);
+</code></pre>
+<h2 id="主键分类"><a href="#主键分类" class="headerlink" title="主键分类"></a>主键分类</h2><blockquote>
+<p>主键分类采用的是主键所对应的字段的业务意义分类。<br>业务主键：主键所在的字段具有业务意义（学生ID，课程ID）<br>逻辑主键：自然增长的整型（应用广泛）</p>
+</blockquote>
+<h2 id="自动增长"><a href="#自动增长" class="headerlink" title="自动增长"></a>自动增长</h2><blockquote>
+<p>自动增长：auto_increment，当给定某个字段该属性之后，该列的数据在没有提供确定数据的时候，系统会根据之前已经存在的数据进行自动增加后，填充数据。</p>
+</blockquote>
+<p>通常自动增长用于逻辑主键。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>自动增长的原理：</p>
+<ol>
+<li>在系统中有维护一组数据，用来保存当前使用了自动增长属性的字段，记住当前对应的数据值，再给定一个指定的步长。</li>
+<li>当用户进行数据插入的时候，如果没有给定值，系统在原始值上再加上步长变成新的数据。</li>
+<li>自动增长的触发，给定属性的字段没有提供值。</li>
+<li>自动只适用于数值。</li>
+</ol>
+<h3 id="使用自动增长"><a href="#使用自动增长" class="headerlink" title="使用自动增长"></a>使用自动增长</h3><p>基本语法：在字段之后增加一个属性<code>auto_increment</code></p>
+<pre><code class="sql"># 创建一个带自动增长的表
+create table my_auto(
+    id int primary key auto_increment,
+    name varchar(10) not null comment &#39;用户名&#39;,
+    pass varchar(50) not null comment &#39;密码&#39;
+);
+
+# 插入数据，触发自动增长，不能给定具体值
+insert into my_auto values (null,&#39;Tom&#39;,&#39;123456&#39;);
+</code></pre>
+<h3 id="修改自动增长"><a href="#修改自动增长" class="headerlink" title="修改自动增长"></a>修改自动增长</h3><ol>
+<li>查看自增长：自增长一旦触发使用之后，会自动的在表选项中增加一个选项（一张表最多只能拥有一个自增长）。</li>
+</ol>
+<pre><code class="sql">-- 实例
++---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table   | Create Table                                                                                                                                                                                                                                                                                                           |
++---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| my_auto | CREATE TABLE `my_auto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT &#39;用户名&#39;,
+  `pass` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT &#39;密码&#39;,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci      |
++---------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<ol start="2">
+<li>表选项可以通过修改表结构来实现。</li>
+</ol>
+<pre><code class="sql">alter table 表名 auto_increment = 值;
+</code></pre>
+<h3 id="删除自动增长"><a href="#删除自动增长" class="headerlink" title="删除自动增长"></a>删除自动增长</h3><p>删除自增长，就是在字段属性之后不再保留auto_increment，当用户修改自增长所在字段时，如果没有看到auto_increment属性，系统送会自动清除该自增长。</p>
+<pre><code class="sql">-- 实例代码
+alter table my_auto modify id int;
+# 切记不要再次增加primary key
+</code></pre>
+<h3 id="初始设置"><a href="#初始设置" class="headerlink" title="初始设置"></a>初始设置</h3><blockquote>
+<p>在系统中有一组变量维护自增长的初始值和步长</p>
+</blockquote>
+<pre><code class="sql">show variables like &#39;auto_increment%&#39;;
+</code></pre>
+<pre><code class="sql">+--------------------------+-------+
+| Variable_name            | Value |
++--------------------------+-------+
+| auto_increment_increment | 1     |
+| auto_increment_offset    | 1     |
++--------------------------+-------+
+2 rows in set (0.00 sec)
+
+
+-- auto_increment_increment 步长
+-- auto_increment_offset 初始值
+</code></pre>
+<h3 id="细节问题"><a href="#细节问题" class="headerlink" title="细节问题"></a>细节问题</h3><ol>
+<li>一张表只有一个自增长，自增长会上升到表选项中</li>
+<li>如果数据插入中没有触发自增长（给定了数据），那么自增长不会表现</li>
+<li>自增长在修改的时候，值可以较大，但是不能比当前已有的自增长的字段值小</li>
+</ol>
+<h2 id="唯一键"><a href="#唯一键" class="headerlink" title="唯一键"></a>唯一键</h2><blockquote>
+<p>唯一键：unique key，用来保证对应的字段中的数据唯一的。<br>主键也可以用来保证字段数据唯一性，但是一张表只有一个主键</p>
+<ol>
+<li>唯一键在一张表中可以有多个</li>
+<li>唯一键允许字段数据为NULL，NULL可以有多个（NULL不参与比较）</li>
+</ol>
+</blockquote>
+<h3 id="创建唯一键"><a href="#创建唯一键" class="headerlink" title="创建唯一键"></a>创建唯一键</h3><p>创建唯一键与创建主键非常类似。        </p>
+<ol>
+<li>直接在表字段之后增加唯一键标识符：unique[key]</li>
+<li>在所有的字段之后使用unique key(字段列表)</li>
+<li>在创建完表之后也可以增加唯一键。<code>alter table 表名 add unique key(字段列表);</code></li>
+</ol>
+<pre><code class="sql"># 创建表，唯一键
+create table my_unique1(
+    id int primary key auto_increment,
+    usernmae varchar(10) unique
+);
+
+create table my_unique2(
+    id int primary key auto_increment,
+    usernmae varchar(10),
+    unique key (usernmae)
+);
+
+create table my_unique3(
+   id int primary key auto_increment,
+   usernmae varchar(10)
+);
+alter table my_unique3 add unique key (usernmae);
+</code></pre>
+<h3 id="查看唯一键"><a href="#查看唯一键" class="headerlink" title="查看唯一键"></a>查看唯一键</h3><blockquote>
+<p>唯一键是属性，可以通过查看表结构来实现。</p>
+</blockquote>
+<pre><code class="sql">mysql&gt; desc my_unique1;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| usernmae | varchar(10) | YES  | UNI | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+</code></pre>
+<p>唯一键的效果：在不为空的情况下不允许重复</p>
+<pre><code class="sql">-- 实例
+# 唯一键效果
+insert into my_unique1 values (null,default);
+insert into my_unique1 values (null,default);
+insert into my_unique1 values (null,default);
+
+insert into my_unique1 values (null,&#39;army&#39;);
+insert into my_unique1 values (null,&#39;army&#39;);  # 非空不允许重复
+</code></pre>
+<p>在查看表创建语句的时候，会看到与主键不同的一点，多出一个“名字”</p>
+<pre><code class="sql">+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table      | Create Table                                                                                                                                                                                                                                                                |
++------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| my_unique1 | CREATE TABLE `my_unique1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usernmae` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `usernmae` (`usernmae`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci |
++------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+-- UNIQUE KEY `usernmae` (`usernmae`)  中的username是系统为唯一键自动创建一个名字（默认是字段名）
+</code></pre>
+<h3 id="删除唯一键"><a href="#删除唯一键" class="headerlink" title="删除唯一键"></a>删除唯一键</h3><p>一个表中允许存在多个唯一键，删除的基本语法与主键不一样。</p>
+<p>删除唯一键的基本语法：</p>
+<pre><code class="sql">alter table 表名 drop index 唯一键名字（上面UNIQUE KEY `usernmae` (`usernmae`)  的username）
+</code></pre>
+<p>index关键字：索引，唯一键是索引的一种（提升查询效率）</p>
+<p><strong>修改唯一键：先删除后增加</strong></p>
+<h3 id="复合唯一键"><a href="#复合唯一键" class="headerlink" title="复合唯一键"></a>复合唯一键</h3><blockquote>
+<p>唯一键与主键一样可以使用多个字段来共同保证唯一性。一般主键都是单一字段（逻辑主键），而其他需要唯一性的内容都是由唯一键来处理。</p>
+</blockquote>
+<h1 id="表关系"><a href="#表关系" class="headerlink" title="表关系"></a>表关系</h1><blockquote>
+<p>表关系：表与表之间（实体）有什么样的关系，每种关系应该如何设计表结构。</p>
+</blockquote>
+<h2 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h2><blockquote>
+<p>一对一：一张表中的一条记录与另外一张表中最多有一条明确的关系，通常，此设计方案保证两张表中使用同样的主键即可。</p>
+</blockquote>
+<p><strong>示例</strong></p>
+<p>学生表</p>
+<table>
+<thead>
+<tr>
+<th>学生ID（主键）</th>
+<th>姓名</th>
+<th>年龄</th>
+<th>性别</th>
+<th>籍贯</th>
+<th>婚否</th>
+<th>住址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>表的使用过程中，常用的信息会经常去查询，而不常用的信息会偶尔才会用到</p>
+<p>解决方案：将两张表拆分，常见放一张表，不常见的放一张表。</p>
+<p>常见表</p>
+<table>
+<thead>
+<tr>
+<th>学生ID（主键）</th>
+<th>姓名</th>
+<th>年龄</th>
+<th>性别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>不常用表</p>
+<table>
+<thead>
+<tr>
+<th>学生ID（主键）</th>
+<th>籍贯</th>
+<th>婚否</th>
+<th>住址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h2><blockquote>
+<p>一对多，通常也叫做多对一的关系。通常一对多的关系设计的方案，在“多”关系的表中去维护一个字段，这个字段是“一”关系的主键。</p>
+</blockquote>
+<p><strong>实例</strong></p>
+<p>母亲表</p>
+<table>
+<thead>
+<tr>
+<th>母亲ID（主键）</th>
+<th>姓名</th>
+<th>年龄</th>
+<th>身高</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>孩子表</p>
+<table>
+<thead>
+<tr>
+<th>孩子ID（主键）</th>
+<th>姓名</th>
+<th>年龄</th>
+<th>身高</th>
+<th>母亲ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K1</td>
+<td></td>
+<td></td>
+<td></td>
+<td>M1</td>
+</tr>
+<tr>
+<td>K2</td>
+<td></td>
+<td></td>
+<td></td>
+<td>M2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h2><blockquote>
+<p>多对多，一张表中的一条记录在另外一张表中可以匹配到多条记录，反过来也一样。<br>多对多的关系如果按照多对一的关系维护，就会出现一个字段中有多个其他表的主键，在访问的时候就会带来不便。<br>既然通过两张表自己增加字段解决不了问题，那么就通过第三张表来解决 </p>
+</blockquote>
+<p><strong>实例</strong></p>
+<p>师生关系</p>
+<ol>
+<li>一个老师交过多个班级的学生</li>
+<li>一个学生听过多个老师讲的课</li>
+</ol>
+<p>解决方案：</p>
+<p><img src="https://live.staticflickr.com/65535/48677396686_07c2cd09d6_b.jpg" alt></p>
+<p>多对多的解决方案：增加一个中间表，让中间表与对应的其他表形成两个多对一的关系，多对一的解决方案是在“多”表中增加“一”表对应的主键字段。</p>
+<h1 id="高级数据操作"><a href="#高级数据操作" class="headerlink" title="高级数据操作"></a>高级数据操作</h1><h2 id="新增数据"><a href="#新增数据" class="headerlink" title="新增数据"></a>新增数据</h2><h3 id="多数据插入"><a href="#多数据插入" class="headerlink" title="多数据插入"></a>多数据插入</h3><blockquote>
+<p>只要写一次insert指令，但是可以直接插入多条记录。</p>
+</blockquote>
+<p>基本语法：</p>
+<pre><code class="sql">insert into 表名 [(字段列表)] values(值列表),(值列表)...;
+</code></pre>
+<pre><code class="sql">-- 示例代码
+# 创建表(多数据插入)
+create table my_insert(
+    name varchar(10)
+);
+
+# 多数据插入
+insert into my_insert values (&#39;张三&#39;),(&#39;李四&#39;),(&#39;王五&#39;);
+
+</code></pre>
+<h3 id="主键冲突"><a href="#主键冲突" class="headerlink" title="主键冲突"></a>主键冲突</h3><blockquote>
+<p>主键冲突：在有的表中，使用的是业务主键（字段有业务含义），但是往往在数据插入的时候，又不确定数据表中是否已经存在对应的主键。</p>
+</blockquote>
+<p>主键冲突的解决方案：         </p>
+<ol>
+<li>主键冲突更新：类似插入数据语法，如果插入的过程中主键冲突，那么采用更新方法。 </li>
+</ol>
+<pre><code class="sql">insert into 表名 [(字段列表)] values (值列表) on duplicate key update 字段 = 新值;
+</code></pre>
+<ol start="2">
+<li>主键冲突替换：当主键冲突之后，干掉原来的数据，重新插入进去。</li>
+</ol>
+<pre><code class="sql">replace into 表名 values [(字段列表)](值列表);
+</code></pre>
+<pre><code class="sql"># 创建表（主键冲突）
+create table my_student(
+    stu_id varchar(10) primary key comment &#39;主键，学生ID&#39;,
+    stu_name varchar(10) not null comment &#39;学生姓名&#39;
+);
+# 插入数据
+insert into my_student
+values (&#39;stu0001&#39;, &#39;张三&#39;),
+       (&#39;stu0002&#39;, &#39;张四&#39;),
+       (&#39;stu0003&#39;, &#39;张五&#39;),
+       (&#39;stu0004&#39;, &#39;张六&#39;);
+
+insert into my_student values (&#39;stu0004&#39;,&#39;小明&#39;);   # 结果无法插入
+
+# 冲突更新
+insert into my_student values (&#39;stu0004&#39;,&#39;小明&#39;) on duplicate key update stu_name =&#39;小明&#39;;
+
+replace into my_student values (&#39;stu0001&#39;,&#39;小张&#39;);
+</code></pre>
+<h3 id="蠕虫复制"><a href="#蠕虫复制" class="headerlink" title="蠕虫复制"></a>蠕虫复制</h3><blockquote>
+<p>蠕虫复制：一分为二，成倍的增加。从已有的数据中获取数据，并且将获取到的数据插入到数据表中。</p>
+</blockquote>
+<p>基本语法：</p>
+<pre><code class="sql">insert into 表名 [(字段列表)] select */字段列表 from 表;
+</code></pre>
+<pre><code class="sql"># 创建表（蠕虫复制）
+create table my_simple(
+    name char(1) not null
+);
+
+# 插入数据
+insert into my_simple values (&#39;a&#39;),(&#39;b&#39;),(&#39;c&#39;),(&#39;d&#39;);
+
+# 蠕虫复制
+insert into my_simple (name) select name from my_simple;
+</code></pre>
+<p><strong>注意</strong></p>
+<ol>
+<li>蠕虫复制的确通常是重复数据，没有太大也无意义，可以在短期内快速增加表的数据量，从而可以测试表的压力，还可以通过大量数据来测试表的效率（索引）</li>
+<li>蠕虫复制虽好，但是要注意主键冲突</li>
+</ol>
+<h2 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h2><ol>
+<li>在更新数据的时候，特别注意，通常一定是跟随条件更新。</li>
+</ol>
+<pre><code class="sql">update 表名 set 字段名 = 新值 where 判断条件;
+</code></pre>
+<ol start="2">
+<li>如果没有条件，是全表更新数据。但是可以使用limit来显示更新的数量</li>
+</ol>
+<pre><code class="sql">update 表名 set 字段名 = 新值 [where 判断条件] limit 数量;
+
+-- 示例代码
+# 更新数据
+update my_simple set name=&#39;e&#39; where name=&#39;a&#39; limit 2;
+</code></pre>
+<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><ol>
+<li>删除数据的时候尽量不要全部删除，应该使用where进行判定。</li>
+<li>删除数据的时候可以使用limit来限制要删除的具体数量</li>
+</ol>
+<p><strong>delete删除数据的时候无法重置auto_increment</strong></p>
+<p>MySQL有一个能够重置表选项中的自增长的语法。</p>
+<pre><code class="sql">truncate 表名;
+</code></pre>
+<pre><code class="sql">-- 示例代码
+select * from my_auto;
+# 删除整个表的数据
+delete from my_auto;
+
+# 插入数据
+insert into my_auto values (null,&#39;ceshi&#39;,&#39;123456&#39;);  # auto_increment是无法进行重置的
+
+# 重置表选项中的自增长
+truncate my_auto;
+# 插入数据
+insert into my_auto values (null,&#39;ceshi&#39;,&#39;123456&#39;);  # auto_increment是无法进行重置的
+</code></pre>
+<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><blockquote>
+<p>完整的查询指令：<code>select select选项 字段列表 from 数据源 where 条件 group by 分组 having 条件 order by 排序 limit 限制;</code></p>
+</blockquote>
+<ul>
+<li>select选项：系统该如何对待查询得到的数据<ul>
+<li>all：默认的，表示保存所有的记录</li>
+<li>distinct：去重，去除重复的记录，只保留一条（所有的字段都相同）</li>
+</ul>
+</li>
+</ul>
+<pre><code class="sql"># select选项
+select all * from my_simple;  -- select *
+
+select distinct * from my_simple;
+</code></pre>
+<ul>
+<li>字段列表：有的时候需要从多张表获取数据，在获取数据的时候，可能存在不同表中有同名的字段，需要将同名的字段命名成不同名的（别名）。基本语法如下：</li>
+</ul>
+<pre><code class="sql">字段名 [as] 别名
+</code></pre>
+<pre><code class="sql"># 字段别名
+select distinct name as name1,name name2 from my_simple;
+</code></pre>
+<h3 id="from数据源"><a href="#from数据源" class="headerlink" title="from数据源"></a>from数据源</h3><blockquote>
+<p>from是为前面的查询提供数据，数据源只要是一个符合二维表结构的数据即可。</p>
+</blockquote>
+<h4 id="单表数据"><a href="#单表数据" class="headerlink" title="单表数据"></a>单表数据</h4><p><code>from 表名</code></p>
+<h4 id="多表数据"><a href="#多表数据" class="headerlink" title="多表数据"></a>多表数据</h4><p>从多张表中获取数据，基本语法：<code>from 表1，表2...</code>    </p>
+<pre><code class="sql">select * from my_int,my_set;
+</code></pre>
+<p>上面的结果为：</p>
+<pre><code class="sql">+-------+-------+-------+-------+-------+--------+---------+------------+------------------------------------------------------------------+
+| int_8 | int_7 | int_6 | int_1 | int_2 | int_3  | int_4   | int_5      | hobby                                                            |
++-------+-------+-------+-------+-------+--------+---------+------------+------------------------------------------------------------------+
+|  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 | 篮球,足球,乒乓球                                                 |
+|  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|  NULL |  NULL |  NULL |  -128 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球                                                 |
+|  NULL |  NULL |  NULL |  -128 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |  NULL |  NULL |  -128 |   255 |    255 |     255 |        255 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|  NULL |  NULL |  NULL |   127 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球                                                 |
+|  NULL |  NULL |  NULL |   127 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |  NULL |  NULL |   127 |   255 |    255 |     255 |        255 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|  NULL |  NULL |   255 |   100 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球                                                 |
+|  NULL |  NULL |   255 |   100 |   255 |    255 |     255 |        255 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |  NULL |   255 |   100 |   255 |    255 |     255 |        255 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|  NULL |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球                                                 |
+|  NULL |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|  NULL |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|   100 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球                                                 |
+|   100 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|   100 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
+|    01 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球                                                 |
+|    01 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,乒乓球,橄榄球,跳高                                     |
+|    01 |   001 |     1 |     1 |     1 |      1 |       1 |          1 | 篮球,足球,羽毛球,乒乓球,网球,橄榄球,冰球,跳高                    |
++-------+-------+-------+-------+-------+--------+---------+------------+------------------------------------------------------------------+
+21 rows in set (0.00 sec)
+</code></pre>
+<p>结果：两张表的记录数相乘，字段数拼接。<br>本质：从第一张表去除一条记录。去拼凑第二张表中的所有记录，保留所有记录。<br>在数学上有一个专业的说法：笛卡尔积，这个结果除了给数据库造成压力，没有其他意义。应该避免出现笛卡尔积。</p>
+<h4 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h4><p>from后面跟的数据不是一个实体表，而是一个从表中查询出来得到的二维结果表（子查询）。</p>
+<p>基本语法：<code>from (select 字段列表 from 表) as 别名;</code></p>
+<pre><code class="sql">
+# 动态数据
+select * from (select int_1,int_8 from my_int) as int_my;
+</code></pre>
+<h3 id="where字句"><a href="#where字句" class="headerlink" title="where字句"></a>where字句</h3><blockquote>
+<p>where子句：用来从数据表获取数据的时候，然后进行条件筛选。<br>数据获取原理：针对表去对应的磁盘出获取所有的记录（一条条），where的作用就是在拿到一条结果就开始进行判断，判断是否符合条件，如果符合就保存下来，如过上不符合直接舍弃（不放到内存中）<br>where是通过运算符进行结果比较来判断数据。        </p>
+</blockquote>
+<h3 id="group-by-子句"><a href="#group-by-子句" class="headerlink" title="group by 子句"></a>group by 子句</h3><blockquote>
+<p>group by表示分组的含义，根据指定的字段，将数据进行分组，分组的目标是为了统计。</p>
+</blockquote>
+<h4 id="分组统计"><a href="#分组统计" class="headerlink" title="分组统计"></a>分组统计</h4><p>基本语法：<code>group by 字段名</code></p>
+<pre><code class="sql"># 分组统计
+alter table my_student add class_id int;
+# 插入数据处理
+# 进行分组
+select * from my_student group by class_id;  -- 根据班级id进行分组
+</code></pre>
+<p><strong>group by 是为了分组后进行数据统计，如果只是想看数据显示，那么group by没有什么含义，group by将数据按照指定的字段分组之后，只会保留每组的第一条记录。</strong></p>
+<p>利用一些统计函数：       </p>
+<ul>
+<li><code>count()</code>：统计每组中的数量，如果统计的目标是字段，那么不统计为空NULL字段，如果为*，那么代表统计记录。</li>
+<li><code>avg()</code>：求平均值</li>
+<li><code>sum()</code>：求和</li>
+<li><code>max()</code>：求最大值</li>
+<li><code>min()</code>：求最小值      </li>
+<li><code>group_concat()</code>：为了将分组中指定的字段进行合并（字符串拼接）</li>
+</ul>
+<pre><code class="sql"># 使用聚合函数
+alter table my_student add stu_age tinyint unsigned;
+alter table my_student add stu_height tinyint unsigned;
+# 自行处理插入数据
+# 按照班级统计每班人数，最大年龄，最矮身高，平均年龄
+select class_id,count(*),max(stu_age),min(stu_height),avg(stu_age) from my_student group by class_id;
+select class_id,group_concat(stu_name),count(*),max(stu_age),min(stu_height),avg(stu_age) from my_student group by class_id;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+----------+------------------------+----------+--------------+-----------------+--------------+
+| class_id | group_concat(stu_name) | count(*) | max(stu_age) | min(stu_height) | avg(stu_age) |
++----------+------------------------+----------+--------------+-----------------+--------------+
+|        1 | 小张,张四              |        2 |           28 |             165 |      23.0000 |
+|        2 | 张五,小明              |        2 |           25 |             187 |      23.5000 |
++----------+------------------------+----------+--------------+-----------------+--------------+
+2 rows in set (0.00 sec)
+</code></pre>
+<h4 id="多分组"><a href="#多分组" class="headerlink" title="多分组"></a>多分组</h4><blockquote>
+<p>将数据按照某个字段进行分组之后，对已经分组的数据进行再次分组。</p>
+</blockquote>
+<p>基本语法：<code>group by 字段1,字段2;  //先按照字段1进行排序，之后将结果在按照字段2进行排序，以此类推</code></p>
+<pre><code class="sql"># 多分组
+alter table my_student add gender enum(&#39;男&#39;,&#39;女&#39;,&#39;保密&#39;);
+# 插入数据自行处理
+# 进行多分组
+select class_id,gender,count(*),group_concat(stu_name) from my_student group by class_id, gender;
+</code></pre>
+<p>上面结果为：</p>
+<pre><code class="sql">+----------+--------+----------+------------------------+
+| class_id | gender | count(*) | group_concat(stu_name) |
++----------+--------+----------+------------------------+
+|        1 | 男     |        1 | 小张                   |
+|        1 | 女     |        2 | 张四,小猪              |
+|        2 | 男     |        2 | 张五,小狗              |
+|        2 | 女     |        1 | 小明                   |
++----------+--------+----------+------------------------+
+4 rows in set (0.00 sec)
+</code></pre>
+<h4 id="分组排序"><a href="#分组排序" class="headerlink" title="分组排序"></a>分组排序</h4><blockquote>
+<p>MySQL中，分钟默认有排序的功能，按照分组字段进行排序，默认是升序。</p>
+</blockquote>
+<p>基本语法：<code>group by 字段 [asc|desc], 字段 [asc|desc]</code></p>
+<h4 id="回溯统计"><a href="#回溯统计" class="headerlink" title="回溯统计"></a>回溯统计</h4><blockquote>
+<p>当分组进行多分组之后，往上统计的过程中，需要进行层层上报，将这种层层上报统计的过程称之为回溯统计，每一次分组向上统计的过程都会产生一次新的统计数据，而且当前数据对应的分组字段为NULL。</p>
+</blockquote>
+<p>基本语法：<code>group by 字段 [asc|desc] with rollup;</code></p>
+<pre><code class="sql">select class_id,count(*) from my_student group by class_id with rollup;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+----------+----------+
+| class_id | count(*) |
++----------+----------+
+|        1 |        3 |
+|        2 |        3 |
+|     NULL |        6 |
++----------+----------+
+3 rows in set (0.00 sec)
+</code></pre>
+<pre><code class="sql">select class_id,gender,count(*) from my_student group by class_id,gender with rollup;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+----------+--------+----------+
+| class_id | gender | count(*) |
++----------+--------+----------+
+|        1 | 男     |        1 |
+|        1 | 女     |        2 |
+|        1 | NULL   |        3 |
+|        2 | 男     |        2 |
+|        2 | 女     |        1 |
+|        2 | NULL   |        3 |
+|     NULL | NULL   |        6 |
++----------+--------+----------+
+7 rows in set (0.00 sec)
+</code></pre>
+<h3 id="having子句"><a href="#having子句" class="headerlink" title="having子句"></a>having子句</h3><blockquote>
+<p>having的本质和where一样，是用来进行数据条件筛选。</p>
+<ol>
+<li>having是在group by子句之后，可以针对分组数据进行统计筛选，但是where不行（<strong>having在group by分组之后，可以使用聚合函数或者字段别名，where是从表中取出数据，别名是在数据进入到内存才有的</strong>）</li>
+</ol>
+</blockquote>
+<pre><code class="sql"># having子句
+# 插入数据自行处理
+# 查询班级人数大于等于4个以上的班级
+select class_id,count(*) as number from my_student group by class_id having number &gt;= 4;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+----------+--------+
+| class_id | number |
++----------+--------+
+|        1 |      4 |
++----------+--------+
+1 row in set (0.06 sec)
+</code></pre>
+<p><strong>强调：having是在group by之后，group by 是在where之后，where的时候表示将数据从磁盘拿到内存，where之后的所有操作都是内存操作。</strong></p>
+<h3 id="order-by-子句"><a href="#order-by-子句" class="headerlink" title="order by 子句"></a>order by 子句</h3><blockquote>
+<p>order by排序：根据校对规则对数据进行排序。</p>
+</blockquote>
+<p>基本语法：<code>order by字段 [asc|desc];    //asc升序,默认的</code></p>
+<pre><code class="sql"># order by 子句
+# 班级学生按照身高排序
+select * from my_student order by stu_height asc ;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
++---------+----------+----------+---------+------------+--------+
+7 rows in set (0.00 sec)
+</code></pre>
+<p>order by 也可以向group by 一样进行多字段排序，先按照第一个字段进行排序，然后再按照第二个字段进行排序。</p>
+<p>基本语法：<code>order by 字段1 规则,字段2 规则;</code></p>
+<p>多字段排序：</p>
+<pre><code class="sql"># 按照班级、身高排序
+select * from my_student order by class_id desc ,stu_height;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
++---------+----------+----------+---------+------------+--------+
+7 rows in set (0.00 sec)
+</code></pre>
+<h3 id="limit-子句"><a href="#limit-子句" class="headerlink" title="limit 子句"></a>limit 子句</h3><blockquote>
+<p>limit限制子句：主要是用来限制记录数量获取。</p>
+</blockquote>
+<h4 id="记录数据限制"><a href="#记录数据限制" class="headerlink" title="记录数据限制"></a>记录数据限制</h4><blockquote>
+<p>纯粹的限制获取的数量：从第一条到指定的数量</p>
+</blockquote>
+<p>基本语法：<code>limit 数量;</code></p>
+<pre><code class="sql"># limit 子句
+select * from my_student limit 2;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
++---------+----------+----------+---------+------------+--------+
+2 rows in set (0.00 sec)
+</code></pre>
+<p>limit通常在查询的时候如果限定为一条记录的时候，使用的比较多，有时候获取多条记录并不能解决业务问题，但是会增加服务器的压力。</p>
+<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><blockquote>
+<p>利用limit来限制获取指定区间的数据。</p>
+</blockquote>
+<p>基本语法：<code></code>limit offset,length;  //offset 偏移量,从哪里开始，length，就是具体 的获取多少条记录`</p>
+<p>如：MySQL中记录的数量从0开始，<code>limit 0,2;  //表示获取前两条数据</code></p>
+<pre><code class="sql">mysql&gt; select * from my_student limit 0,2;
++---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
++---------+----------+----------+---------+------------+--------+
+2 rows in set (0.00 sec)
+
+mysql&gt; select * from my_student limit 2,2;
++---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
++---------+----------+----------+---------+------------+--------+
+2 rows in set (0.00 sec)
+</code></pre>
+<p><strong>注意：limit后面的length表示最多获取对应数量，但是如果数量不够，系统不会强求</strong></p>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>参考10.4.3节。     </p>
+<ul>
+<li><code>count()</code>：统计每组中的数量，如果统计的目标是字段，那么不统计为空NULL字段，如果为*，那么代表统计记录。</li>
+<li><code>avg()</code>：求平均值</li>
+<li><code>sum()</code>：求和</li>
+<li><code>max()</code>：求最大值</li>
+<li><code>min()</code>：求最小值</li>
+</ul>
+<h2 id="查询中的运算符"><a href="#查询中的运算符" class="headerlink" title="查询中的运算符"></a>查询中的运算符</h2><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p><code>+      -       *        /        %</code></p>
+<p>基本算数运算：通常不在条件中使用，而是用于结果运算（select 字段中）</p>
+<pre><code class="sql"># 创建表
+create table ysf1(
+    int_1 int,
+    int_2 int,
+    int_3 int,
+    int_4 int
+);
+
+insert into ysf1 values (100,-100,0,default);
+
+# 算术运算
+select int_1+int_2,int_1-int_2,int_1*int_2,int_1/int_2,int_2/int_3,int_2%2,int_4%5 from ysf1;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+-------------+-------------+-------------+-------------+-------------+---------+---------+
+| int_1+int_2 | int_1-int_2 | int_1*int_2 | int_1/int_2 | int_2/int_3 | int_2%2 | int_4%5 |
++-------------+-------------+-------------+-------------+-------------+---------+---------+
+|           0 |         200 |      -10000 |     -1.0000 |        NULL |       0 |    NULL |
++-------------+-------------+-------------+-------------+-------------+---------+---------+
+1 row in set (0.00 sec)
+
+</code></pre>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p><code>&gt;     &gt;=      &lt;     &lt;=      =       &lt;&gt;</code></p>
+<p>通常是用来在条件中进行限定结果。</p>
+<ul>
+<li><code>=</code>：在MySQL中没有对应<code>==</code>比较符号，就是使用<code>=</code>来进行相等判断</li>
+<li><code>&lt;=&gt;</code>：相等比较</li>
+</ul>
+<pre><code class="sql"># 比较运算符
+select * from my_student where stu_age&gt;=20;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+5 rows in set (0.00 sec)
+</code></pre>
+<p>特殊应用：就是在字段中进行比较运算。</p>
+<pre><code class="sql"># MySQL中没有规定select必须有数据表
+select &#39;1&#39; &lt;=&gt; 1,0.02 &lt;=&gt; 0,0.02 &lt;&gt; 0;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+-----------+------------+-----------+
+| &#39;1&#39; &lt;=&gt; 1 | 0.02 &lt;=&gt; 0 | 0.02 &lt;&gt; 0 |
++-----------+------------+-----------+
+|         1 |          0 |         1 |
++-----------+------------+-----------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>在条件判断的时候，还有对应的比较运算符，计算区间。<code>between 条件1 and 条件2</code>。</p>
+<pre><code class="sql"># 查找年龄区间
+select * from my_student where stu_age between 20 and 30;
+</code></pre>
+<p>结果为：    </p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+5 rows in set (0.00 sec)
+</code></pre>
+<p>between中条件1必须小于条件2，反过来不可以。</p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><code>and         or        not</code></p>
+<ul>
+<li><code>and</code>：逻辑与</li>
+</ul>
+<pre><code class="sql"># 逻辑运算符
+# 与
+select * from my_student where stu_age &gt;= 20 and stu_age &lt;= 30;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+5 rows in set (0.00 sec)
+</code></pre>
+<ul>
+<li><code>or</code>：逻辑或</li>
+</ul>
+<pre><code class="sql"># 或
+# 查找身高高于170的或者年龄大于20岁的学生
+select * from my_student where stu_height &gt;= 170 or stu_age &gt;= 20;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+7 rows in set (0.00 sec)
+</code></pre>
+<ul>
+<li><code>not</code>：逻辑非</li>
+</ul>
+<h3 id="in运算符"><a href="#in运算符" class="headerlink" title="in运算符"></a>in运算符</h3><blockquote>
+<p>in：在什么里面，是用来替代<code>=</code>，当结果不是一个值，而是一个结果集的时候。</p>
+</blockquote>
+<p>基本语法：<code>in (结果1，结果2，结果3,...)     //只要是当前条件在结果集中出现过，那么就成立</code></p>
+<pre><code class="sql"># in运算符
+# 知道学生信息
+select * from my_student where stu_id in (&#39;stu0001&#39;,&#39;stu0004&#39;,&#39;stu0007&#39;);
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+3 rows in set (0.08 sec)
+</code></pre>
+<h3 id="is运算符"><a href="#is运算符" class="headerlink" title="is运算符"></a>is运算符</h3><blockquote>
+<p>is是专门用来判断字段是否为null的运算符。</p>
+</blockquote>
+<p>基本语法：<code>is null/is not null</code></p>
+<pre><code class="sql"># is运算符
+# 查询不为空数据
+select * from my_int where int_6 is null;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+-------+-------+-------+-------+-------+--------+---------+------------+
+| int_8 | int_7 | int_6 | int_1 | int_2 | int_3  | int_4   | int_5      |
++-------+-------+-------+-------+-------+--------+---------+------------+
+|  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 |
+|  NULL |  NULL |  NULL |  -128 |   255 |    255 |     255 |        255 |
+|  NULL |  NULL |  NULL |   127 |   255 |    255 |     255 |        255 |
++-------+-------+-------+-------+-------+--------+---------+------------+
+3 rows in set (0.00 sec)
+</code></pre>
+<h3 id="like运算符"><a href="#like运算符" class="headerlink" title="like运算符"></a>like运算符</h3><blockquote>
+<p>like运算符：是用来进行模糊匹配（匹配字符串）</p>
+</blockquote>
+<p>基本语法：<code>like &#39;匹配模式&#39;</code></p>
+<p>匹配模式中，用两种占位符：</p>
+<ul>
+<li><code>_</code>：匹配对应的单个字符</li>
+<li><code>%</code>：匹配多个字符</li>
+</ul>
+<pre><code class="sql"># like运算符
+# 获取所有姓小的同学
+select * from my_student where stu_name like &#39;小%&#39;;
+select * from my_student where stu_name like &#39;小_&#39;;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+5 rows in set (0.00 sec)
+</code></pre>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+5 rows in set (0.00 sec)
+</code></pre>
+<h2 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><blockquote>
+<p>联合查询是可合并多个相似的选择查询的结果集，等同于将一个表追加到另一个表，从而实现将两个表的查询组合到一起，使用为此为UNION或UNION ALL。</p>
+</blockquote>
+<p>联合查询：将多个查询的结果合并到一起（纵向合并），字段数不变，多个查询的记录数合并。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
+<li>将同一张表中不同的结果（需要对应多条的查询语句来实现），合并到一起展示数据。</li>
+<li>最常见，在数据量大的情况下，会对表进行分表操作，需要对每张表进行部分数据统计，使用联合查询来将数据存放到一起显示。</li>
+</ol>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>基本语法：<code>select 语句 union [union选项] select 语句</code></p>
+<ul>
+<li>union选项：与select选项基本一样</li>
+<li>distinct：去重，去掉完全重复的数据（默认的）</li>
+<li>all：保存所有的数据</li>
+</ul>
+<pre><code class="sql">select * from my_student
+union
+select * from my_student;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+7 rows in set (0.00 sec)
+</code></pre>
+<pre><code class="sql">select * from my_student
+union all
+select * from my_student;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+14 rows in set (0.00 sec)
+</code></pre>
+<p><strong>注意细节：union理论上只要保证字段数一样，不要每次拿到的数据对应的字段类型一致.永远只保留第一个select语句对应的字段名字。</strong></p>
+<pre><code class="sql">select stu_id,stu_name,stu_height from my_student
+union all
+select stu_height,stu_name,stu_id from my_student;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+------------+
+| stu_id  | stu_name | stu_height |
++---------+----------+------------+
+| stu0001 | 小张     | 185        |
+| stu0002 | 张四     | 165        |
+| stu0003 | 张五     | 187        |
+| stu0004 | 小明     | 189        |
+| stu0005 | 小猪     | 173        |
+| stu0006 | 小狗     | 170        |
+| stu0007 | 小江     | 178        |
+| 185     | 小张     | stu0001    |
+| 165     | 张四     | stu0002    |
+| 187     | 张五     | stu0003    |
+| 189     | 小明     | stu0004    |
+| 173     | 小猪     | stu0005    |
+| 170     | 小狗     | stu0006    |
+| 178     | 小江     | stu0007    |
++---------+----------+------------+
+14 rows in set (0.00 sec)
+</code></pre>
+<h3 id="order-by的使用"><a href="#order-by的使用" class="headerlink" title="order by的使用"></a>order by的使用</h3><ol>
+<li>在联合查询中，如果要使用order by，那么对应的select语句必须使用括号括起来</li>
+</ol>
+<pre><code class="sql"># 获取男生身高升序，女生身高降序
+(select * from my_student where gender=&#39;男&#39; order by stu_height asc) union (select * from my_student where gender=&#39;女&#39; order by stu_height desc) ;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
++---------+----------+----------+---------+------------+--------+
+7 rows in set (0.00 sec)
+</code></pre>
+<ol start="2">
+<li>order by在联合查询中若要生效，必须配合使用limit。而limit后面必须跟对应的限制数量（通常可以使用一个较大的之，大于对应表的记录数）</li>
+</ol>
+<pre><code class="sql"># 获取男生身高升序，女生身高降序
+(select * from my_student where gender=&#39;男&#39; order by stu_height asc limit 10) 
+union 
+(select * from my_student where gender=&#39;女&#39; order by stu_height desc limit 10) ;
+</code></pre>
+<p>结果为：</p>
+<pre><code class="sql">+---------+----------+----------+---------+------------+--------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender |
++---------+----------+----------+---------+------------+--------+
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |
+| stu0007 | 小江     |        1 |      25 |        178 | 女     |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |
++---------+----------+----------+---------+------------+--------+
+7 rows in set (0.00 sec)
+</code></pre>
+<h1 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h1><h2 id="交叉连接"><a href="#交叉连接" class="headerlink" title="交叉连接"></a>交叉连接</h2><blockquote>
+<p>交叉连接：将两张表的数据与另外一张表彼此交叉</p>
+</blockquote>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><ol>
+<li>从第一张表依次取出每一条记录</li>
+<li>取出每一条记录之后，与另外一张表的全部记录挨个匹配</li>
+<li>没有任何匹配条件，所有的结果都会进行保留</li>
+<li>记录数=第一张表记录数*第二张表记录数，字段数=第一张表字段数+第二张表字段数（笛卡尔积）</li>
+</ol>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>基本语法：<code>表1 cross join 表2</code></p>
+<pre><code class="sql">select * from my_student cross join my_int;
+</code></pre>
+<p>结果为：</p>
+<pre><code>+---------+----------+----------+---------+------------+--------+-------+-------+-------+-------+-------+--------+---------+------------+
+| stu_id  | stu_name | class_id | stu_age | stu_height | gender | int_8 | int_7 | int_6 | int_1 | int_2 | int_3  | int_4   | int_5      |
++---------+----------+----------+---------+------------+--------+-------+-------+-------+-------+-------+--------+---------+------------+
+| stu0001 | 小张     |        1 |      18 |        185 | 男     |  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 |
+| stu0002 | 张四     |        1 |      28 |        165 | 女     |  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 |
+| stu0003 | 张五     |        2 |      22 |        187 | 男     |  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 |
+| stu0004 | 小明     |        2 |      25 |        189 | 女     |  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 |
+| stu0005 | 小猪     |        1 |      30 |        173 | 女     |  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 |
+| stu0006 | 小狗     |        2 |      18 |        170 | 男     |  NULL |  NULL |  NULL |    10 | 10000 | 100000 | 1000000 | 1000000000 |
+.
+.
+.
+.
+.
+.
+</code></pre><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>交叉连接产生的结果是笛卡尔积，没有实际应用。</p>
+<h2 id="连接查询-1"><a href="#连接查询-1" class="headerlink" title="连接查询"></a>连接查询</h2><blockquote>
+<p>连接查询：将多张表连到一起进行查询（会导致记录数和字段数列发生改变）</p>
+</blockquote>
+<h3 id="连接查询的意义"><a href="#连接查询的意义" class="headerlink" title="连接查询的意义"></a>连接查询的意义</h3><p>在关系型数据库设计过程中，实体（表）与实体之间是存在很多联系的。在关系型数据库表的设计过程中，遵循这关系来设计：一对一，一对多和多对多，通常在实际操作的过程中，需要利用这层关系来保证数据的完整性。</p>
+<h3 id="连接查询分类"><a href="#连接查询分类" class="headerlink" title="连接查询分类"></a>连接查询分类</h3><p>连接查询一共有以下几类：</p>
+<ul>
+<li>交叉连接</li>
+<li>内连接</li>
+<li>外连接：左外连接（左连接）和右外连接（右连接）</li>
+<li>自然连接</li>
+</ul>
+<h2 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h2><blockquote>
+<p>内连接：inner join，从一张表中取出所有的记录去另外一张表中匹配，利用匹配条件进行匹配，成功了则保留，失败则放弃。</p>
+</blockquote>
+<h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><ol>
+<li>从第一张表中取出一条记录，然后去另外一张表中进行匹配</li>
+<li>利用匹配条件进行匹配<br>2.1. 匹配到，保留，然后继续向下匹配<br>2.2. 匹配失败，向下匹配，如果全表匹配失败，结束</li>
+</ol>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><p>基本语法：<code>表1 [inner] join 表2 on 匹配条件</code></p>
+<ol>
+<li>如果内连接没有条件（可以允许），那么其实就是交叉连接（避免发生）</li>
+<li>使用匹配条件进行匹配</li>
+<li>因为表的设计通常容易产生同名字段，尤其是ID，所以为了避免重名出现错误，通常使用<code>表名.字段名</code>，来确保唯一性</li>
+<li>通常如果条件中使用到独赢的表名，而表名通常比较长。所以可以通过表别名来简化</li>
+<li>内连接匹配的时候，必须保证匹配到才会保存</li>
+<li>内连接因为不强制必须使用匹配条件（on），因此可以在数据匹配完成之后，使用where条件来限制，效果与on一样（建议使用on）</li>
+</ol>
+<pre><code class="sql"># 内连接
+create table my_class(
+     id int primary key auto_increment,
+     name varchar(10) not null unique
+);
+
+# 插入数据
+insert into my_class values(null,&#39;1班&#39;),(null,&#39;2班&#39;),(null,&#39;3班&#39;);
+
+# 内连接
+select * from my_student inner join my_class;
+select * from my_student inner join my_class on class_id=id;
+
+select * from my_student inner join my_class on my_student.class_id=my_class.id;
+
+select * from my_student as s inner join my_class as c on s.class_id=c.id;
+
+select * from my_class as c inner join my_student as s on s.class_id=c.id;
+
+select * from my_class as c inner join my_student as s where s.class_id=c.id;
+</code></pre>
+<h3 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h3><p>内连接通常是对数据有精确要求的地方使用，必须保证两种表中都能进行数据匹配</p>
+<h2 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h2><h3 id="原理-3"><a href="#原理-3" class="headerlink" title="原理"></a>原理</h3><h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><h3 id="应用-2"><a href="#应用-2" class="headerlink" title="应用"></a>应用</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-06T14:29:45.590Z" itemprop="dateUpdated">2019-09-06 22:29:45</time>
+</span><br>
+
+
+        
+        感谢阅读。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/1970/01/01/mysql/&title=《mysql》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/1970/01/01/mysql/&title=《mysql》 — Yan's blog&source=环境
+Linux/Ubuntu18.04
+docker
+mysql 5.6
+
+代码仓库
+GitHub
+
+视频地址参考：
+
+链接: https://pan...." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/1970/01/01/mysql/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql》 — Yan's blog&url=http://yoursite.com/1970/01/01/mysql/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/1970/01/01/mysql/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/1970/01/01/软件测试/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">软件测试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/1970/01/01/PHP入门/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">PHP入门</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cC32O3WOzKWqjws6cIXqIlkr-gzGzoHsz",
+            appKey: "ANkLBmNFHMoDRJiUPXtNUWr9",
+            avatar: "monsterid",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/1970/01/01/mysql/&title=《mysql》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/1970/01/01/mysql/&title=《mysql》 — Yan's blog&source=环境
+Linux/Ubuntu18.04
+docker
+mysql 5.6
+
+代码仓库
+GitHub
+
+视频地址参考：
+
+链接: https://pan...." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/1970/01/01/mysql/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql》 — Yan's blog&url=http://yoursite.com/1970/01/01/mysql/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/1970/01/01/mysql/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABy0lEQVR42u3aQQ6DMAwF0d7/0vQAKOl8G0dUmqxQi8KDheXY/nzwum5rdc/9+r7D6p7Hlly5ctvca7s4heD2e+4NcuXKPc+dC0zp5/hhkytX7iu5hM6zFLly5f47d5+UpMmNXLly388lKQg/opAgOH5WkytXboPLk5K565H6rly5ckvcK1zkMf2AuNxBrly5R7idVsr+FxIQeWFFrly5J7m1lip5gTTkkZatXLlyz3B5oOFl01qoKhZH5MqVO8bdN015eZTs88AnkCtX7jA3bXySJisfs4hbKXLlyj3OrR1p0sSFJ1LoD7ly5Y5xSXjqjER0gtey8yNXrtwxbnr84C/AifGIhly5coe5fMCi83hSGEXtW7ly5R7hpiGJpym1ZmpxcFOuXLkD3LR4kTZWa4VU1A2WK1fuGDctifJfSFGVt3jlypV7nstTkH6A4wVWFHHlypX7KPcKVzq00RngWA5myZUrd5jbr0Lw7XgRlgRZuXLlTnNrYxBp8EpDVdBqlStX7hiXDFRxLm+4pq0duXLlvpNLRivS403wqnLlyn0lNz1R8X0GUxy5cuWWuJ3DD39Yp8AqV67ck9xO47P2gHRgq1jflStXboX7BeMiuWj0en7VAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
+
+</body>
+
+</html>
