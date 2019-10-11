@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>LoadRunner | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="软件测试,LoadRunner">
+    <meta name="description" content="LoadRunner 11.0准备： LoadRunner 11.0 安装包 LoadRunner 11.0 破解相关文件">
+<meta name="keywords" content="软件测试,LoadRunner">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LoadRunner">
+<meta property="og:url" content="http://yoursite.com/2019/05/11/LoadRunner/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="LoadRunner 11.0准备： LoadRunner 11.0 安装包 LoadRunner 11.0 破解相关文件">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-11T00:12:01.452Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LoadRunner">
+<meta name="twitter:description" content="LoadRunner 11.0准备： LoadRunner 11.0 安装包 LoadRunner 11.0 破解相关文件">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
+
+<body>
+    <script type="text/javascript" src="/js/src/click_love.js"></script>
+
+
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://yanxin152133.github.io/notes/#/">
+                <i class="icon icon-lg icon-sticky-note"></i>
+                个人笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">LoadRunner</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">LoadRunner</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-10T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-05-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/软件测试/">软件测试</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/软件测试/LoadRunner/">LoadRunner</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#LoadRunner-11-0"><span class="post-toc-number">1.</span> <span class="post-toc-text">LoadRunner 11.0</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#准备："><span class="post-toc-number">1.1.</span> <span class="post-toc-text">准备：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下载："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">下载：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装步骤"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">安装步骤</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#破解"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">破解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">参考</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-LoadRunner" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">LoadRunner</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-11 00:00:00" datetime="2019-05-10T16:00:00.000Z" itemprop="datePublished">2019-05-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/软件测试/">软件测试</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/软件测试/LoadRunner/">LoadRunner</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="LoadRunner-11-0"><a href="#LoadRunner-11-0" class="headerlink" title="LoadRunner 11.0"></a>LoadRunner 11.0</h1><h2 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h2><ul>
+<li>LoadRunner 11.0 安装包</li>
+<li>LoadRunner 11.0 破解相关文件</li>
+</ul>
+<a id="more"></a>
+<h2 id="下载："><a href="#下载：" class="headerlink" title="下载："></a>下载：</h2><ul>
+<li>LoadRunner 11.0 安装包（迅雷下载）：<a href="http://www.genilogix.com/downloads/loadrunner/loadrunner-11.iso" target="_blank" rel="noopener">http://www.genilogix.com/downloads/loadrunner/loadrunner-11.iso</a></li>
+<li><a href="https://link.jianshu.com/?t=https://pan.baidu.com/s/1nu9r7tf" target="_blank" rel="noopener">LoadRunner 11.0 破解相关文件</a></li>
+</ul>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li><p>打开<strong>LoadRunner 11.0 安装包</strong>文件夹，点击<strong>setup.exe</strong>。  </p>
+</li>
+<li><p>点击<strong>LoadRunner完整安装程序</strong>，接着按提示进行下去，当它提示缺省文件的时候可以直接打开“附加组件”进入“Monitor Probe for Microsoft COM+ Server Components”这个文件夹，运行“Com_Plus_Probe.exe”文件即可。       </p>
+</li>
+<li><p>安装成功即进入主界面，进入的时候会有一个提示框出现，意思就是你拥有10天的试用权限。     </p>
+</li>
+</ol>
+<h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h2><ol>
+<li><p>打开<strong>LoadRunner 11.0 破解相关文件</strong>，将<strong>mlr5lprg.dll</strong>和<strong>lm70.dll</strong>这两个文件<strong>复制替换</strong>到<strong>LoadRunner安装目录的/bin文件下</strong>。</p>
+</li>
+<li><p>以管理员身份运行<strong>deletelicense.exe</strong></p>
+</li>
+<li><p>管理员身份运行LoadRunner。</p>
+</li>
+<li><p>点击“configuration-&gt;loadRunner License”进入界面，现在你就可以new你自己的license了。下面是不同数量并发的代码：<br>10000个并发：AEABEXFR-YTIEKEKJJMFKEKEKWBRAUNQJU-KBYGB<br>提供一个超级license 最高支持6.5w个并发：AEACFSJI-YJKJKJJKEJIJD-BCLBR。</p>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.51cto.com/kinghinds/908502" target="_blank" rel="noopener">loadRunner 安装及破解</a></p>
+<p><a href="https://www.jianshu.com/p/b3b5f24d7877" target="_blank" rel="noopener">LoadRunner 11.0安装+汉化+破解</a></p>
+<p><a href="https://blog.csdn.net/u010298501/article/details/36199745" target="_blank" rel="noopener">loadRunner破解不成功的几个原因</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-11T00:12:01.452Z" itemprop="dateUpdated">2019-10-11 08:12:01</time>
+</span><br>
+
+
+        
+        感谢阅读。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LoadRunner/">LoadRunner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件测试/">软件测试</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/11/LoadRunner/&title=《LoadRunner》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/11/LoadRunner/&title=《LoadRunner》 — Yan's blog&source=LoadRunner 11.0准备：
+LoadRunner 11.0 安装包
+LoadRunner 11.0 破解相关文件
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/11/LoadRunner/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LoadRunner》 — Yan's blog&url=http://yoursite.com/2019/05/11/LoadRunner/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/11/LoadRunner/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/16/Spring MVC和MyBatis开发环境准备/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Spring MVC和MyBatis开发环境准备</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/22/BugFree/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">BugFree安装</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cC32O3WOzKWqjws6cIXqIlkr-gzGzoHsz",
+            appKey: "ANkLBmNFHMoDRJiUPXtNUWr9",
+            avatar: "monsterid",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/11/LoadRunner/&title=《LoadRunner》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/11/LoadRunner/&title=《LoadRunner》 — Yan's blog&source=LoadRunner 11.0准备：
+LoadRunner 11.0 安装包
+LoadRunner 11.0 破解相关文件
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/11/LoadRunner/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LoadRunner》 — Yan's blog&url=http://yoursite.com/2019/05/11/LoadRunner/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/11/LoadRunner/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aQW7DMAwEwPz/0y6QW5HGWZKWYhSjU+A2zsgHwlzq8YjX8VzJ9eNlvV4/v+cFCxcXd8w9TtfrrZP/fPfXd1tNDLi4uPu5ye2SgnVOqRY1XFzc+3OTl5JkG7i4uP+JO2mckmKHi4t7N26vpUko1dDksl4NFxd3wK0Gpis+L8x3cXFxi9yjtSaxSLU4/voWLi7uFm418kiqyrw1+nAfXFzcjdzqNqpj1F5c8scVXFzcjdzJwanqOHZynAsXF3c1t1pormqHmmNaXFzcL3HPw83e604enkaBCC4u7kZu/qJTLVK96OTDORFcXNzF3OYBqVYYmjysKBDBxcVdxu2VnkkGk5TLcjSDi4u7jJu/1iQ/lg9ayscvcHFxt3CT1qXHqo5YokYIFxd3C3cemPa2nT+Ix+RZ4uLijrmTQpZHsXk3Vkbj4uIu5l42HL0oeMXFxd3DHeUoweilWuA+tEa4uLhbuPOeohp/rAhNcHFxV3CT4tVrUSbPDxcX9w7cXvPTK3z54Y/C5AcXF/er3EkxystldE4EFxf3Btz9bU8h7MXFxV3ATUpMfqU3ZD3fGC4u7k7ufCo7/8neIAcXF3cB9wevcMgviRXLsgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
+
+</body>
+
+</html>

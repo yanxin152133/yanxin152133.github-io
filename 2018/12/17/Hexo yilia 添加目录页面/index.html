@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Hexo yilia 添加目录页面 | Yan&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Hexo yilia 添加目录">
+    <meta name="description" content="步骤 1.添加 categories 页面 2.添加 categories 链接 3.修改 yilia 主题 4.多层分类 5.效果 6.参考文档">
+<meta name="keywords" content="Hexo yilia 添加目录页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo yilia 添加目录页面">
+<meta property="og:url" content="http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/index.html">
+<meta property="og:site_name" content="Yan&#39;s blog">
+<meta property="og:description" content="步骤 1.添加 categories 页面 2.添加 categories 链接 3.修改 yilia 主题 4.多层分类 5.效果 6.参考文档">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://farm2.staticflickr.com/1914/30502562127_06a9af4659_b.jpg">
+<meta property="og:updated_time" content="2019-10-11T00:09:57.242Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo yilia 添加目录页面">
+<meta name="twitter:description" content="步骤 1.添加 categories 页面 2.添加 categories 链接 3.修改 yilia 主题 4.多层分类 5.效果 6.参考文档">
+<meta name="twitter:image" content="https://farm2.staticflickr.com/1914/30502562127_06a9af4659_b.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+<!-- highlight.js代码高亮主题 css 引入-->
+<link rel="stylesheet" href="/plugins/highlight/styles/dracula.css">
+<!-- highlight.js代码高亮主题 css 引入-->
+
+<body>
+    <script type="text/javascript" src="/js/src/click_love.js"></script>
+
+
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Yan</h5>
+          <a href="mailto:yanxin152133@gmail.com" title="yanxin152133@gmail.com" class="mail">yanxin152133@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yanxin152133" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://yanxin152133.github.io/notes/#/">
+                <i class="icon icon-lg icon-sticky-note"></i>
+                个人笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hexo yilia 添加目录页面</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hexo yilia 添加目录页面</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-16T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-12-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/创建目录/">创建目录</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#步骤"><span class="post-toc-number">1.</span> <span class="post-toc-text">步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-添加-categories-页面"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1 添加 categories 页面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-新建-categories-页面"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1.1 新建 categories 页面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-修改-index-md-文件"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">1.2 修改 index.md 文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-添加-categories-链接"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2 添加 categories 链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-修改-yilia-主题"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3 修改 yilia 主题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-新建yilia-layout-categories-ejs"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">3.1 新建yilia/layout/categories.ejs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-多层分类"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4 多层分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-修改yilia-layout-categories-ejs为："><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">4.1 修改yilia/layout/categories.ejs为：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-修改自己的文章"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">4.2 修改自己的文章</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-效果"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5 效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-参考文档"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6 参考文档</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Hexo yilia 添加目录页面" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hexo yilia 添加目录页面</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-17 00:00:00" datetime="2018-12-16T16:00:00.000Z" itemprop="datePublished">2018-12-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/创建目录/">创建目录</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p> 1.添加 categories 页面<br> 2.添加 categories 链接<br> 3.修改 yilia 主题<br> 4.多层分类<br> 5.效果<br> 6.参考文档</p>
+<a id="more"></a>
+<h2 id="1-添加-categories-页面"><a href="#1-添加-categories-页面" class="headerlink" title="1 添加 categories 页面"></a>1 添加 categories 页面</h2><h3 id="1-1-新建-categories-页面"><a href="#1-1-新建-categories-页面" class="headerlink" title="1.1 新建 categories 页面"></a>1.1 新建 categories 页面</h3><blockquote>
+<p>输入命令： </p>
+</blockquote>
+<pre><code>hexo new page categories
+</code></pre><blockquote>
+<p>该命令在 <strong>source</strong>  目录下生成一个 categories 目录，categories 目录下有一个 index.md 文件。  </p>
+</blockquote>
+<h3 id="1-2-修改-index-md-文件"><a href="#1-2-修改-index-md-文件" class="headerlink" title="1.2 修改 index.md 文件"></a>1.2 修改 index.md 文件</h3><pre><code>---
+title: 文章分类
+date: 2018-10-19 11:22:21
+type: &quot;categories&quot;
+layout: &quot;categories&quot;
+comments: false #关闭评论
+---
+</code></pre><h2 id="2-添加-categories-链接"><a href="#2-添加-categories-链接" class="headerlink" title="2 添加 categories 链接"></a>2 添加 categories 链接</h2><blockquote>
+<p>若主题为 yilia ，则打开 yilia/_config.yml ，修改为：  </p>
+</blockquote>
+<pre><code>menu:
+  主页: /
+  相册: /
+  分类: /categories
+</code></pre><h2 id="3-修改-yilia-主题"><a href="#3-修改-yilia-主题" class="headerlink" title="3 修改 yilia 主题"></a>3 修改 yilia 主题</h2><h3 id="3-1-新建yilia-layout-categories-ejs"><a href="#3-1-新建yilia-layout-categories-ejs" class="headerlink" title="3.1 新建yilia/layout/categories.ejs"></a>3.1 新建yilia/layout/categories.ejs</h3><pre><code>&lt;article class=&quot;article article-type-post show&quot;&gt;
+  &lt;header class=&quot;article-header&quot;&gt;
+  &lt;h1 class=&quot;article-title&quot; itemprop=&quot;name&quot;&gt;
+    &lt;%= page.title %&gt;
+  &lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;% if (site.categories.length){ %&gt;
+  &lt;div class=&quot;category-all-page article-type-post show&quot;&gt;
+    &lt;h3&gt;共计&amp;nbsp;&lt;%= site.categories.length %&gt;&amp;nbsp;个分类&lt;/h3&gt;
+    &lt;ul class=&quot;category-list&quot;&gt;
+    &lt;% site.categories.sort(&#39;name&#39;).each(function(item){ %&gt;
+      &lt;% if(item.posts.length){ %&gt;
+        &lt;li class=&quot;category-list-item&quot;&gt;
+          &lt;a href=&quot;&lt;%- config.root %&gt;&lt;%- item.path %&gt;&quot; title=&quot;&lt;%= item.name %&gt;&quot;&gt;&lt;%= item.name %&gt;&lt;sup&gt;[&lt;%= item.posts.length %&gt;]&lt;/sup&gt;&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;% } %&gt;
+    &lt;% }); %&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;% } %&gt;
+&lt;/article&gt;
+</code></pre><h3 id="3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去"><a href="#3-2-修改-yilia-source-main-0cf68a-css，将下面的内容添加进去" class="headerlink" title="3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去"></a>3.2 修改 yilia\source\main.0cf68a.css，将下面的内容添加进去</h3><pre><code>category-all-page {
+    margin: 30px 40px 30px 40px;
+    position: relative;
+    min-height: 70vh;
+  }
+  .category-all-page h2 {
+    margin: 20px 0;
+  }
+  .category-all-page .category-all-title {
+    text-align: center;
+  }
+  .category-all-page .category-all {
+    margin-top: 20px;
+  }
+  .category-all-page .category-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .category-all-page .category-list-item-list-item {
+    margin: 10px 15px;
+  }
+  .category-all-page .category-list-item-list-count {
+    color: $grey;
+  }
+  .category-all-page .category-list-item-list-count:before {
+    display: inline;
+    content: &quot; (&quot;;
+  }
+  .category-all-page .category-list-item-list-count:after {
+    display: inline;
+    content: &quot;) &quot;;
+  }
+  .category-all-page .category-list-item {
+    margin: 10px 10px;
+  }
+  .category-all-page .category-list-count {
+    color: $grey;
+  }
+  .category-all-page .category-list-count:before {
+    display: inline;
+    content: &quot; (&quot;;
+  }
+  .category-all-page .category-list-count:after {
+    display: inline;
+    content: &quot;) &quot;;
+  }
+  .category-all-page .category-list-child {
+    padding-left: 10px;
+  }
+</code></pre><h2 id="4-多层分类"><a href="#4-多层分类" class="headerlink" title="4 多层分类"></a>4 多层分类</h2><h3 id="4-1-修改yilia-layout-categories-ejs为："><a href="#4-1-修改yilia-layout-categories-ejs为：" class="headerlink" title="4.1 修改yilia/layout/categories.ejs为："></a>4.1 修改yilia/layout/categories.ejs为：</h3><pre><code>&lt;article class=&quot;article article-type-post show&quot;&gt;
+  &lt;header class=&quot;article-header&quot; style=&quot;border-bottom: 1px solid #ccc&quot;&gt;
+  &lt;h1 class=&quot;article-title&quot; itemprop=&quot;name&quot;&gt;
+    &lt;%= page.title %&gt;
+  &lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;% if (site.categories.length){ %&gt;
+  &lt;div class=&quot;category-all-page&quot;&gt;
+    &lt;h2&gt;共计&amp;nbsp;&lt;%= site.categories.length %&gt;&amp;nbsp;个分类&lt;/h2&gt;
+    &lt;%- list_categories(site.categories, {
+      show_count: true,
+      class: &#39;category-list-item&#39;,
+      style: &#39;list&#39;,
+      depth: 2,
+      separator: &#39;&#39;
+    }) %&gt;
+  &lt;/div&gt;
+  &lt;% } %&gt;
+&lt;/article&gt;
+</code></pre><h3 id="4-2-修改自己的文章"><a href="#4-2-修改自己的文章" class="headerlink" title="4.2 修改自己的文章"></a>4.2 修改自己的文章</h3><pre><code>---
+title: Hexo yilia 添加目录页面
+tags: Hexo yilia 添加目录
+toc: true
+categories: [Hexo,创建目录]
+---
+</code></pre><h2 id="5-效果"><a href="#5-效果" class="headerlink" title="5 效果"></a>5 效果</h2><blockquote>
+<p>如下图： </p>
+</blockquote>
+<p><img src="https://farm2.staticflickr.com/1914/30502562127_06a9af4659_b.jpg" alt="效果">  </p>
+<h2 id="6-参考文档"><a href="#6-参考文档" class="headerlink" title="6 参考文档"></a>6 参考文档</h2><blockquote>
+<p><a href="https://www.voidking.com/2018/06/11/deve-hexo-categories/#%E4%B9%A6%E7%AD%BE" target="_blank" rel="noopener">Hexo添加categories页面</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-11T00:09:57.242Z" itemprop="dateUpdated">2019-10-11 08:09:57</time>
+</span><br>
+
+
+        
+        感谢阅读。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Yan">
+            Yan
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo-yilia-添加目录/">Hexo yilia 添加目录</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/&title=《Hexo yilia 添加目录页面》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/&title=《Hexo yilia 添加目录页面》 — Yan's blog&source=步骤 1.添加 categories 页面 2.添加 categories 链接 3.修改 yilia 主题 4.多层分类 5.效果 6.参考文档" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo yilia 添加目录页面》 — Yan's blog&url=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/10/CentOS 7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/12/GitHub+Hexo搭建个人博客/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">GitHub+Hexo搭建个人博客</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "cC32O3WOzKWqjws6cIXqIlkr-gzGzoHsz",
+            appKey: "ANkLBmNFHMoDRJiUPXtNUWr9",
+            avatar: "monsterid",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Yan &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/&title=《Hexo yilia 添加目录页面》 — Yan's blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/&title=《Hexo yilia 添加目录页面》 — Yan's blog&source=步骤 1.添加 categories 页面 2.添加 categories 链接 3.修改 yilia 主题 4.多层分类 5.效果 6.参考文档" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo yilia 添加目录页面》 — Yan's blog&url=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/12/17/Hexo yilia 添加目录页面/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aS04DMRAFQO5/6SCxhUzecw+C2OVVRMiMy4uW+/PxEa/H10o+598+e8v1/4wWBgbG2zIel+t6i2u/Td6e7w0DA+McRhJk14Lp97+3h5U8EwMDAyPZdB5YEwwGBgbGnJE/ob0yYmBgYEyS2LbGlQfZtVQZAwPjHMa9jYF7P/9ZfwMDA+PfMB7luk5ok+tjW9qLdoWBgbE1o91KEuuS3+ZpcDGQgYGBsSljrdyflMnWym2L4RsDA+MwRhIQ7w2syRNevB0DA+MYRnGXjEe72icsptMYGBhbM9pr3LyF0LYn27IdBgbG3ow8EZ1f7PJwvDhygYGBsREjf0H+ee0JbcB9kYtjYGBsx8gvc3kKutYEHQVcDAyMTRltk/L3GgN5mH76dgwMjK0Z+aBDfmlr57WSIJscEwYGxn6MtXL8XVfApOhfDFtgYGBszWhLYHeF6UmD80VjAAMDYyNGOwTWNinbFulklBYDA+MExnw4tU1ZJ6EZAwPjHEaejiYbmqSsbTEOAwPjTEb+mkm5rT2sOuBiYGBsx2hXfuHLxy/WWgvXqTIGBsZOjEe51tqNbcuhDusYGBhbM9pQmx9BXoCbDJ/VMAwMjLdl5Bta6zmsbb2+hmJgYBzAWAuC+RDGvWnwD8/BwMDAiKt0k4Gw9vgwMDAw8jGvtqA2PyYMDIwzGW0Se29jcu1oMDAwzmHMhyQmSela8W40LYKBgfFOjE+Ej4SaQRvUNgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+<!-- highlight.js代码高亮主题 script 引入-->
+<script src="/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- highlight.js代码高亮主题 script 引入-->
+
+</body>
+
+</html>
