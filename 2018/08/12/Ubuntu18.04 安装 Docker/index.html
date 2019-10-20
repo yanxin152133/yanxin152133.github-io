@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Yan&#39;s blog">
 <meta property="og:description" content="准备工作系统要求Docker CE 支持以下版本的 Ubuntu 操作系统：  Artful 17.10(Docker CE 17.11 Edge) Zesty 17.04 Xenial 16.04(LTS) Trusty 14.04(LTS)  推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T00:14:38.369Z">
+<meta property="og:updated_time" content="2019-10-20T07:38:33.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu18.04 安装 Docker">
 <meta name="twitter:description" content="准备工作系统要求Docker CE 支持以下版本的 Ubuntu 操作系统：  Artful 17.10(Docker CE 17.11 Edge) Zesty 17.04 Xenial 16.04(LTS) Trusty 14.04(LTS)  推荐使用 LTS 版本的，在Ubuntu发行版中，LTS是长期支持版本，会更稳定。">
@@ -180,7 +180,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#系统要求"><span class="post-toc-number">2.</span> <span class="post-toc-text">系统要求</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#卸载旧版本"><span class="post-toc-number">3.</span> <span class="post-toc-text">卸载旧版本</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装与验证"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装与验证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用APT安装"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">使用APT安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装-Docker-CE"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">安装 Docker CE</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#建立-docker-用户组"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">建立 docker 用户组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更换国内Docker仓库"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">更换国内Docker仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#系统要求"><span class="post-toc-number">2.</span> <span class="post-toc-text">系统要求</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#卸载旧版本"><span class="post-toc-number">3.</span> <span class="post-toc-text">卸载旧版本</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装与验证"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装与验证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用APT安装"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">使用APT安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更换国内源"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">更换国内源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如果过去安装过docker，则先删掉"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">如果过去安装过docker，则先删掉</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装依赖"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">安装依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#信任Docker的GPG公钥"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">信任Docker的GPG公钥</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加软件仓库"><span class="post-toc-number">4.2.3.1.</span> <span class="post-toc-text">添加软件仓库</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装-Docker-CE"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">安装 Docker CE</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#建立-docker-用户组"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">建立 docker 用户组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于重新登录后该用户无法正常使用docker的问题"><span class="post-toc-number">4.4.1.</span> <span class="post-toc-text">关于重新登录后该用户无法正常使用docker的问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#重启docker服务"><span class="post-toc-number">4.4.1.1.</span> <span class="post-toc-text">重启docker服务</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#切换当前会话到新group或者重启X会话"><span class="post-toc-number">4.4.1.2.</span> <span class="post-toc-text">切换当前会话到新group或者重启X会话</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更换国内Docker仓库"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">更换国内Docker仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li></ol>
         </nav>
     </aside>
 
@@ -234,32 +234,33 @@ sudo apt-get install \
     ca-certificates \
     curl \
     software-properties-common
-</code></pre><p>鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。<br>为了确认所下载软件包的合法性，需要添加软件源的 GPG 密钥。     </p>
-<pre><code>(任选其一即可)
-curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
-
-
-官方源
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-</code></pre><p>然后，我们需要向 source.list 中添加 Docker 软件源     </p>
-<pre><code>sudo add-apt-repository \
-    &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
-    $(lsb_release -cs) \
-    stable&quot;
-
-
-# 官方源
-# $ sudo add-apt-repository \
-#    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-#    $(lsb_release -cs) \
-#    stable&quot;
-</code></pre><h2 id="安装-Docker-CE"><a href="#安装-Docker-CE" class="headerlink" title="安装 Docker CE"></a>安装 Docker CE</h2><pre><code>sudo apt update
+</code></pre><h2 id="更换国内源"><a href="#更换国内源" class="headerlink" title="更换国内源"></a>更换国内源</h2><h3 id="如果过去安装过docker，则先删掉"><a href="#如果过去安装过docker，则先删掉" class="headerlink" title="如果过去安装过docker，则先删掉"></a>如果过去安装过docker，则先删掉</h3><pre><code class="bash">sudo apt-get remove docker docker-engine docker.io
+</code></pre>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><pre><code class="bash">sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+</code></pre>
+<h3 id="信任Docker的GPG公钥"><a href="#信任Docker的GPG公钥" class="headerlink" title="信任Docker的GPG公钥"></a>信任Docker的GPG公钥</h3><pre><code class="bash">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</code></pre>
+<h4 id="添加软件仓库"><a href="#添加软件仓库" class="headerlink" title="添加软件仓库"></a>添加软件仓库</h4><pre><code class="bash">sudo add-apt-repository \
+   &quot;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&quot;
+</code></pre>
+<p>其他详细内容参考以下文章：</p>
+<ul>
+<li><a href="https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/" target="_blank" rel="noopener">Docker Community Edition 镜像使用帮助</a></li>
+</ul>
+<h2 id="安装-Docker-CE"><a href="#安装-Docker-CE" class="headerlink" title="安装 Docker CE"></a>安装 Docker CE</h2><pre><code>sudo apt update
 sudo apt install docker-ce
 </code></pre><h2 id="建立-docker-用户组"><a href="#建立-docker-用户组" class="headerlink" title="建立 docker 用户组"></a>建立 docker 用户组</h2><p>建立docker组:   </p>
 <pre><code>sudo groupadd docker
 </code></pre><p>将当前用户加入docker组：    </p>
 <pre><code>sudo usermod -aG docker $USER
-</code></pre><h2 id="更换国内Docker仓库"><a href="#更换国内Docker仓库" class="headerlink" title="更换国内Docker仓库"></a>更换国内Docker仓库</h2><p>创建文件：       </p>
+</code></pre><p>退出重新登录即生效。</p>
+<h3 id="关于重新登录后该用户无法正常使用docker的问题"><a href="#关于重新登录后该用户无法正常使用docker的问题" class="headerlink" title="关于重新登录后该用户无法正常使用docker的问题"></a>关于重新登录后该用户无法正常使用docker的问题</h3><h4 id="重启docker服务"><a href="#重启docker服务" class="headerlink" title="重启docker服务"></a>重启docker服务</h4><pre><code class="bash">sudo service docker restart
+</code></pre>
+<h4 id="切换当前会话到新group或者重启X会话"><a href="#切换当前会话到新group或者重启X会话" class="headerlink" title="切换当前会话到新group或者重启X会话"></a>切换当前会话到新group或者重启X会话</h4><pre><code class="bash">newgrp - docker
+</code></pre>
+<h2 id="更换国内Docker仓库"><a href="#更换国内Docker仓库" class="headerlink" title="更换国内Docker仓库"></a>更换国内Docker仓库</h2><p>创建文件：       </p>
 <pre><code>sudo vim /etc/docker/daemon.json
 </code></pre><p>加入以下内容：     </p>
 <pre><code>{
@@ -306,7 +307,7 @@ For more examples and ideas, visit:
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-11T00:14:38.369Z" itemprop="dateUpdated">2019-10-11 08:14:38</time>
+    最后更新时间：<time datetime="2019-10-20T07:38:33.271Z" itemprop="dateUpdated">2019-10-20 15:38:33</time>
 </span><br>
 
 
