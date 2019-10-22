@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/10/22/Manjaro18.0%20GNOME/</loc>
+    
+    <lastmod>2019-10-22T13:52:20.546Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/11/%E6%8F%92%E4%BB%B6/</loc>
+    
+    <lastmod>2019-10-22T13:35:27.101Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/08/12/Ubuntu18.04%20%E5%AE%89%E8%A3%85%20Docker/</loc>
     
     <lastmod>2019-10-20T07:38:33.271Z</lastmod>
@@ -201,13 +215,6 @@
     <loc>http://yoursite.com/2019/08/02/%E9%A5%A5%E8%8D%92%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2019-10-11T00:05:29.558Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/10/11/%E6%8F%92%E4%BB%B6/</loc>
-    
-    <lastmod>2019-10-11T00:05:14.536Z</lastmod>
     
   </url>
   
