@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Yan&#39;s blog">
 <meta property="og:description" content="解决方案">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T00:05:43.981Z">
+<meta property="og:updated_time" content="2019-11-08T07:25:27.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决git clone速度慢的问题">
 <meta name="twitter:description" content="解决方案">
@@ -223,20 +223,21 @@ git config --global https.proxy socks5://127.0.0.1:1080
 </code></pre>
 <h2 id="2-注意下载时是否是https"><a href="#2-注意下载时是否是https" class="headerlink" title="2. 注意下载时是否是https"></a>2. 注意<strong>下载时是否是https</strong></h2><h2 id="3-在使用代理下载时，会遇到git-push需要每次输入密码。"><a href="#3-在使用代理下载时，会遇到git-push需要每次输入密码。" class="headerlink" title="3. 在使用代理下载时，会遇到git push需要每次输入密码。"></a>3. 在使用代理下载时，会遇到git push需要每次输入密码。</h2><p>通过以下方式解决该问题。      </p>
 <ul>
-<li><p>设置记住密码（默认15分钟）：</p>
+<li>设置记住密码（默认15分钟）：</li>
+</ul>
 <pre><code class="bash">git config --global credential.helper cache
 </code></pre>
-</li>
-<li><p>如果想自己设置时间，可以这样做：</p>
+<ul>
+<li>如果想自己设置时间，可以这样做：</li>
+</ul>
 <pre><code class="bash">git config credential.helper &#39;cache --timeout=3600&#39;
 </code></pre>
 <p>这样就设置一个小时之后失效</p>
-</li>
-<li><p>长期存储密码：</p>
+<ul>
+<li>长期存储密码：</li>
+</ul>
 <pre><code class="bash">git config --global credential.helper store
 </code></pre>
-</li>
-</ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://juejin.im/post/5a6c7806f265da3e355b4d1d" target="_blank" rel="noopener">提高 git clone 速度</a></li>
 <li><a href="https://blog.csdn.net/hanqingsong412/article/details/50464465" target="_blank" rel="noopener">git设置代理、记住密码</a></li>
@@ -249,7 +250,7 @@ git config --global https.proxy socks5://127.0.0.1:1080
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-11T00:05:43.981Z" itemprop="dateUpdated">2019-10-11 08:05:43</time>
+    最后更新时间：<time datetime="2019-11-08T07:25:27.540Z" itemprop="dateUpdated">2019-11-08 15:25:27</time>
 </span><br>
 
 
