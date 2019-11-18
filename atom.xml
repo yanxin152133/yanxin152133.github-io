@@ -119,34 +119,6 @@
   </entry>
   
   <entry>
-    <title>Docker搭建PHP、apache环境</title>
-    <link href="http://yoursite.com/2019/09/06/Docker%E6%90%AD%E5%BB%BAPHP%E3%80%81apache%E7%8E%AF%E5%A2%83/"/>
-    <id>http://yoursite.com/2019/09/06/Docker搭建PHP、apache环境/</id>
-    <published>2019-09-05T16:00:00.000Z</published>
-    <updated>2019-10-11T00:08:30.250Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="拉取Ubuntu镜像"><a href="#拉取Ubuntu镜像" class="headerlink" title="拉取Ubuntu镜像"></a>拉取Ubuntu镜像</h1><p>输入命令：   </p><pre><code class="bash">$ docker pull ubuntu</code></pre><a id="more"></a><h1 id="运行Ubuntu容器"><a href="#运行Ubuntu容器" class="headerlink" title="运行Ubuntu容器"></a>运行Ubuntu容器</h1><ol><li>确认是否已下载好镜像，输入命令：</li></ol><pre><code class="bash">$ docker images</code></pre><ol start="2"><li>上述命令之后如果出现以下情况，即为下载好了。</li></ol><pre><code class="bash">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZEubuntu              latest              3556258649b2        2 weeks ago         64.2MB</code></pre><ol start="3"><li>运行，输入命令：     </li></ol><pre><code class="bash">$ docker run -it -d --name ubuntu -p 80:80 ubuntu</code></pre><p>–name自定义容器名，-p指定端口映射，前者为虚拟机端口，后者为容器端口,成功后返回id<br>查看所有启动的容器。</p><ol start="4"><li>查看所有容器。</li></ol><pre><code class="bash">$ docker ps -a</code></pre><ol start="5"><li>如果是以下情况，则为运行成功。</li></ol><pre><code class="bash">CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS                  NAMESd5d8952f48b2        ubuntu              &quot;/bin/bash&quot;         About a minute ago   Up About a minute   0.0.0.0:8088-&gt;80/tcp   ubuntu</code></pre><h1 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h1><p>输入以下命令：    </p><pre><code class="bash">$ docker exec -it ubuntu /bin/bash</code></pre><h1 id="安装Apache2和PHP7-2"><a href="#安装Apache2和PHP7-2" class="headerlink" title="安装Apache2和PHP7.2"></a>安装Apache2和PHP7.2</h1><h2 id="配置软件源"><a href="#配置软件源" class="headerlink" title="配置软件源"></a>配置软件源</h2><p>输入以下命令：</p><pre><code class="bash"># sed -i &#39;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&#39; /etc/apt/sources.list# apt update</code></pre><h2 id="检查PHP和Apache模块"><a href="#检查PHP和Apache模块" class="headerlink" title="检查PHP和Apache模块"></a>检查PHP和Apache模块</h2><p>输入以下命令：     </p><pre><code class="bash"># apt list | grep libapache2-mod-php*</code></pre><p>结果为以下情况即为可以安装Apache2和PHP7.2</p><pre><code class="bash">WARNING: apt does not have a stable CLI interface. Use with caution in scripts.libapache2-mod-php/bionic,bionic 1:7.2+60ubuntu1 alllibapache2-mod-php7.2/bionic-updates,bionic-security 7.2.19-0ubuntu0.18.04.1 amd64</code></pre><h2 id="安装Apache2和PHP7-2-1"><a href="#安装Apache2和PHP7-2-1" class="headerlink" title="安装Apache2和PHP7.2"></a>安装Apache2和PHP7.2</h2><ul><li>安装</li></ul><pre><code class="bash"># apt install php7.2 libapache2-mod-php7.2</code></pre><ul><li>在安装过程需要设置php的时区，输入相对应的号码即可。</li><li>验证是否安装成功。</li></ul><pre><code class="bash">root@dd29dc7f7771:/# php -vPHP 7.2.19-0ubuntu0.18.04.1 (cli) (built: Jun  4 2019 14:48:12) ( NTS )Copyright (c) 1997-2018 The PHP GroupZend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies    with Zend OPcache v7.2.19-0ubuntu0.18.04.1, Copyright (c) 1999-2018, by Zend Technologiesroot@dd29dc7f7771:/# apache2 -vServer version: Apache/2.4.29 (Ubuntu)Server built:   2019-07-16T18:14:45</code></pre><ul><li>配置 ServerName</li></ul><pre><code class="bash"># vi /etc/apache2/apache2.conf## 添加一行ServerName localhost</code></pre><ul><li>启动</li></ul><pre><code class="bash"># service apache2 start</code></pre><h2 id="查看PHP环境信息以及相关模块"><a href="#查看PHP环境信息以及相关模块" class="headerlink" title="查看PHP环境信息以及相关模块"></a>查看PHP环境信息以及相关模块</h2><p>在 <strong>/var/www/html</strong> 目录下新建文件phpinfo.php并添加如下代码：</p><pre><code class="php">&lt;?php    phpinfo();?&gt;</code></pre><p>通过浏览器输入<strong>IP/phpinfo.php</strong>访问。</p><p><a href="http://139.159.236.98/php/chap01/sec01/phpinfo.php" target="_blank" rel="noopener">Demo</a></p><h2 id="安装php-mysqli模块"><a href="#安装php-mysqli模块" class="headerlink" title="安装php-mysqli模块"></a>安装php-mysqli模块</h2><ul><li>安装</li></ul><pre><code class="bash"># apt install php-mysqli</code></pre><ul><li>使用命令打开<strong>vi /etc/php/7.2/apache2/php.ini</strong>去掉<strong>extension=mysqli.dll</strong>前面的<code>；</code>号，保存退出。</li><li>重新启动apache</li></ul><pre><code class="bash"># service apache2 restart</code></pre><h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="phpmyadmin"><a href="#phpmyadmin" class="headerlink" title="phpmyadmin"></a>phpmyadmin</h2><p>命令如下：     </p><pre><code class="bash"># apt install wget    ## 如果已有可忽略# cd /avr/www/html# wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.zip     ## 下载phpmyadmin# apt install zip    ## 如果已有可忽略# unzip phpMyAdmin-4.9.0.1-all-languages.zip     ##解压# mv phpMyAdmin-4.9.0.1-all-languages phpmyadmin     ##重命名## 配置phpmyadmin连接远程数据库# vim /phpMyAdmin/libraries/config.default.php## 将  $cfg[&#39;Servers&#39;][$i][&#39;host&#39;] = ‘localhost’ 中的loaclhost改为自己的远程数据库IP</code></pre><p>在浏览器输入IP/phpmyadmin即可查看。<br><a href="http://139.159.236.98/phpmyadmin/" target="_blank" rel="noopener">Demo</a></p><h1 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h1><pre><code>## 首先需要创建一个目录作为映射目录# mkdir www## 拉取镜像# docker pull yancccccc/php-apache## 运行# docker run -it -d --name php-apache -p 80:80 -v $PWD/www:/var/www/html yancccccc/php-apache## 启动apache# docker exec -it php-apache /bin/bash# service apache2 start# exit## 安装phpmyadmin则将目录改为刚才创建的映射目录即可，其它步骤不需要改变。</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;拉取Ubuntu镜像&quot;&gt;&lt;a href=&quot;#拉取Ubuntu镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取Ubuntu镜像&quot;&gt;&lt;/a&gt;拉取Ubuntu镜像&lt;/h1&gt;&lt;p&gt;输入命令：   &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ docker pull ubuntu
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
-    
-      <category term="PHP、apache" scheme="http://yoursite.com/categories/Docker/PHP%E3%80%81apache/"/>
-    
-    
-      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
-    
-      <category term="PHP、apache" scheme="http://yoursite.com/tags/PHP%E3%80%81apache/"/>
-    
-  </entry>
-  
-  <entry>
     <title>mysql</title>
     <link href="http://yoursite.com/2019/09/06/mysql/"/>
     <id>http://yoursite.com/2019/09/06/mysql/</id>
@@ -176,6 +148,34 @@
     
     
       <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker搭建PHP、apache环境</title>
+    <link href="http://yoursite.com/2019/09/06/Docker%E6%90%AD%E5%BB%BAPHP%E3%80%81apache%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/2019/09/06/Docker搭建PHP、apache环境/</id>
+    <published>2019-09-05T16:00:00.000Z</published>
+    <updated>2019-10-11T00:08:30.250Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="拉取Ubuntu镜像"><a href="#拉取Ubuntu镜像" class="headerlink" title="拉取Ubuntu镜像"></a>拉取Ubuntu镜像</h1><p>输入命令：   </p><pre><code class="bash">$ docker pull ubuntu</code></pre><a id="more"></a><h1 id="运行Ubuntu容器"><a href="#运行Ubuntu容器" class="headerlink" title="运行Ubuntu容器"></a>运行Ubuntu容器</h1><ol><li>确认是否已下载好镜像，输入命令：</li></ol><pre><code class="bash">$ docker images</code></pre><ol start="2"><li>上述命令之后如果出现以下情况，即为下载好了。</li></ol><pre><code class="bash">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZEubuntu              latest              3556258649b2        2 weeks ago         64.2MB</code></pre><ol start="3"><li>运行，输入命令：     </li></ol><pre><code class="bash">$ docker run -it -d --name ubuntu -p 80:80 ubuntu</code></pre><p>–name自定义容器名，-p指定端口映射，前者为虚拟机端口，后者为容器端口,成功后返回id<br>查看所有启动的容器。</p><ol start="4"><li>查看所有容器。</li></ol><pre><code class="bash">$ docker ps -a</code></pre><ol start="5"><li>如果是以下情况，则为运行成功。</li></ol><pre><code class="bash">CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS                  NAMESd5d8952f48b2        ubuntu              &quot;/bin/bash&quot;         About a minute ago   Up About a minute   0.0.0.0:8088-&gt;80/tcp   ubuntu</code></pre><h1 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h1><p>输入以下命令：    </p><pre><code class="bash">$ docker exec -it ubuntu /bin/bash</code></pre><h1 id="安装Apache2和PHP7-2"><a href="#安装Apache2和PHP7-2" class="headerlink" title="安装Apache2和PHP7.2"></a>安装Apache2和PHP7.2</h1><h2 id="配置软件源"><a href="#配置软件源" class="headerlink" title="配置软件源"></a>配置软件源</h2><p>输入以下命令：</p><pre><code class="bash"># sed -i &#39;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&#39; /etc/apt/sources.list# apt update</code></pre><h2 id="检查PHP和Apache模块"><a href="#检查PHP和Apache模块" class="headerlink" title="检查PHP和Apache模块"></a>检查PHP和Apache模块</h2><p>输入以下命令：     </p><pre><code class="bash"># apt list | grep libapache2-mod-php*</code></pre><p>结果为以下情况即为可以安装Apache2和PHP7.2</p><pre><code class="bash">WARNING: apt does not have a stable CLI interface. Use with caution in scripts.libapache2-mod-php/bionic,bionic 1:7.2+60ubuntu1 alllibapache2-mod-php7.2/bionic-updates,bionic-security 7.2.19-0ubuntu0.18.04.1 amd64</code></pre><h2 id="安装Apache2和PHP7-2-1"><a href="#安装Apache2和PHP7-2-1" class="headerlink" title="安装Apache2和PHP7.2"></a>安装Apache2和PHP7.2</h2><ul><li>安装</li></ul><pre><code class="bash"># apt install php7.2 libapache2-mod-php7.2</code></pre><ul><li>在安装过程需要设置php的时区，输入相对应的号码即可。</li><li>验证是否安装成功。</li></ul><pre><code class="bash">root@dd29dc7f7771:/# php -vPHP 7.2.19-0ubuntu0.18.04.1 (cli) (built: Jun  4 2019 14:48:12) ( NTS )Copyright (c) 1997-2018 The PHP GroupZend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies    with Zend OPcache v7.2.19-0ubuntu0.18.04.1, Copyright (c) 1999-2018, by Zend Technologiesroot@dd29dc7f7771:/# apache2 -vServer version: Apache/2.4.29 (Ubuntu)Server built:   2019-07-16T18:14:45</code></pre><ul><li>配置 ServerName</li></ul><pre><code class="bash"># vi /etc/apache2/apache2.conf## 添加一行ServerName localhost</code></pre><ul><li>启动</li></ul><pre><code class="bash"># service apache2 start</code></pre><h2 id="查看PHP环境信息以及相关模块"><a href="#查看PHP环境信息以及相关模块" class="headerlink" title="查看PHP环境信息以及相关模块"></a>查看PHP环境信息以及相关模块</h2><p>在 <strong>/var/www/html</strong> 目录下新建文件phpinfo.php并添加如下代码：</p><pre><code class="php">&lt;?php    phpinfo();?&gt;</code></pre><p>通过浏览器输入<strong>IP/phpinfo.php</strong>访问。</p><p><a href="http://139.159.236.98/php/chap01/sec01/phpinfo.php" target="_blank" rel="noopener">Demo</a></p><h2 id="安装php-mysqli模块"><a href="#安装php-mysqli模块" class="headerlink" title="安装php-mysqli模块"></a>安装php-mysqli模块</h2><ul><li>安装</li></ul><pre><code class="bash"># apt install php-mysqli</code></pre><ul><li>使用命令打开<strong>vi /etc/php/7.2/apache2/php.ini</strong>去掉<strong>extension=mysqli.dll</strong>前面的<code>；</code>号，保存退出。</li><li>重新启动apache</li></ul><pre><code class="bash"># service apache2 restart</code></pre><h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="phpmyadmin"><a href="#phpmyadmin" class="headerlink" title="phpmyadmin"></a>phpmyadmin</h2><p>命令如下：     </p><pre><code class="bash"># apt install wget    ## 如果已有可忽略# cd /avr/www/html# wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.zip     ## 下载phpmyadmin# apt install zip    ## 如果已有可忽略# unzip phpMyAdmin-4.9.0.1-all-languages.zip     ##解压# mv phpMyAdmin-4.9.0.1-all-languages phpmyadmin     ##重命名## 配置phpmyadmin连接远程数据库# vim /phpMyAdmin/libraries/config.default.php## 将  $cfg[&#39;Servers&#39;][$i][&#39;host&#39;] = ‘localhost’ 中的loaclhost改为自己的远程数据库IP</code></pre><p>在浏览器输入IP/phpmyadmin即可查看。<br><a href="http://139.159.236.98/phpmyadmin/" target="_blank" rel="noopener">Demo</a></p><h1 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h1><pre><code>## 首先需要创建一个目录作为映射目录# mkdir www## 拉取镜像# docker pull yancccccc/php-apache## 运行# docker run -it -d --name php-apache -p 80:80 -v $PWD/www:/var/www/html yancccccc/php-apache## 启动apache# docker exec -it php-apache /bin/bash# service apache2 start# exit## 安装phpmyadmin则将目录改为刚才创建的映射目录即可，其它步骤不需要改变。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;拉取Ubuntu镜像&quot;&gt;&lt;a href=&quot;#拉取Ubuntu镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取Ubuntu镜像&quot;&gt;&lt;/a&gt;拉取Ubuntu镜像&lt;/h1&gt;&lt;p&gt;输入命令：   &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ docker pull ubuntu
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
+    
+      <category term="PHP、apache" scheme="http://yoursite.com/categories/Docker/PHP%E3%80%81apache/"/>
+    
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+      <category term="PHP、apache" scheme="http://yoursite.com/tags/PHP%E3%80%81apache/"/>
     
   </entry>
   
