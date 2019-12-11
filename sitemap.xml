@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/01/10/CentOS%207+Hadoop-2.9.2+Hbase-1.4.9+MapReduce%E7%BC%96%E7%A8%8B/</loc>
+    
+    <lastmod>2019-12-11T07:44:37.263Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/17/%E8%A7%A3%E5%86%B3git%20clone%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2019-11-08T07:25:27.540Z</lastmod>
@@ -159,13 +166,6 @@
     <loc>http://yoursite.com/2019/03/21/deepin/</loc>
     
     <lastmod>2019-10-11T00:07:49.101Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/01/10/CentOS%207+Hadoop-2.9.2+Hbase-1.4.9+MapReduce%E7%BC%96%E7%A8%8B/</loc>
-    
-    <lastmod>2019-10-11T00:07:31.756Z</lastmod>
     
   </url>
   

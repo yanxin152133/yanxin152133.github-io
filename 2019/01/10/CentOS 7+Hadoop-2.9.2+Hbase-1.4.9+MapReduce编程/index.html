@@ -29,15 +29,15 @@
 <meta property="og:site_name" content="Yan&#39;s blog">
 <meta property="og:description" content="所用软件及环境 Centos 7 jdk1.8.0_181 hadoop-2.9.2 Hbase-1.4.9 idea U">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20180819150800479?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180906015229845?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NlYWxpcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180819150923655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://live.staticflickr.com/65535/49202239148_957f6d62ca_m.jpg">
+<meta property="og:image" content="https://live.staticflickr.com/65535/49202722976_4fcb5d8cf9_k.jpg">
+<meta property="og:image" content="https://live.staticflickr.com/65535/49202931592_cd3cb77d7a_z.jpg">
 <meta property="og:image" content="https://static.oschina.net/uploads/space/2016/1220/181243_qILQ_2892110.png">
-<meta property="og:updated_time" content="2019-10-11T00:07:31.756Z">
+<meta property="og:updated_time" content="2019-12-11T07:44:37.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7+Hadoop-2.9.2+Hbase-1.4.9+MapReduce编程">
 <meta name="twitter:description" content="所用软件及环境 Centos 7 jdk1.8.0_181 hadoop-2.9.2 Hbase-1.4.9 idea U">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180819150800479?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="https://live.staticflickr.com/65535/49202239148_957f6d62ca_m.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="Yan&#39;s blog" href="/atom.xml">
     
@@ -449,7 +449,7 @@ node04
 <pre><code>sudo -s      #若是root用户可省略
 cd /usr/local/hadoop/hadoop-2.9.2/sbin
 ./start-all.sh
-</code></pre><h2 id="查看Hadoop进程"><a href="#查看Hadoop进程" class="headerlink" title="查看Hadoop进程"></a>查看Hadoop进程</h2><p>输入命令jps<br><img src="https://img-blog.csdn.net/20180819150800479?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt><br>若出现6个进程则为配置正确<br>在浏览器输入<strong>192.168.130.130：8088</strong>则可以看到<br><img src="https://img-blog.csdn.net/20180906015229845?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NlYWxpcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt><br>在浏览器输入<strong>192.168.130.130：50070</strong>则可以看到<br><img src="https://img-blog.csdn.net/20180819150923655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE0MjYzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt><br>即配置成功   </p>
+</code></pre><h2 id="查看Hadoop进程"><a href="#查看Hadoop进程" class="headerlink" title="查看Hadoop进程"></a>查看Hadoop进程</h2><p>输入命令jps<br><img src="https://live.staticflickr.com/65535/49202239148_957f6d62ca_m.jpg" alt><br>若出现6个进程则为配置正确<br>在浏览器输入<strong>192.168.130.130：8088</strong>则可以看到<br><img src="https://live.staticflickr.com/65535/49202722976_4fcb5d8cf9_k.jpg" alt><br>在浏览器输入<strong>192.168.130.130：50070</strong>则可以看到<br><img src="https://live.staticflickr.com/65535/49202931592_cd3cb77d7a_z.jpg" alt><br>即配置成功   </p>
 <h2 id="停止Hadoop"><a href="#停止Hadoop" class="headerlink" title="停止Hadoop"></a>停止Hadoop</h2><pre><code>./stop-all.sh    #在/usr/local/hadoop/hadoop-2.9.2/sbin目录下
 </code></pre><h1 id="安装-Hbase-并配置"><a href="#安装-Hbase-并配置" class="headerlink" title="安装 Hbase 并配置"></a>安装 Hbase 并配置</h1><blockquote>
 <p>执行以下命令</p>
@@ -760,7 +760,7 @@ hadoop jar hadoop-demo.jar WordCountMapReduce /wordcount/input /wordcount/output
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-11T00:07:31.756Z" itemprop="dateUpdated">2019-10-11 08:07:31</time>
+    最后更新时间：<time datetime="2019-12-11T07:44:37.263Z" itemprop="dateUpdated">2019-12-11 15:44:37</time>
 </span><br>
 
 
