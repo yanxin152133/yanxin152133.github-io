@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/03/15/idea%E6%8E%A7%E5%88%B6%E5%8F%B0%E3%80%81tomcat%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2020-03-15T15:33:48.910Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/01/10/CentOS%207+Hadoop-2.9.2+Hbase-1.4.9+MapReduce%E7%BC%96%E7%A8%8B/</loc>
     
     <lastmod>2019-12-11T07:44:37.263Z</lastmod>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-24T06:54:34.286Z</updated>
+  <updated>2020-03-15T15:33:48.910Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>idea控制台、tomcat中文乱码问题</title>
+    <link href="http://yoursite.com/2020/03/15/idea%E6%8E%A7%E5%88%B6%E5%8F%B0%E3%80%81tomcat%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2020/03/15/idea控制台、tomcat中文乱码问题/</id>
+    <published>2020-03-14T16:00:00.000Z</published>
+    <updated>2020-03-15T15:33:48.910Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="idea控制台、tomcat中文乱码问题"><a href="#idea控制台、tomcat中文乱码问题" class="headerlink" title="idea控制台、tomcat中文乱码问题"></a>idea控制台、tomcat中文乱码问题</h1><p>解决idea使用tomcat控制台中文乱码以及tomcat中文乱码的问题。</p><p>进入%tomcat_home%/conf/logging.properties,修改一下内容即可：</p><a id="more"></a><pre><code class="html">1catalina.org.apache.juli.AsyncFileHandler.level = FINE1catalina.org.apache.juli.AsyncFileHandler.directory = ${catalina.base}/logs1catalina.org.apache.juli.AsyncFileHandler.prefix = catalina.1catalina.org.apache.juli.AsyncFileHandler.encoding = GBK2localhost.org.apache.juli.AsyncFileHandler.level = FINE2localhost.org.apache.juli.AsyncFileHandler.directory = ${catalina.base}/logs2localhost.org.apache.juli.AsyncFileHandler.prefix = localhost.2localhost.org.apache.juli.AsyncFileHandler.encoding = GBK3manager.org.apache.juli.AsyncFileHandler.level = FINE3manager.org.apache.juli.AsyncFileHandler.directory = ${catalina.base}/logs3manager.org.apache.juli.AsyncFileHandler.prefix = manager.3manager.org.apache.juli.AsyncFileHandler.encoding = GBK4host-manager.org.apache.juli.AsyncFileHandler.level = FINE4host-manager.org.apache.juli.AsyncFileHandler.directory = ${catalina.base}/logs4host-manager.org.apache.juli.AsyncFileHandler.prefix = host-manager.4host-manager.org.apache.juli.AsyncFileHandler.encoding = GBKjava.util.logging.ConsoleHandler.level = FINEjava.util.logging.ConsoleHandler.formatter = org.apache.juli.OneLineFormatterjava.util.logging.ConsoleHandler.encoding = GBK</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;idea控制台、tomcat中文乱码问题&quot;&gt;&lt;a href=&quot;#idea控制台、tomcat中文乱码问题&quot; class=&quot;headerlink&quot; title=&quot;idea控制台、tomcat中文乱码问题&quot;&gt;&lt;/a&gt;idea控制台、tomcat中文乱码问题&lt;/h1&gt;&lt;p&gt;解决idea使用tomcat控制台中文乱码以及tomcat中文乱码的问题。&lt;/p&gt;
+&lt;p&gt;进入%tomcat_home%/conf/logging.properties,修改一下内容即可：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="idea、tomcat" scheme="http://yoursite.com/categories/idea%E3%80%81tomcat/"/>
+    
+      <category term="中文乱码问题" scheme="http://yoursite.com/categories/idea%E3%80%81tomcat/%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    
+    
+      <category term="idea、tomcat" scheme="http://yoursite.com/tags/idea%E3%80%81tomcat/"/>
+    
+      <category term="中文乱码问题" scheme="http://yoursite.com/tags/%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>Manjaro 18.0 GNOME安装与配置</title>
@@ -566,37 +593,6 @@
       <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
       <category term="LoadRunner" scheme="http://yoursite.com/tags/LoadRunner/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BugFree安装</title>
-    <link href="http://yoursite.com/2019/04/22/BugFree/"/>
-    <id>http://yoursite.com/2019/04/22/BugFree/</id>
-    <published>2019-04-21T16:00:00.000Z</published>
-    <updated>2019-10-11T00:06:59.555Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="BugFree"><a href="#BugFree" class="headerlink" title="BugFree"></a>BugFree</h1><p>准备工作：（Windows环境下）     </p><ul><li>XAMPP 版本在5.x.x</li><li>bugfree_v3.0.1</li></ul><p>不要用最新版本的XAMPP，切记。</p><a id="more"></a><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/5.6.3/" target="_blank" rel="noopener">XAMPP</a></p><p><a href="https://pan.baidu.com/s/1EL3arDsErowwZwVmaLOELg" target="_blank" rel="noopener">bugfree</a>提取码: ff5d</p><h2 id="XAMPP-安装"><a href="#XAMPP-安装" class="headerlink" title="XAMPP 安装"></a>XAMPP 安装</h2><p>双击exe文件傻瓜式安装。</p><h2 id="安装-bugfree"><a href="#安装-bugfree" class="headerlink" title="安装 bugfree"></a>安装 bugfree</h2><p>1.在上一步安装XAMPP时路径C:\xampp\htdocs\下新建文件夹bugfree,将下载bugfree文件解压后的内容复制进去。同时在新建一个BugFile文件夹，用于下一步操作。<br>2.打开XAMPP主界面上的前两个start按钮。<br>3.打开浏览器输入<strong>localhost/bugfree</strong>,如下图：</p><p><img src="https://live.staticflickr.com/65535/32724966557_8b3eea5b47.jpg" alt></p><p>4.上图中的全部为绿色的勾勾仅为成功。然后点击继续。<br>5.按照下图中进行配置。</p><p><img src="https://live.staticflickr.com/65535/47667749761_72c60cc17b.jpg" alt></p><p>6.然后修改C:\xampp\htdocs\bugfree\protected\config中的<strong>main.php</strong>。全部替换即可。</p><pre><code>&lt;?phpreturn array (  &#39;basePath&#39; =&gt; &#39;C:\\xampp\\htdocs\\bugfree\\protected\\config\\..&#39;,  &#39;name&#39; =&gt; &#39;BugFree 3.0.1&#39;,  &#39;preload&#39; =&gt;   array (    0 =&gt; &#39;log&#39;,  ),  &#39;language&#39; =&gt; &#39;zh_cn&#39;,  &#39;theme&#39; =&gt; &#39;classic&#39;,  &#39;defaultController&#39; =&gt; &#39;site&#39;,  &#39;timeZone&#39; =&gt; &#39;Asia/Shanghai&#39;,  &#39;import&#39; =&gt;   array (    0 =&gt; &#39;application.models.*&#39;,    1 =&gt; &#39;application.components.*&#39;,    2 =&gt; &#39;application.service.*&#39;,  ),  &#39;modules&#39; =&gt;   array (    &#39;gii&#39; =&gt;     array (      &#39;class&#39; =&gt; &#39;system.gii.GiiModule&#39;,      &#39;password&#39; =&gt; &#39;123456&#39;,      &#39;ipFilters&#39; =&gt;       array (        0 =&gt; &#39;127.0.0.1&#39;,        1 =&gt; &#39;::1&#39;,      ),    ),  ),  &#39;components&#39; =&gt;   array (    &#39;user&#39; =&gt;     array (      &#39;allowAutoLogin&#39; =&gt; true,    ),    &#39;request&#39; =&gt;     array (      &#39;enableCookieValidation&#39; =&gt; true,    ),    &#39;cache&#39; =&gt;     array (      &#39;class&#39; =&gt; &#39;CDbCache&#39;,      &#39;connectionID&#39; =&gt; &#39;db&#39;,    ),    &#39;db&#39; =&gt;     array (      &#39;pdoClass&#39; =&gt; &#39;NestedPDO&#39;,      &#39;connectionString&#39; =&gt; &#39;mysql:host=localhost;dbname=bugfree;port=3306&#39;,      &#39;emulatePrepare&#39; =&gt; true,      &#39;username&#39; =&gt; &#39;root&#39;,      &#39;password&#39; =&gt; &#39;&#39;,      &#39;charset&#39; =&gt; &#39;utf8&#39;,      &#39;tablePrefix&#39; =&gt; &#39;bf_&#39;,    ),    &#39;errorHandler&#39; =&gt;     array (      &#39;errorAction&#39; =&gt; &#39;site/error&#39;,    ),    &#39;log&#39; =&gt;     array (      &#39;class&#39; =&gt; &#39;CLogRouter&#39;,      &#39;routes&#39; =&gt;       array (        0 =&gt;         array (          &#39;class&#39; =&gt; &#39;CFileLogRoute&#39;,          &#39;levels&#39; =&gt; &#39;info, error, warning&#39;,          &#39;categories&#39; =&gt; &#39;bugfree.*&#39;,        ),      ),    ),  ),  &#39;params&#39; =&gt;   array (    &#39;uploadPath&#39; =&gt; &#39;../BugFile&#39;,    &#39;picPreviewApp&#39; =&gt; &#39;http://::1/BugFile&#39;,    &#39;allUserGroupId&#39; =&gt; 1,    &#39;ldap&#39; =&gt;     array (      &#39;host&#39; =&gt; &#39;&#39;,      &#39;port&#39; =&gt; &#39;&#39;,      &#39;base&#39; =&gt; &#39;&#39;,      &#39;user&#39; =&gt; &#39;&#39;,      &#39;pass&#39; =&gt; &#39;&#39;,    ),    &#39;mail&#39; =&gt;     array (      &#39;on&#39; =&gt; &#39;1&#39;,      &#39;from_address&#39; =&gt; &#39;bugfree-noreply@test.com&#39;,      &#39;from_name&#39; =&gt; &#39;BugFree&#39;,      &#39;send_method&#39; =&gt; &#39;SMTP&#39;,      &#39;send_params&#39; =&gt;       array (        &#39;host&#39; =&gt; &#39;&#39;,        &#39;smtp_auth&#39; =&gt; false,        &#39;username&#39; =&gt; &#39;&#39;,        &#39;password&#39; =&gt; &#39;&#39;,      ),    ),  ),)?&gt;</code></pre><p>7.刷新之后就会出现登录界面。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;BugFree&quot;&gt;&lt;a href=&quot;#BugFree&quot; class=&quot;headerlink&quot; title=&quot;BugFree&quot;&gt;&lt;/a&gt;BugFree&lt;/h1&gt;&lt;p&gt;准备工作：（Windows环境下）     &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;XAMPP 版本在5.x.x&lt;/li&gt;
-&lt;li&gt;bugfree_v3.0.1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;不要用最新版本的XAMPP，切记。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="软件缺陷" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/"/>
-    
-      <category term="BugFree" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/BugFree/"/>
-    
-    
-      <category term="软件缺陷" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E7%BC%BA%E9%99%B7/"/>
-    
-      <category term="BugFree" scheme="http://yoursite.com/tags/BugFree/"/>
     
   </entry>
   
